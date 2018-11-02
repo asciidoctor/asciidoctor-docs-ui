@@ -1,0 +1,52 @@
+{
+  "name": "asciidoctor-docs-ui",
+  "description": "Produces the UI for docs.asciidoctor.org",
+  "homepage": "https://github.com/asciidoctor/docs.asciidoctor.org-ui",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asciidoctor/docs.asciidoctor.org-ui.git"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "devDependencies": {
+    "asciidoctor.js": "1.5.6",
+    "autoprefixer": "^9.3.1",
+    "browserify": "^16.2.3",
+    "chokidar": "^2.0.1",
+    "cssnano": "^4.1.7",
+    "eslint": "^5.8.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.2.0",
+    "gulp-eslint": "^5.0.0",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-stylelint": "^8.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-vinyl-zip": "^2.1.0",
+    "handlebars": "^4.0.10",
+    "highlight.js": "^9.12.0",
+    "js-yaml": "^3.10.0",
+    "map-stream": "^0.0.7",
+    "merge-stream": "^1.0.1",
+    "postcss-calc": "^7.0.1",
+    "postcss-custom-properties": "^8.0.8",
+    "postcss-import": "^12.0.1",
+    "postcss-url": "^8.0.0",
+    "prettier-eslint": "^8.2.0",
+    "require-from-string": "^2.0.1",
+    "stylelint": "^9.7.1",
+    "stylelint-config-standard": "^18.2.0",
+    "typeface-roboto": "^0.0.54",
+    "typeface-roboto-mono": "^0.0.54",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-fs": "^3.0.3"
+  }
+}
