@@ -174,7 +174,18 @@ This works by monitoring the project for changes, running the `build` task if a 
 
 Press kbd:[Ctrl+C] to stop the preview server and end the continuous build.
 
-=== Online Preview
+=== Package for Use with Antora
+
+If you need to package the UI so you can use it to generate the docs site locally, run the following command:
+
+ $ gulp pack
+
+If any errors are reported by lint, you'll need to fix them.
+
+When the command completes successfully, the UI bundle will be available at [.path]_build/ui-bundle.zip_.
+You can point Antora at this bundle using the `--ui-bundle-url` command-line option (e.g., `--ui-bundle-url=../docs-ui/build/ui-bundle.zip`).
+
+=== Create an Online Preview
 
 You can share a preview of the UI online by submitting a pull request to GitHub.
 The repository is configured to create a deploy preview on Netlify for every pull request.
@@ -200,17 +211,6 @@ Simply append `dist/ui-bundle.zip` to the end of the preview URL and pass it to 
  $ antora --ui-bundle-url=<preview URL>/dist/ui-bundle.zip antora-playbook.yml
 
 The temporary preview URL will automatically be decommissioned once the PR is closed.
-
-=== Package for Use with Antora
-
-If you need to package the UI so you can use it to generate the docs site locally, run the following command:
-
- $ gulp pack
-
-If any errors are reported by lint, you'll need to fix them.
-
-When the command completes successfully, the UI bundle will be available at [.path]_build/ui-bundle.zip_.
-You can point Antora at this bundle using the `--ui-bundle-url` command-line option (e.g., `--ui-bundle-url=../docs-ui/build/ui-bundle.zip`).
 
 == Releases
 
