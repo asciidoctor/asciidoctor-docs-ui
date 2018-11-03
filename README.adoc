@@ -186,9 +186,9 @@ Here's how that process works:
 . Commit your changes to that branch.
 . Push that branch to your fork (on GitHub).
 . Submit a pull request from the branch you pushed to your fork.
-. Wait for deploy/netlify check to say "`Deploy preview ready`" on the pull request page.
-. Click on the "`Details`" link under "`Show all checks`" on the pull request page.
-. View your changes in the deploy preview or share the preview URL with others.
+. Wait for deploy/netlify check to say "`Deploy preview ready!`" on the pull request page.
+. Click on the "`Details`" link under "`Show all checks`" on the pull request page to get the preview URL.
+. Visit the preview URL to view your changes or share the preview URL with others.
 
 The deploy preview works because there is a webhook on the repository that pings \https://api.netlify.com/hooks/github for the following events: push, pull_request, delete_branch.
 Netlify then runs the command specified in netlify.toml, deploys the site, and allocates a temporary preview URL for it.
