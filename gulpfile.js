@@ -11,7 +11,11 @@ const lintCss = require('./tasks/lint-css')
 const lintJs = require('./tasks/lint-js')
 const pack = require('./tasks/pack')
 const preview = require('./tasks/preview')
+const release = require('./tasks/release')
 
+const pkg = require('./package.json')
+
+const [, owner, repo] = pkg.repository.url.match(/^https:\/\/github\.com\/([^/]+)\/(.+?)(?:\.git)?$/)
 const bundleName = 'ui'
 const buildDir = 'build'
 const previewSiteSrcDir = 'preview-site-src'
@@ -19,9 +23,10 @@ const previewSiteDestDir = 'public'
 const srcDir = 'src'
 const destDir = path.join(previewSiteDestDir, '_')
 
+const cssFiles = [path.join(srcDir, 'css/**/*.css')]
 const jsFiles = ['gulpfile.js', 'tasks/**/*.js', path.join(srcDir, '{helpers,js}/**/*.js')]
 
-gulp.task('lint:css', () => lintCss(`${srcDir}/css/**/*.css`))
+gulp.task('lint:css', () => lintCss(cssFiles))
 gulp.task('lint:js', () => lintJs(jsFiles))
 gulp.task('lint', ['lint:css', 'lint:js'])
 
@@ -45,5 +50,7 @@ gulp.task('preview', ['build:preview'], () =>
 )
 
 gulp.task('pack', ['build', 'lint'], () => pack(destDir, buildDir, bundleName))
+
+gulp.task('release', ['pack'], () => release(buildDir, bundleName, owner, repo, process.env.GITHUB_TOKEN))
 
 gulp.task('default', ['build'])

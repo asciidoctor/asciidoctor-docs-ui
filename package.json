@@ -1,7 +1,7 @@
 {
   "name": "asciidoctor-docs-ui",
   "description": "Produces the UI for docs.asciidoctor.org",
-  "homepage": "https://github.com/asciidoctor/docs.asciidoctor.org-ui",
+  "homepage": "https://docs.asciidoctor.org",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
@@ -11,6 +11,7 @@
     "node": ">= 8.0.0"
   },
   "devDependencies": {
+    "@octokit/rest": "^15.11.1",
     "asciidoctor.js": "1.5.6",
     "autoprefixer": "^9.3.1",
     "browserify": "^16.2.3",
