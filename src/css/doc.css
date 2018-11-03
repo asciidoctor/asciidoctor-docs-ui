@@ -64,11 +64,11 @@
 
 .doc a,
 .doc a:visited {
-  color: #1565c0;
+  color: #e40046;
 }
 
 .doc a:hover {
-  color: #104d92;
+  color: #b60038;
 }
 
 .doc i.fa {

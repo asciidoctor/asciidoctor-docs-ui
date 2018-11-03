@@ -45,6 +45,7 @@
     "require-from-string": "^2.0.1",
     "stylelint": "^9.7.1",
     "stylelint-config-standard": "^18.2.0",
+    "typeface-comfortaa": "^0.0.54",
     "typeface-roboto": "^0.0.54",
     "typeface-roboto-mono": "^0.0.54",
     "vinyl-buffer": "^1.0.0",
