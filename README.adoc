@@ -4,10 +4,18 @@
 // Settings:
 :experimental:
 :hide-uri-scheme:
-// Project URIs:
-:url-project: https://github.com/asciidoctor/docs.asciidoctor.org-ui
+:toc: macro
+ifdef::env-github[]
+:important-caption: :exclamation:
+:!toc-title:
+:badges:
+endif::[]
+// Project URLs:
+:project-repo-name: asciidoctor/docs.asciidoctor.org-ui
+:url-project: https://github.com/{project-repo-name}
 :url-preview: https://asciidoctor-docs-ui.netlify.com
-// External URIs:
+:url-ci: https://travis-ci.org/asciidoctor/docs.asciidoctor.org-ui
+// External URLs:
 :url-antora: https://antora.org
 :url-asciidoctor: https://asciidoctor.org
 :url-git: https://git-scm.com
@@ -18,6 +26,12 @@
 :url-nvm: https://github.com/creationix/nvm
 :url-nvm-install: {url-nvm}#installation
 :url-yarn: https://yarnpkg.com
+
+ifdef::badges[]
+image:https://img.shields.io/github/release/{project-repo-name}.svg[Latest Release,link={url-project}/releases/download/{current-release}/ui-bundle.zip]
+endif::[]
+
+toc::[]
 
 This project provides the UI for the Asciidoctor docs site.
 The UI bundle that this project produces is designed to be used with Antora.
@@ -189,6 +203,53 @@ If any errors are reported by lint, you'll need to fix them.
 
 When the command completes successfully, the UI bundle will be available at [.path]_build/ui-bundle.zip_.
 You can point Antora at this bundle using the `--ui-bundle-url` command-line option (e.g., `--ui-bundle-url=../docs-ui/build/ui-bundle.zip`).
+
+== Releases
+
+Releases are handled by the `gulp release` task, which is automated by a CI job.
+The release process boils down to the following steps:
+
+. Pack the UI bundle.
+. Tag the git repository using the next version number in the sequence (e.g., v100 after v99)
+. Create a GitHub release from that git tag.
+. Attach the UI bundle to that release as an asset in zip format.
+. Update the README to reference the URL of the lastest bundle and commit that update to the repository.
+
+Fortunately, you don't have to do any of these steps yourself.
+These steps are fully automated by the `gulp release` task.
+In fact, you don't even have to run this task.
+Whenever a commit is pushed to the master branch of the repository, it triggers the CI job on master, which executes the `gulp release` task using pre-configured credentials.
+
+IMPORTANT: A release will only be made if the project validates (i.e., all lint tasks pass).
+To validate the project, run `gulp lint` before pushing your changes to GitHub.
+
+The CI job is already configured, so there's nothing you need to do to make automated release work.
+All you have to do is commit your changes and push those commits to the master branch of the git repository.
+A few seconds later, a new bundle will be available for use with Antora.
+Run `git pull` to retrieve the updated README that includes the new URL.
+
+If you want to commit a change to master without making a release, add the string `[skip ci]` to the end of the commit message.
+
+The next two sections document how the CI job is set up an configured.
+
+=== Release Task Prerequisites
+
+In addition to the <<Prerequisites>> covered above, you'll need a personal access token for the automated GitHub account, asciidoctor-docbot, so it has permission to make changes to the repository on GitHub.
+The asciidoctor-docbot account will need at least write access to the {url-project} repository, though admin access is recommended.
+
+Start by creating a https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/[personal access token] for the asciidoctor-docbot user.
+The `release` task relies on this token to interact with the GitHub API to create the tag, create the release, and attach the UI bundle.
+The token must have the `public_repo` scope.
+No other scopes are required (as long as the asciidoctor-docbot user has write access to the repository).
+
+=== CI Job
+
+The {url-ci}[CI job] is executed on Travis CI and is defined in the file [.path]_.travis.yml_.
+It boils down to running the `gulp release` task on the master branch.
+The GITHUB_TOKEN environment variable is defined in the job configuration.
+
+Once the CI job runs and a new UI bundle is available, you can update the URL of the UI bundle in the Antora playbook file.
+See <<Usage>> for details.
 
 == Copyright and License
 
