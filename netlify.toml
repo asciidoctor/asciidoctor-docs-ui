@@ -1,0 +1,14 @@
+[build]
+publish = "public/"
+command = "node_modules/.bin/gulp build:preview"
+
+[build.environment]
+NODE_VERSION = "8"
+
+[context.deploy-preview]
+command = "node_modules/.bin/gulp build:preview pack"
+
+[[headers]]
+for = "/_/font/*"
+  [headers.values]
+  Cache-Control = "public,max-age=604800"
