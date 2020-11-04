@@ -1,11 +1,11 @@
 {
-  "name": "@antora/ui-default",
-  "description": "An archetype project that produces a UI for creating documentation sites with Antora",
-  "homepage": "https://gitlab.com/antora/antora-ui-default",
+  "name": "asciidoctor-docs-ui",
+  "description": "Produces the UI bundle for docs.asciidoctor.org",
+  "homepage": "https://docs.asciidoctor.org",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/antora/antora-ui-default.git"
+    "url": "https://github.com/asciidoctor/docs.asciidoctor.org-ui"
   },
   "engines": {
     "node": ">= 8.0.0"
@@ -14,6 +14,7 @@
     "last 2 versions"
   ],
   "devDependencies": {
+    "@octokit/rest": "~18.0",
     "asciidoctor.js": "1.5.9",
     "autoprefixer": "~9.7",
     "browser-pack-flat": "~3.4",
