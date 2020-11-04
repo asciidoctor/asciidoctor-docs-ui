@@ -22,28 +22,42 @@ body {
   text-decoration: none;
 }
 
-.navbar-brand .navbar-item:first-child,
-.navbar-brand .navbar-item:first-child a {
-  color: var(--navbar-font-color);
-  font-size: calc(22 / var(--rem-base) * 1rem);
+.navbar-brand {
+  display: flex;
+  height: var(--navbar-height);
+  padding: 0;
 }
 
-.navbar-brand .separator {
-  padding: 0 0.375rem;
+.navbar-brand img {
+  height: calc(0.6 * var(--navbar-height));
+}
+
+.navbar-brand .navbar-item {
+  padding: 0;
+  margin-left: 1rem;
 }
 
 @media screen and (min-width: 1024px) {
+  .navbar-brand {
+    flex: none;
+  }
+
+  .navbar-start > .navbar-item,
+  .navbar-start .navbar-link,
   .navbar-end > .navbar-item,
   .navbar-end .navbar-link {
     color: var(--navbar-font-color);
   }
 
+  .navbar-start > a.navbar-item:hover,
+  .navbar-start .navbar-link:hover,
   .navbar-end > a.navbar-item:hover,
   .navbar-end .navbar-link:hover {
     background: var(--navbar_hover-background);
     color: var(--navbar-font-color);
   }
 
+  .navbar-start .navbar-link::after,
   .navbar-end .navbar-link::after {
     border-color: var(--navbar-font-color);
   }
@@ -52,13 +66,6 @@ body {
     background: var(--navbar_hover-background);
     color: var(--navbar-font-color);
   }
-}
-
-.navbar-brand {
-  align-items: stretch;
-  display: flex;
-  flex-shrink: 0;
-  height: var(--navbar-height);
 }
 
 .navbar-burger {
@@ -184,6 +191,7 @@ body {
 @media screen and (min-width: 1024px) {
   .navbar,
   .navbar-menu,
+  .navbar-start,
   .navbar-end {
     align-items: stretch;
     display: flex;
@@ -226,6 +234,11 @@ body {
     flex-grow: 1;
   }
 
+  .navbar-start {
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+
   .navbar-end {
     justify-content: flex-end;
     margin-left: auto;
@@ -244,16 +257,12 @@ body {
   }
 
   .navbar-dropdown .navbar-item {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem 0.5rem 1rem;
     white-space: nowrap;
   }
 
   .navbar-dropdown .navbar-item:last-child {
     border-radius: inherit;
-  }
-
-  .navbar-dropdown a.navbar-item {
-    padding-right: 3rem;
   }
 
   .navbar-dropdown.is-right {
