@@ -1,15 +1,23 @@
-= Antora Default UI
+= Asciidoctor Docs UI
+// Variables:
+:current-release: prod-0
 // Settings:
 :experimental:
 :hide-uri-scheme:
+:toc: macro
+ifdef::env-github[]
+:important-caption: :exclamation:
+:!toc-title:
+:badges:
+endif::[]
 // Project URLs:
-:url-project: https://gitlab.com/antora/antora-ui-default
-:url-preview: https://antora.gitlab.io/antora-ui-default
-:url-ci-pipelines: {url-project}/pipelines
-:img-ci-status: {url-project}/badges/master/pipeline.svg
+:project-repo-name: asciidoctor/docs.asciidoctor.org-ui
+:url-project: https://github.com/{project-repo-name}
+:url-preview: https://asciidoctor-docs-ui.netlify.com
+:url-ci: https://github.com/asciidoctor/docs.asciidoctor.org-ui/actions
 // External URLs:
 :url-antora: https://antora.org
-:url-antora-docs: https://docs.antora.org
+:url-asciidoctor: https://asciidoctor.org
 :url-git: https://git-scm.com
 :url-git-dl: {url-git}/downloads
 :url-gulp: http://gulpjs.com
@@ -19,40 +27,39 @@
 :url-nvm-install: {url-nvm}#installation
 :url-source-maps: https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map
 
-image:{img-ci-status}[CI Status (GitLab CI), link={url-ci-pipelines}]
+ifdef::badges[]
+image:https://img.shields.io/github/release/{project-repo-name}.svg[Latest Release,link={url-project}/releases/download/{current-release}/ui-bundle.zip]
+endif::[]
 
-This project is an archetype that demonstrates how to produce a UI bundle that can be used by {url-antora}[Antora] to generated a documentation site.
-You can see a preview of the default UI at {url-preview}.
+toc::[]
 
-While the default UI is ready to be used with Antora, the intent is that you'll fork it and customize it for your own needs.
-It's intentionally minimalistic so as to give you a good starting point without requiring too much effort to customize.
+This project provides the UI for the Asciidoctor docs site.
+It provides both the visual theme and user interactions for the docs site.
+The UI bundle that this project produces is designed to be used with Antora.
+It bundles the HTML templates (layouts, partials, and helpers), CSS, JavaScript, fonts, and site-wide images.
+The rest of the material for the docs site comes from the content repositories.
 
-== Use the Default UI
+== Usage
 
-If you want to simply use the default UI for your Antora-generated site, add the following UI configuration to your playbook:
+To use this UI with Antora, add the following configuration to the playbook file for your site:
 
-[source,yaml]
+[source,yaml,subs=attributes+]
 ----
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
-    snapshot: true
+    url: {url-project}/releases/download/{current-release}/ui-bundle.zip
 ----
 
-NOTE: The `snapshot` flag tells Antora to fetch the UI when the `--fetch` command-line flag is present.
-This setting is required because updates to the UI bundle are pushed to the same URL.
-If the URL were to be unique, this setting would not be required.
-
-Read on to learn how to customize the default UI for your own documentation.
+Read on to learn how to develop the UI.
 
 == Development Quickstart
 
-This section offers a basic tutorial to teach you how to set up the default UI project, preview it locally, and bundle it for use with Antora.
+This section offers a basic tutorial to teach you how to set up the UI project, preview it locally, and bundle it for use with Antora.
 A more comprehensive tutorial can be found in the documentation at {url-antora-docs}.
 
 === Prerequisites
 
-To preview and bundle the default UI, you need the following software on your computer:
+To preview and bundle the UI, you need the following software on your computer:
 
 * {url-git}[git] (command: `git`)
 * {url-nodejs}[Node.js] (commands: `node` and `npm`)
@@ -118,13 +125,13 @@ Now that you have the prerequisites installed, you can fetch and build the UI pr
 
 === Clone and Initialize the UI Project
 
-Clone the default UI project using git:
+Clone the UI project using git:
 
 [subs=attributes+]
- $ git clone {url-project} &&
+ $ git clone {url-project} docs-ui &&
    cd "`basename $_`"
 
-The example above clones Antora's default UI project and then switches to the project folder on your filesystem.
+The example above clones the UI project and then switches to the project folder on your filesystem.
 Stay in this project folder when executing all subsequent commands.
 
 Use npm to install the project's dependencies inside the project.
@@ -135,17 +142,10 @@ In your terminal, execute the following command:
 This command installs the dependencies listed in [.path]_package.json_ into the [.path]_node_modules/_ folder inside the project.
 This folder does not get included in the UI bundle and should _not_ be committed to the source control repository.
 
-[TIP]
-====
-If you prefer to install packages using Yarn, run this command instead:
-
- $ yarn
-====
-
 === Preview the UI
 
-The default UI project is configured to preview offline.
-The files in the [.path]_preview-src/_ folder provide the sample content that allow you to see the UI in action.
+The UI project is configured to preview offline.
+The files in the [.path]_preview-site-src/_ folder provide the sample content that allow you to see the UI in action.
 In this folder, you'll primarily find pages written in AsciiDoc.
 These pages provide a representative sample and kitchen sink of content from the real site.
 
@@ -200,14 +200,90 @@ If you need to include source maps in the bundle, you can do so by setting the `
  $ SOURCEMAPS=true gulp bundle
 
 In this case, the bundle will include the source maps, which can be used for debuggging your production site.
+=== Create an Online Preview
+
+You can share a preview of the UI online by submitting a pull request to GitHub.
+The repository is configured to create a deploy preview on Netlify for every pull request.
+Here's how that process works:
+
+. Fork the repository on GitHub (only has to be done once).
+. Create a local branch.
+. Make changes to the UI.
+. Commit your changes to that branch.
+. Push that branch to your fork (on GitHub).
+. Submit a pull request from the branch you pushed to your fork.
+. Wait for deploy/netlify check to say "`Deploy preview ready!`" on the pull request page.
+. Click on the "`Details`" link under "`Show all checks`" on the pull request page to get the preview URL.
+. Visit the preview URL to view your changes or share the preview URL with others.
+
+The deploy preview works because there is a webhook on the repository that pings \https://api.netlify.com/hooks/github for the following events: push, pull_request, delete_branch.
+Netlify then runs the command specified in netlify.toml, deploys the site, and allocates a temporary preview URL for it.
+
+Included in that temporary preview URL is the UI bundle itself.
+That means you can test it directly with Antora.
+Simply append `dist/ui-bundle.zip` to the end of the preview URL and pass it to Antora as follows:
+
+ $ antora --ui-bundle-url=<preview URL>/dist/ui-bundle.zip antora-playbook.yml
+
+The temporary preview URL will automatically be decommissioned once the PR is closed.
+
+== Releases
+
+Releases are handled by the `gulp release` task, which is automated by a CI job.
+The release process boils down to the following steps:
+
+. Pack the UI bundle.
+. Tag the git repository using the next version number in the sequence (e.g., v100 after v99)
+. Create a GitHub release from that git tag.
+. Attach the UI bundle to that release as an asset in zip format.
+. Update the README to reference the URL of the lastest bundle and commit that update to the repository.
+
+Fortunately, you don't have to do any of these steps yourself.
+These steps are fully automated by the `gulp release` task.
+In fact, you don't even have to run this task.
+Whenever a commit is pushed to the master branch of the repository, it triggers the CI job on master, which executes the `gulp release` task using pre-configured credentials.
+
+IMPORTANT: A release will only be made if the project validates (i.e., all lint tasks pass).
+To validate the project, run `gulp lint` before pushing your changes to GitHub.
+
+The CI job is already configured, so there's nothing you need to do to make automated release work.
+All you have to do is commit your changes and push those commits to the master branch of the git repository.
+A few seconds later, a new bundle will be available for use with Antora.
+Run `git pull` to retrieve the updated README that includes the new URL.
+
+If you want to commit a change to master without making a release, add the string `[skip ci]` to the end of the commit message.
+
+The next two sections document how the CI job is set up an configured.
+
+=== Release Task Prerequisites
+
+In addition to the <<Prerequisites>> covered above, you'll need a personal access token for the automated GitHub account, asciidoctor-docbot, so it has permission to make changes to the repository on GitHub.
+The asciidoctor-docbot account will need at least write access to the {url-project} repository, though admin access is recommended.
+
+Start by creating a https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/[personal access token] for the asciidoctor-docbot user.
+The `release` task relies on this token to interact with the GitHub API to create the tag, create the release, and attach the UI bundle.
+The token must have the `public_repo` scope.
+No other scopes are required (as long as the asciidoctor-docbot user has write access to the repository).
+
+=== CI Job
+
+The {url-ci}[CI job] is executed by GitHub Actions and is defined in the file [.path]_.github/workflows/release.yml_.
+It boils down to running the `gulp release` task on the main branch.
+The GITHUB_API_TOKEN environment variable is defined in the job configuration.
+
+Once the CI job runs and a new UI bundle is available, you can update the URL of the UI bundle in the Antora playbook file.
+See <<Usage>> for details.
 
 == Copyright and License
 
-Copyright (C) 2017-2019 OpenDevise Inc. and the Antora Project.
+=== Software
 
-Use of this software is granted under the terms of the https://www.mozilla.org/en-US/MPL/2.0/[Mozilla Public License Version 2.0] (MPL-2.0).
+The software assets in this repository (Gulp build script and tasks, web JavaScript files, Handlebars templates and JavaScript helpers, common CSS, utility icons, etc.) are part of the {url-antora}[Antora project].
+As such, use of the software is granted under the terms of the https://www.mozilla.org/en-US/MPL/2.0/[Mozilla Public License Version 2.0] (MPL-2.0).
 See link:LICENSE[] to find the full license text.
 
-== Authors
+=== Branding and Design
 
-Development of Antora is led and sponsored by {url-opendevise}[OpenDevise Inc].
+Copyright (C) {url-asciidoctor}[Asciidoctor] 2018.
+This includes any CSS that provides colors or iconography that depict the Asciidoctor brand.
+All rights reserved (until further notice).
