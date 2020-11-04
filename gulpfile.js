@@ -1,12 +1,15 @@
 'use strict'
 
+const pkg = require('./package.json')
+const [owner, repo] = new URL(pkg.repository.url).pathname.slice(1).split('/')
+
 const { parallel, series, watch } = require('gulp')
 const createTask = require('./gulp.d/lib/create-task')
 const exportTasks = require('./gulp.d/lib/export-tasks')
 const log = require('fancy-log')
 
 const bundleName = 'ui'
-const buildDir = 'build'
+const buildDir = ['deploy-preview', 'branch-deploy'].includes(process.env.CONTEXT) ? 'public/dist' : 'build'
 const previewSrcDir = 'preview-src'
 const previewDestDir = 'public'
 const srcDir = 'src'
@@ -89,6 +92,17 @@ const packTask = createTask({
   call: series(bundleTask),
 })
 
+const releasePublishTask = createTask({
+  name: 'release:publish',
+  call: task.release(buildDir, bundleName, owner, repo, process.env.GITHUB_API_TOKEN, true),
+})
+
+const releaseTask = createTask({
+  name: 'release',
+  desc: 'Bundle the UI and publish it to GitHub by attaching it to a new tag',
+  call: series(bundleTask, releasePublishTask),
+})
+
 const buildPreviewPagesTask = createTask({
   name: 'preview:build-pages',
   call: task.buildPreviewPages(srcDir, previewSrcDir, previewDestDir, livereload),
@@ -119,6 +133,7 @@ module.exports = exportTasks(
   buildTask,
   bundleTask,
   bundlePackTask,
+  releaseTask,
   previewTask,
   previewBuildTask,
   packTask
