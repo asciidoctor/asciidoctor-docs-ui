@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local("Comfortaa Regular"),
+    local("Comfortaa-Regular"),
+    url(~typeface-comfortaa/files/comfortaa-latin-400.woff2) format("woff2"),
+    url(~typeface-comfortaa/files/comfortaa-latin-400.woff) format("woff");
+}
