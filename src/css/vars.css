@@ -7,6 +7,7 @@
   --color-smoke-70: #f0f0f0;
   --color-smoke-90: #e1e1e1;
   --color-gray-10: #c1c1c1;
+  --color-gray-15: #bababa;
   --color-gray-30: #8e8e8e;
   --color-gray-50: #808080;
   --color-gray-70: #5d5d5d;
@@ -22,7 +23,7 @@
   --body-font-size--desktop: 1.125em; /* 18px */
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
-  --body-font-color: var(--color-jet-70);
+  --body-font-color: var(--color-jet-80);
   --body-font-family: "Roboto", sans-serif;
   --body-font-weight-bold: 500;
   --monospace-font-family: "Roboto Mono", monospace;
@@ -85,8 +86,8 @@
   --heading-font-weight: normal;
   --alt-heading-font-weight: var(--body-font-weight-bold);
   --section-divider-color: var(--panel-border-color);
-  --link-font-color: #1565c0;
-  --link_hover-font-color: #104d92;
+  --link-font-color: #e40046;
+  --link_hover-font-color: #b60038;
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);
@@ -112,9 +113,9 @@
   --table-border-color: var(--panel-border-color);
   /* footer */
   --footer-line-height: var(--doc-line-height);
-  --footer-background: var(--color-smoke-90);
-  --footer-font-color: var(--color-gray-70);
-  --footer-link-font-color: var(--color-jet-80);
+  --footer-background: var(--color-jet-80);
+  --footer-font-color: var(--color-gray-15);
+  --footer-link-font-color: var(--color-white);
   /* dimensions and positioning */
   --navbar-height: calc(63 / var(--rem-base) * 1rem);
   --toolbar-height: calc(45 / var(--rem-base) * 1rem);

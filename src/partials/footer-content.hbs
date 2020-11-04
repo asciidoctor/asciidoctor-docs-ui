@@ -1,4 +1,27 @@
 <footer class="footer">
-  <p>This page was built using the Antora default UI.</p>
-  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://asciidoctor.org"><img src="{{uiRootPath}}/img/logo.svg" alt="Asciidoctor"></a>
+      <figcaption class="footer-brand-name"><a href="https://asciidoctor.org">Asciidoctor</a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <li><a href="https://asciidoctor.org" target="_blank" rel="noopener">Home</a></li>
+      <li><a href="{{{or site.url (or siteRootUrl siteRootPath)}}}">Docs</a></li>
+      <li><a href="https://github.com/asciidoctor" target="_blank" rel="noopener">Source</a></li>
+      <li><a href="http://discuss.asciidoctor.org" target="_blank" rel="noopener">Discuss</a></li>
+    </ul>
+  </div>
+  <div class="footer-legal">
+    <p>Except where noted, the content on this site is licensed under the Creative Commons Attribution 4.0 International (CC-BY 4.0) license.</p>
+    <p>The UI for this site is based on the default Antora UI and is thus licensed under the terms of the MPL-2.0 license.</p>
+    <p>Authored in AsciiDoc // Produced by Asciidoctor and Antora.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Thanks to our <a href="https://asciidoctor.org/supporters/" target="_blank" rel="noopener">backers</a> and <a href="https://asciidoctor.org/contributors/" target="_blank" rel="noopener">contributors</a> for helping to make this project possible.</p>
+    <p>
+      Special thanks to:
+      <a href="https://opendevise.com" title="OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" style="margin-left: 5px" width="40"></a>
+      <a href="https://netlify.com" title="Netlify" target="_blank" rel="noopener"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" style="margin-left: 5px" width="90"></a>
+    </p>
+  </div>
 </footer>
