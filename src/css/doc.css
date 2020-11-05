@@ -180,6 +180,10 @@
   /* enable table-layout: fixed if you want the table width to be enforced strictly */
   /* alternative is to wrap table in div and set overflow-x: auto on the wrapper */
   /* table-layout: fixed; */
+  word-wrap: normal; /* don't do arbitrary word breaking */
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 .doc table.stretch {
@@ -654,9 +658,4 @@
 .doc .menuseq,
 .doc .icon i::after {
   hyphens: none;
-}
-
-.doc th.tableblock,
-.doc td.tableblock {
-  word-break: break-word; /* overflow-wrap for table cells; gives space higher precedence than hyphen opportunity */
 }
