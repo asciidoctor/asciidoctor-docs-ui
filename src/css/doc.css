@@ -115,7 +115,7 @@
 
 .doc a:hover {
   color: var(--link_hover-font-color);
-  -webkit-text-stroke-width: 0.01em;
+  /* -webkit-text-stroke-width: 0.01em; */
 }
 
 .doc a.unresolved {
