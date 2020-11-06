@@ -71,6 +71,7 @@
 .doc h4 .anchor,
 .doc h5 .anchor,
 .doc h6 .anchor {
+  color: var(--color-brand-primary);
   position: absolute;
   text-decoration: none;
   width: 1.75ex;
@@ -111,9 +112,11 @@
   color: var(--link-font-color);
 }
 
+/*
 .doc a:hover {
   color: var(--link_hover-font-color);
 }
+*/
 
 .doc a.unresolved {
   color: var(--link_unresolved-font-color);
