@@ -15,6 +15,7 @@ endif::[]
 :url-project: https://github.com/{project-repo-name}
 :url-preview: https://asciidoctor-docs-ui.netlify.app
 :url-ci: {project-repo-name}/actions
+:url-netlify-deploys: https://app.netlify.com/sites/asciidoctor-docs-ui/deploys
 // External URLs:
 :url-antora: https://antora.org
 :url-asciidoctor: https://asciidoctor.org
@@ -29,6 +30,7 @@ endif::[]
 
 ifdef::badges[]
 image:https://img.shields.io/github/release/{project-repo-name}.svg[Latest Release,link={url-project}/releases/download/{current-release}/ui-bundle.zip]
+image:https://api.netlify.com/api/v1/badges/a9db5e1b-d7b7-48c0-b066-1b8d91e9c3d1/deploy-status[Deploy Status,link={url-netlify-deploys}]
 endif::[]
 
 toc::[]
