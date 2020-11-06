@@ -202,6 +202,7 @@ If you need to include source maps in the bundle, you can do so by setting the `
  $ SOURCEMAPS=true gulp bundle
 
 In this case, the bundle will include the source maps, which can be used for debuggging your production site.
+
 === Create an Online Preview
 
 You can share a preview of the UI online by submitting a pull request to GitHub.
@@ -223,7 +224,7 @@ Netlify then runs the command specified in netlify.toml, deploys the site, and a
 
 Included in that temporary preview URL is the UI bundle itself.
 That means you can test it directly with Antora.
-Simply append `dist/ui-bundle.zip` to the end of the preview URL and pass it to Antora as follows:
+To access the UI bundle,  append `dist/ui-bundle.zip` to the end of the preview URL, then pass that URL to Antora as follows:
 
  $ antora --ui-bundle-url=<preview URL>/dist/ui-bundle.zip antora-playbook.yml
 
