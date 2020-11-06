@@ -89,7 +89,7 @@
   --alt-heading-font-weight: var(--body-font-weight-bold);
   --section-divider-color: var(--panel-border-color);
   --link-font-color: #006346;
-  --link_hover-font-color: var(--link-font-color);
+  --link_hover-font-color: #1e634f;
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);
