@@ -50,7 +50,6 @@
     "require-from-string": "~2.0",
     "stylelint": "~13.3",
     "stylelint-config-standard": "~20.0",
-    "through2": "~3.0",
     "typeface-comfortaa": "^0.0.54",
     "typeface-roboto": "0.0.75",
     "typeface-roboto-mono": "0.0.75",
