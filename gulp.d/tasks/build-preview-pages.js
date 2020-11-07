@@ -7,7 +7,8 @@ Error.call = (self, ...args) => {
 }
 
 const asciidoctor = require('asciidoctor.js')()
-const fs = require('fs-extra')
+const fs = require('fs')
+const { promises: fsp } = fs
 const handlebars = require('handlebars')
 const merge = require('merge-stream')
 const ospath = require('path')
@@ -68,7 +69,7 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
     )
 
 function loadSampleUiModel (src) {
-  return fs.readFile(ospath.join(src, 'ui-model.yml'), 'utf8').then((contents) => yaml.safeLoad(contents))
+  return fsp.readFile(ospath.join(src, 'ui-model.yml'), 'utf8').then((contents) => yaml.safeLoad(contents))
 }
 
 function registerPartials (src) {

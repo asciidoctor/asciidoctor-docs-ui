@@ -1,7 +1,7 @@
 'use strict'
 
 const File = require('vinyl')
-const fs = require('fs-extra')
+const { promises: fsp } = require('fs')
 const { Octokit } = require('@octokit/rest')
 const path = require('path')
 const { Transform } = require('stream')
@@ -64,7 +64,7 @@ module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => as
   const bundleFileBasename = `${bundleName}-bundle.zip`
   const bundleFile = await versionBundle(path.join(dest, bundleFileBasename), tagName)
   let commit = await octokit.git.getRef({ owner, repo, ref }).then((result) => result.data.object.sha)
-  const readmeContent = await fs
+  const readmeContent = await fsp
     .readFile('README.adoc', 'utf-8')
     .then((contents) => contents.replace(/^(?:\/\/)?(:current-release: ).+$/m, `$1${tagName}`))
   const readmeBlob = await octokit.git
@@ -94,10 +94,10 @@ module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => as
     .then((result) => result.data.upload_url)
   await octokit.repos.uploadReleaseAsset({
     url: uploadUrl,
-    data: fs.createReadStream(bundleFile),
+    data: fsp.createReadStream(bundleFile),
     name: bundleFileBasename,
     headers: {
-      'content-length': (await fs.stat(bundleFile)).size,
+      'content-length': (await fsp.stat(bundleFile)).size,
       'content-type': 'application/zip',
     },
   })

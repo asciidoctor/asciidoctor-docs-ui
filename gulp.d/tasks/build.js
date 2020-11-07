@@ -5,7 +5,8 @@ const browserify = require('browserify')
 const buffer = require('vinyl-buffer')
 const concat = require('gulp-concat')
 const cssnano = require('cssnano')
-const fs = require('fs-extra')
+const fs = require('fs')
+const { promises: fsp } = fs
 const imagemin = require('gulp-imagemin')
 const merge = require('merge-stream')
 const ospath = require('path')
@@ -29,7 +30,7 @@ module.exports = (src, dest, preview) => () => {
       Promise.all(
         messages
           .reduce((accum, { file: depPath, type }) => (type === 'dependency' ? accum.concat(depPath) : accum), [])
-          .map((importedPath) => fs.stat(importedPath).then(({ mtime }) => mtime))
+          .map((importedPath) => fsp.stat(importedPath).then(({ mtime }) => mtime))
       ).then((mtimes) => {
         const newestMtime = mtimes.reduce((max, curr) => (!max || curr > max ? curr : max))
         if (newestMtime > file.stat.mtime) file.stat.mtimeMs = +(file.stat.mtime = newestMtime)
@@ -42,7 +43,10 @@ module.exports = (src, dest, preview) => () => {
           const abspath = require.resolve(relpath)
           const basename = ospath.basename(abspath)
           const destpath = ospath.join(dest, 'font', basename)
-          if (!fs.pathExistsSync(destpath)) fs.copySync(abspath, destpath)
+          if (!fs.existsSync(destpath)) {
+            fs.mkdirSync(ospath.join(dest, 'font'), { recursive: true })
+            fs.copyFileSync(abspath, destpath)
+          }
           return path.join('..', 'font', basename)
         },
       },
@@ -72,7 +76,7 @@ module.exports = (src, dest, preview) => () => {
             browserify(file.relative, { basedir: src, detectGlobals: false })
               .plugin('browser-pack-flat/plugin')
               .on('file', (bundledPath) => {
-                if (bundledPath !== bundlePath) mtimePromises.push(fs.stat(bundledPath).then(({ mtime }) => mtime))
+                if (bundledPath !== bundlePath) mtimePromises.push(fsp.stat(bundledPath).then(({ mtime }) => mtime))
               })
               .bundle((bundleError, bundleBuffer) =>
                 Promise.all(mtimePromises).then((mtimes) => {
@@ -84,7 +88,7 @@ module.exports = (src, dest, preview) => () => {
                 })
               )
           } else {
-            fs.readFile(file.path, 'UTF-8').then((contents) => {
+            fsp.readFile(file.path, 'UTF-8').then((contents) => {
               file.contents = Buffer.from(contents)
               next(null, file)
             })
