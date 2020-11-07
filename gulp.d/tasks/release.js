@@ -1,7 +1,8 @@
 'use strict'
 
 const File = require('vinyl')
-const { promises: fsp } = require('fs')
+const fs = require('fs')
+const { promises: fsp } = fs
 const { Octokit } = require('@octokit/rest')
 const path = require('path')
 const { Transform } = require('stream')
@@ -94,7 +95,7 @@ module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => as
     .then((result) => result.data.upload_url)
   await octokit.repos.uploadReleaseAsset({
     url: uploadUrl,
-    data: fsp.createReadStream(bundleFile),
+    data: fs.createReadStream(bundleFile),
     name: bundleFileBasename,
     headers: {
       'content-length': (await fsp.stat(bundleFile)).size,
