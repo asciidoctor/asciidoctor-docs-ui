@@ -18,6 +18,7 @@ endif::[]
 :url-netlify-deploys: https://app.netlify.com/sites/asciidoctor-docs-ui/deploys
 // External URLs:
 :url-antora: https://antora.org
+:url-antora-default-ui: https://gitlab.com/antora/antora-ui-default
 :url-asciidoctor: https://asciidoctor.org
 :url-git: https://git-scm.com
 :url-git-dl: {url-git}/downloads
@@ -281,7 +282,8 @@ See <<Usage>> for details.
 
 === Software
 
-The software assets in this repository (Gulp build script and tasks, web JavaScript files, Handlebars templates and JavaScript helpers, common CSS, utility icons, etc.) are part of the {url-antora}[Antora project].
+This project is a derivative of the {url-antora-default-ui}[Antora default UI].
+The software assets in this repository (Gulp build script and tasks, web JavaScript files, Handlebars templates and JavaScript helpers, common CSS, utility icons, etc.) come from the {url-antora}[Antora project].
 As such, use of the software is granted under the terms of the https://www.mozilla.org/en-US/MPL/2.0/[Mozilla Public License Version 2.0] (MPL-2.0).
 See link:LICENSE[] to find the full license text.
 
