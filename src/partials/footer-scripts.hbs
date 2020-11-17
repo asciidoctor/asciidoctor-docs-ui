@@ -4,7 +4,10 @@
 <script async id="search-script" src="{{{uiRootPath}}}/js/vendor/docsearch.js"{{#if env.ALGOLIA_APP_ID}} data-app-id="{{env.ALGOLIA_APP_ID}}"{{/if}} data-api-key="{{env.ALGOLIA_API_KEY}}" data-index-name="{{env.ALGOLIA_IDX_NAME}}" data-stylesheet="{{{uiRootPath}}}/css/vendor/docsearch.css"></script>
 {{#if page.home}}
 <script>
-window.addEventListener('load', function () { document.querySelector('#search-input').focus() })
+window.addEventListener('load', function focusSearchInput () {
+  window.removeEventListener('load', focusSearchInput)
+  document.querySelector('#search-input').focus()
+})
 </script>
 {{/if}}
 {{/if}}
