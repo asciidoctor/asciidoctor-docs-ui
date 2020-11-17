@@ -84,6 +84,10 @@ footer.footer {
   text-align: center;
 }
 
+.footer-thanks .badges img {
+  margin-left: 5px;
+}
+
 @media screen and (min-width: 1024px) {
   footer.footer {
     flex-direction: row;
@@ -103,5 +107,11 @@ footer.footer {
 
   .footer-thanks {
     text-align: right;
+  }
+
+  .footer-thanks .badges {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
