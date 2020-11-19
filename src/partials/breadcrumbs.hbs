@@ -8,7 +8,9 @@
     {{/with}}
     {{#each page.breadcrumbs}}
     <li>
-    {{~#if (and ./url (eq ./urlType 'internal'))~}}
+    {{~#if (and ./discrete (endsWith ./content ' Documentation'))~}}
+    <a href="{{{relativize ./url}}}">Introduction</a>
+    {{~else if (and ./url (eq ./urlType 'internal'))~}}
     <a href="{{{relativize ./url}}}">{{{./content}}}</a>
     {{~else~}}
     {{{./content}}}
