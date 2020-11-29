@@ -18,6 +18,7 @@
 
   function jumpToAnchor (e) {
     if (e) {
+      if (e.altKey) return
       window.location.hash = '#' + this.id
       e.preventDefault()
     }
