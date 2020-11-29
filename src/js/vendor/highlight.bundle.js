@@ -16,7 +16,7 @@
   //hljs.registerLanguage('haskell', require('highlight.js/lib/languages/haskell'))
   hljs.registerLanguage('java', require('highlight.js/lib/languages/java'))
   hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'))
-  //hljs.registerLanguage('json', require('highlight.js/lib/languages/json'))
+  hljs.registerLanguage('json', require('highlight.js/lib/languages/json'))
   //hljs.registerLanguage('kotlin', require('highlight.js/lib/languages/kotlin'))
   //hljs.registerLanguage('makefile', require('highlight.js/lib/languages/makefile'))
   hljs.registerLanguage('markdown', require('highlight.js/lib/languages/markdown'))
