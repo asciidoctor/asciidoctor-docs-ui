@@ -260,7 +260,7 @@
   border-right-width: 0;
 }
 
-.doc table.stripes-all > tr,
+.doc table.stripes-all > tbody > tr,
 .doc table.stripes-odd > tbody > tr:nth-of-type(odd),
 .doc table.stripes-even > tbody > tr:nth-of-type(even),
 .doc table.stripes-hover > tbody > tr:hover {
