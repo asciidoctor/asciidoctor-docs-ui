@@ -238,10 +238,13 @@
   border-top-width: 0;
 }
 
+/* Let the grid win out for the bottom border
+/*
 .doc table.frame-none > :last-child > :last-child > *,
 .doc table.frame-sides > :last-child > :last-child > * {
   border-bottom-width: 0;
 }
+*/
 
 .doc table.frame-none > * > tr > :first-child,
 .doc table.frame-ends > * > tr > :first-child {
@@ -257,7 +260,7 @@
 .doc table.stripes-odd > tbody > tr:nth-of-type(odd),
 .doc table.stripes-even > tbody > tr:nth-of-type(even),
 .doc table.stripes-hover > tbody > tr:hover {
-  background: var(--admonition-background);
+  background: var(--table-stripe-background);
 }
 
 .doc .halign-left {
