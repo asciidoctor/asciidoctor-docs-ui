@@ -187,11 +187,14 @@
   margin: 2rem 0;
   /* enable table-layout: fixed if you want the table width to be enforced strictly */
   /* alternative is to wrap table in div and set overflow-x: auto on the wrapper */
+  /* another alternative is to set overflow-x: auto and display: block on table (but this breaks table borders) */
   /* table-layout: fixed; */
   word-wrap: normal; /* don't do arbitrary word breaking */
+  /*
   display: block;
   overflow-x: auto;
   max-width: 100%;
+  */
 }
 
 .doc table.tableblock th,
