@@ -245,13 +245,10 @@
   border-top-width: 0;
 }
 
-/* Let the grid win out for the bottom border
-/*
-.doc table.frame-none > :last-child > :last-child > *,
+/* NOTE let the grid win in case of frame-none */
 .doc table.frame-sides > :last-child > :last-child > * {
   border-bottom-width: 0;
 }
-*/
 
 .doc table.frame-none > * > tr > :first-child,
 .doc table.frame-ends > * > tr > :first-child {
