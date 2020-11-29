@@ -98,7 +98,7 @@
 .doc h6:hover .anchor {
   color: var(--color-brand-primary);
   visibility: visible;
-  -webkit-text-stroke-width: initial;
+  /* -webkit-text-stroke-width: initial; */
 }
 
 .doc p {
