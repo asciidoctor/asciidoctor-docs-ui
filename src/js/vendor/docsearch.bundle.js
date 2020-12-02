@@ -15,5 +15,7 @@
     autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
     algoliaOptions: { hitsPerPage: 10 },
   }).autocomplete
-  search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+  search.on('autocomplete:closed', function () {
+    search.autocomplete.setVal()
+  })
 })()
