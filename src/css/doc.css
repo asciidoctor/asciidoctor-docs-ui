@@ -101,7 +101,8 @@
   /* -webkit-text-stroke-width: initial; */
 }
 
-.doc p {
+.doc p,
+.doc dl {
   margin: 0;
 }
 
