@@ -570,6 +570,14 @@
   padding-bottom: 0;
 }
 
+.doc details.result {
+  margin-top: 0.25rem;
+}
+
+.doc details.result > summary {
+  color: var(--caption-font-color);
+}
+
 .doc .exampleblock > .content,
 .doc details.result > .content {
   background: var(--example-background);
