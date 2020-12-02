@@ -182,7 +182,8 @@
 .doc .verseblock,
 .doc .quoteblock,
 .doc .partintro,
-.doc details {
+.doc details,
+.doc hr {
   margin: 1rem 0 0;
 }
 
@@ -683,6 +684,12 @@
 
 .doc .conum[data-value] + b {
   display: none;
+}
+
+.doc hr {
+  border: solid var(--section-divider-color);
+  border-width: 2px 0 0;
+  height: 0;
 }
 
 .doc b.button {
