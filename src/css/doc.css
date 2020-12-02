@@ -590,6 +590,13 @@
   padding: 0.75rem;
 }
 
+.doc .exampleblock > .content::after,
+.doc details.result > .content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .doc .exampleblock > .content > :first-child,
 .doc details.result > .content > :first-child {
   margin-top: 0;
