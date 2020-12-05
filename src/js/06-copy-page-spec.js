@@ -1,8 +1,9 @@
 ;(function () {
   'use strict'
 
-  var pageSpec = document.querySelector('head meta[name=page-spec]').content
+  var pageSpec = (document.querySelector('head meta[name=page-spec]') || {}).content
   var editPageLink = document.querySelector('.toolbar .edit-this-page a')
+  if (!(pageSpec && editPageLink)) return
   if (editPageLink) editPageLink.addEventListener('click', onEditPageLinkClick)
   ;[].slice.call(document.querySelectorAll('.doc a.anchor')).forEach(function (anchor) {
     if (/H[2-6]/.test(anchor.parentNode.tagName)) anchor.addEventListener('click', onSectionAnchorClick.bind(anchor))
