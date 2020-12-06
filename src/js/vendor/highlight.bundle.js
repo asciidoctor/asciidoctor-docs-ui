@@ -28,7 +28,7 @@
   hljs.registerLanguage('python', require('highlight.js/lib/languages/python'))
   hljs.registerLanguage('ruby', require('highlight.js/lib/languages/ruby'))
   //hljs.registerLanguage('scala', require('highlight.js/lib/languages/scala'))
-  //hljs.registerLanguage('shell', require('highlight.js/lib/languages/shell'))
+  hljs.registerLanguage('shell', require('highlight.js/lib/languages/shell'))
   //hljs.registerLanguage('sql', require('highlight.js/lib/languages/sql'))
   //hljs.registerLanguage('swift', require('highlight.js/lib/languages/swift'))
   hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
