@@ -684,8 +684,11 @@
   height: 1em;
 }
 
-.code-toolbox .copy-button svg {
+.code-toolbox .copy-button * {
   flex: 0 0 auto;
+}
+
+.code-toolbox .copy-button svg {
   width: inherit;
   height: inherit;
 }
