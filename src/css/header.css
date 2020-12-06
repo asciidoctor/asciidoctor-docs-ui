@@ -182,10 +182,11 @@ body {
   padding: 0;
 }
 
-.navbar-item .icon {
+.navbar-item .icon,
+.navbar-item .icon .svga {
   width: 1.25rem;
   height: 1.25rem;
-  display: block;
+  display: inline-block;
 }
 
 .navbar-link {
