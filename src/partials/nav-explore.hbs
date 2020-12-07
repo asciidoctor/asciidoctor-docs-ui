@@ -6,7 +6,7 @@
   </div>
   {{/if}}
   <ul class="components">
-    {{#each site.components}}
+    {{#each (rearrange site.components 'name' page.attributes.component-order)}}
     <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
       <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
       {{#if (or ./versions.[1] (not (eq ./versions.[0].displayVersion 'current')))}}
