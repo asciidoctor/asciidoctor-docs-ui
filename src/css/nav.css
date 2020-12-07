@@ -245,9 +245,12 @@ html.is-clipped--nav {
 .nav-panel-explore .component .title {
   font-weight: var(--body-font-weight-bold);
   color: inherit;
-  max-width: 50%;
   margin-top: 0.25rem;
   flex: none;
+}
+
+.nav-panel-explore .component .title:not(:only-child) {
+  max-width: 66.66%;
 }
 
 .nav-panel-explore .versions {
