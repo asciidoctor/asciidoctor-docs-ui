@@ -685,7 +685,7 @@
 }
 
 .code-toolbox .copy-button * {
-  flex: 0 0 auto;
+  flex: none;
 }
 
 .code-toolbox .copy-button svg {
