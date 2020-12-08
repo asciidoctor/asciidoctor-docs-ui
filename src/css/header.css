@@ -183,8 +183,8 @@ body {
 }
 
 .navbar-item .icon {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.25rem;
+  height: 1.25rem;
   display: block;
 }
 
@@ -195,6 +195,14 @@ body {
 .navbar-dropdown .navbar-item {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  justify-content: space-between;
+}
+
+.navbar-dropdown .navbar-item small {
+  position: relative;
+  right: -1rem;
+  color: var(--toolbar-muted-color);
+  font-size: 0.8em;
 }
 
 .navbar-divider {
@@ -202,6 +210,12 @@ body {
   border: none;
   height: 1px;
   margin: 0.25rem 0;
+}
+
+.navbar-dropdown div.navbar-item {
+  font-weight: var(--navbar-heading-font-weight);
+  color: var(--navbar-heading-font-color);
+  letter-spacing: -0.01em;
 }
 
 @media screen and (max-width: 1023px) {
