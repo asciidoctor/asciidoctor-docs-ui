@@ -84,8 +84,18 @@ footer.footer {
   text-align: center;
 }
 
-.footer-thanks .badges img {
+.footer-thanks .badges {
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-thanks .badges a + a {
   margin-left: 5px;
+}
+
+.footer-thanks .badges img {
+  vertical-align: middle;
 }
 
 @media screen and (min-width: 1024px) {
@@ -112,6 +122,5 @@ footer.footer {
   .footer-thanks .badges {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
   }
 }
