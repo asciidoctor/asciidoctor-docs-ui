@@ -13,7 +13,7 @@
     indexName: config.indexName,
     inputSelector: '#search-input',
     autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
-    algoliaOptions: { hitsPerPage: 10 },
+    algoliaOptions: { hitsPerPage: parseInt(config.maxResults) || 5 },
   }).autocomplete
   search.on('autocomplete:closed', function () {
     search.autocomplete.setVal()
