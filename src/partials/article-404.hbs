@@ -1,10 +1,44 @@
 <article class="doc">
 <h1 class="page">{{{or page.title 'Page Not Found'}}}</h1>
 <div class="paragraph">
-<p>The page you&#8217;re looking for does not exist. It may have been moved. You can{{#with site.homeUrl}} return to the <a href="{{{this}}}">start page</a>, or{{/with}} follow one of the links in the navigation to the left.</p>
+<p>The page you&#8217;re looking for does not exist. It may have been moved. You can{{#with site.homeUrl}} return to the <a id="return-link" href="{{{this}}}">start page</a>, or{{/with}} follow one of the links in the navigation to the left.</p>
 </div>
 <div class="paragraph">
 <p>If you arrived on this page by clicking on a link, please notify the owner of the site that the link is broken.
 If you typed the URL of this page manually, please double check that you entered the address correctly.</p>
 </div>
 </article>
+<script>
+;(function (pathname, returnLink) {
+  if (!returnLink) return
+  var startPages = [
+    {{#each site.components}}
+    {{#if (or ./versions.[1] (ne ./versions.[0].version 'master'))}}
+    {{#each ./versions}}
+    { name: "{{{./name}}}", title: "{{{./title}}}", version: "{{{./version}}}", url: "{{{./url}}}" },
+    {{/each}}
+    {{/if}}
+    { name: "{{{./name}}}", title: "{{{./title}}}", url: "{{{./url}}}" },
+    {{/each}}
+  ].reduce(function (accum, it) {
+    if ('version' in it) {
+      accum[it.url.replace(/\/(?:index\.html?$)/, '')] = it
+    } else {
+      if (!('/' + it.name in accum)) accum['/' + it.name] = it
+    }
+    return accum
+  }, {})
+  var returnTo
+  var segments = pathname.split('/').slice(0, -1)
+  while (segments.length > 1) {
+    if ((returnTo = startPages[segments.join('/')])) break
+    segments.pop()
+  }
+  if (returnTo) {
+    returnLink.href = returnTo.url
+    returnLink.innerText =
+      'start page for the ' + returnTo.title + ' ' +
+      ((returnTo.version || 'master' !== 'master') ? returnTo.version + ' ' : '') + 'documentation'
+  }
+})(window.location.pathname, document.getElementById('return-link'))
+</script>
