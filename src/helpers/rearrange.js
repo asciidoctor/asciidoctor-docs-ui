@@ -7,7 +7,9 @@ module.exports = (collection, property, orderSpec) => {
   const restIdx = order.indexOf('*')
   if (~restIdx) order.splice(restIdx, 1)
   const targetCollection = order.reduce((accum, key) => {
-    if (sourceCollection.has(key)) {
+    if (key.startsWith('-')) {
+      sourceCollection.delete(key.substr(1))
+    } else if (sourceCollection.has(key)) {
       accum.push(sourceCollection.get(key))
       sourceCollection.delete(key)
     }
