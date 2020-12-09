@@ -7,6 +7,16 @@ const concat = require('gulp-concat')
 const cssnano = require('cssnano')
 const fs = require('fs')
 const { promises: fsp } = fs
+const iconPacks = {
+  fa: require('@fortawesome/free-solid-svg-icons'),
+  fas: require('@fortawesome/free-solid-svg-icons'),
+  far: require('@fortawesome/free-regular-svg-icons'),
+  fab: require('@fortawesome/free-brands-svg-icons'),
+  __v4__: require('@fortawesome/fontawesome-free/js/v4-shims').reduce(
+    (accum, it) => accum.set(`fa-${it[0]}`, [it[1] || 'fas', `fa-${it[2] || it[0]}`]),
+    new Map()
+  ),
+}
 const imagemin = require('gulp-imagemin')
 const merge = require('merge-stream')
 const ospath = require('path')
@@ -88,6 +98,9 @@ module.exports = (src, dest, preview) => () => {
                   next(bundleError, file)
                 })
               )
+          } else if (file.relative === 'js/vendor/fontawesome-icon-defs.js') {
+            file.contents = Buffer.from(populateIconDefs(require(file.path)))
+            next(null, file)
           } else {
             fsp.readFile(file.path, 'UTF-8').then((contents) => {
               file.contents = Buffer.from(contents)
@@ -128,4 +141,33 @@ function postcssPseudoElementFixer (css, result) {
   css.walkRules(/(?:^|[^:]):(?:before|after)/, (rule) => {
     rule.selector = rule.selectors.map((it) => it.replace(/(^|[^:]):(before|after)$/, '$1::$2')).join(',')
   })
+}
+
+function populateIconDefs ({ FontAwesomeIconDefs: { includes = [], admonitionIcons = {} } }) {
+  const iconDefs = [...new Set(includes)].reduce((accum, iconKey) => {
+    if (accum.has(iconKey)) return accum
+    const [iconPrefix, iconName] = iconKey.split(' ').slice(0, 2)
+    let iconDef = (iconPacks[iconPrefix] || {})[camelCase(iconName)]
+    if (iconDef) {
+      return accum.set(iconKey, { ...iconDef, prefix: iconPrefix })
+    } else if (iconPrefix === 'fa') {
+      const [realIconPrefix, realIconName] = iconPacks.__v4__.get(iconName) || []
+      if (
+        realIconName &&
+        !accum.has((iconKey = `${realIconPrefix} ${realIconName}`)) &&
+        (iconDef = (iconPacks[realIconPrefix] || {})[camelCase(realIconName)])
+      ) {
+        return accum.set(iconKey, { ...iconDef, prefix: realIconPrefix })
+      }
+    }
+    return accum
+  }, new Map())
+  return [
+    `window.FontAwesomeIconDefs = ${JSON.stringify([...iconDefs.values()])}\n`,
+    `window.FontAwesomeIconDefs.admonitionIcons = ${JSON.stringify(admonitionIcons)}\n`,
+  ].join()
+}
+
+function camelCase (str) {
+  return str.replace(/-(.)/g, (_, l) => l.toUpperCase())
 }
