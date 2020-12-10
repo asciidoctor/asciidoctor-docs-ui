@@ -5,7 +5,7 @@
   </head>
   <body class="status-404">
 {{> header}}
-{{> body}}
+{{> body componentOrder=(lookup (lookup (lookup (siteStartPage) 'asciidoc') 'attributes') 'page-component-order')}}
 {{> footer}}
   </body>
 </html>
