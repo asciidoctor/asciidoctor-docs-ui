@@ -106,8 +106,8 @@
   margin: 0;
 }
 
-.doc .tableblock p {
-  font-size: inherit;
+.doc table {
+  word-wrap: normal; /* don't do arbitrary word breaking */
 }
 
 .doc a {
@@ -119,11 +119,16 @@
   /* -webkit-text-stroke-width: 0.01em; */
 }
 
+.doc a.bare {
+  hyphens: none;
+}
+
 .doc a.unresolved {
   color: var(--link_unresolved-font-color);
 }
 
 .doc i.fa {
+  hyphens: none;
   font-style: normal;
 }
 
@@ -134,6 +139,11 @@
   border-radius: 0.25em;
   font-size: 0.95em;
   padding: 0.125em 0.25em;
+}
+
+.doc code,
+.doc pre {
+  hyphens: none;
 }
 
 .doc pre {
@@ -195,7 +205,6 @@
   /* alternative is to wrap table in div and set overflow-x: auto on the wrapper */
   /* another alternative is to set overflow-x: auto and display: block on table (but this breaks table borders) */
   /* table-layout: fixed; */
-  word-wrap: normal; /* don't do arbitrary word breaking */
   /*
   display: block;
   overflow-x: auto;
@@ -277,6 +286,10 @@
   background: var(--table-stripe-background);
 }
 
+.doc .tableblock p {
+  font-size: inherit;
+}
+
 .doc .halign-left {
   text-align: left;
 }
@@ -329,7 +342,11 @@
 .doc .admonitionblock td.content {
   padding: 1rem 1rem 0.75rem;
   background: var(--admonition-background);
+  /*
+  border: 1px solid var(--color-smoke-90);
+  */
   width: 100%;
+  word-wrap: anywhere;
 }
 
 .doc .admonitionblock .icon {
@@ -779,7 +796,7 @@
 }
 
 .doc b.button {
-  white-space: nowrap;
+  white-space: nowrap; /* effectively ignores hyphens setting */
 }
 
 .doc b.button::before {
@@ -801,7 +818,7 @@
   box-shadow: 0 1px 0 var(--kbd-border-color), 0 0 0 0.1em var(--body-background) inset;
   padding: 0.25em 0.5em;
   vertical-align: text-bottom;
-  white-space: nowrap;
+  white-space: nowrap; /* effectively ignores hyphens setting */
 }
 
 .doc kbd,
@@ -825,19 +842,14 @@
   margin-right: 0;
 }
 
+.doc .menuseq,
+.doc .path {
+  hyphens: none;
+}
+
 .doc .menuseq i.caret::before {
   content: "\203a";
   font-size: 1.1em;
   font-weight: var(--body-font-weight-bold);
   line-height: calc(1 / 1.1);
-}
-
-.doc a.bare,
-.doc b.button,
-.doc code,
-.doc .path,
-.doc kbd,
-.doc .menuseq,
-.doc .icon i::after {
-  hyphens: none;
 }
