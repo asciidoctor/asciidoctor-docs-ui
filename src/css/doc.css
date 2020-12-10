@@ -15,6 +15,8 @@
     margin: var(--doc-margin--desktop);
     max-width: var(--doc-max-width--desktop);
     min-width: 0;
+    position: relative;
+    z-index: var(--z-index-doc);
   }
 }
 
@@ -198,6 +200,7 @@
 }
 
 .doc table.tableblock {
+  background: var(--body-background);
   border-collapse: collapse;
   font-size: calc(15 / var(--rem-base) * 1rem);
   margin: 1.5rem 0 0;
@@ -210,6 +213,12 @@
   overflow-x: auto;
   max-width: 100%;
   */
+}
+
+@media screen and (min-width: 1024px) {
+  .doc table.tableblock {
+    box-shadow: 5px 0 0 var(--color-white);
+  }
 }
 
 .doc table.tableblock + * {
@@ -718,7 +727,7 @@
   background-color: var(--doc-font-color);
   border-radius: 0.25em;
   padding: 0.5em;
-  color: #fff;
+  color: var(--color-white);
   font-family: var(--body-font-family);
   cursor: auto;
   opacity: 0;
