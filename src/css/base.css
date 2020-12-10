@@ -79,3 +79,8 @@ button::-moz-focus-inner {
 summary {
   cursor: pointer;
 }
+
+table {
+  border-collapse: collapse;
+  word-wrap: normal; /* table widths aren't computed as expected when word-wrap is enabled */
+}
