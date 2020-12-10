@@ -184,6 +184,7 @@
 
 .doc .paragraph,
 .doc .dlist,
+.doc .hdlist,
 .doc .olist,
 .doc .ulist,
 .doc .exampleblock,
@@ -749,6 +750,21 @@
 .code-toolbox .copy-button.clicked .copy-toast {
   opacity: 1;
   transition: none;
+}
+
+.doc .hdlist1,
+.doc .hdlist2 {
+  padding: 0;
+  vertical-align: top;
+}
+
+.doc .hdlist1 {
+  font-weight: var(--body-font-weight-bold);
+  padding-right: 0.25rem;
+}
+
+.doc .hdlist2 {
+  padding-left: 0.25rem;
 }
 
 .doc .dlist dt {
