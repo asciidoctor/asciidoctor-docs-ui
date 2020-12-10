@@ -1,7 +1,5 @@
 ;(function () {
   'use strict'
-  var commandContinuationRx = /\\\s*$/
-
   ;[].slice.call(document.querySelectorAll('.doc pre.highlight, .doc .literalblock pre')).forEach(function (pre) {
     var code, language, lang, copy, toast, toolbox
     if (pre.classList.contains('highlight')) {
@@ -51,31 +49,18 @@
     copy.addEventListener('click', writeToClipboard.bind(copy, code))
   })
 
+  function extractCommands (text) {
+    var cmdRx = /^\$ (\S[^\\\n]*(\\\n(?!\$ )[^\\\n]*)*)(?=\n|$)/gm
+    var cleanupRx = /( )? *\\\n */g
+    var cmds = []
+    var m
+    while ((m = cmdRx.exec(text))) cmds.push(m[1].replace(cleanupRx, '$1'))
+    return cmds.join(' && ')
+  }
+
   function writeToClipboard (code) {
     var text = code.innerText
-    if (code.dataset.lang === 'console' && text.startsWith('$ ')) {
-      var lines = text.split('\n')
-      var currentCommand = ''
-      var commands = []
-      var commandContinuationFound = false
-      for (var i = 0; i < lines.length; i++) {
-        var line = lines[i]
-        if (!commandContinuationFound && !line.startsWith('$ ')) {
-          // ignore, command output
-        } else {
-          if (commandContinuationFound) {
-            currentCommand += '\n' + line
-          } else if (line.startsWith('$ ')) {
-            currentCommand = line.slice(2)
-          }
-          commandContinuationFound = line.match(commandContinuationRx)
-          if (!commandContinuationFound) {
-            commands.push(currentCommand)
-          }
-        }
-      }
-      text = commands.join('; ')
-    }
+    if (code.dataset.lang === 'console' && text.startsWith('$ ')) text = extractCommands(text)
     window.navigator.clipboard.writeText(text).then(
       function () {
         this.classList.add('clicked')
