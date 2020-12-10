@@ -49,9 +49,18 @@
     copy.addEventListener('click', writeToClipboard.bind(copy, code))
   })
 
+  function extractCommands (text) {
+    var cmdRx = /^\$ (\S[^\\\n]*(\\\n(?!\$ )[^\\\n]*)*)(?=\n|$)/gm
+    var cleanupRx = /( )? *\\\n */g
+    var cmds = []
+    var m
+    while ((m = cmdRx.exec(text))) cmds.push(m[1].replace(cleanupRx, '$1'))
+    return cmds.join(' && ')
+  }
+
   function writeToClipboard (code) {
     var text = code.innerText
-    if (code.dataset.lang === 'console' && text.startsWith('$ ')) text = text.split('\n')[0].slice(2)
+    if (code.dataset.lang === 'console' && text.startsWith('$ ')) text = extractCommands(text)
     window.navigator.clipboard.writeText(text).then(
       function () {
         this.classList.add('clicked')
