@@ -698,7 +698,7 @@
   border: none;
   color: inherit;
   outline: none;
-  padding: 0;
+  padding: 0.025rem 0 0;
   font-size: inherit;
   line-height: inherit;
   width: 1em;
@@ -710,6 +710,7 @@
 }
 
 .code-toolbox .copy-button svg {
+  fill: currentColor;
   width: inherit;
   height: inherit;
 }

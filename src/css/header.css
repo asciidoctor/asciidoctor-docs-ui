@@ -188,6 +188,12 @@ body {
   display: block;
 }
 
+.navbar-item .icon svg {
+  fill: currentColor;
+  width: inherit;
+  height: inherit;
+}
+
 .navbar-link {
   padding-right: 2.5em;
 }
