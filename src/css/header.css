@@ -190,6 +190,8 @@ body {
 
 .navbar-item .icon svg {
   fill: currentColor;
+  width: inherit;
+  height: inherit;
 }
 
 .navbar-link {

@@ -699,13 +699,10 @@
   color: inherit;
   outline: none;
   padding: 0;
-  /*
-  padding: 0.025rem 0 0;
-  */
   font-size: inherit;
   line-height: inherit;
-  width: 1em;
-  height: 1em;
+  width: 1.025em;
+  height: 1.025em;
 }
 
 .code-toolbox .copy-button * {
@@ -714,6 +711,8 @@
 
 .code-toolbox .copy-button svg {
   fill: currentColor;
+  width: inherit;
+  height: inherit;
 }
 
 .code-toolbox .copy-toast {
