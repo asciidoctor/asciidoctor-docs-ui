@@ -667,7 +667,7 @@
   user-select: none;
 }
 
-.doc .code-toolbox {
+.doc .source-toolbox {
   display: flex;
   visibility: hidden;
   position: absolute;
@@ -678,19 +678,19 @@
   line-height: 1;
 }
 
-.doc .listingblock:hover .code-toolbox {
+.doc .listingblock:hover .source-toolbox {
   visibility: visible;
 }
 
-.doc .code-toolbox .code-lang {
+.doc .source-toolbox .source-lang {
   text-transform: uppercase;
 }
 
-.doc .code-toolbox > :not(:last-child)::after {
+.doc .source-toolbox > :not(:last-child)::after {
   content: " | ";
 }
 
-.doc .code-toolbox .copy-button {
+.doc .source-toolbox .copy-button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -705,17 +705,17 @@
   height: 1.05em;
 }
 
-.code-toolbox .copy-button * {
+.source-toolbox .copy-button * {
   flex: none;
 }
 
-.code-toolbox .copy-button svg {
+.source-toolbox .copy-button svg {
   fill: currentColor;
   width: inherit;
   height: inherit;
 }
 
-.code-toolbox .copy-toast {
+.source-toolbox .copy-toast {
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -730,7 +730,7 @@
   transition: opacity 0.5s ease 0.75s;
 }
 
-.code-toolbox .copy-toast::after {
+.source-toolbox .copy-toast::after {
   content: "";
   position: absolute;
   top: 0;
@@ -742,7 +742,7 @@
   transform-origin: left;
 }
 
-.code-toolbox .copy-button.clicked .copy-toast {
+.source-toolbox .copy-button.clicked .copy-toast {
   opacity: 1;
   transition: none;
 }

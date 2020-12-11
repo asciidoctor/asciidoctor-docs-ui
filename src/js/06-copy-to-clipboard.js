@@ -5,7 +5,7 @@
     if (pre.classList.contains('highlight')) {
       code = pre.querySelector('code')
       if ((language = code.dataset.lang) && language !== 'console') {
-        ;(lang = document.createElement('span')).className = 'code-lang'
+        ;(lang = document.createElement('span')).className = 'source-lang'
         lang.appendChild(document.createTextNode(language))
       }
     } else if (pre.innerText.startsWith('$ ')) {
@@ -21,7 +21,7 @@
     } else {
       return
     }
-    ;(toolbox = document.createElement('div')).className = 'code-toolbox'
+    ;(toolbox = document.createElement('div')).className = 'source-toolbox'
     if (lang) toolbox.appendChild(lang)
     if (window.navigator.clipboard) {
       ;(copy = document.createElement('button')).className = 'copy-button'
