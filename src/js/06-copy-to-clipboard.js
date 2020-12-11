@@ -21,24 +21,26 @@
     } else {
       return
     }
-    ;(copy = document.createElement('button')).className = 'copy-button'
-    copy.setAttribute('title', 'Copy to clipboard')
-    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-    svg.setAttribute('aria-hidden', 'true')
-    svg.setAttribute('class', 'copy-icon')
-    svg.setAttribute('viewBox', '0 0 16 16')
-    var use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-    use.setAttribute('href', window.uiRootPath + '/img/octicons.svg#icon-clippy-16')
-    svg.appendChild(use)
-    copy.appendChild(svg)
-    ;(toast = document.createElement('span')).className = 'copy-toast'
-    toast.appendChild(document.createTextNode('Copied!'))
-    copy.appendChild(toast)
     ;(toolbox = document.createElement('div')).className = 'code-toolbox'
     if (lang) toolbox.appendChild(lang)
-    toolbox.appendChild(copy)
+    if (window.navigator.clipboard) {
+      ;(copy = document.createElement('button')).className = 'copy-button'
+      copy.setAttribute('title', 'Copy to clipboard')
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      svg.setAttribute('aria-hidden', 'true')
+      svg.setAttribute('class', 'copy-icon')
+      svg.setAttribute('viewBox', '0 0 16 16')
+      var use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
+      use.setAttribute('href', window.uiRootPath + '/img/octicons.svg#icon-clippy-16')
+      svg.appendChild(use)
+      copy.appendChild(svg)
+      ;(toast = document.createElement('span')).className = 'copy-toast'
+      toast.appendChild(document.createTextNode('Copied!'))
+      copy.appendChild(toast)
+      toolbox.appendChild(copy)
+    }
     pre.appendChild(toolbox)
-    copy.addEventListener('click', writeToClipboard.bind(copy, code))
+    if (copy) copy.addEventListener('click', writeToClipboard.bind(copy, code))
   })
 
   function extractCommands (text) {
