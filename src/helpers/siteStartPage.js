@@ -2,8 +2,6 @@
 
 module.exports = ({
   data: {
-    root: {
-      contentCatalog = { getSiteStartPage () {} },
-    },
+    root: { contentCatalog = { getSiteStartPage () {} } },
   },
 }) => contentCatalog.getSiteStartPage()
