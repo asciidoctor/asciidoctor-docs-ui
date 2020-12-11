@@ -113,7 +113,12 @@ module.exports = (src, dest, preview) => () => {
             imagemin.jpegtran(),
             imagemin.optipng(),
             imagemin.svgo({
-              plugins: [{ removeUselessDefs: false }, { removeViewBox: false }, { removeDesc: false }],
+              plugins: [
+                { cleanupIDs: { preservePrefixes: ['icon-'] } },
+                { removeUselessDefs: false },
+                { removeViewBox: false },
+                { removeDesc: false },
+              ],
             }),
           ].reduce((accum, it) => (it ? accum.concat(it) : accum), [])
         )

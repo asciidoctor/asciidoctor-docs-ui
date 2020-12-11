@@ -28,7 +28,7 @@
     svg.setAttribute('class', 'copy-icon')
     svg.setAttribute('viewBox', '0 0 16 16')
     var use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-    use.setAttribute('href', window.uiRootPath + '/img/octicons.svg#clippy-16')
+    use.setAttribute('href', window.uiRootPath + '/img/octicons.svg#icon-clippy-16')
     svg.appendChild(use)
     copy.appendChild(svg)
     ;(toast = document.createElement('span')).className = 'copy-toast'
