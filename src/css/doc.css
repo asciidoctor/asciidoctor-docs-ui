@@ -711,8 +711,6 @@
 
 .code-toolbox .copy-button svg {
   fill: currentColor;
-  width: inherit;
-  height: inherit;
 }
 
 .code-toolbox .copy-toast {
