@@ -24,16 +24,19 @@ body {
 .navbar-brand {
   display: flex;
   height: var(--navbar-height);
-  padding: 0;
-}
-
-.navbar-brand img {
-  height: calc(0.6 * var(--navbar-height));
+  align-items: center;
 }
 
 .navbar-brand .navbar-item {
   padding: 0;
   margin-left: 1rem;
+  height: calc(0.6 * var(--navbar-height));
+  width: calc(0.6 * var(--navbar-height));
+}
+
+.navbar-brand .navbar-item svg {
+  height: inherit;
+  width: inherit;
 }
 
 .navbar-start .navbar-item + .navbar-item {
@@ -225,11 +228,6 @@ body {
 }
 
 @media screen and (max-width: 1023px) {
-  .navbar-brand .navbar-item {
-    align-items: center;
-    display: flex;
-  }
-
   .navbar-menu {
     background: var(--navbar-menu-background);
     padding: 0.5rem 0;

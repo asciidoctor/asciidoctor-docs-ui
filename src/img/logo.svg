@@ -29,7 +29,7 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <g transform="translate(-0.083335,-191.08337)">
+  <g id="icon-asciidoctor" transform="translate(-0.083335,-191.08337)">
     <path
        d="m 26.240746,191.08337 c -14.436702,0 -26.157411,11.7201 -26.157411,26.15666 v 53.51951 c 0,14.43654 11.720957,26.15715 26.157411,26.15715 H 79.76025 c 14.436679,0 26.15641,-11.72061 26.15641,-26.15715 v -53.51951 c 0,-14.43656 -11.719488,-26.15666 -26.15641,-26.15666 z"
        style="clip-rule:evenodd;fill:#e40046;fill-opacity:1;fill-rule:evenodd;stroke-width:0.24752024;stroke-linejoin:round;stroke-miterlimit:1.41420996" />
