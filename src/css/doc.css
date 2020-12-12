@@ -212,7 +212,10 @@
 
 @media screen and (min-width: 1024px) {
   .doc table.tableblock {
+    /*
     box-shadow: 5px 0 0 var(--color-white);
+    */
+    box-shadow: 0 0 0.25rem 0.25rem var(--color-white);
   }
 }
 
