@@ -13,7 +13,13 @@
         <a class="navbar-item" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">{{site.title}}</a>
         {{#if env.ALGOLIA_API_KEY}}
         <div class="navbar-item hide-for-print">
-          <input id="search-input" type="text" placeholder="Search docs">
+          <div class="search-field">
+            <input id="search-input" type="text" placeholder="Search docs">
+            <div class="search-scope">
+              <input type="checkbox" id="search-global"{{#if page.component}} data-component="{{page.component.name}}"{{/if}} checked>
+              <label for="search-global">All Projects</label>
+            </div>
+          </div>
         </div>
         {{/if}}
       </div>

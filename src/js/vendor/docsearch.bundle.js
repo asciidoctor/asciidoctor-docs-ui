@@ -7,25 +7,33 @@
   link.rel = 'stylesheet'
   link.href = config.stylesheet
   document.head.appendChild(link)
-  var search = docsearch({
+  var defaultAlgoliaOptions = { hitsPerPage: parseInt(config.maxResults) || 5 }
+  var docsearchComponent = docsearch({
     appId: config.appId,
     apiKey: config.apiKey,
     indexName: config.indexName,
     inputSelector: '#search-input',
     autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
-    algoliaOptions: { hitsPerPage: parseInt(config.maxResults) || 5 },
-  }).autocomplete
-  var autocomplete = search.autocomplete
-  search.on(
-    'autocomplete:updated',
-    function () {
-      this.scrollTop = 0
-    }.bind(autocomplete.getWrapper().firstChild)
-  )
-  search.on(
-    'autocomplete:closed',
-    function () {
-      this.setVal()
-    }.bind(autocomplete)
-  )
+    algoliaOptions: defaultAlgoliaOptions,
+  })
+  var search = docsearchComponent.autocomplete
+  search.on('autocomplete:updated', function () {
+    this.scrollTop = 0
+  }.bind(search.getWrapper().firstChild))
+  search.on('autocomplete:closed', function () {
+    this.setVal()
+  }.bind(search))
+
+  var searchGlobalCheckbox = document.getElementById('search-global')
+  if (searchGlobalCheckbox && searchGlobalCheckbox.dataset && searchGlobalCheckbox.dataset.component) {
+    searchGlobalCheckbox.addEventListener('change', function () {
+      if (searchGlobalCheckbox.checked) {
+        docsearchComponent.algoliaOptions = defaultAlgoliaOptions
+      } else {
+        docsearchComponent.algoliaOptions = Object.assign(defaultAlgoliaOptions, {
+          facetFilters: ['component:' + searchGlobalCheckbox.dataset.component],
+        })
+      }
+    })
+  }
 })()

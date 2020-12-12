@@ -41,15 +41,41 @@ body {
   justify-content: flex-end;
 }
 
+.search-field {
+  display: flex;
+}
+
 #search-input {
   color: var(--body-font-color);
   font-family: inherit;
   font-size: 0.95rem;
   width: 200px;
   border: 1px solid var(--navbar-button-border-color);
-  border-radius: 0.1em;
   line-height: 1.5;
   padding: 0 0.25em;
+  border-right: none;
+  border-radius: 0.1em 0 0 0.1em;
+}
+
+.search-scope {
+  display: flex;
+  font-family: inherit;
+  font-size: 0.75rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  background-color: var(--color-smoke-30);
+  border-left: 0.1em solid var(--color-smoke-90);
+  border-radius: 0 0.1em 0.1em 0;
+}
+
+.search-scope > label {
+  color: var(--body-font-color);
+}
+
+.search-scope > label,
+.search-scope > input {
+  align-self: center;
+  cursor: pointer;
 }
 
 .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
