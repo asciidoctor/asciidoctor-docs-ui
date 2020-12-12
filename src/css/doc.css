@@ -100,7 +100,6 @@
 .doc h6:hover .anchor {
   color: var(--color-brand-primary);
   visibility: visible;
-  /* -webkit-text-stroke-width: initial; */
 }
 
 .doc p,
@@ -199,15 +198,6 @@
   background: var(--body-background);
   font-size: calc(15 / var(--rem-base) * 1rem);
   margin: 1.5rem 0 0;
-  /* enable table-layout: fixed if you want the table width to be enforced strictly */
-  /* alternative is to wrap table in div and set overflow-x: auto on the wrapper */
-  /* another alternative is to set overflow-x: auto and display: block on table (but this breaks table borders) */
-  /* table-layout: fixed; */
-  /*
-  display: block;
-  overflow-x: auto;
-  max-width: 100%;
-  */
 }
 
 @media screen and (min-width: 1024px) {
