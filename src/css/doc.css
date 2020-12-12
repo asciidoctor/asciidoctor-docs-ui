@@ -207,6 +207,10 @@
     */
     box-shadow: 0 0 0.25rem 0.25rem var(--color-white);
   }
+
+  .doc .content table.tableblock {
+    box-shadow: none;
+  }
 }
 
 .doc table.tableblock + * {
