@@ -114,7 +114,6 @@
 
 .doc a:hover {
   color: var(--link_hover-font-color);
-  /* -webkit-text-stroke-width: 0.01em; */
 }
 
 .doc a.bare {
@@ -663,10 +662,6 @@
   position: relative;
 }
 
-.doc .language-console .hljs-meta {
-  user-select: none;
-}
-
 .doc .source-toolbox {
   display: flex;
   visibility: hidden;
@@ -674,6 +669,7 @@
   top: 0.25rem;
   right: 0.5rem;
   color: var(--pre-annotation-font-color);
+  font-family: var(--body-font-family);
   font-size: calc(13.5 / var(--rem-base) * 1rem);
   line-height: 1;
 }
@@ -684,11 +680,15 @@
 
 .doc .source-toolbox .source-lang {
   text-transform: uppercase;
-  line-height: 1.05;
+  letter-spacing: 0.075em;
+  font-size: 0.96em;
+  line-height: 1.0425;
 }
 
 .doc .source-toolbox > :not(:last-child)::after {
-  content: " | ";
+  content: "|";
+  letter-spacing: 0;
+  padding: 0 1ch;
 }
 
 .doc .source-toolbox .copy-button {
@@ -702,8 +702,8 @@
   padding: 0;
   font-size: inherit;
   line-height: inherit;
-  width: 1.1em;
-  height: 1.1em;
+  width: 1em;
+  height: 1em;
 }
 
 .source-toolbox .copy-button * {
@@ -725,7 +725,6 @@
   border-radius: 0.25em;
   padding: 0.5em;
   color: var(--color-white);
-  font-family: var(--body-font-family);
   cursor: auto;
   opacity: 0;
   transition: opacity 0.5s ease 0.75s;
@@ -746,6 +745,10 @@
 .source-toolbox .copy-button.clicked .copy-toast {
   opacity: 1;
   transition: none;
+}
+
+.doc .language-console .hljs-meta {
+  user-select: none;
 }
 
 .doc .hdlist1,
