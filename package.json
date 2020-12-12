@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/asciidoctor/asciidoctor-docs-ui"
   },
+  "scripts": {
+    "start": "gulp preview"
+  },
   "engines": {
     "node": ">= 10.17.0"
   },
