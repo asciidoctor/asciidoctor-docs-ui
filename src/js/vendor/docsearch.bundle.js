@@ -15,7 +15,11 @@
     autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
     algoliaOptions: { hitsPerPage: parseInt(config.maxResults) || 5 },
   }).autocomplete
+  var autocomplete = search.autocomplete
+  search.on('autocomplete:updated', function () {
+    this.scrollTop = 0
+  }.bind(autocomplete.getWrapper().firstChild))
   search.on('autocomplete:closed', function () {
-    search.autocomplete.setVal()
-  })
+    this.setVal()
+  }.bind(autocomplete))
 })()
