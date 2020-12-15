@@ -106,24 +106,24 @@
 
   function showNav (e) {
     if (navToggle.classList.contains('is-active')) return hideNav(e)
-    var navBounds = nav.getBoundingClientRect()
-    var expectedNavHeight = window.innerHeight - Math.round(navBounds.top)
-    if (Math.round(navBounds.height) !== expectedNavHeight) nav.style.height = expectedNavHeight + 'px'
+    concealEvent(e)
     var html = document.documentElement
     html.classList.add('is-clipped--nav')
     navToggle.classList.add('is-active')
     navContainer.classList.add('is-active')
+    var bounds = nav.getBoundingClientRect()
+    var expectedHeight = window.innerHeight - Math.round(bounds.top)
+    if (Math.round(bounds.height) !== expectedHeight) nav.style.height = expectedHeight + 'px'
     html.addEventListener('click', hideNav)
-    concealEvent(e)
   }
 
   function hideNav (e) {
+    concealEvent(e)
     var html = document.documentElement
     html.classList.remove('is-clipped--nav')
     navToggle.classList.remove('is-active')
     navContainer.classList.remove('is-active')
     html.removeEventListener('click', hideNav)
-    concealEvent(e)
   }
 
   // NOTE don't let event get picked up by window click listener

@@ -4,9 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
   navbarToggles.forEach(function (el) {
     el.addEventListener('click', function (e) {
       e.stopPropagation()
-      el.classList.toggle('is-active')
-      document.getElementById(el.dataset.target).classList.toggle('is-active')
       document.documentElement.classList.toggle('is-clipped--navbar')
+      el.classList.toggle('is-active')
+      var menu = document.getElementById(el.dataset.target)
+      if (menu.classList.toggle('is-active')) {
+        var expectedMaxHeight = window.innerHeight - Math.round(menu.getBoundingClientRect().top)
+        var actualMaxHeight = parseInt(window.getComputedStyle(menu).maxHeight)
+        if (actualMaxHeight !== expectedMaxHeight) menu.style.maxHeight = expectedMaxHeight + 'px'
+      }
     })
   })
 })
