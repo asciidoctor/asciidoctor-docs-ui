@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
       el.classList.toggle('is-active')
       var menu = document.getElementById(el.dataset.target)
       if (menu.classList.toggle('is-active')) {
+        menu.style.maxHeight = ''
         var expectedMaxHeight = window.innerHeight - Math.round(menu.getBoundingClientRect().top)
         var actualMaxHeight = parseInt(window.getComputedStyle(menu).maxHeight)
         if (actualMaxHeight !== expectedMaxHeight) menu.style.maxHeight = expectedMaxHeight + 'px'
