@@ -56,7 +56,7 @@ body {
   max-height: calc(100vh - var(--navbar-height));
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .navbar-start .navbar-item + .navbar-item {
     display: none;
   }
