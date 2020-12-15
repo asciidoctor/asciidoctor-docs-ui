@@ -1,10 +1,10 @@
 <article class="doc">
 <h1 class="page">{{{or page.title 'Page Not Found'}}}</h1>
 <div class="paragraph">
-<p>The page you&#8217;re looking for does not exist. It may have been moved. You can{{#with site.homeUrl}} return to the <a id="return-link" href="{{{this}}}">start page</a>, or{{/with}} follow one of the links in the navigation to the left.</p>
+<p>The page you&#8217;re looking for does not exist. It may have been moved. You can{{#with site.homeUrl}} return to the <a id="return-link" href="{{{this}}}">start page</a>, or{{/with}} follow one of the links in the navigation on the left.</p>
 </div>
 <div class="paragraph">
-<p>If you arrived on this page by clicking on a link on another site, please notify the owner of that site that the link is broken.
+<p>If you arrived on this page by clicking a link on another site, please notify the owner of that site that the link is broken.
 If you typed the URL of this page manually, please double check that you entered the address correctly.</p>
 </div>
 </article>
@@ -13,19 +13,23 @@ If you typed the URL of this page manually, please double check that you entered
   if (!returnLink) return
   var startPages = [
     {{#each site.components}}
-    {{#if (or ./versions.[1] (ne ./versions.[0].version 'master'))}}
+    { name: "{{{./name}}}", title: "{{{./title}}}", url: "{{{@root.site.path}}}{{{./url}}}", prefix: "{{{@root.site.path}}}/{{{./name}}}" },
     {{#each ./versions}}
-    { name: "{{{./name}}}", title: "{{{./title}}}", version: "{{{./version}}}", url: "{{{./url}}}" },
+    {{#unless (eq ./version 'master')}}
+    { name: "{{{./name}}}", title: "{{{./title}}}", version: "{{{./version}}}", url: "{{{@root.site.path}}}{{{./url}}}", prefix: "{{{@root.site.path}}}/{{{./name}}}/{{{./version}}}" },
+    {{/unless}}
     {{/each}}
-    {{/if}}
-    { name: "{{{./name}}}", title: "{{{./title}}}", url: "{{{./url}}}" },
     {{/each}}
   ].reduce(function (accum, it) {
-    if ('version' in it) {
-      accum[it.url.replace(/\/(?:index\.html?$)/, '')] = it
-    } else {
-      if (!('/' + it.name in accum)) accum['/' + it.name] = it
+    var prefix = it.prefix
+    delete it.prefix
+    if (('version' in it) && !it.url.startsWith(prefix + '/')) {
+      var prefixSegments = prefix.split('/')
+      var versionSegmentIdx = prefixSegments.findIndex((segment) => segment === it.version)
+      prefixSegments.splice(versionSegmentIdx, 1, it.url.split('/')[versionSegmentIdx])
+      prefix = prefixSegments.join('/')
     }
+    accum[prefix] = it
     return accum
   }, {})
   var returnTo
