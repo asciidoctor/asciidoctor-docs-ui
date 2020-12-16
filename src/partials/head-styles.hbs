@@ -1,1 +1,4 @@
     <link rel="stylesheet" href="{{{uiRootPath}}}/css/site.css">
+    {{#if (eq page.attributes.role 'home')}}
+    <link rel="stylesheet" href="{{{uiRootPath}}}/css/home.css">
+    {{/if}}
