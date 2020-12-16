@@ -1,0 +1,56 @@
+= Home Page Title
+:navtitle: Home
+:page-role: home
+
+Welcome to the home page!
+
+[.panel]
+--
+[discrete]
+== xref:home.adoc[First hero panel]
+
+Content for hero panel.
+--
+
+[.panel]
+--
+[discrete]
+== xref:home.adoc[Another hero panel]
+
+Content for hero panel.
+--
+
+[discrete]
+=== Things
+
+Introduction of things.
+
+[.grid]
+Thing A::
+Description of thing A.
+
+Thing B::
+Description of thing B.
+
+Thing C::
+Description of thing C.
+
+[discrete]
+=== Explore topics
+
+[.grid]
+Topic A::
+Description of topic A.
+
+* xref:#[Quicklink 1]
+* xref:#[Quicklink 2]
+* xref:#[Quicklink 3]
+
+Topic B::
+Description of topic B.
+
+Topic C::
+Description of topic C.
+
+Topic D::
+Description of topic D.
