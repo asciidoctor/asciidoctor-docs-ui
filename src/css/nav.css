@@ -200,21 +200,26 @@ html.is-clipped--nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
   line-height: 1;
   height: var(--drawer-height);
+}
+
+.nav-panel-explore:not(:first-child) .context {
+  cursor: pointer;
 }
 
 .nav-panel-explore .context .version {
   display: flex;
   align-items: inherit;
+  padding-right: 0.25rem;
 }
 
-.nav-panel-explore .context .version::after {
+.nav-panel-explore:not(:first-child) .context .version::after {
   content: "";
   background: url(../img/chevron.svg) no-repeat center right / auto 100%;
   width: 1.25em;
   height: 0.75em;
+  margin-right: -0.25rem;
 }
 
 .nav-panel-explore .components {
