@@ -2,7 +2,7 @@ antoraVersion: '3.0.0'
 site:
   url: http://localhost:5252
   title: Brand Docs
-  homeUrl: &home_url /xyz/5.2/index.html
+  homeUrl: &home_url /index.html
   components:
   - name: abc
     title: Project ABC
@@ -72,7 +72,7 @@ page:
     url: '#'
     urlType: fragment
   - content: Brand&#8217;s Hardware &amp; Software Requirements
-    url: /xyz/5.2/index.html
+    url: /index.html
     urlType: internal
   versions:
   - version: '6.0'
@@ -96,13 +96,13 @@ page:
       urlType: fragment
       items:
       - content: Brand&#8217;s Hardware &amp; Software Requirements
-        url: /xyz/5.2/index.html
+        url: /index.html
         urlType: internal
       - content: Cu Solet
-        url: '/xyz/5.2/index.html#cu-solet'
+        url: '/index.html#cu-solet'
         urlType: internal
       - content: English + 中文
-        url: '/xyz/5.2/index.html#english+中文'
+        url: '/index.html#english+中文'
         urlType: internal
     - content: Liber Recusabo
       url: '#liber-recusabo'
@@ -116,5 +116,5 @@ page:
         url: '#'
         urlType: fragment
       - content: Some Code
-        url: '/xyz/5.2/index.html#some-code'
+        url: '/index.html#some-code'
         urlType: internal

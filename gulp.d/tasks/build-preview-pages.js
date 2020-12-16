@@ -82,6 +82,7 @@ function registerPartials (src) {
 }
 
 function registerHelpers (src) {
+  handlebars.registerHelper('relativize', relativize)
   handlebars.registerHelper('resolvePage', resolvePage)
   handlebars.registerHelper('resolvePageURL', resolvePageURL)
   return vfs.src('helpers/*.js', { base: src, cwd: src }).pipe(
@@ -114,6 +115,10 @@ function copyImages (src, dest) {
     .src('**/*.{png,svg}', { base: src, cwd: src })
     .pipe(vfs.dest(dest))
     .pipe(map((file, enc, next) => next()))
+}
+
+function relativize (url) {
+  return url ? (url.charAt() === '#' ? url : url.slice(1)) : '#'
 }
 
 function resolvePage (spec, context = {}) {
