@@ -89,8 +89,6 @@ body {
     color: var(--navbar-font-color);
   }
 
-  .navbar-start > a.navbar-item:hover,
-  .navbar-start .navbar-link:hover,
   .navbar-end > a.navbar-item:hover,
   .navbar-end .navbar-link:hover {
     background: var(--navbar_hover-background);
@@ -99,12 +97,7 @@ body {
 
   .navbar-start .navbar-link::after,
   .navbar-end .navbar-link::after {
-    border-color: var(--navbar-font-color);
-  }
-
-  .navbar-item.has-dropdown:hover .navbar-link {
-    background: var(--navbar_hover-background);
-    color: var(--navbar-font-color);
+    border-color: currentColor;
   }
 }
 
