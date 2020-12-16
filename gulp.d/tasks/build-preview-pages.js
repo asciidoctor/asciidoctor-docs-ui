@@ -51,7 +51,7 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
                   return accum
                 }, {})
               uiModel.page.layout = doc.getAttribute('page-layout', 'default')
-              if (doc.hasAttribute('page-role')) uiModel.page.role = doc.getAttribute('page-role')
+              if (doc.hasAttribute('docrole')) uiModel.page.role = doc.getAttribute('docrole')
               uiModel.page.title = doc.getDocumentTitle()
               uiModel.page.contents = Buffer.from(doc.convert())
             }
