@@ -16,10 +16,16 @@
     algoliaOptions: { hitsPerPage: parseInt(config.maxResults) || 5 },
   }).autocomplete
   var autocomplete = search.autocomplete
-  search.on('autocomplete:updated', function () {
-    this.scrollTop = 0
-  }.bind(autocomplete.getWrapper().firstChild))
-  search.on('autocomplete:closed', function () {
-    this.setVal()
-  }.bind(autocomplete))
+  search.on(
+    'autocomplete:updated',
+    function () {
+      this.scrollTop = 0
+    }.bind(autocomplete.getWrapper().firstChild)
+  )
+  search.on(
+    'autocomplete:closed',
+    function () {
+      this.setVal()
+    }.bind(autocomplete)
+  )
 })()
