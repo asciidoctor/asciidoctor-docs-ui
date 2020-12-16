@@ -1,6 +1,6 @@
 = Asciidoctor Docs UI
 // Variables:
-:current-release: prod-95
+:current-release: prod-96
 // Settings:
 :experimental:
 :hide-uri-scheme:
