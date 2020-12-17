@@ -42,7 +42,8 @@ If you typed the URL of this page manually, please double check that you entered
     returnLink.href = returnTo.url
     returnLink.innerText =
       'start page for the ' + returnTo.title + ' ' +
-      ((returnTo.version || 'master' !== 'master') ? returnTo.version + ' ' : '') + 'documentation'
+      (returnTo.version ? returnTo.version + ' ' : '') +
+      'documentation'
   }
 })(window.location.pathname, document.getElementById('return-link'))
 </script>
