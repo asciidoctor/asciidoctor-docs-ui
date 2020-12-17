@@ -1,2 +1,18 @@
 @import "docsearch.js/dist/cdn/docsearch.css";
 @import "../vars.css";
+
+.algolia-autocomplete .ds-dropdown-menu > :first-child {
+  max-height: calc(100vh - var(--navbar-height));
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+  font-weight: var(--body-font-weight-bold);
+}
+
+/*
+@media screen and (max-width: 1023px) {
+  .algolia-autocomplete .ds-dropdown-menu {
+    min-width: calc(100vw - var(--navbar-height)) !important;
+  }
+}
+*/
