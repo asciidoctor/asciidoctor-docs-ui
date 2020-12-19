@@ -124,8 +124,14 @@
 }
 
 .doc i.fa {
+  display: inline-block;
+  background: no-repeat center / 1em 1em;
+  filter: invert(20%);
   hyphens: none;
   font-style: normal;
+  height: 1em;
+  width: 1em;
+  vertical-align: -0.125em;
 }
 
 .doc p code,
@@ -354,13 +360,31 @@
   top: 0;
   left: 0;
   font-size: calc(15 / var(--rem-base) * 1rem);
-  padding: 0 0.5rem;
-  height: 1.25rem;
   line-height: 1;
-  font-weight: var(--admonition-label-font-weight);
-  text-transform: uppercase;
-  border-radius: 0.45rem;
   transform: translate(-0.5rem, -50%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%) no-repeat left center / 2.075em 100%;
+  border-radius: 0.5em;
+  padding: 0.25em 0.075em;
+}
+
+.doc .admonitionblock td.icon i {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  background-position-x: 0.5em;
+  filter: invert(100%);
+  padding-left: 2em;
+  vertical-align: initial;
+}
+
+.doc .admonitionblock td.icon i::after {
+  content: attr(title);
+  text-transform: uppercase;
+  filter: invert(100%); /* NOTE reverse the filter on the icon */
+  font-weight: var(--admonition-label-font-weight);
+  font-style: normal;
+  padding: 0 0.5em;
+  margin: -0.05em; /* NOTE account for slight offset in font */
 }
 
 .doc .admonitionblock.caution td.icon {
@@ -368,9 +392,17 @@
   color: var(--caution-on-color);
 }
 
+.doc .admonitionblock.caution td.icon i {
+  background-image: url(../img/octicons.svg#view-flame-16);
+}
+
 .doc .admonitionblock.important td.icon {
   background-color: var(--important-color);
   color: var(--important-on-color);
+}
+
+.doc .admonitionblock.important td.icon i {
+  background-image: url(../img/octicons.svg#view-stop-16);
 }
 
 .doc .admonitionblock.note td.icon {
@@ -378,9 +410,17 @@
   color: var(--note-on-color);
 }
 
+.doc .admonitionblock.note td.icon i {
+  background-image: url(../img/octicons.svg#view-info-16);
+}
+
 .doc .admonitionblock.tip td.icon {
   background-color: var(--tip-color);
   color: var(--tip-on-color);
+}
+
+.doc .admonitionblock.tip td.icon i {
+  background-image: url(../img/octicons.svg#view-light-bulb-16);
 }
 
 .doc .admonitionblock.warning td.icon {
@@ -388,14 +428,8 @@
   color: var(--warning-on-color);
 }
 
-.doc .admonitionblock td.icon i {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-}
-
-.doc .admonitionblock td.icon i::after {
-  content: attr(title);
+.doc .admonitionblock.warning td.icon i {
+  background-image: url(../img/octicons.svg#view-alert-16);
 }
 
 .doc .imageblock {
@@ -535,17 +569,15 @@
 
 .doc ul.checklist > li > * > i.fa-check-square-o:first-child,
 .doc ul.checklist > li > * > i.fa-square-o:first-child {
-  display: inline-flex;
-  justify-content: center;
   width: 1.25rem;
 }
 
-.doc ul.checklist > li > * > i.fa-check-square-o:first-child::before {
-  content: "\2713";
+.doc ul.checklist > li > * > i.fa-check-square-o:first-child {
+  background-image: url(../img/octicons.svg#view-tasklist-16);
 }
 
-.doc ul.checklist > li > * > i.fa-square-o:first-child::before {
-  content: "\274f";
+.doc ul.checklist > li > * > i.fa-square-o:first-child {
+  background-image: url(../img/octicons.svg#view-square-16);
 }
 
 .doc .dlist .dlist,
@@ -877,11 +909,9 @@
   hyphens: none;
 }
 
-.doc .menuseq i.caret::before {
-  content: "\203a";
-  font-size: 1.1em;
-  font-weight: var(--body-font-weight-bold);
-  line-height: calc(1 / 1.1);
+.doc .menuseq i.caret {
+  background-image: url(../img/octicons.svg#view-chevron-right-16);
+  margin: 0 -0.25em;
 }
 
 .doc .nowrap {
