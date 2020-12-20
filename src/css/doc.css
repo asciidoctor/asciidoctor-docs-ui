@@ -349,7 +349,7 @@
   word-wrap: anywhere;
 }
 
-.doc .admonitionblock .icon {
+.doc .admonitionblock td.icon {
   position: absolute;
   top: 0;
   left: 0;
@@ -363,38 +363,38 @@
   transform: translate(-0.5rem, -50%);
 }
 
-.doc .admonitionblock.caution .icon {
+.doc .admonitionblock.caution td.icon {
   background-color: var(--caution-color);
   color: var(--caution-on-color);
 }
 
-.doc .admonitionblock.important .icon {
+.doc .admonitionblock.important td.icon {
   background-color: var(--important-color);
   color: var(--important-on-color);
 }
 
-.doc .admonitionblock.note .icon {
+.doc .admonitionblock.note td.icon {
   background-color: var(--note-color);
   color: var(--note-on-color);
 }
 
-.doc .admonitionblock.tip .icon {
+.doc .admonitionblock.tip td.icon {
   background-color: var(--tip-color);
   color: var(--tip-on-color);
 }
 
-.doc .admonitionblock.warning .icon {
+.doc .admonitionblock.warning td.icon {
   background-color: var(--warning-color);
   color: var(--warning-on-color);
 }
 
-.doc .admonitionblock .icon i {
+.doc .admonitionblock td.icon i {
   display: inline-flex;
   align-items: center;
   height: 100%;
 }
 
-.doc .admonitionblock .icon i::after {
+.doc .admonitionblock td.icon i::after {
   content: attr(title);
 }
 
@@ -533,18 +533,18 @@
   padding-left: 0.5rem;
 }
 
-.doc ul.checklist p > i.fa-check-square-o:first-child,
-.doc ul.checklist p > i.fa-square-o:first-child {
+.doc ul.checklist > li > * > i.fa-check-square-o:first-child,
+.doc ul.checklist > li > * > i.fa-square-o:first-child {
   display: inline-flex;
   justify-content: center;
   width: 1.25rem;
 }
 
-.doc ul.checklist i.fa-check-square-o::before {
+.doc ul.checklist > li > * > i.fa-check-square-o:first-child::before {
   content: "\2713";
 }
 
-.doc ul.checklist i.fa-square-o::before {
+.doc ul.checklist > li > * > i.fa-square-o:first-child::before {
   content: "\274f";
 }
 
