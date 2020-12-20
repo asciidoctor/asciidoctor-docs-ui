@@ -67,17 +67,16 @@
   --toc-heading-font-color: var(--doc-font-color);
   --toc-border-color: var(--panel-border-color);
   --toc-line-height: 1.2;
-  /* admonitions */
-  --caution-color: #a0439c;
+  /* admonitions (see https://coolors.co/802392-e40046-2d7dd2-43b929-ff7700) */
+  --caution-color: #802392;
   --caution-on-color: var(--color-white);
-  --important-color: #d32f2f;
   --important-color: var(--color-brand-primary);
   --important-on-color: var(--color-white);
-  --note-color: #217ee7;
+  --note-color: #2d7dd2;
   --note-on-color: var(--color-white);
-  --tip-color: #41af46;
+  --tip-color: #43b929;
   --tip-on-color: var(--color-white);
-  --warning-color: #e18114;
+  --warning-color: #f70;
   --warning-on-color: var(--color-white);
   /* doc */
   --doc-font-color: var(--color-jet-50);
