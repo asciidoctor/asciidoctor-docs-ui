@@ -56,7 +56,7 @@ body {
   max-height: calc(100vh - var(--navbar-height));
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.5px) {
   .navbar-start .navbar-item + .navbar-item {
     display: none;
   }
@@ -217,7 +217,7 @@ body {
   letter-spacing: -0.01em;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.5px) {
   .navbar-brand .navbar-item {
     align-items: center;
     display: flex;
