@@ -14,7 +14,7 @@
 
   function jumpToAnchor (e) {
     if (e) {
-      if (e.altKey) return
+      if (e.altKey || e.ctrlKey) return
       window.location.hash = '#' + this.id
       e.preventDefault()
     }
