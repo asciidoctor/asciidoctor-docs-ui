@@ -13,7 +13,18 @@
         <a class="navbar-item" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">{{site.title}}</a>
         {{#if env.ALGOLIA_API_KEY}}
         <div class="navbar-item hide-for-print">
-          <input id="search-input" type="text" placeholder="Search docs">
+          {{#if (and page.component (ne page.component.name 'home'))}}
+          <div id="search" class="field has-filter">
+            <input class="query" type="text" placeholder="Search the docs">
+            <label class="filter checkbox">
+              <input type="checkbox" data-facet-filter="component:{{page.component.name}}"> In this project
+            </label>
+          </div>
+          {{else}}
+          <div id="search" class="field">
+            <input class="query" type="text" placeholder="Search the docs"{{#if page.home}} autofocus{{/if}}>
+          </div>
+          {{/if}}
         </div>
         {{/if}}
       </div>
