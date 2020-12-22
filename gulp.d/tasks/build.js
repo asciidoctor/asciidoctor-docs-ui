@@ -52,7 +52,8 @@ module.exports = (src, dest, preview) => () => {
         },
       },
     ]),
-    postcssVar({ preserve: preview }),
+    // NOTE importFrom is for supplemental CSS files
+    postcssVar({ importFrom: path.join(src, 'css', 'vars.css'), preserve: preview }),
     preview ? postcssCalc : () => {},
     autoprefixer,
     preview
