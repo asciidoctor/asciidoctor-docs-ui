@@ -2,6 +2,14 @@ html.is-clipped--navbar {
   overflow-y: hidden;
 }
 
+/* NOTE workaround bug in Firefox mobile, which clips the html element to the original viewport height */
+@supports (scrollbar-width: none) {
+  html.is-clipped--navbar {
+    overflow-y: initial;
+    scrollbar-width: none;
+  }
+}
+
 body {
   padding-top: var(--navbar-height);
 }
@@ -251,7 +259,7 @@ body {
   .navbar-menu.is-active {
     display: block;
     box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
-    max-height: calc(100vh - var(--navbar-height));
+    max-height: calc(var(--viewport-height) - var(--navbar-height));
     overflow-y: auto;
   }
 
