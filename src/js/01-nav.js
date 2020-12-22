@@ -13,12 +13,22 @@
   if (!menuPanel) return
   var nav = navContainer.querySelector('.nav')
 
-  var currentPageItem = findItemForHash() || menuPanel.querySelector('.is-current-url')
-  if (currentPageItem) {
-    activateCurrentPath(currentPageItem)
-    scrollItemToMidpoint(menuPanel, currentPageItem)
+  var currentPageItem
+  if (menuPanel.classList.contains('is-loading')) {
+    if ((currentPageItem = findItemForHash() || menuPanel.querySelector('.is-current-url'))) {
+      activateCurrentPath(currentPageItem)
+      scrollItemToMidpoint(menuPanel, currentPageItem)
+    } else {
+      menuPanel.scrollTop = 0
+    }
+    menuPanel.classList.remove('is-loading')
   } else {
-    menuPanel.scrollTop = 0
+    var match = (currentPageItem = menuPanel.querySelector('.is-current-page'))
+    if ((!match || match.classList.contains('is-provisional')) && (match = findItemForHash(true))) {
+      var update = !!currentPageItem
+      activateCurrentPath((currentPageItem = match), update)
+      scrollItemToMidpoint(menuPanel, currentPageItem)
+    }
   }
 
   menuPanel.querySelector('.nav-menu-toggle').addEventListener('click', function () {
@@ -29,7 +39,7 @@
     if (currentPageItem) {
       if (collapse) activateCurrentPath(currentPageItem)
       scrollItemToMidpoint(menuPanel, currentPageItem)
-    } else if (collapse) {
+    } else {
       menuPanel.scrollTop = 0
     }
   })
@@ -45,7 +55,8 @@
 
   nav.querySelector('[data-panel=explore] .context').addEventListener('click', function () {
     find(nav, '[data-panel]').forEach(function (panel) {
-      panel.classList.toggle('is-active') // NOTE logic assumes there are only two panels
+      // NOTE logic assumes there are only two panels
+      panel.classList.toggle('is-active')
     })
   })
 
@@ -57,16 +68,18 @@
   function onHashChange () {
     var navItem = findItemForHash() || menuPanel.querySelector('.is-current-url')
     if (!navItem || navItem === currentPageItem) return
-    find(menuPanel, '.nav-item.is-active').forEach(function (el) {
-      el.classList.remove('is-current-path', 'is-current-page', 'is-active')
-    })
-    activateCurrentPath((currentPageItem = navItem))
+    activateCurrentPath((currentPageItem = navItem), true)
     scrollItemToMidpoint(menuPanel, currentPageItem)
   }
 
   if (menuPanel.querySelector('.nav-link[href^="#"]')) window.addEventListener('hashchange', onHashChange)
 
-  function activateCurrentPath (navItem) {
+  function activateCurrentPath (navItem, update) {
+    if (update) {
+      find(menuPanel, '.nav-item.is-active').forEach(function (el) {
+        el.classList.remove('is-current-path', 'is-current-page', 'is-active')
+      })
+    }
     var ancestor = navItem
     while ((ancestor = ancestor.parentNode) && ancestor !== menuPanel) {
       if (ancestor.classList.contains('nav-item')) ancestor.classList.add('is-current-path', 'is-active')
@@ -114,12 +127,12 @@
     e.stopPropagation()
   }
 
-  function findItemForHash () {
+  function findItemForHash (articleOnly) {
     var hash = window.location.hash
     if (!hash) return
     if (hash.indexOf('%')) hash = decodeURIComponent(hash)
     if (hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
-    var navLink = menuPanel.querySelector('.nav-link[href="' + hash + '"]')
+    var navLink = !articleOnly && menuPanel.querySelector('.nav-link[href="' + hash + '"]')
     if (navLink) return navLink.parentNode
     var target = document.getElementById(hash.slice(1))
     if (!target) return
