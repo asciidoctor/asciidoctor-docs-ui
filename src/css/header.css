@@ -31,21 +31,22 @@ body {
 
 .navbar-brand {
   display: flex;
+  align-items: center;
   padding-left: 1rem;
 }
 
-.navbar-brand .logo {
-  align-self: center;
+.navbar-brand .navbar-item.logo {
   padding: 0;
   height: calc(0.6 * var(--navbar-height));
   width: calc(0.6 * var(--navbar-height));
 }
 
-.navbar-brand img {
+.navbar-brand .navbar-item.logo img {
   width: inherit;
 }
 
-.navbar-start .navbar-item:first-child {
+.navbar-brand .navbar-item.title {
+  color: var(--navbar-font-color);
   font-family: "Comfortaa", sans-serif;
   font-size: 1rem;
   line-height: 1;
@@ -54,13 +55,6 @@ body {
   letter-spacing: -0.02em;
   padding: 0;
   margin: 0 1rem;
-  align-self: center;
-}
-
-.navbar-start .navbar-item + .navbar-item:last-child {
-  flex: 0 1 20rem;
-  margin-left: auto;
-  padding-left: 0;
 }
 
 #search {
@@ -115,15 +109,7 @@ body {
   cursor: inherit;
 }
 
-@media screen and (max-width: 1023.5px) {
-  .navbar-start .navbar-item + .navbar-item {
-    display: none;
-  }
-}
-
 @media screen and (min-width: 1024px) {
-  .navbar-start > .navbar-item,
-  .navbar-start .navbar-link,
   .navbar-end > .navbar-item,
   .navbar-end .navbar-link {
     color: var(--navbar-font-color);
@@ -136,7 +122,6 @@ body {
     color: var(--navbar-font-color);
   }
 
-  .navbar-start .navbar-link::after,
   .navbar-end .navbar-link::after {
     border-color: currentColor;
   }
@@ -278,6 +263,10 @@ body {
   .navbar-menu .navbar-link:hover {
     background: var(--navbar-menu_hover-background);
   }
+
+  .navbar-end .navbar-item.search {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -287,7 +276,6 @@ body {
 
   .navbar,
   .navbar-menu,
-  .navbar-start,
   .navbar-end {
     display: flex;
   }
@@ -296,13 +284,9 @@ body {
     flex: auto;
   }
 
-  .navbar-start {
-    flex: 1 0 auto;
-  }
-
   .navbar-end {
-    flex: none;
-    margin-left: auto;
+    flex: auto;
+    justify-content: flex-end;
   }
 
   .navbar-item,
@@ -332,6 +316,11 @@ body {
     margin-top: -0.375em;
     right: 1.125em;
     top: 50%;
+  }
+
+  .navbar-end .navbar-item.search {
+    flex: 0 1 20rem;
+    padding-left: 0;
   }
 
   .navbar-dropdown {
