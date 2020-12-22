@@ -118,8 +118,13 @@ function copyImages (src, dest) {
     .pipe(map((file, enc, next) => next()))
 }
 
-function relativize (url) {
-  return url ? (url.charAt() === '#' ? url : url.slice(1)) : '#'
+function relativize (to, { data }) {
+  if (!to) return '#'
+  if (to.charAt() !== '/') return to
+  const from = data.root.page.url
+  const hashIdx = to.indexOf('#')
+  if (~hashIdx && to.substr(0, hashIdx) === from) return to.substr(hashIdx)
+  return to.substr(1)
 }
 
 function resolvePage (spec, context = {}) {
