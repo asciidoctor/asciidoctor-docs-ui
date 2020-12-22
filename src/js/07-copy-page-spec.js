@@ -29,6 +29,9 @@
   }
 
   function writeToClipboard (text) {
-    window.navigator.clipboard.writeText(text).then(function () {}, function () {})
+    window.navigator.clipboard.writeText(text).then(
+      function () {},
+      function () {}
+    )
   }
 })()
