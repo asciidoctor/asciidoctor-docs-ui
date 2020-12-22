@@ -173,6 +173,10 @@ html.is-clipped--nav {
 .is-current-page > .nav-link,
 .is-current-page > .nav-text {
   font-weight: var(--body-font-weight-bold);
+  /* prevent layout shift by exceeding the container size */
+  /* please note that the parent container (nav-menu) has a 0.75rem (13.5px) padding right so the text won't overflow on the main panel */
+  width: calc(100% + 0.65rem);
+  display: block;
 }
 
 .nav-panel-explore {

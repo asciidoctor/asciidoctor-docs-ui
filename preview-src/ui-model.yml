@@ -118,3 +118,6 @@ page:
       - content: Some Code
         url: '/index.html#some-code'
         urlType: internal
+    - content: '......................................................'
+      url: '#filler'
+      urlType: fragment
