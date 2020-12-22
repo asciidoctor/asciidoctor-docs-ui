@@ -10,7 +10,7 @@
 }
 
 /*
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1023.5px) {
   .algolia-autocomplete .ds-dropdown-menu {
     min-width: calc(100vw - var(--navbar-height)) !important;
   }
