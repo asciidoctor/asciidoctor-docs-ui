@@ -14,7 +14,7 @@
     "node": ">= 10.17.0"
   },
   "browserslist": [
-    "last 2 versions"
+    "defaults"
   ],
   "devDependencies": {
     "@octokit/rest": "~18.0",
