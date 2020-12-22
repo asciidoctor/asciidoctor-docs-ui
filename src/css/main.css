@@ -23,8 +23,8 @@
   }
 
   aside.toc.sidebar {
-    order: 1;
     flex: 0 0 var(--toc-width);
+    order: 1;
   }
 }
 
