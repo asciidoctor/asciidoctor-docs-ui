@@ -46,6 +46,16 @@
   }
 }
 
+.doc .grid dt .emblem {
+  color: var(--color-gray-50);
+  font-weight: normal;
+}
+
+.doc .grid dt .emblem::before {
+  content: '//';
+  padding-right: 0.5ch;
+}
+
 .doc .grid .ulist {
   margin-top: 0;
   line-height: 1.3;
