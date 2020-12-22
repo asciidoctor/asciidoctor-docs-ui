@@ -229,7 +229,7 @@ body {
   position: relative;
   right: -1rem;
   color: var(--toolbar-muted-color);
-  font-size: 0.8em;
+  font-size: calc(12 / var(--rem-base) * 1rem);
 }
 
 .navbar-divider {
