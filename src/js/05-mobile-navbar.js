@@ -7,14 +7,17 @@
 
   function toggleNavbarMenu (e) {
     e.stopPropagation() // trap event
-    document.documentElement.classList.toggle('is-clipped--navbar')
-    this.classList.toggle('is-active')
+    var html = document.documentElement
     var menu = document.getElementById(this.dataset.target)
-    if (menu.classList.toggle('is-active')) {
-      menu.style.maxHeight = ''
-      var expectedMaxHeight = window.innerHeight - Math.round(menu.getBoundingClientRect().top)
-      var actualMaxHeight = parseInt(window.getComputedStyle(menu).maxHeight, 10)
-      if (actualMaxHeight !== expectedMaxHeight) menu.style.maxHeight = expectedMaxHeight + 'px'
+    if (!menu.classList.contains('is-active') && /mobi/i.test(window.navigator.userAgent)) {
+      if (Math.round(parseFloat(window.getComputedStyle(html).minHeight)) !== window.innerHeight) {
+        html.style.setProperty('--vh', window.innerHeight / 100 + 'px')
+      } else {
+        html.style.removeProperty('--vh')
+      }
     }
+    html.classList.toggle('is-clipped--navbar')
+    this.classList.toggle('is-active')
+    menu.classList.toggle('is-active')
   }
 })()

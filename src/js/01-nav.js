@@ -107,12 +107,16 @@
     if (navToggle.classList.contains('is-active')) return hideNav(e)
     trapEvent(e)
     var html = document.documentElement
+    if (/mobi/i.test(window.navigator.userAgent)) {
+      if (Math.round(parseFloat(window.getComputedStyle(html).minHeight)) !== window.innerHeight) {
+        html.style.setProperty('--vh', window.innerHeight / 100 + 'px')
+      } else {
+        html.style.removeProperty('--vh')
+      }
+    }
     html.classList.add('is-clipped--nav')
     navToggle.classList.add('is-active')
     navContainer.classList.add('is-active')
-    var bounds = nav.getBoundingClientRect()
-    var expectedHeight = window.innerHeight - Math.round(bounds.top)
-    if (Math.round(bounds.height) !== expectedHeight) nav.style.height = expectedHeight + 'px'
     html.addEventListener('click', hideNav)
   }
 

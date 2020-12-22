@@ -1,3 +1,17 @@
+@media screen and (max-width: 769.5px) {
+  html.is-clipped--nav {
+    overflow-y: hidden;
+  }
+
+  /* NOTE workaround bug in Firefox mobile, which clips the html element to the original viewport height */
+  @supports (scrollbar-width: none) {
+    html.is-clipped--nav {
+      overflow-y: initial;
+      scrollbar-width: none;
+    }
+  }
+}
+
 .nav-container {
   position: fixed;
   top: var(--navbar-height);
@@ -54,10 +68,6 @@
   display: flex;
   flex-direction: column;
   height: inherit;
-}
-
-html.is-clipped--nav {
-  overflow-y: hidden;
 }
 
 .nav-panel-menu {

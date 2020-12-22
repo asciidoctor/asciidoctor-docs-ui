@@ -1,7 +1,7 @@
 @import "docsearch.js/dist/cdn/docsearch.css";
 
 .algolia-autocomplete .ds-dropdown-menu > :first-child {
-  max-height: calc(100vh - var(--navbar-height));
+  max-height: calc(var(--viewport-height) - var(--navbar-height));
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--title {

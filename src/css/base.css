@@ -1,8 +1,3 @@
-html,
-body {
-  height: 100%;
-}
-
 *,
 *::before,
 *::after {
@@ -12,6 +7,8 @@ body {
 html {
   box-sizing: border-box;
   font-size: var(--body-font-size);
+  height: var(--viewport-height);
+  min-height: 100vh; /* used as a reference to detect invalid vh unit */
 }
 
 @media screen and (min-width: 1024px) {
