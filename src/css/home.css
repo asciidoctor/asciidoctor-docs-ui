@@ -38,6 +38,7 @@
     grid-row: 1;
     font-style: normal;
     padding-right: 0;
+    word-wrap: normal;
   }
 
   .doc .grid dd {
@@ -46,14 +47,21 @@
   }
 }
 
+.doc .grid.has-emblems dt {
+  display: flex;
+}
+
 .doc .grid dt .emblem {
   color: var(--color-gray-50);
+  font-family: var(--monospace-font-family);
   font-weight: normal;
+  font-size: 0.95em;
+  letter-spacing: -0.025em;
 }
 
 .doc .grid dt .emblem::before {
   content: '//';
-  padding-right: 0.5ch;
+  padding: 0 0.5ch;
 }
 
 .doc .grid .ulist {

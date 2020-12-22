@@ -25,7 +25,7 @@ Content for hero panel.
 
 Introduction of things.
 
-[.grid]
+[.grid.has-emblems]
 Thing A [.emblem]#Emblem#::
 Description of thing A.
 
