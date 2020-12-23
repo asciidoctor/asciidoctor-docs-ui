@@ -41,15 +41,17 @@
 
 .home-link {
   display: block;
-  background: url(../img/home-o.svg) no-repeat center;
+  background: url(../img/octicons-24.svg#view-home) no-repeat center;
   height: calc(var(--toolbar-height) / 2);
   width: calc(var(--toolbar-height) / 2);
   margin: calc(var(--toolbar-height) / 4);
+  margin-right: 0.5rem;
+  filter: invert(10%); /* NOTE should match --navbar-background */
 }
 
 .home-link:hover,
 .home-link.is-current {
-  background-image: url(../img/home.svg);
+  background-image: url(../img/octicons-24.svg#view-home-fill);
 }
 
 .edit-this-page {
