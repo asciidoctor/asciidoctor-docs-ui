@@ -125,10 +125,10 @@
 
 .nav-menu h3.title {
   color: var(--nav-heading-font-color);
-  font-size: inherit;
+  font-size: 1.05em;
   font-weight: var(--body-font-weight-bold);
   margin: 0;
-  padding: 0.25em 0 0.125em;
+  padding-top: 0.125em;
 }
 
 .nav-menu a {
