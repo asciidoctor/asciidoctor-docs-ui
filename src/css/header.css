@@ -85,6 +85,7 @@ body {
   border: 1px solid var(--navbar-button-border-color);
   border-left: none;
   border-radius: 0 0.1em 0.1em 0;
+  color: var(--toolbar-font-color);
   cursor: pointer;
   font-size: 0.875em;
   display: flex;
