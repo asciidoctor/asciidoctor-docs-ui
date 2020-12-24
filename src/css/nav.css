@@ -103,12 +103,34 @@
   position: relative;
 }
 
+.nav-menu-toggle {
+  background: transparent url(../img/octicons-24.svg#view-unfold) no-repeat center;
+  border: none;
+  outline: none;
+  width: 0.9rem;
+  height: 0.9rem;
+  opacity: 0.5;
+  position: sticky;
+  top: 0.8075rem;
+  margin-right: -0.5rem;
+  float: right;
+  visibility: hidden;
+}
+
+.nav-menu-toggle.is-active {
+  background-image: url(../img/octicons-24.svg#view-fold);
+}
+
+.nav-panel-menu.is-active:hover .nav-menu-toggle {
+  visibility: visible;
+}
+
 .nav-menu h3.title {
   color: var(--nav-heading-font-color);
-  font-size: 1.05em;
+  font-size: 0.9rem;
   font-weight: var(--body-font-weight-bold);
-  margin: 0;
-  padding-top: 0.25em;
+  margin: 0.15rem 0 0;
+  padding: 0;
 }
 
 .nav-menu a {

@@ -22,6 +22,19 @@
     menuPanel.scrollTop = 0
   }
 
+  menuPanel.querySelector('.nav-menu-toggle').addEventListener('click', function () {
+    var collapse = !this.classList.toggle('is-active')
+    find(menuPanel, '.nav-item > .nav-item-toggle').forEach(function (btn) {
+      collapse ? btn.parentElement.classList.remove('is-active') : btn.parentElement.classList.add('is-active')
+    })
+    if (currentPageItem) {
+      if (collapse) activateCurrentPath(currentPageItem, false)
+      scrollItemToMidpoint(menuPanel, currentPageItem.querySelector('.nav-link'))
+    } else if (collapse) {
+      menuPanel.scrollTop = 0
+    }
+  })
+
   find(menuPanel, '.nav-item-toggle').forEach(function (btn) {
     var li = btn.parentElement
     btn.addEventListener('click', toggleActive.bind(li))
@@ -87,12 +100,13 @@
     window.addEventListener('hashchange', onHashChange)
   }
 
-  function activateCurrentPath (navItem) {
+  function activateCurrentPath (navItem, trace) {
     var ancestorClasses
     var ancestor = navItem.parentNode
     while (!(ancestorClasses = ancestor.classList).contains('nav-menu')) {
       if (ancestor.tagName === 'LI' && ancestorClasses.contains('nav-item')) {
-        ancestorClasses.add('is-active', 'is-current-path')
+        ancestorClasses.add('is-active')
+        if (trace !== false) ancestorClasses.add('is-current-path')
       }
       ancestor = ancestor.parentNode
     }
