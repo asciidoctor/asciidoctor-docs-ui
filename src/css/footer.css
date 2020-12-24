@@ -48,18 +48,19 @@ footer.footer {
 .footer-brand figcaption {
   color: var(--footer-link-font-color);
   font-family: "Comfortaa", sans-serif;
-  font-size: 1.9rem;
+  font-size: calc(36 / var(--rem-base) * 1rem);
   line-height: 1;
   position: relative;
-  top: 0.0625em;
+  top: 6%; /* compensate for built-in line height in font */
+  letter-spacing: -0.01em;
 }
 
 .footer-brand .logo + figcaption {
-  margin-left: 0.5em;
+  margin-left: 1rem;
 }
 
 .footer-brand img {
-  height: 45px;
+  height: calc(45 / var(--rem-base) * 1rem);
 }
 
 .footer-brand-links {
