@@ -32,6 +32,10 @@ body {
 .navbar-brand {
   display: flex;
   height: var(--navbar-height);
+  padding-left: 1rem;
+}
+
+.navbar-brand .navbar-item {
   padding: 0;
 }
 
@@ -39,14 +43,22 @@ body {
   height: calc(0.6 * var(--navbar-height));
 }
 
-.navbar-brand .navbar-item {
+.navbar-start .navbar-item:first-child {
+  font-family: "Comfortaa", sans-serif;
+  font-size: calc(20 / var(--rem-base) * 1rem);
+  line-height: 1;
+  position: relative;
+  top: 2.5%; /* compensate for built-in line height in font */
+  letter-spacing: -0.01em;
   padding: 0;
-  margin-left: 1rem;
+  margin: 0 1rem;
+  align-self: center;
 }
 
-.navbar-start .navbar-item + .navbar-item {
+.navbar-start .navbar-item:last-child {
   flex-grow: 1;
   justify-content: flex-end;
+  padding-left: 0;
 }
 
 #search {
