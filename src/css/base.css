@@ -84,3 +84,18 @@ table {
 ::placeholder {
   opacity: 0.5;
 }
+
+@supports (scrollbar-width: thin) {
+  body * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color) transparent;
+  }
+}
+
+body ::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body ::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+}
