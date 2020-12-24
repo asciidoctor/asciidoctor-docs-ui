@@ -1,7 +1,14 @@
 @import "docsearch.js/dist/cdn/docsearch.css";
 
+.algolia-autocomplete .ds-dropdown-menu::before {
+  border-color: var(--navbar-button-border-color);
+  border-radius: 0;
+}
+
 .algolia-autocomplete .ds-dropdown-menu > :first-child {
   max-height: calc(var(--viewport-height) - var(--navbar-height));
+  border-radius: 0.1em;
+  border-color: var(--navbar-button-border-color);
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--title {
