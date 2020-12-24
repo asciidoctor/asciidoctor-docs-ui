@@ -45,7 +45,7 @@ body {
 
 .navbar-start .navbar-item:first-child {
   font-family: "Comfortaa", sans-serif;
-  font-size: calc(20 / var(--rem-base) * 1rem);
+  font-size: 1rem;
   line-height: 1;
   position: relative;
   top: 2.5%; /* compensate for built-in line height in font */
