@@ -1,7 +1,7 @@
 antoraVersion: '3.0.0'
 site:
   url: http://localhost:5252
-  title: Brand Docs
+  title: Asciidoctor Docs
   homeUrl: &home_url /index.html
   components:
   - name: abc
