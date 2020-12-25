@@ -52,7 +52,7 @@ footer.footer {
   line-height: 1;
   position: relative;
   top: 6%; /* compensate for built-in line height in font */
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .footer-brand .logo + figcaption {
