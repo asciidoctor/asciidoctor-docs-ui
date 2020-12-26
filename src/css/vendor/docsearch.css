@@ -9,6 +9,11 @@
   max-height: calc(var(--viewport-height) - var(--navbar-height));
   border-radius: 0.1em;
   border-color: var(--navbar-button-border-color);
+  padding-bottom: 0;
+}
+
+.algolia-autocomplete .ds-dropdown-menu > :first-child > :last-child {
+  margin-bottom: 8px;
 }
 
 .algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
