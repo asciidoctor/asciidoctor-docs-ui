@@ -144,7 +144,6 @@ body {
 }
 
 .navbar-burger {
-  color: var(--navbar-font-color);
   background: none;
   border: none;
   outline: none;
@@ -160,7 +159,7 @@ body {
 }
 
 .navbar-burger span {
-  background: var(--navbar-font-color);
+  background-color: var(--navbar-font-color);
   height: 1.5px;
   width: 1rem;
 }
