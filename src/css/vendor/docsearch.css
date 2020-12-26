@@ -12,7 +12,7 @@
 }
 
 .algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
-  margin-top: 0;
+  margin-top: 4px;
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--title {
