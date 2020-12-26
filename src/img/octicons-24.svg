@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <title>Octicons (24px subset)</title>
+  <desc>Octicons v11.2.0 by GitHub - https://primer.style/octicons/ - License: MIT</desc>
+  <metadata
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:title>@primer/octicons</dc:title>
+        <dc:identifier>11.2.0</dc:identifier>
+        <dc:description>A scalable set of icons handcrafted with &lt;3 by GitHub</dc:description>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>GitHub</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Copyright (c) 2020 GitHub Inc.</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <cc:license rdf:resource="https://opensource.org/licenses/MIT" />
+        <dc:relation>https://primer.style/octicons/</dc:relation>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <symbol id="icon-fold" viewBox="0 0 24 24">
+    <path d="M12 15a.75.75 0 01.53.22l3.25 3.25a.75.75 0 11-1.06 1.06L12 16.81l-2.72 2.72a.75.75 0 01-1.06-1.06l3.25-3.25A.75.75 0 0112 15z" fill-rule="evenodd" />
+    <path d="M12 15.75a.75.75 0 01.75.75v5.75a.75.75 0 01-1.5 0V16.5a.75.75 0 01.75-.75zm.53-6.97a.75.75 0 01-1.06 0L8.22 5.53a.75.75 0 011.06-1.06L12 7.19l2.72-2.72a.75.75 0 111.06 1.06l-3.25 3.25z" fill-rule="evenodd" />
+    <path d="M12 8.5a.75.75 0 01-.75-.75v-6a.75.75 0 011.5 0v6a.75.75 0 01-.75.75zM10.75 12a.75.75 0 01.75-.75h1a.75.75 0 010 1.5h-1a.75.75 0 01-.75-.75zm-8 0a.75.75 0 01.75-.75h1a.75.75 0 010 1.5h-1a.75.75 0 01-.75-.75zm12 0a.75.75 0 01.75-.75h1a.75.75 0 010 1.5h-1a.75.75 0 01-.75-.75zm-8 0a.75.75 0 01.75-.75h1a.75.75 0 010 1.5h-1a.75.75 0 01-.75-.75zm12 0a.75.75 0 01.75-.75h1a.75.75 0 010 1.5h-1a.75.75 0 01-.75-.75z" fill-rule="evenodd" />
+  </symbol>
+
+  <symbol id="icon-unfold" viewBox="0 0 24 24">
+    <path d="M12 23a.75.75 0 01-.53-.22l-3.25-3.25a.75.75 0 111.06-1.06L12 21.19l2.72-2.72a.75.75 0 111.06 1.06l-3.25 3.25A.75.75 0 0112 23z" fill-rule="evenodd" />
+    <path d="M12 22.25a.75.75 0 01-.75-.75v-5.75a.75.75 0 011.5 0v5.75a.75.75 0 01-.75.75zM10.75 12a.75.75 0 01.75-.75h1a.75.75 0 110 1.5h-1a.75.75 0 01-.75-.75zm-8 0a.75.75 0 01.75-.75h1a.75.75 0 010 1.5h-1a.75.75 0 01-.75-.75zm12 0a.75.75 0 01.75-.75h1a.75.75 0 010 1.5h-1a.75.75 0 01-.75-.75zm-8 0a.75.75 0 01.75-.75h1a.75.75 0 010 1.5h-1a.75.75 0 01-.75-.75zm12 0a.75.75 0 01.75-.75h1a.75.75 0 010 1.5h-1a.75.75 0 01-.75-.75zM11.47 1.22a.75.75 0 011.06 0l3.25 3.25a.75.75 0 01-1.06 1.06L12 2.81 9.28 5.53a.75.75 0 01-1.06-1.06l3.25-3.25z" fill-rule="evenodd" />
+    <path d="M12 1.5a.75.75 0 01.75.75v6a.75.75 0 01-1.5 0v-6A.75.75 0 0112 1.5z" fill-rule="evenodd" />
+  </symbol>
+
+  <use href="#icon-fold" width="24" height="24" x="0" y="0" />
+  <view id="view-fold" viewBox="0 0 24 24" />
+
+  <use href="#icon-unfold" width="24" height="24" x="0" y="24" />
+  <view id="view-unfold" viewBox="0 24 24 24" />
+</svg>
