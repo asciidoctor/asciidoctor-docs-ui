@@ -31,7 +31,7 @@ body {
 
 .navbar-brand {
   display: flex;
-  height: var(--navbar-height);
+  height: 100%;
   padding-left: 1rem;
 }
 
@@ -149,9 +149,7 @@ body {
   border: none;
   outline: none;
   line-height: 1;
-  height: var(--navbar-height);
   position: relative;
-  /* width: var(--navbar-height); */
   width: 2.75rem;
   margin-left: auto;
   padding: 0;
@@ -183,7 +181,6 @@ body {
 .navbar-burger.is-active span:nth-child(1) {
   margin-left: -5px;
   transform: rotate(45deg);
-  transform-origin: left top;
 }
 
 .navbar-burger.is-active span:nth-child(2) {
@@ -193,7 +190,6 @@ body {
 .navbar-burger.is-active span:nth-child(3) {
   margin-left: -5px;
   transform: rotate(-45deg);
-  transform-origin: left bottom;
 }
 
 .navbar-menu {
@@ -288,7 +284,6 @@ body {
   .navbar-menu,
   .navbar-start,
   .navbar-end {
-    align-items: stretch;
     display: flex;
   }
 
@@ -298,12 +293,12 @@ body {
 
   .navbar-item,
   .navbar-link {
-    align-items: center;
     display: flex;
   }
 
-  .navbar-item.has-dropdown {
-    align-items: stretch;
+  .navbar-item:not(.has-dropdown),
+  .navbar-link {
+    align-items: center;
   }
 
   .navbar-item.is-hoverable:hover .navbar-dropdown {
@@ -313,7 +308,7 @@ body {
   .navbar-link::after {
     border-width: 0 0 1px 1px;
     border-style: solid;
-    content: " ";
+    content: "";
     display: block;
     height: 0.5em;
     pointer-events: none;
