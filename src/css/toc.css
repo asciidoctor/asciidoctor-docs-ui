@@ -78,9 +78,6 @@
 }
 
 .toc .toc-menu a:hover {
-  /*
-  color: var(--link_hover-font-color);
-  */
   color: var(--doc-font-color);
   -webkit-text-stroke-width: 0.01em;
 }

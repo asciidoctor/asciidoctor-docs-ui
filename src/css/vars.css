@@ -92,8 +92,13 @@
   --heading-font-weight: normal;
   --alt-heading-font-weight: var(--body-font-weight-bold);
   --section-divider-color: var(--panel-border-color);
-  --link-font-color: #006346;
-  --link_hover-font-color: #1e634f;
+  /*
+  --link-font-color: #048ba8; blue munsell
+  --link-font-color: #2e86ab; blue NCS
+  --link-font-color: #218380; celadon green
+  */
+  --link-font-color: #2e86ab;
+  --link_hover-filter: brightness(75%) saturate(150%);
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);

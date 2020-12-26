@@ -116,7 +116,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc a:hover {
-  color: var(--link_hover-font-color);
+  filter: var(--link_hover-filter);
 }
 
 .doc a.bare {
