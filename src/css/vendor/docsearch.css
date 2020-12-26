@@ -11,6 +11,10 @@
   border-color: var(--navbar-button-border-color);
 }
 
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
+  margin-top: 0;
+}
+
 .algolia-autocomplete .algolia-docsearch-suggestion--title {
   font-weight: var(--body-font-weight-bold);
 }
