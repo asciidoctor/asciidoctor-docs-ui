@@ -132,7 +132,8 @@ body {
   }
 
   .navbar-end > a.navbar-item:hover,
-  .navbar-end .navbar-link:hover {
+  .navbar-end .navbar-link:hover,
+  .navbar-end .navbar-item.has-dropdown:hover .navbar-link {
     background: var(--navbar_hover-background);
     color: var(--navbar-font-color);
   }
