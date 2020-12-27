@@ -35,12 +35,16 @@ body {
   padding-left: 1rem;
 }
 
-.navbar-brand .navbar-item {
+.navbar-brand .logo {
+  align-self: center;
   padding: 0;
+  height: calc(0.6 * var(--navbar-height));
+  width: calc(0.6 * var(--navbar-height));
 }
 
 .navbar-brand img {
-  height: calc(0.6 * var(--navbar-height));
+  height: inherit;
+  width: inherit;
 }
 
 .navbar-start .navbar-item:first-child {
