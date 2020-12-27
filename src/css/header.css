@@ -80,7 +80,7 @@ body {
   line-height: 1.5;
   padding: 0.25rem;
   width: 10ex;
-  height: -webkit-fit-content;
+  height: -webkit-fit-content; /* fix for Safari */
   flex: auto;
 }
 
@@ -273,7 +273,7 @@ body {
 
   .navbar-menu a.navbar-item:hover,
   .navbar-menu .navbar-link:hover {
-    background-color: var(--navbar-menu_hover-background);
+    background: var(--navbar-menu_hover-background);
   }
 }
 
@@ -333,7 +333,7 @@ body {
   }
 
   .navbar-dropdown {
-    background-color: var(--navbar-menu-background);
+    background: var(--navbar-menu-background);
     border: 1px solid var(--navbar-menu-border-color);
     border-top: 2px solid var(--color-brand-primary);
     border-radius: 0 0 0.25rem 0.25rem;
@@ -360,7 +360,7 @@ body {
   }
 
   .navbar-dropdown a.navbar-item:hover {
-    background-color: var(--navbar-menu_hover-background);
+    background: var(--navbar-menu_hover-background);
   }
 }
 
