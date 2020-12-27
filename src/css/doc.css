@@ -397,7 +397,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .admonitionblock.caution td.icon i {
-  background-image: url(../img/octicons.svg#view-flame-16);
+  background-image: url(../img/octicons-16.svg#view-flame);
 }
 
 .doc .admonitionblock.important td.icon {
@@ -406,7 +406,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .admonitionblock.important td.icon i {
-  background-image: url(../img/octicons.svg#view-stop-16);
+  background-image: url(../img/octicons-16.svg#view-stop);
 }
 
 .doc .admonitionblock.note td.icon {
@@ -415,7 +415,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .admonitionblock.note td.icon i {
-  background-image: url(../img/octicons.svg#view-info-16);
+  background-image: url(../img/octicons-16.svg#view-info);
 }
 
 .doc .admonitionblock.tip td.icon {
@@ -424,7 +424,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .admonitionblock.tip td.icon i {
-  background-image: url(../img/octicons.svg#view-light-bulb-16);
+  background-image: url(../img/octicons-16.svg#view-light-bulb);
 }
 
 .doc .admonitionblock.warning td.icon {
@@ -433,7 +433,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .admonitionblock.warning td.icon i {
-  background-image: url(../img/octicons.svg#view-alert-16);
+  background-image: url(../img/octicons-16.svg#view-alert);
 }
 
 .doc .imageblock {
@@ -577,11 +577,11 @@ h1.page + aside.toc.embedded {
 }
 
 .doc ul.checklist > li > * > i.fa-check-square-o:first-child {
-  background-image: url(../img/octicons.svg#view-tasklist-16);
+  background-image: url(../img/octicons-16.svg#view-tasklist);
 }
 
 .doc ul.checklist > li > * > i.fa-square-o:first-child {
-  background-image: url(../img/octicons.svg#view-square-16);
+  background-image: url(../img/octicons-16.svg#view-square);
 }
 
 .doc .dlist .dlist,
@@ -914,7 +914,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .menuseq i.caret {
-  background-image: url(../img/octicons.svg#view-chevron-right-16);
+  background-image: url(../img/octicons-16.svg#view-chevron-right);
   margin: 0 -0.25em;
 }
 
