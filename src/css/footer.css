@@ -6,6 +6,8 @@ footer.footer {
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: var(--z-index-footer);
 }
 
 .footer p {

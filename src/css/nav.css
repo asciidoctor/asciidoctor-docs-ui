@@ -59,8 +59,9 @@
   .nav {
     top: var(--navbar-height);
     box-shadow: none;
-    position: sticky;
+    position: fixed;
     height: var(--nav-height--desktop);
+    width: inherit;
   }
 }
 

@@ -163,5 +163,6 @@
   --z-index-nav: 2;
   --z-index-toolbar: 3;
   --z-index-page-version-menu: 4;
-  --z-index-navbar: 5;
+  --z-index-footer: 5;
+  --z-index-navbar: 6;
 }
