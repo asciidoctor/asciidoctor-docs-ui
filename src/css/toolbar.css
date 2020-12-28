@@ -17,15 +17,15 @@
 }
 
 .nav-toggle {
-  background: url(../img/menu.svg) no-repeat 50% 47.5%;
-  background-size: 49%;
+  background: url(../img/octicons-24.svg#view-file-directory) no-repeat center / 50% 50%;
+  filter: invert(10%); /* NOTE should match --navbar-background */
   border: none;
   outline: none;
   line-height: inherit;
   padding: 0;
+  margin-right: -0.625rem;
   height: var(--toolbar-height);
   width: var(--toolbar-height);
-  margin-right: -0.25rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -35,8 +35,7 @@
 }
 
 .nav-toggle.is-active {
-  background-image: url(../img/back.svg);
-  background-size: 41.5%;
+  background-image: url(../img/octicons-24.svg#view-arrow-left);
 }
 
 .home-link {
