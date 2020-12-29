@@ -82,7 +82,11 @@
   --warning-color: #f70;
   --warning-on-color: var(--color-white);
   /* doc */
-  --doc-font-color: var(--color-jet-50);
+  /*
+  --doc-font-color: #242424;
+  --doc-font-color: #24292e;
+  */
+  --doc-font-color: #24262b;
   --doc-font-size: inherit;
   --doc-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
   --doc-line-height: 1.6;
