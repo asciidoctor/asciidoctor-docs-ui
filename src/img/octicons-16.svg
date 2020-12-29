@@ -30,7 +30,12 @@
     <path d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z" fill-rule="evenodd" />
   </symbol>
 
-  <!-- icon-chervron-right has been modified to center the symbol on the vertical axis -->
+  <!-- icon-chevron-down has been modified to center the symbol on the vertical axis -->
+  <symbol id="icon-chevron-down" viewBox="0 0 16 16">
+    <path d="m12.78 5.345a0.75 0.75 0 0 1 0 1.06l-4.25 4.25a0.75 0.75 0 0 1-1.06 0l-4.25-4.25a0.75 0.75 0 0 1 1.06-1.06l3.72 3.72 3.72-3.72a0.75 0.75 0 0 1 1.06 0z" fill-rule="evenodd"/>
+  </symbol>
+
+  <!-- icon-chevron-right has been modified to center the symbol on the vertical axis -->
   <symbol id="icon-chevron-right" viewBox="0 0 16 16">
     <path d="m5.345 3.22a0.75 0.75 0 0 1 1.06 0l4.25 4.25a0.75 0.75 0 0 1 0 1.06l-4.25 4.25a0.75 0.75 0 0 1-1.06-1.06l3.72-3.72-3.72-3.72a0.75 0.75 0 0 1 0-1.06z" fill-rule="evenodd" />
   </symbol>
@@ -79,36 +84,39 @@
   <use href="#icon-alert" width="16" height="16" x="0" y="0" />
   <view id="view-alert" viewBox="0 0 16 16" />
 
-  <use href="#icon-chevron-right" width="16" height="16" x="0" y="16" />
-  <view id="view-chevron-right" viewBox="0 16 16 16" />
+  <use href="#icon-chevron-down" width="16" height="16" x="0" y="16" />
+  <view id="view-chevron-down" viewBox="0 16 16 16" />
 
-  <use href="#icon-clippy" width="16" height="16" x="0" y="32" />
-  <view id="view-clippy" viewBox="0 32 16 16" />
+  <use href="#icon-chevron-right" width="16" height="16" x="0" y="32" />
+  <view id="view-chevron-right" viewBox="0 32 16 16" />
 
-  <use href="#icon-flame" width="16" height="16" x="0" y="48" />
-  <view id="view-flame" viewBox="0 48 16 16" />
+  <use href="#icon-clippy" width="16" height="16" x="0" y="48" />
+  <view id="view-clippy" viewBox="0 48 16 16" />
 
-  <use href="#icon-info" width="16" height="16" x="0" y="64" />
-  <view id="view-info" viewBox="0 64 16 16" />
+  <use href="#icon-flame" width="16" height="16" x="0" y="64" />
+  <view id="view-flame" viewBox="0 64 16 16" />
 
-  <use href="#icon-light-bulb" width="16" height="16" x="0" y="80" />
-  <view id="view-light-bulb" viewBox="0 80 16 16" />
+  <use href="#icon-info" width="16" height="16" x="0" y="80" />
+  <view id="view-info" viewBox="0 80 16 16" />
 
-  <use href="#icon-mark-github" width="16" height="16" x="0" y="96" />
-  <view id="view-mark-github" viewBox="0 96 16 16" />
+  <use href="#icon-light-bulb" width="16" height="16" x="0" y="96" />
+  <view id="view-light-bulb" viewBox="0 96 16 16" />
 
-  <use href="#icon-stop" width="16" height="16" x="0" y="112" />
-  <view id="view-stop" viewBox="0 112 16 16" />
+  <use href="#icon-mark-github" width="16" height="16" x="0" y="112" />
+  <view id="view-mark-github" viewBox="0 112 16 16" />
 
-  <use href="#icon-tasklist" width="16" height="16" x="0" y="128" />
-  <view id="view-tasklist" viewBox="0 128 16 16" />
+  <use href="#icon-stop" width="16" height="16" x="0" y="128" />
+  <view id="view-stop" viewBox="0 128 16 16" />
 
-  <use href="#icon-tasklist-unchecked" width="16" height="16" x="0" y="144" />
-  <view id="view-tasklist-unchecked" viewBox="0 144 16 16" />
+  <use href="#icon-tasklist" width="16" height="16" x="0" y="144" />
+  <view id="view-tasklist" viewBox="0 144 16 16" />
 
-  <use href="#icon-triangle-down" width="16" height="16" x="0" y="160" />
-  <view id="view-triangle-down" viewBox="0 160 16 16" />
+  <use href="#icon-tasklist-unchecked" width="16" height="16" x="0" y="160" />
+  <view id="view-tasklist-unchecked" viewBox="0 160 16 16" />
 
-  <use href="#icon-triangle-right" width="16" height="16" x="0" y="176" />
-  <view id="view-triangle-right" viewBox="0 176 16 16" />
+  <use href="#icon-triangle-down" width="16" height="16" x="0" y="176" />
+  <view id="view-triangle-down" viewBox="0 176 16 16" />
+
+  <use href="#icon-triangle-right" width="16" height="16" x="0" y="192" />
+  <view id="view-triangle-right" viewBox="0 192 16 16" />
 </svg>
