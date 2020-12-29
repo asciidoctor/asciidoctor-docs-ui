@@ -68,6 +68,14 @@
     <path d="m2.75 1a1.75 1.75 0 0 0-1.75 1.75v10.5c0 0.966 0.784 1.75 1.75 1.75h10.5a1.75 1.75 0 0 0 1.75-1.75v-10.5a1.75 1.75 0 0 0-1.75-1.75h-10.5zm-0.013672 1.5a0.25 0.25 0 0 1 0.013672 0h10.5a0.25 0.25 0 0 1 0.25 0.25v10.5a0.25 0.25 0 0 1-0.25 0.25h-10.5a0.25 0.25 0 0 1-0.25-0.25v-10.5a0.25 0.25 0 0 1 0.23633-0.25z" fill-rule="evenodd" />
   </symbol>
 
+  <symbol id="icon-triangle-down" viewBox="0 0 16 16">
+    <path d="M4.427 7.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 7H4.604a.25.25 0 00-.177.427z" fill-rule="even-odd" />
+  </symbol>
+
+  <symbol id="icon-triangle-right" viewBox="0 0 16 16">
+    <path d="M6.427 4.427l3.396 3.396a.25.25 0 010 .354l-3.396 3.396A.25.25 0 016 11.396V4.604a.25.25 0 01.427-.177z" fill-rule="evenodd" />
+  </symbol>
+
   <use href="#icon-alert" width="16" height="16" x="0" y="0" />
   <view id="view-alert" viewBox="0 0 16 16" />
 
@@ -97,4 +105,10 @@
 
   <use href="#icon-tasklist-unchecked" width="16" height="16" x="0" y="144" />
   <view id="view-tasklist-unchecked" viewBox="0 144 16 16" />
+
+  <use href="#icon-triangle-down" width="16" height="16" x="0" y="160" />
+  <view id="view-triangle-down" viewBox="0 160 16 16" />
+
+  <use href="#icon-triangle-right" width="16" height="16" x="0" y="176" />
+  <view id="view-triangle-right" viewBox="0 176 16 16" />
 </svg>
