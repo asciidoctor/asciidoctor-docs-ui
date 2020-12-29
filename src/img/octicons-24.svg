@@ -26,6 +26,14 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <symbol id="icon-arrow-left" viewBox="0 0 24 24">
+    <path d="M10.78 19.03a.75.75 0 01-1.06 0l-6.25-6.25a.75.75 0 010-1.06l6.25-6.25a.75.75 0 111.06 1.06L5.81 11.5h14.44a.75.75 0 010 1.5H5.81l4.97 4.97a.75.75 0 010 1.06z" fill-rule="evenodd" />
+  </symbol>
+
+  <symbol id="icon-file-directory" viewBox="0 0 24 24">
+    <path d="M3.75 4.5a.25.25 0 00-.25.25v14.5c0 .138.112.25.25.25h16.5a.25.25 0 00.25-.25V7.687a.25.25 0 00-.25-.25h-8.471a1.75 1.75 0 01-1.447-.765L8.928 4.61a.25.25 0 00-.208-.11H3.75zM2 4.75C2 3.784 2.784 3 3.75 3h4.971c.58 0 1.12.286 1.447.765l1.404 2.063a.25.25 0 00.207.11h8.471c.966 0 1.75.783 1.75 1.75V19.25A1.75 1.75 0 0120.25 21H3.75A1.75 1.75 0 012 19.25V4.75z" fill-rule="evenodd" />
+  </symbol>
+
   <symbol id="icon-fold" viewBox="0 0 24 24">
     <path d="M12 15a.75.75 0 01.53.22l3.25 3.25a.75.75 0 11-1.06 1.06L12 16.81l-2.72 2.72a.75.75 0 01-1.06-1.06l3.25-3.25A.75.75 0 0112 15z" fill-rule="evenodd" />
     <path d="M12 15.75a.75.75 0 01.75.75v5.75a.75.75 0 01-1.5 0V16.5a.75.75 0 01.75-.75zm.53-6.97a.75.75 0 01-1.06 0L8.22 5.53a.75.75 0 011.06-1.06L12 7.19l2.72-2.72a.75.75 0 111.06 1.06l-3.25 3.25z" fill-rule="evenodd" />
@@ -46,15 +54,21 @@
     <path d="M12 1.5a.75.75 0 01.75.75v6a.75.75 0 01-1.5 0v-6A.75.75 0 0112 1.5z" fill-rule="evenodd" />
   </symbol>
 
-  <use href="#icon-fold" width="24" height="24" x="0" y="0" />
-  <view id="view-fold" viewBox="0 0 24 24" />
+  <use href="#icon-arrow-left" width="24" height="24" x="0" y="0" />
+  <view id="view-arrow-left" viewBox="0 0 24 24" />
 
-  <use href="#icon-home" width="24" height="24" x="0" y="24" />
-  <view id="view-home" viewBox="0 24 24 24" />
+  <use href="#icon-file-directory" width="24" height="24" x="0" y="24" />
+  <view id="view-file-directory" viewBox="0 24 24 24" />
 
-  <use href="#icon-home-fill" width="24" height="24" x="0" y="48" />
-  <view id="view-home-fill" viewBox="0 48 24 24" />
+  <use href="#icon-fold" width="24" height="24" x="0" y="48" />
+  <view id="view-fold" viewBox="0 48 24 24" />
 
-  <use href="#icon-unfold" width="24" height="24" x="0" y="72" />
-  <view id="view-unfold" viewBox="0 72 24 24" />
+  <use href="#icon-home" width="24" height="24" x="0" y="72" />
+  <view id="view-home" viewBox="0 72 24 24" />
+
+  <use href="#icon-home-fill" width="24" height="24" x="0" y="96" />
+  <view id="view-home-fill" viewBox="0 96 24 24" />
+
+  <use href="#icon-unfold" width="24" height="24" x="0" y="120" />
+  <view id="view-unfold" viewBox="0 120 24 24" />
 </svg>
