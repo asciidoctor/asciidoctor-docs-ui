@@ -581,7 +581,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc ul.checklist > li > * > i.fa-square-o:first-child {
-  background-image: url(../img/octicons-16.svg#view-square);
+  background-image: url(../img/octicons-16.svg#view-tasklist-unchecked);
 }
 
 .doc .dlist .dlist,
