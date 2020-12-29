@@ -94,9 +94,10 @@
   /*
   --link-font-color: #048ba8; blue munsell
   --link-font-color: #2e86ab; blue NCS
+  --link-font-color: #2c7fa2; blue NCS (with increased contrast)
   --link-font-color: #218380; celadon green
   */
-  --link-font-color: #2e86ab;
+  --link-font-color: #2c7fa2;
   --link_hover-filter: brightness(75%) saturate(150%);
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
