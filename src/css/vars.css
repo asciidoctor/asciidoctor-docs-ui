@@ -65,11 +65,6 @@
   --toolbar-muted-color: var(--color-gray-30);
   --page-version-menu-background: var(--color-smoke-70);
   --page-version-missing-font-color: var(--color-gray-30);
-  /* toc */
-  --toc-font-color: var(--nav-muted-color);
-  --toc-heading-font-color: var(--doc-font-color);
-  --toc-border-color: var(--panel-border-color);
-  --toc-line-height: 1.2;
   /* admonitions (see https://coolors.co/802392-e40046-2d7dd2-43b929-ff7700) */
   --caution-color: #802392;
   --caution-on-color: var(--color-white);
@@ -128,6 +123,11 @@
   --table-border-color: var(--panel-border-color);
   --table-stripe-background: var(--panel-background);
   --table-footer-background: linear-gradient(to bottom, var(--color-smoke-70) 0%, var(--color-white) 100%);
+  /* toc */
+  --toc-font-color: var(--nav-muted-color);
+  --toc-heading-font-color: var(--doc-font-color);
+  --toc-border-color: var(--panel-border-color);
+  --toc-line-height: 1.2;
   /* footer */
   --footer-line-height: var(--doc-line-height);
   --footer-background: var(--color-jet-80);
