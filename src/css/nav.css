@@ -98,7 +98,7 @@
 }
 
 .nav-menu-toggle {
-  background: transparent url(../img/octicons-24.svg#view-unfold) no-repeat center;
+  background: transparent url(../img/octicons-24.svg#view-unfold) no-repeat center / 100% 100%;
   border: none;
   outline: none;
   width: 0.9rem;
@@ -161,7 +161,7 @@
 }
 
 .nav-item-toggle {
-  background: transparent url(../img/octicons-16.svg#view-triangle-right) no-repeat center;
+  background: transparent url(../img/octicons-16.svg#view-triangle-right) no-repeat center / 100% 100%;
   opacity: 0.25;
   border: none;
   outline: none;
