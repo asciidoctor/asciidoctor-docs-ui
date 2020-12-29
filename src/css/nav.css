@@ -178,7 +178,11 @@
 
 .is-current-page > .nav-link,
 .is-current-page > .nav-text {
+  /*
   font-weight: var(--body-font-weight-bold);
+  letter-spacing: -0.004em;
+  */
+  -webkit-text-stroke-width: 0.02em;
 }
 
 .nav-panel-explore {
