@@ -14,7 +14,7 @@
       apiKey: config.apiKey,
       indexName: config.indexName,
       inputSelector: searchFieldSelector + ' .query',
-      autocompleteOptions: { debug: true, hint: false, keyboardShortcuts: ['s'], minLength: 2 },
+      autocompleteOptions: { autoselect: true, debug: true, hint: false, keyboardShortcuts: ['s'], minLength: 2 },
       algoliaOptions: algoliaOptions,
       queryHook:
         filterInput &&
@@ -30,7 +30,7 @@
     if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(controller.input))
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', resetSearch.bind(autocomplete))
-    if (controller.input.attr('autofocus')) controller.input.focus()
+    if (controller.input.attr('autofocus') != null) controller.input.focus()
   }
 
   function appendStylesheet (href) {
