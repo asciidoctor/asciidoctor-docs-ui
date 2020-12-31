@@ -55,11 +55,15 @@
           <div class="navbar-link">Tooling</div>
           <div class="navbar-dropdown is-right">
             <div class="navbar-item">Build Automation Plugins</div>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'maven-tools::index.adoc')}}}">Maven Tools <small>Java</small></a>
+            {{#with (resolvePageURL 'maven-tools::index.adoc')}}
+            <a class="navbar-item" href="{{{relativize this}}}">Maven Tools <small>Java</small></a>
+            {{/with}}
             {{!--
             <a class="navbar-item" href="https://asciidoctor.github.io/asciidoctor-gradle-plugin" target="_blank" rel="noopener">Gradle Plugin <small>Java</small></a>
             --}}
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoclet::index.adoc')}}}">Asciidoclet <small>Java</small></a>
+            {{#with (resolvePageURL 'asciidoclet::index.adoc')}}
+            <a class="navbar-item" href="{{{relativize this}}}">Asciidoclet <small>Java</small></a>
+            {{/with}}
             <hr class="navbar-divider">
             <div class="navbar-item">Text Editors and Viewers</div>
             {{!--
