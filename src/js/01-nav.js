@@ -87,11 +87,10 @@
     }
     if (navItem === currentPageItem) return
     find(menuPanel, '.nav-item.is-active').forEach(function (el) {
-      el.classList.remove('is-active', 'is-current-path', 'is-current-page')
+      el.classList.remove('is-current-path', 'is-current-page', 'is-active')
     })
-    navItem.classList.add('is-current-page')
-    currentPageItem = navItem
-    activateCurrentPath(navItem)
+    ;(currentPageItem = navItem).classList.add('is-current-page')
+    activateCurrentPath(currentPageItem)
     scrollItemToMidpoint(menuPanel, navLink)
   }
 
@@ -105,8 +104,8 @@
     var ancestor = navItem.parentNode
     while (!(ancestorClasses = ancestor.classList).contains('nav-menu')) {
       if (ancestor.tagName === 'LI' && ancestorClasses.contains('nav-item')) {
-        ancestorClasses.add('is-active')
         if (trace !== false) ancestorClasses.add('is-current-path')
+        ancestorClasses.add('is-active')
       }
       ancestor = ancestor.parentNode
     }
