@@ -150,12 +150,12 @@
     e.stopPropagation()
   }
 
-  function scrollItemToMidpoint (panel, el) {
-    var rect = panel.getBoundingClientRect()
-    var effectiveHeight = rect.height
-    var navStyle = window.getComputedStyle(nav)
-    if (navStyle.position === 'sticky') effectiveHeight -= rect.top - parseFloat(navStyle.top)
-    panel.scrollTop = Math.max(0, (el.getBoundingClientRect().height - effectiveHeight) * 0.5 + el.offsetTop)
+  function scrollItemToMidpoint (panel, item) {
+    var itemRect = item.getBoundingClientRect()
+    var panelRect = panel.getBoundingClientRect()
+    var currentOffsetTop = itemRect.top - panelRect.top + panel.scrollTop
+    var targetOffsetTop = (panelRect.height - itemRect.height) * 0.5
+    panel.scrollTop = Math.max(0, (currentOffsetTop - targetOffsetTop).toFixed())
   }
 
   function find (from, selector) {
