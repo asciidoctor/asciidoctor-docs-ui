@@ -16,7 +16,7 @@
   var currentPageItem = menuPanel.querySelector('.is-current-page')
   var originalPageItem = currentPageItem
   if (currentPageItem) {
-    //activateCurrentPath(currentPageItem) // enable if not handled by template
+    activateCurrentPath(currentPageItem)
     scrollItemToMidpoint(menuPanel, currentPageItem.querySelector('.nav-link'))
   } else {
     menuPanel.scrollTop = 0
