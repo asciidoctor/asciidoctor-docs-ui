@@ -58,12 +58,11 @@
   })
 
   function onHashChange () {
-    var navLink
+    var navItem, navLink
     var hash = window.location.hash
     if (hash) {
       if (hash.indexOf('%')) hash = decodeURIComponent(hash)
-      navLink = menuPanel.querySelector('.nav-link[href="' + hash + '"]')
-      if (!navLink) {
+      if (!(navLink = menuPanel.querySelector('.nav-link[href="' + hash + '"]'))) {
         var targetNode = document.getElementById(hash.slice(1))
         if (targetNode) {
           var current = targetNode
@@ -77,7 +76,6 @@
         }
       }
     }
-    var navItem
     if (navLink) {
       navItem = navLink.parentNode
     } else if (originalPageItem) {
