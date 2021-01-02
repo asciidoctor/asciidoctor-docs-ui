@@ -36,12 +36,11 @@
   })
 
   find(menuPanel, '.nav-item-toggle').forEach(function (btn) {
-    var li = btn.parentElement
-    btn.addEventListener('click', toggleActive.bind(li))
-    var navItemSpan = findNextElement(btn, '.nav-text')
-    if (navItemSpan) {
-      navItemSpan.style.cursor = 'pointer'
-      navItemSpan.addEventListener('click', toggleActive.bind(li))
+    btn.addEventListener('click', toggleActive.bind(btn.parentElement))
+    var nextElement = btn.nextElementSibling
+    if (nextElement && nextElement.classList.contains('nav-text')) {
+      nextElement.style.cursor = 'pointer'
+      nextElement.addEventListener('click', toggleActive.bind(btn.parentElement))
     }
   })
 
@@ -159,10 +158,5 @@
 
   function find (from, selector) {
     return [].slice.call(from.querySelectorAll(selector))
-  }
-
-  function findNextElement (from, selector) {
-    var el = from.nextElementSibling
-    return el && selector ? el[el.matches ? 'matches' : 'msMatchesSelector'](selector) && el : el
   }
 })()
