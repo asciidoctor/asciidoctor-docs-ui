@@ -45,9 +45,8 @@
   })
 
   nav.querySelector('[data-panel=explore] .context').addEventListener('click', function () {
-    // NOTE logic assumes there are only two panels
     find(nav, '[data-panel]').forEach(function (panel) {
-      panel.classList.toggle('is-active')
+      panel.classList.toggle('is-active') // NOTE logic assumes there are only two panels
     })
   })
 
@@ -97,14 +96,12 @@
   }
 
   function activateCurrentPath (navItem, trace) {
-    var ancestorClasses
-    var ancestor = navItem.parentNode
-    while (!(ancestorClasses = ancestor.classList).contains('nav-menu')) {
-      if (ancestor.tagName === 'LI' && ancestorClasses.contains('nav-item')) {
-        if (trace !== false) ancestorClasses.add('is-current-path')
-        ancestorClasses.add('is-active')
-      }
-      ancestor = ancestor.parentNode
+    var ancestorClassList
+    var ancestor = navItem
+    while ((ancestor = ancestor.parentNode) && ancestor !== menuPanel) {
+      if (!(ancestorClassList = ancestor.classList).contains('nav-item')) continue
+      if (trace !== false) ancestorClassList.add('is-current-path')
+      ancestorClassList.add('is-active')
     }
     navItem.classList.add('is-active')
   }
