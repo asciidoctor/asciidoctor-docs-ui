@@ -1,7 +1,7 @@
 ;(function () {
   'use strict'
 
-  var SECT_CLASS_RX = /^sect(\d)$/
+  var SECT_CLASS_RX = /^sect[0-5](?=$| )/
 
   var navContainer = document.querySelector('.nav-container')
   var navToggle = document.querySelector('.nav-toggle')
