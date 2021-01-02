@@ -13,8 +13,7 @@
   if (!menuPanel) return
   var nav = navContainer.querySelector('.nav')
 
-  var currentPageItem = menuPanel.querySelector('.is-current-page')
-  var originalPageItem = currentPageItem
+  var currentPageItem = findItemForHash() || menuPanel.querySelector('.is-current-url')
   if (currentPageItem) {
     activateCurrentPath(currentPageItem)
     scrollItemToMidpoint(menuPanel, currentPageItem)
@@ -28,7 +27,7 @@
       collapse ? btn.parentElement.classList.remove('is-active') : btn.parentElement.classList.add('is-active')
     })
     if (currentPageItem) {
-      if (collapse) activateCurrentPath(currentPageItem, false)
+      if (collapse) activateCurrentPath(currentPageItem)
       scrollItemToMidpoint(menuPanel, currentPageItem)
     } else if (collapse) {
       menuPanel.scrollTop = 0
@@ -56,54 +55,23 @@
   })
 
   function onHashChange () {
-    var navItem, navLink
-    var hash = window.location.hash
-    if (hash) {
-      if (hash.indexOf('%')) hash = decodeURIComponent(hash)
-      if (!(navLink = menuPanel.querySelector('.nav-link[href="' + hash + '"]'))) {
-        var targetNode = document.getElementById(hash.slice(1))
-        if (targetNode) {
-          var current = targetNode
-          var ceiling = document.querySelector('article.doc')
-          while ((current = current.parentNode) && current !== ceiling) {
-            var id = current.id
-            // NOTE: look for section heading
-            if (!id && (id = SECT_CLASS_RX.test(current.className))) id = (current.firstElementChild || {}).id
-            if (id && (navLink = menuPanel.querySelector('.nav-link[href="#' + id + '"]'))) break
-          }
-        }
-      }
-    }
-    if (navLink) {
-      navItem = navLink.parentNode
-    } else if (originalPageItem) {
-      navLink = (navItem = originalPageItem).querySelector('.nav-link')
-    } else {
-      return
-    }
-    if (navItem === currentPageItem) return
+    var navItem = findItemForHash() || menuPanel.querySelector('.is-current-url')
+    if (!navItem || navItem === currentPageItem) return
     find(menuPanel, '.nav-item.is-active').forEach(function (el) {
       el.classList.remove('is-current-path', 'is-current-page', 'is-active')
     })
-    ;(currentPageItem = navItem).classList.add('is-current-page')
-    activateCurrentPath(currentPageItem)
+    activateCurrentPath((currentPageItem = navItem))
     scrollItemToMidpoint(menuPanel, currentPageItem)
   }
 
-  if (menuPanel.querySelector('.nav-link[href^="#"]')) {
-    if (window.location.hash) onHashChange()
-    window.addEventListener('hashchange', onHashChange)
-  }
+  if (menuPanel.querySelector('.nav-link[href^="#"]')) window.addEventListener('hashchange', onHashChange)
 
-  function activateCurrentPath (navItem, trace) {
-    var ancestorClassList
+  function activateCurrentPath (navItem) {
     var ancestor = navItem
     while ((ancestor = ancestor.parentNode) && ancestor !== menuPanel) {
-      if (!(ancestorClassList = ancestor.classList).contains('nav-item')) continue
-      if (trace !== false) ancestorClassList.add('is-current-path')
-      ancestorClassList.add('is-active')
+      if (ancestor.classList.contains('nav-item')) ancestor.classList.add('is-current-path', 'is-active')
     }
-    navItem.classList.add('is-active')
+    navItem.classList.add('is-current-page', 'is-active')
   }
 
   function toggleActive () {
@@ -144,6 +112,24 @@
 
   function trapEvent (e) {
     e.stopPropagation()
+  }
+
+  function findItemForHash () {
+    var hash = window.location.hash
+    if (!hash) return
+    if (hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var navLink = menuPanel.querySelector('.nav-link[href="' + hash + '"]')
+    if (navLink) return navLink.parentNode
+    var target = document.getElementById(hash.slice(1))
+    if (!target) return
+    var scope = document.querySelector('article.doc')
+    var ancestor = target
+    while ((ancestor = ancestor.parentNode) && ancestor !== scope) {
+      var id = ancestor.id
+      if (!id) id = SECT_CLASS_RX.test(ancestor.className) && (ancestor.firstElementChild || {}).id
+      if (id && (navLink = menuPanel.querySelector('.nav-link[href="#' + id + '"]'))) return navLink.parentNode
+    }
   }
 
   function scrollItemToMidpoint (panel, item) {
