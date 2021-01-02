@@ -7,9 +7,8 @@
     {{/if}}
     {{/with}}
     {{#each page.breadcrumbs}}
-    <li>
+    <li>{{! TODO: remove exception for discrete once the UI model uses the navtitle for discrete/orphan pages}}
     {{~#if ./discrete~}}
-    {{!-- TODO: remove the exception for discrete once the UI model uses the navtitle for discrete/orphan pages --}}
     <a href="{{{relativize ./url}}}" class="discrete">{{#with (resolvePage @root.page.relativeSrcPath model=false)}}{{{./asciidoc.navtitle}}}{{/with}}</a>
     {{~else if (and ./url (eq ./urlType 'internal'))~}}
     <a href="{{{relativize ./url}}}">{{{./content}}}</a>
