@@ -17,7 +17,7 @@
   var originalPageItem = currentPageItem
   if (currentPageItem) {
     activateCurrentPath(currentPageItem)
-    scrollItemToMidpoint(menuPanel, currentPageItem.querySelector('.nav-link'))
+    scrollItemToMidpoint(menuPanel, currentPageItem)
   } else {
     menuPanel.scrollTop = 0
   }
@@ -29,7 +29,7 @@
     })
     if (currentPageItem) {
       if (collapse) activateCurrentPath(currentPageItem, false)
-      scrollItemToMidpoint(menuPanel, currentPageItem.querySelector('.nav-link'))
+      scrollItemToMidpoint(menuPanel, currentPageItem)
     } else if (collapse) {
       menuPanel.scrollTop = 0
     }
@@ -89,7 +89,7 @@
     })
     ;(currentPageItem = navItem).classList.add('is-current-page')
     activateCurrentPath(currentPageItem)
-    scrollItemToMidpoint(menuPanel, navLink)
+    scrollItemToMidpoint(menuPanel, currentPageItem)
   }
 
   if (menuPanel.querySelector('.nav-link[href^="#"]')) {
@@ -153,7 +153,7 @@
   function scrollItemToMidpoint (panel, item) {
     if (panel.scrollHeight === panel.clientHeight) return // not scrollable
     var panelRect = panel.getBoundingClientRect()
-    var linkRect = item.getBoundingClientRect()
+    var linkRect = item.querySelector('.nav-link').getBoundingClientRect()
     panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
   }
 
