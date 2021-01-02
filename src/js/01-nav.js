@@ -151,11 +151,10 @@
   }
 
   function scrollItemToMidpoint (panel, item) {
-    var itemRect = item.getBoundingClientRect()
+    if (panel.scrollHeight === panel.clientHeight) return // not scrollable
     var panelRect = panel.getBoundingClientRect()
-    var currentOffsetTop = itemRect.top - panelRect.top + panel.scrollTop
-    var targetOffsetTop = (panelRect.height - itemRect.height) * 0.5
-    panel.scrollTop = Math.max(0, (currentOffsetTop - targetOffsetTop).toFixed())
+    var linkRect = item.getBoundingClientRect()
+    panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
   }
 
   function find (from, selector) {
