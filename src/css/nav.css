@@ -75,6 +75,10 @@
   height: var(--nav-panel-menu-height);
 }
 
+.nav-panel-menu.is-loading {
+  visibility: hidden;
+}
+
 .nav-panel-menu:not(.is-active) .nav-menu {
   opacity: 0.75;
 }
