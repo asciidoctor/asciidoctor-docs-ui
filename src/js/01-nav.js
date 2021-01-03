@@ -92,8 +92,8 @@
       var padding = parseFloat(window.getComputedStyle(this).marginTop)
       var rect = this.getBoundingClientRect()
       var menuPanelRect = menuPanel.getBoundingClientRect()
-      var overflowY = (rect.bottom - menuPanelRect.top - menuPanelRect.height + padding).toFixed()
-      if (overflowY > 0) menuPanel.scrollTop += Math.min((rect.top - menuPanelRect.top - padding).toFixed(), overflowY)
+      var overflowY = Math.round(rect.bottom - menuPanelRect.top - menuPanelRect.height + padding)
+      if (overflowY > 0) menuPanel.scrollTop += Math.min(Math.round(rect.top - menuPanelRect.top - padding), overflowY)
     }
   }
 
