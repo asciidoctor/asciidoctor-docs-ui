@@ -31,7 +31,6 @@ body {
 
 .navbar-brand {
   display: flex;
-  height: 100%;
   padding-left: 1rem;
 }
 
@@ -58,16 +57,16 @@ body {
   align-self: center;
 }
 
-.navbar-start .navbar-item:last-child {
-  flex-grow: 1;
-  justify-content: flex-end;
+.navbar-start .navbar-item + .navbar-item:last-child {
+  flex: 0 1 20rem;
+  margin-left: auto;
   padding-left: 0;
 }
 
 #search {
   display: flex;
   color: var(--body-font-color);
-  width: 20rem;
+  width: 100%;
 }
 
 #search > .algolia-autocomplete {
@@ -82,7 +81,7 @@ body {
   font-size: inherit;
   line-height: 1.5;
   padding: 0.25rem;
-  width: 10ex;
+  width: 10ex; /* width required to make input flexible */
   height: -webkit-fit-content; /* fix for Safari */
   flex: auto;
 }
@@ -123,10 +122,6 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
-  .navbar-start {
-    flex-grow: 1;
-  }
-
   .navbar-start > .navbar-item,
   .navbar-start .navbar-link,
   .navbar-end > .navbar-item,
@@ -257,6 +252,10 @@ body {
 }
 
 @media screen and (max-width: 1023.5px) {
+  .navbar-brand {
+    height: inherit;
+  }
+
   .navbar-brand .navbar-item {
     align-items: center;
     display: flex;
@@ -281,6 +280,10 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+  .navbar-burger {
+    display: none;
+  }
+
   .navbar,
   .navbar-menu,
   .navbar-start,
@@ -288,8 +291,17 @@ body {
     display: flex;
   }
 
-  .navbar-burger {
-    display: none;
+  .navbar-menu {
+    flex: auto;
+  }
+
+  .navbar-start {
+    flex: 1 0 auto;
+  }
+
+  .navbar-end {
+    flex: none;
+    margin-left: auto;
   }
 
   .navbar-item,
@@ -319,20 +331,6 @@ body {
     margin-top: -0.375em;
     right: 1.125em;
     top: 50%;
-  }
-
-  .navbar-menu {
-    flex-grow: 1;
-  }
-
-  .navbar-start {
-    justify-content: flex-start;
-    margin-right: auto;
-  }
-
-  .navbar-end {
-    justify-content: flex-end;
-    margin-left: auto;
   }
 
   .navbar-dropdown {
