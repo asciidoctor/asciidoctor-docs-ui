@@ -2,6 +2,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item logo" title="Asciidoctor" href="https://asciidoctor.org"><img src="{{{uiRootPath}}}/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
+      <a class="navbar-item title" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">{{site.title}}</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -9,10 +10,9 @@
       </button>
     </div>
     <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">{{site.title}}</a>
+      <div class="navbar-end">
         {{#if env.ALGOLIA_API_KEY}}
-        <div class="navbar-item hide-for-print">
+        <div class="navbar-item search hide-for-print">
           {{#if (and page.component (ne page.component.name 'home'))}}
           <div id="search" class="field has-filter">
             <input class="query" type="text" placeholder="Search the docs">
@@ -27,8 +27,6 @@
           {{/if}}
         </div>
         {{/if}}
-      </div>
-      <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
           <div class="navbar-link">AsciiDoc</div>
           <div class="navbar-dropdown">
