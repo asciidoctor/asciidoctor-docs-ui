@@ -105,6 +105,9 @@
   <use href="#icon-mark-github" width="16" height="16" x="0" y="112" />
   <view id="view-mark-github" viewBox="0 112 16 16" />
 
+  <use href="#icon-mark-github" width="16" height="16" x="16" y="112" fill="#fff" />
+  <view id="view-mark-github-w" viewBox="16 112 16 16" />
+
   <use href="#icon-stop" width="16" height="16" x="0" y="128" />
   <view id="view-stop" viewBox="0 128 16 16" />
 

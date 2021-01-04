@@ -215,6 +215,7 @@ body {
   display: block;
 }
 
+.navbar-item .icon img,
 .navbar-item .icon svg {
   fill: currentColor;
   width: inherit;
