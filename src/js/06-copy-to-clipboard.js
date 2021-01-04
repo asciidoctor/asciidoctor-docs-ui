@@ -38,7 +38,7 @@
         use.setAttribute('href', window.uiRootPath + '/img/octicons-16.svg#icon-clippy')
         svg.appendChild(use)
         copy.appendChild(svg)
-      } else { // img
+      } else { // config.svgAs === 'img'
         var img = document.createElement('img')
         img.src = window.uiRootPath + '/img/octicons-16.svg#view-clippy'
         img.alt = 'copy icon'
