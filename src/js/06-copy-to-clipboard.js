@@ -39,7 +39,7 @@
         svg.appendChild(use)
         copy.appendChild(svg)
       } else { // img
-        var img = new Image()
+        var img = document.createElement('img')
         img.alt = 'copy icon'
         img.className = 'copy-icon'
         img.src = window.uiRootPath + '/img/octicons-16.svg#view-clippy'
