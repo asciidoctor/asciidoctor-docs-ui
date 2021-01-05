@@ -1,12 +1,18 @@
 @import "docsearch.js/dist/cdn/docsearch.css";
 
+.algolia-autocomplete .ds-dropdown-menu {
+  max-width: none;
+  min-width: auto;
+  width: 100%;
+}
+
 .algolia-autocomplete .ds-dropdown-menu::before {
   border-color: var(--navbar-button-border-color);
   border-radius: 0;
 }
 
 .algolia-autocomplete .ds-dropdown-menu > :first-child {
-  max-height: calc(var(--viewport-height) - var(--navbar-height));
+  max-height: calc(var(--viewport-height) - var(--navbar-height) - 4rem);
   border-radius: 0.1em;
   border-color: var(--navbar-button-border-color);
   padding-bottom: 0;
@@ -24,10 +30,18 @@
   font-weight: var(--body-font-weight-bold);
 }
 
-/*
-@media screen and (max-width: 1023.5px) {
-  .algolia-autocomplete .ds-dropdown-menu {
-    min-width: calc(100vw - var(--navbar-height)) !important;
+@media screen and (min-width: 769.5px) {
+  .algolia-autocomplete .ds-dropdown-menu.ds-with-1 {
+    width: 28rem;
+  }
+
+  .algolia-autocomplete .ds-dropdown-menu.ds-without-1 {
+    width: 19rem;
   }
 }
-*/
+
+@media screen and (min-width: 1024px) {
+  .algolia-autocomplete .ds-dropdown-menu > :first-child {
+    max-height: calc(var(--viewport-height) - var(--navbar-height));
+  }
+}
