@@ -176,9 +176,16 @@ body {
 
 .navbar-item .icon img,
 .navbar-item .icon svg {
-  fill: currentColor;
   width: inherit;
   height: inherit;
+}
+
+.navbar-item .icon img {
+  filter: invert(10%);
+}
+
+.navbar-item .icon svg {
+  fill: currentColor;
 }
 
 .navbar-link {
@@ -313,6 +320,10 @@ body {
   .navbar-end .navbar-item.search {
     flex: 0 1 20rem;
     padding-left: 0;
+  }
+
+  .navbar-item .icon img {
+    filter: invert(100%);
   }
 
   .navbar-dropdown {
