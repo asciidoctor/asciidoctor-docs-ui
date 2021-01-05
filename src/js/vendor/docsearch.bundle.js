@@ -26,6 +26,7 @@
     })
     var eventEmitter = controller.autocomplete
     var autocomplete = eventEmitter.autocomplete
+    autocomplete.setVal()
     eventEmitter.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
     if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(controller.input))
     searchField.addEventListener('click', confineEvent)
