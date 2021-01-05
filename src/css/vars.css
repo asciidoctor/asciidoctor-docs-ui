@@ -46,7 +46,8 @@
   --navbar-button-border-color: var(--panel-border-color);
   --navbar-button-font-color: var(--body-font-color);
   --navbar-menu-border-color: var(--panel-border-color);
-  --navbar-menu-box-shadow: rgba(160, 160, 160, 0.15);
+  --navbar-menu-border-radius: 0 0 0.25rem 0.25rem;
+  --navbar-menu-box-shadow: 0 2px 4px rgba(160, 160, 160, 0.15);
   --navbar-menu-background: var(--color-white);
   --navbar-menu-font-color: var(--body-font-color);
   --navbar-menu_hover-background: var(--color-smoke-50);

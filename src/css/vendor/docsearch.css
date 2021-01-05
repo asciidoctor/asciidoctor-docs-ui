@@ -1,33 +1,70 @@
 @import "docsearch.js/dist/cdn/docsearch.css";
 
+.algolia-autocomplete .ds-dropdown-menu {
+  max-width: none;
+  min-width: auto;
+  width: 100%;
+  font-size: initial;
+  background: var(--color-white);
+  border: 1px solid var(--navbar-button-border-color);
+  border-radius: var(--navbar-menu-border-radius);
+  box-shadow: var(--navbar-menu-box-shadow);
+}
+
 .algolia-autocomplete .ds-dropdown-menu::before {
   border-color: var(--navbar-button-border-color);
   border-radius: 0;
 }
 
 .algolia-autocomplete .ds-dropdown-menu > :first-child {
-  max-height: calc(var(--viewport-height) - var(--navbar-height));
-  border-radius: 0.1em;
-  border-color: var(--navbar-button-border-color);
+  max-height: calc(var(--viewport-height) - var(--navbar-height) - 4rem);
   padding-bottom: 0;
-}
-
-.algolia-autocomplete .ds-dropdown-menu > :first-child > :last-child {
-  margin-bottom: 8px;
+  border: none;
+  background: none;
+  border-radius: 0;
 }
 
 .algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
   margin-top: 4px;
 }
 
+.algolia-autocomplete .algolia-docsearch-suggestion {
+  background: none;
+}
+
 .algolia-autocomplete .algolia-docsearch-suggestion--title {
   font-weight: var(--body-font-weight-bold);
 }
 
-/*
-@media screen and (max-width: 1023.5px) {
-  .algolia-autocomplete .ds-dropdown-menu {
-    min-width: calc(100vw - var(--navbar-height)) !important;
+.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column {
+  font-weight: normal;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column::after {
+  display: none;
+}
+
+.algolia-docsearch-suggestion--subcategory-column-text::after {
+  content: "|";
+  padding: 0 0.5em;
+}
+
+.algolia-autocomplete .ds-dropdown-menu > :first-child > :last-child {
+  margin-bottom: 8px;
+}
+
+@media screen and (min-width: 769px) {
+  .algolia-docsearch-suggestion--subcategory-column-text::after {
+    display: none;
   }
 }
-*/
+
+@media screen and (min-width: 1024px) {
+  .algolia-autocomplete .ds-dropdown-menu.ds-with-1 {
+    width: 28rem;
+  }
+
+  .algolia-autocomplete .ds-dropdown-menu > :first-child {
+    max-height: calc(var(--viewport-height) - var(--navbar-height));
+  }
+}

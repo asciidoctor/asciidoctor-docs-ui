@@ -60,12 +60,14 @@ body {
 
 #search {
   display: flex;
+  position: relative; /* make results relative to whole search field, not just input */
   color: var(--body-font-color);
   width: 100%;
 }
 
 #search > .algolia-autocomplete {
   display: inherit !important;
+  position: static !important;
   flex: auto;
 }
 
@@ -246,7 +248,12 @@ body {
   }
 
   .navbar-end .navbar-item.search {
-    display: none;
+    height: 3rem;
+    display: flex;
+  }
+
+  #search .query {
+    height: 100%;
   }
 }
 
@@ -330,8 +337,8 @@ body {
     background: var(--navbar-menu-background);
     border: 1px solid var(--navbar-menu-border-color);
     border-top: 2px solid var(--color-brand-primary);
-    border-radius: 0 0 0.25rem 0.25rem;
-    box-shadow: 0 2px 4px var(--navbar-menu-box-shadow);
+    border-radius: var(--navbar-menu-border-radius);
+    box-shadow: var(--navbar-menu-box-shadow);
     display: none;
     top: 100%;
     left: 0;
