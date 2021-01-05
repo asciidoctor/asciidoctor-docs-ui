@@ -60,12 +60,14 @@ body {
 
 #search {
   display: flex;
+  position: relative; /* make results relative to whole search field, not just input */
   color: var(--body-font-color);
   width: 100%;
 }
 
 #search > .algolia-autocomplete {
   display: inherit !important;
+  position: static !important;
   flex: auto;
 }
 
@@ -248,14 +250,6 @@ body {
   .navbar-end .navbar-item.search {
     height: 3rem;
     display: flex;
-  }
-
-  #search {
-    position: relative; /* make results relative to whole search field, not just input */
-  }
-
-  #search > .algolia-autocomplete {
-    position: static !important;
   }
 }
 

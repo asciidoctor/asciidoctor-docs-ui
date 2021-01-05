@@ -4,6 +4,7 @@
   max-width: none;
   min-width: auto;
   width: 100%;
+  font-size: initial;
 }
 
 .algolia-autocomplete .ds-dropdown-menu::before {
@@ -30,17 +31,24 @@
   font-weight: var(--body-font-weight-bold);
 }
 
-@media screen and (min-width: 769.5px) {
+.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column {
+  font-weight: normal;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column::after {
+  display: none;
+}
+
+.algolia-docsearch-suggestion--subcategory-column-text::after {
+  content: "|";
+  padding: 0 0.5em;
+}
+
+@media screen and (min-width: 1024px) {
   .algolia-autocomplete .ds-dropdown-menu.ds-with-1 {
     width: 28rem;
   }
 
-  .algolia-autocomplete .ds-dropdown-menu.ds-without-1 {
-    width: 19rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
   .algolia-autocomplete .ds-dropdown-menu > :first-child {
     max-height: calc(var(--viewport-height) - var(--navbar-height));
   }
