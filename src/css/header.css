@@ -251,6 +251,10 @@ body {
     height: 3rem;
     display: flex;
   }
+
+  #search .query {
+    height: 100%;
+  }
 }
 
 @media screen and (min-width: 1024px) {
