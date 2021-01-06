@@ -5,7 +5,11 @@
 
   function activateSearch (docsearch, config) {
     appendStylesheet(config.stylesheet)
-    var algoliaOptions = { hitsPerPage: parseInt(config.maxResults) || 15 }
+    var algoliaOptions = {
+      hitsPerPage: parseInt(config.maxResults) || 15,
+      advancedSyntax: true,
+      advancedSyntaxFeatures: ['exactPhrase'],
+    }
     var searchFieldSelector = '#' + (config.searchFieldId || 'search')
     var searchField = document.querySelector(searchFieldSelector)
     var filterInput = searchField.querySelector('.filter input')
