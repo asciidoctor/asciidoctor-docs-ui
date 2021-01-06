@@ -51,7 +51,7 @@ footer.footer {
   font-size: calc(36 / var(--rem-base) * 1rem);
   line-height: 1;
   position: relative;
-  top: 6%; /* compensate for built-in line height in font */
+  top: 0.06em; /* compensate for built-in line height in font */
   letter-spacing: -0.02em;
 }
 
