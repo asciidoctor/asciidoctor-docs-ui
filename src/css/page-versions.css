@@ -24,7 +24,7 @@
 .page-versions .version-menu-toggle::after {
   content: "";
   background: url(../img/octicons-16.svg#view-chevron-down) no-repeat center right -0.15em / 1em 1em;
-  filter: invert(36.5%); /* NOTE should match --color-gray-70 */
+  filter: var(--toolbar-icon-filter);
   padding-right: 1rem;
 }
 

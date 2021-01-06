@@ -183,7 +183,7 @@ body {
 }
 
 .navbar-item .icon img {
-  filter: invert(10%);
+  filter: var(--navbar-menu-icon-filter);
 }
 
 .navbar-item .icon svg {

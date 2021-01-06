@@ -18,7 +18,7 @@
 
 .nav-toggle {
   background: url(../img/octicons-24.svg#view-file-directory) no-repeat center / 50% 50%;
-  filter: invert(10%); /* NOTE should match --navbar-background */
+  filter: var(--toolbar-primary-icon-filter);
   border: none;
   outline: none;
   line-height: inherit;
@@ -45,7 +45,7 @@
   width: calc(var(--toolbar-height) / 2);
   margin: calc(var(--toolbar-height) / 4);
   margin-right: 0.5rem;
-  filter: invert(10%); /* NOTE should match --navbar-background */
+  filter: var(--toolbar-primary-icon-filter);
 }
 
 .home-link:hover,
