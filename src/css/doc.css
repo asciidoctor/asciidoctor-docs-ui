@@ -130,7 +130,7 @@ h1.page + aside.toc.embedded {
 .doc i.fa {
   display: inline-block;
   background: no-repeat center / 1em 1em;
-  filter: invert(20%);
+  filter: var(--doc-icon-filter);
   hyphens: none;
   font-style: normal;
   height: 1em;
@@ -746,7 +746,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .source-toolbox img.copy-icon {
-  filter: invert(50.2%);
+  filter: var(--pre-annotation-icon-filter);
 }
 
 .doc .source-toolbox svg.copy-icon {
