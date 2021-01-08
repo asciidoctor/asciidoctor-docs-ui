@@ -146,8 +146,8 @@
   }
 
   function scrollItemToMidpoint (panel, item) {
-    if (panel.scrollHeight === panel.clientHeight) return // not scrollable
     var panelRect = panel.getBoundingClientRect()
+    if (panel.scrollHeight === Math.round(panelRect.height)) return // not scrollable
     var linkRect = item.querySelector('.nav-link').getBoundingClientRect()
     panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
   }
