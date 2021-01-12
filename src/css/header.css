@@ -31,12 +31,12 @@ body {
 
 .navbar-brand {
   display: flex;
-  padding-left: 1rem;
 }
 
 .navbar-brand .navbar-item.logo {
   align-self: center;
   padding: 0;
+  margin-left: 1rem;
   height: calc(0.6 * var(--navbar-height));
   width: calc(0.6 * var(--navbar-height));
 }
