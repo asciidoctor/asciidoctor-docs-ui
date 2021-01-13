@@ -12,6 +12,7 @@
   var menuPanel = navContainer.querySelector('[data-panel=menu]')
   if (!menuPanel) return
   var nav = navContainer.querySelector('.nav')
+  var navBounds = { encroachingElement: document.querySelector('footer.footer') }
 
   var currentPageItem
   if (menuPanel.classList.contains('is-loading')) {
@@ -30,6 +31,10 @@
       scrollItemToMidpoint(menuPanel, currentPageItem)
     }
   }
+
+  fitNavInit({})
+  window.addEventListener('load', fitNavInit)
+  window.addEventListener('resize', fitNavInit)
 
   menuPanel.querySelector('.nav-menu-toggle').addEventListener('click', function () {
     var collapse = !this.classList.toggle('is-active')
@@ -154,5 +159,28 @@
 
   function find (from, selector) {
     return [].slice.call(from.querySelectorAll(selector))
+  }
+
+  function fitNavInit (e) {
+    if (e.type) {
+      window.removeEventListener('scroll', fitNav)
+      nav.style.height = ''
+    }
+    if (window.getComputedStyle(nav).position === 'fixed') {
+      navBounds.availableHeight = window.innerHeight
+      navBounds.preferredHeight = nav.getBoundingClientRect().height
+      fitNav()
+      window.addEventListener('scroll', fitNav)
+    }
+    if (e.type !== 'resize' && currentPageItem) scrollItemToMidpoint(menuPanel, currentPageItem)
+  }
+
+  function fitNav () {
+    var scrollDatum = menuPanel.scrollTop + menuPanel.offsetHeight
+    var reclaimedHeight = navBounds.availableHeight - navBounds.encroachingElement.getBoundingClientRect().top
+    nav.style.height = reclaimedHeight > 0
+      ? Math.max(0, Math.round(navBounds.preferredHeight - reclaimedHeight)) + 'px'
+      : ''
+    menuPanel.scrollTop = scrollDatum - menuPanel.offsetHeight
   }
 })()
