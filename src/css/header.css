@@ -78,7 +78,7 @@ body {
   font-size: inherit;
   line-height: 1.5;
   padding: 0.25rem;
-  width: 10ex; /* width required to make input flexible */
+  width: 7ex; /* width required to make input flexible */
   height: -webkit-fit-content; /* fix for Safari */
   flex: auto;
 }
