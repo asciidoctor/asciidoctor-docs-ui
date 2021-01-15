@@ -177,9 +177,9 @@
 
   function fitNav () {
     var scrollDatum = menuPanel.scrollTop + menuPanel.offsetHeight
-    var reclaimedHeight = navBounds.availableHeight - navBounds.encroachingElement.getBoundingClientRect().top
-    nav.style.height = reclaimedHeight > 0
-      ? Math.max(0, Math.round(navBounds.preferredHeight - reclaimedHeight)) + 'px'
+    var occupiedHeight = navBounds.availableHeight - navBounds.encroachingElement.getBoundingClientRect().top
+    nav.style.height = occupiedHeight > 0
+      ? Math.max(0, Math.round(navBounds.preferredHeight - occupiedHeight)) + 'px'
       : ''
     menuPanel.scrollTop = scrollDatum - menuPanel.offsetHeight
   }
