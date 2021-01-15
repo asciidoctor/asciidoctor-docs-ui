@@ -254,7 +254,7 @@ Est in reque homero principes, meis deleniti mediocrem ad has.
 Ex nam suas nemore dignissim, vel apeirian democritum et.
 
 .Antora is a multi-repo documentation site generator
-image::multirepo-ssg.svg[Multirepo SSG,250]
+image::multirepo-ssg.svg[Multirepo SSG,300]
 
 Make the switch today!
 

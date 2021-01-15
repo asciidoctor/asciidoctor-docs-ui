@@ -14,7 +14,7 @@
   var navBounds = { encroachingElement: document.querySelector('footer.footer') }
   var currentPageItem
 
-  window.addEventListener('load', fitNavInit)
+  window.addEventListener('load', fitNavInit) /* needed if images shift the content */
   window.addEventListener('resize', fitNavInit)
 
   if (!menuPanel) return fitNavInit({})
@@ -164,25 +164,21 @@
   }
 
   function fitNavInit (e) {
-    if (e.type) {
-      window.removeEventListener('scroll', fitNav)
-      nav.style.height = ''
-    }
-    if (window.getComputedStyle(navContainer).position !== 'fixed') {
-      navBounds.availableHeight = window.innerHeight
-      navBounds.preferredHeight = nav.getBoundingClientRect().height
-      fitNav()
-      window.addEventListener('scroll', fitNav)
-    }
-    if (e.type !== 'resize' && currentPageItem) scrollItemToMidpoint(menuPanel, currentPageItem)
+    window.removeEventListener('scroll', fitNav)
+    if (window.getComputedStyle(navContainer).position === 'fixed') return
+    navBounds.availableHeight = window.innerHeight
+    navBounds.preferredHeight = navContainer.getBoundingClientRect().height
+    if (fitNav() && e.type !== 'resize' && currentPageItem) scrollItemToMidpoint(menuPanel, currentPageItem)
+    window.addEventListener('scroll', fitNav)
   }
 
   function fitNav () {
     var scrollDatum = menuPanel && (menuPanel.scrollTop + menuPanel.offsetHeight)
-    var occupiedHeight = navBounds.availableHeight - navBounds.encroachingElement.getBoundingClientRect().top
-    nav.style.height = occupiedHeight > 0
-      ? Math.max(0, Math.round(navBounds.preferredHeight - occupiedHeight)) + 'px'
-      : ''
+    var occupied = navBounds.availableHeight - navBounds.encroachingElement.getBoundingClientRect().top
+    var modified = occupied > 0
+      ? nav.style.height !== (nav.style.height = Math.max(Math.round(navBounds.preferredHeight - occupied), 0) + 'px')
+      : !!nav.style.removeProperty('height')
     if (menuPanel) menuPanel.scrollTop = scrollDatum - menuPanel.offsetHeight
+    return modified
   }
 })()
