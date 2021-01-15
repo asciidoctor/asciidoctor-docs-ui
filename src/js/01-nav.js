@@ -9,12 +9,16 @@
   navToggle.addEventListener('click', showNav)
   navContainer.addEventListener('click', trapEvent)
 
-  var menuPanel = navContainer.querySelector('[data-panel=menu]')
-  if (!menuPanel) return
   var nav = navContainer.querySelector('.nav')
+  var menuPanel = nav.querySelector('[data-panel=menu]')
   var navBounds = { encroachingElement: document.querySelector('footer.footer') }
-
   var currentPageItem
+
+  window.addEventListener('load', fitNavInit)
+  window.addEventListener('resize', fitNavInit)
+
+  if (!menuPanel) return fitNavInit({})
+
   if (menuPanel.classList.contains('is-loading')) {
     if ((currentPageItem = findItemForHash() || menuPanel.querySelector('.is-current-url'))) {
       activateCurrentPath(currentPageItem)
@@ -33,8 +37,6 @@
   }
 
   fitNavInit({})
-  window.addEventListener('load', fitNavInit)
-  window.addEventListener('resize', fitNavInit)
 
   menuPanel.querySelector('.nav-menu-toggle').addEventListener('click', function () {
     var collapse = !this.classList.toggle('is-active')
@@ -176,11 +178,11 @@
   }
 
   function fitNav () {
-    var scrollDatum = menuPanel.scrollTop + menuPanel.offsetHeight
+    var scrollDatum = menuPanel && (menuPanel.scrollTop + menuPanel.offsetHeight)
     var occupiedHeight = navBounds.availableHeight - navBounds.encroachingElement.getBoundingClientRect().top
     nav.style.height = occupiedHeight > 0
       ? Math.max(0, Math.round(navBounds.preferredHeight - occupiedHeight)) + 'px'
       : ''
-    menuPanel.scrollTop = scrollDatum - menuPanel.offsetHeight
+    if (menuPanel) menuPanel.scrollTop = scrollDatum - menuPanel.offsetHeight
   }
 })()
