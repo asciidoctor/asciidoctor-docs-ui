@@ -166,7 +166,7 @@
       window.removeEventListener('scroll', fitNav)
       nav.style.height = ''
     }
-    if (window.getComputedStyle(nav).position === 'fixed') {
+    if (window.getComputedStyle(navContainer).position !== 'fixed') {
       navBounds.availableHeight = window.innerHeight
       navBounds.preferredHeight = nav.getBoundingClientRect().height
       fitNav()
