@@ -6,8 +6,6 @@ footer.footer {
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
-  position: relative;
-  z-index: var(--z-index-footer);
 }
 
 .footer p {
@@ -104,6 +102,8 @@ footer.footer {
 @media screen and (min-width: 1024px) {
   footer.footer {
     flex-direction: row;
+    position: relative;
+    z-index: var(--z-index-footer);
   }
 
   .footer-legal {
