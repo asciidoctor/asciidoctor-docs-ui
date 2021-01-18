@@ -298,6 +298,6 @@ See link:LICENSE[] to find the full license text.
 
 === Branding and Design
 
-Copyright (C) {url-asciidoctor}[Asciidoctor] 2018-2020.
+Copyright (C) {url-asciidoctor}[Asciidoctor] 2018-present.
 This includes any CSS that provides colors or iconography that depict the Asciidoctor brand.
 All rights reserved (until further notice).
