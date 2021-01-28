@@ -86,6 +86,10 @@ table {
   opacity: 0.5;
 }
 
+body * {
+  overscroll-behavior: none;
+}
+
 @supports (scrollbar-width: thin) {
   body * {
     scrollbar-width: thin;
