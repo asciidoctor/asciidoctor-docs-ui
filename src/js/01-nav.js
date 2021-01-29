@@ -173,11 +173,12 @@
   }
 
   function fitNav () {
-    var scrollDatum = menuPanel && (menuPanel.scrollTop + menuPanel.offsetHeight)
+    var scrollDatum = menuPanel && menuPanel.scrollTop + menuPanel.offsetHeight
     var occupied = navBounds.availableHeight - navBounds.encroachingElement.getBoundingClientRect().top
-    var modified = occupied > 0
-      ? nav.style.height !== (nav.style.height = Math.max(Math.round(navBounds.preferredHeight - occupied), 0) + 'px')
-      : !!nav.style.removeProperty('height')
+    var modified =
+      occupied > 0
+        ? nav.style.height !== (nav.style.height = Math.max(Math.round(navBounds.preferredHeight - occupied), 0) + 'px')
+        : !!nav.style.removeProperty('height')
     if (menuPanel) menuPanel.scrollTop = scrollDatum - menuPanel.offsetHeight
     return modified
   }
