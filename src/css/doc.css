@@ -923,7 +923,7 @@ h1.page + aside.toc.embedded {
   margin: 0 -0.25em;
 }
 
-.doc .nowrap {
+.doc :not(pre).nowrap {
   white-space: nowrap;
 }
 
