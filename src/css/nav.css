@@ -73,6 +73,7 @@
 
 .nav-panel-menu {
   overflow-y: scroll;
+  overscroll-behavior: none;
   height: var(--nav-panel-menu-height);
 }
 
