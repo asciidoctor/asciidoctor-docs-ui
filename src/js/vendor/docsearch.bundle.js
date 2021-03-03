@@ -33,6 +33,7 @@
     autocomplete.setVal()
     eventEmitter.on('autocomplete:selected', disableClose)
     eventEmitter.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
+    controller.input.data('aaAutocomplete').dropdown._ensureVisible = ensureVisible
     if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(controller.input))
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', resetSearch.bind(autocomplete))
@@ -65,6 +66,22 @@
   function disableClose (e) {
     e.isDefaultPrevented = function () {
       return true
+    }
+  }
+
+  function ensureVisible (el) {
+    var item = el.get(0)
+    var container = item
+    while ((container = container.parentNode) && container !== document.documentElement) {
+      if (window.getComputedStyle(container).overflowY === 'auto') break
+    }
+    if (!container || container.scrollHeight === container.offsetHeight) return
+    var delta
+    if ((delta = 15 + item.offsetTop + item.offsetHeight - (container.offsetHeight + container.scrollTop)) > 0) {
+      container.scrollTop += delta
+    }
+    if ((delta = item.offsetTop - container.scrollTop) < 0) {
+      container.scrollTop += delta
     }
   }
 
