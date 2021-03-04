@@ -28,16 +28,16 @@
             : algoliaOptions
         },
     })
-    var eventEmitter = controller.autocomplete
-    var autocomplete = eventEmitter.autocomplete
+    var input = controller.input
+    var autocomplete = input.autocomplete
     autocomplete.setVal()
-    eventEmitter.on('autocomplete:selected', disableClose)
-    eventEmitter.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
-    controller.input.data('aaAutocomplete').dropdown._ensureVisible = ensureVisible
-    if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(controller.input))
+    input.on('autocomplete:selected', disableClose)
+    input.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
+    input.data('aaAutocomplete').dropdown._ensureVisible = ensureVisible
+    if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(input))
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', resetSearch.bind(autocomplete))
-    if (controller.input.attr('autofocus') != null) controller.input.focus()
+    if (input.attr('autofocus') != null) input.focus()
   }
 
   function appendStylesheet (href) {
