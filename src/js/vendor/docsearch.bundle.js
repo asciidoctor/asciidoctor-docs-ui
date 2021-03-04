@@ -41,10 +41,7 @@
   }
 
   function appendStylesheet (href) {
-    var link = document.createElement('link')
-    link.rel = 'stylesheet'
-    link.href = href
-    document.head.appendChild(link)
+    document.head.appendChild(Object.assign(document.createElement('link'), { rel: 'stylesheet', href: href }))
   }
 
   function resetScroll () {
