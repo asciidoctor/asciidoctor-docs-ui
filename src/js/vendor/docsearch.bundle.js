@@ -18,7 +18,7 @@
       apiKey: config.apiKey,
       indexName: config.indexName,
       inputSelector: searchFieldSelector + ' .query',
-      autocompleteOptions: { autoselect: true, debug: true, hint: false, keyboardShortcuts: ['f', 's'], minLength: 2 },
+      autocompleteOptions: { autoselect: false, debug: true, hint: false, keyboardShortcuts: ['f', 's'], minLength: 2 },
       algoliaOptions: algoliaOptions,
       queryHook:
         filterInput &&
