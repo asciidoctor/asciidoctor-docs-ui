@@ -52,7 +52,7 @@
     this.focus()
     var dropdown = this.data('aaAutocomplete').dropdown
     if (!dropdown.isOpen || !this.val()) return
-    dropdown.datasets[0].cachedSuggestions.length = 0
+    dropdown.datasets[0].clearCachedSuggestions()
     dropdown.update(this.val())
   }
 
