@@ -41,7 +41,7 @@
     if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(typeahead))
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', resetSearch.bind(autocomplete))
-    document.documentElement.addEventListener('keydown', handleShortcuts.bind(input))
+    document.addEventListener('keydown', handleShortcuts.bind(input))
     if (input.attr('autofocus') != null) input.focus()
   }
 
