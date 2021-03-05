@@ -83,7 +83,7 @@ body {
   flex: auto;
 }
 
-#search .query:focus {
+#search :focus {
   outline: none;
 }
 

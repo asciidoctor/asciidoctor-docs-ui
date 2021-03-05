@@ -3,6 +3,7 @@
 
   activateSearch(require('docsearch.js/dist/cdn/docsearch.js'), document.getElementById('search-script').dataset)
 
+  var CTRL_KEY = 17
   var S_KEY = 83
   var SOLIDUS_KEY = 191
 
@@ -39,6 +40,7 @@
     input.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
     typeahead.dropdown._ensureVisible = ensureVisible
     if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(typeahead))
+    monitorCtrlKey(input, typeahead.dropdown.$menu)
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', resetSearch.bind(autocomplete))
     document.addEventListener('keydown', handleShortcuts.bind(input))
@@ -96,6 +98,19 @@
       e.preventDefault()
       e.stopPropagation()
     }
+  }
+
+  function monitorCtrlKey (input, dropdown) {
+    input.on('keydown', onCtrlKeyDown.bind(dropdown))
+    dropdown.on('keyup', onCtrlKeyUp.bind(input))
+  }
+
+  function onCtrlKeyDown (e) {
+    if (e.keyCode === CTRL_KEY) this.find('.ds-cursor a').focus()
+  }
+
+  function onCtrlKeyUp (e) {
+    if (e.keyCode === CTRL_KEY) this.focus()
   }
 
   function resetSearch () {
