@@ -30,11 +30,12 @@
     })
     var input = controller.input
     var autocomplete = input.autocomplete
+    var typeahead = input.data('aaAutocomplete')
     autocomplete.setVal()
     input.on('autocomplete:selected', disableClose)
     input.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
-    input.data('aaAutocomplete').dropdown._ensureVisible = ensureVisible
-    if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(input))
+    typeahead.dropdown._ensureVisible = ensureVisible
+    if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(typeahead))
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', resetSearch.bind(autocomplete))
     if (input.attr('autofocus') != null) input.focus()
@@ -49,11 +50,12 @@
   }
 
   function toggleFilter () {
-    this.focus()
-    var dropdown = this.data('aaAutocomplete').dropdown
-    if (!dropdown.isOpen || !this.val()) return
+    var input = this.$input
+    var dropdown = this.dropdown
+    input.focus()
+    if (!dropdown.isOpen || !input.val()) return
     dropdown.datasets[0].clearCachedSuggestions()
-    dropdown.update(this.val())
+    dropdown.update(input.val())
   }
 
   function confineEvent (e) {
