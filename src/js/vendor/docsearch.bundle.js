@@ -3,6 +3,9 @@
 
   activateSearch(require('docsearch.js/dist/cdn/docsearch.js'), document.getElementById('search-script').dataset)
 
+  var S_KEY = 83
+  var SOLIDUS_KEY = 191
+
   function activateSearch (docsearch, config) {
     appendStylesheet(config.stylesheet)
     var algoliaOptions = {
@@ -18,7 +21,7 @@
       apiKey: config.apiKey,
       indexName: config.indexName,
       inputSelector: searchFieldSelector + ' .query',
-      autocompleteOptions: { autoselect: false, debug: true, hint: false, keyboardShortcuts: ['s'], minLength: 2 },
+      autocompleteOptions: { autoselect: false, debug: true, hint: false, keyboardShortcuts: [], minLength: 2 },
       algoliaOptions: algoliaOptions,
       queryHook:
         filterInput &&
@@ -38,6 +41,7 @@
     if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(typeahead))
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', resetSearch.bind(autocomplete))
+    document.documentElement.addEventListener('keydown', handleShortcuts.bind(input))
     if (input.attr('autofocus') != null) input.focus()
   }
 
@@ -81,6 +85,16 @@
     }
     if ((delta = item.offsetTop - container.scrollTop) < 0) {
       container.scrollTop += delta
+    }
+  }
+
+  function handleShortcuts (e) {
+    var target = e.target || {}
+    if (e.altKey || e.shiftKey || target.isContentEditable || 'disabled' in target) return
+    if (e.ctrlKey ? e.keyCode === SOLIDUS_KEY : e.keyCode === S_KEY) {
+      this.focus()
+      e.preventDefault()
+      e.stopPropagation()
     }
   }
 
