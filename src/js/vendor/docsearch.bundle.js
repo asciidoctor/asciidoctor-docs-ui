@@ -24,6 +24,7 @@
       inputSelector: searchFieldSelector + ' .query',
       autocompleteOptions: { autoselect: false, debug: true, hint: false, keyboardShortcuts: [], minLength: 2 },
       algoliaOptions: algoliaOptions,
+      transformData: protectHitOrder,
       queryHook:
         filterInput &&
         function (query) {
@@ -116,5 +117,29 @@
   function resetSearch () {
     this.close()
     this.setVal()
+  }
+
+  // preserves the original order of results by qualifying unique occurrences of the same lvl0 and lvl1 values
+  function protectHitOrder (hits) {
+    var prevLvl0
+    var lvl0Qualifiers = {}
+    var lvl1Qualifiers = {}
+    return hits.map(function (hit) {
+      var lvl0 = hit.hierarchy.lvl0
+      var lvl0Qualifier = lvl0Qualifiers[lvl0]
+      if (lvl0 !== prevLvl0) {
+        lvl0Qualifiers[lvl0] = lvl0Qualifier == null ? (lvl0Qualifier = '') : (lvl0Qualifier += ' ')
+        lvl1Qualifiers = {}
+      }
+      if (lvl0Qualifier) hit.hierarchy.lvl0 = lvl0 + lvl0Qualifier
+      var lvl1 = hit.hierarchy.lvl1
+      if (lvl1 in lvl1Qualifiers) {
+        hit.hierarchy.lvl1 = lvl1 + (lvl1Qualifiers[lvl1] += ' ')
+      } else {
+        lvl1Qualifiers[lvl1] = ''
+      }
+      prevLvl0 = lvl0
+      return hit
+    })
   }
 })()
