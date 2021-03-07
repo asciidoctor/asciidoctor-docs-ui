@@ -77,13 +77,10 @@
   }
 
   function ensureVisible (el) {
-    var item = el.get(0)
-    var container = item
-    while ((container = container.parentNode) && container !== document.documentElement) {
-      if (window.getComputedStyle(container).overflowY === 'auto') break
-    }
-    if (!container || container.scrollHeight === container.offsetHeight) return
+    var container = this.datasets[0].$el.get(0)
+    if (container.scrollHeight === container.offsetHeight) return
     var delta
+    var item = el.get(0)
     if ((delta = 15 + item.offsetTop + item.offsetHeight - (container.offsetHeight + container.scrollTop)) > 0) {
       container.scrollTop += delta
     }
