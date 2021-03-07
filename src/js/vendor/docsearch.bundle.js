@@ -36,11 +36,17 @@
     var autocomplete = input.autocomplete
     var typeahead = input.data('aaAutocomplete')
     var dropdown = typeahead.dropdown
+    var menu = dropdown.$menu
     autocomplete.setVal() // clear value on page reload
     input.on('autocomplete:closed', clearSearch.bind(autocomplete))
     input.on('autocomplete:selected', disableClose)
     input.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
     dropdown._ensureVisible = ensureVisible
+    menu.off('mousedown.aa')
+    var suggestionSelector = '.' + dropdown.cssClasses.prefix + dropdown.cssClasses.suggestion
+    menu.on('mousedown.aa', suggestionSelector, onSuggestionMouseDown.bind(dropdown))
+    menu.off('mouseenter.aa')
+    menu.off('mouseleave.aa')
     if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(typeahead))
     monitorCtrlKey(input, dropdown)
     searchField.addEventListener('click', confineEvent)
@@ -105,11 +111,27 @@
   }
 
   function onCtrlKeyDown (e) {
-    if (e.keyCode === CTRL_KEY) this.getCurrentCursor().find('a').focus()
+    if (e.keyCode !== CTRL_KEY) return
+    var container = this.datasets[0].$el
+    var prevScrollTop = container.scrollTop()
+    this.getCurrentCursor().find('a').focus() // calling focus can cause the container to scroll
+    container.scrollTop(prevScrollTop)
   }
 
   function onCtrlKeyUp (e) {
     if (e.keyCode === CTRL_KEY) this.focus()
+  }
+
+  function onSuggestionMouseDown (e) {
+    var dropdown = this
+    var suggestion = dropdown
+      ._getSuggestions()
+      .filter('#' + e.currentTarget.id)
+    if (suggestion.attr('id') === dropdown._getCursor().attr('id')) return
+    dropdown._removeCursor()
+    setTimeout(function () {
+      dropdown._setCursor(suggestion, false)
+    }, 0)
   }
 
   function clearSearch () {

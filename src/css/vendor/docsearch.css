@@ -36,6 +36,11 @@
   font-weight: var(--body-font-weight-bold);
 }
 
+.algolia-autocomplete .algolia-docsearch-suggestion:hover .algolia-docsearch-suggestion--title,
+.algolia-autocomplete .ds-suggestion.ds-cursor .algolia-docsearch-suggestion--title {
+  text-decoration: underline;
+}
+
 .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column {
   font-weight: normal;
 }
