@@ -83,10 +83,10 @@
   }
 
   function ensureVisible (el) {
-    var container = this.datasets[0].$el.get(0)
+    var container = this.datasets[0].$el[0]
     if (container.scrollHeight === container.offsetHeight) return
     var delta
-    var item = el.get(0)
+    var item = el[0]
     if ((delta = 15 + item.offsetTop + item.offsetHeight - (container.offsetHeight + container.scrollTop)) > 0) {
       container.scrollTop += delta
     }
