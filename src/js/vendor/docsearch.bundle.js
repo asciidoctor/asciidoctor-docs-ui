@@ -40,7 +40,7 @@
     autocomplete.setVal() // clear value on page reload
     input.on('autocomplete:closed', clearSearch.bind(autocomplete))
     input.on('autocomplete:selected', disableClose)
-    input.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
+    input.on('autocomplete:updated', resetScroll.bind(typeahead))
     dropdown._ensureVisible = ensureVisible
     menu.off('mousedown.aa')
     var suggestionSelector = '.' + dropdown.cssClasses.prefix + dropdown.cssClasses.suggestion
@@ -51,7 +51,7 @@
     monitorCtrlKey(input, dropdown)
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', clearSearch.bind(autocomplete))
-    document.addEventListener('keydown', handleShortcuts.bind(input))
+    document.addEventListener('keydown', handleShortcuts.bind(typeahead))
     if (input.attr('autofocus') != null) input.focus()
   }
 
@@ -60,7 +60,7 @@
   }
 
   function resetScroll () {
-    this.scrollTop = 0
+    this.dropdown.datasets[0].$el.scrollTop(0)
   }
 
   function toggleFilter () {
@@ -99,7 +99,7 @@
     var target = e.target || {}
     if (e.altKey || e.shiftKey || target.isContentEditable || 'disabled' in target) return
     if (e.ctrlKey ? e.keyCode === SOLIDUS_KEY : e.keyCode === S_KEY) {
-      this.focus()
+      this.$input.focus()
       e.preventDefault()
       e.stopPropagation()
     }
