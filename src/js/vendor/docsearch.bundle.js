@@ -36,14 +36,15 @@
     var input = controller.input
     var autocomplete = input.autocomplete
     var typeahead = input.data('aaAutocomplete')
-    autocomplete.setVal()
+    autocomplete.setVal() // clear value on page reload
+    input.on('autocomplete:closed', clearSearch.bind(autocomplete))
     input.on('autocomplete:selected', disableClose)
     input.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
     typeahead.dropdown._ensureVisible = ensureVisible
     if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(typeahead))
     monitorCtrlKey(input, typeahead.dropdown)
     searchField.addEventListener('click', confineEvent)
-    document.documentElement.addEventListener('click', resetSearch.bind(autocomplete))
+    document.documentElement.addEventListener('click', clearSearch.bind(autocomplete))
     document.addEventListener('keydown', handleShortcuts.bind(input))
     if (input.attr('autofocus') != null) input.focus()
   }
@@ -114,7 +115,7 @@
     if (e.keyCode === CTRL_KEY) this.focus()
   }
 
-  function resetSearch () {
+  function clearSearch () {
     this.close()
     this.setVal()
   }
