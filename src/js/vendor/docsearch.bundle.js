@@ -14,14 +14,13 @@
       advancedSyntax: true,
       advancedSyntaxFeatures: ['exactPhrase'],
     }
-    var searchFieldSelector = '#' + (config.searchFieldId || 'search')
-    var searchField = document.querySelector(searchFieldSelector)
+    var searchField = document.getElementById(config.searchFieldId || 'search')
     var filterInput = searchField.querySelector('.filter input')
     var controller = docsearch({
       appId: config.appId,
       apiKey: config.apiKey,
       indexName: config.indexName,
-      inputSelector: searchFieldSelector + ' .query',
+      inputSelector: '#' + searchField.id + ' .query',
       autocompleteOptions: { autoselect: false, debug: true, hint: false, keyboardShortcuts: [], minLength: 2 },
       algoliaOptions: algoliaOptions,
       transformData: protectHitOrder,
