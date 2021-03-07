@@ -41,7 +41,7 @@
     input.on('autocomplete:updated', resetScroll.bind(autocomplete.getWrapper().firstChild))
     typeahead.dropdown._ensureVisible = ensureVisible
     if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(typeahead))
-    monitorCtrlKey(input, typeahead.dropdown.$menu)
+    monitorCtrlKey(input, typeahead.dropdown)
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', resetSearch.bind(autocomplete))
     document.addEventListener('keydown', handleShortcuts.bind(input))
@@ -103,11 +103,11 @@
 
   function monitorCtrlKey (input, dropdown) {
     input.on('keydown', onCtrlKeyDown.bind(dropdown))
-    dropdown.on('keyup', onCtrlKeyUp.bind(input))
+    dropdown.$container.on('keyup', onCtrlKeyUp.bind(input))
   }
 
   function onCtrlKeyDown (e) {
-    if (e.keyCode === CTRL_KEY) this.find('.ds-cursor a').focus()
+    if (e.keyCode === CTRL_KEY) this.getCurrentCursor().find('a').focus()
   }
 
   function onCtrlKeyUp (e) {
