@@ -4,6 +4,7 @@
   var CTRL_KEY_CODE = 17
   var S_KEY_CODE = 83
   var SOLIDUS_KEY_CODE = 191
+  var SEARCH_FILTER_ACTIVE_KEY = 'docs:search-filter-active'
 
   activateSearch(require('docsearch.js/dist/cdn/docsearch.js'), document.getElementById('search-script').dataset)
 
@@ -16,6 +17,7 @@
     }
     var searchField = document.getElementById(config.searchFieldId || 'search')
     var filterInput = searchField.querySelector('.filter input')
+    filterInput.checked = window.localStorage.getItem(SEARCH_FILTER_ACTIVE_KEY) === 'true'
     var controller = docsearch({
       appId: config.appId,
       apiKey: config.apiKey,
@@ -63,10 +65,11 @@
     this.dropdown.datasets[0].$el.scrollTop(0)
   }
 
-  function toggleFilter () {
+  function toggleFilter (e) {
     var input = this.$input
     var dropdown = this.dropdown
     input.focus()
+    window.localStorage.setItem(SEARCH_FILTER_ACTIVE_KEY, e.target.checked)
     if (!dropdown.isOpen || !input.val()) return
     dropdown.datasets[0].clearCachedSuggestions()
     dropdown.update(input.val())
