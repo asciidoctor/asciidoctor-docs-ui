@@ -1,11 +1,11 @@
 ;(function () {
   'use strict'
 
-  activateSearch(require('docsearch.js/dist/cdn/docsearch.js'), document.getElementById('search-script').dataset)
-
   var CTRL_KEY_CODE = 17
   var S_KEY_CODE = 83
   var SOLIDUS_KEY_CODE = 191
+
+  activateSearch(require('docsearch.js/dist/cdn/docsearch.js'), document.getElementById('search-script').dataset)
 
   function activateSearch (docsearch, config) {
     appendStylesheet(config.stylesheet)
