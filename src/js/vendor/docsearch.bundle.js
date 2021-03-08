@@ -3,9 +3,9 @@
 
   activateSearch(require('docsearch.js/dist/cdn/docsearch.js'), document.getElementById('search-script').dataset)
 
-  var CTRL_KEY = 17
-  var S_KEY = 83
-  var SOLIDUS_KEY = 191
+  var CTRL_KEY_CODE = 17
+  var S_KEY_CODE = 83
+  var SOLIDUS_KEY_CODE = 191
 
   function activateSearch (docsearch, config) {
     appendStylesheet(config.stylesheet)
@@ -98,7 +98,7 @@
   function handleShortcuts (e) {
     var target = e.target || {}
     if (e.altKey || e.shiftKey || target.isContentEditable || 'disabled' in target) return
-    if (e.ctrlKey ? e.keyCode === SOLIDUS_KEY : e.keyCode === S_KEY) {
+    if (e.ctrlKey ? e.keyCode === SOLIDUS_KEY_CODE : e.keyCode === S_KEY_CODE) {
       this.$input.focus()
       e.preventDefault()
       e.stopPropagation()
@@ -111,7 +111,7 @@
   }
 
   function onCtrlKeyDown (e) {
-    if (e.keyCode !== CTRL_KEY) return
+    if (e.keyCode !== CTRL_KEY_CODE) return
     var container = this.datasets[0].$el
     var prevScrollTop = container.scrollTop()
     this.getCurrentCursor().find('a').focus() // calling focus can cause the container to scroll
@@ -119,7 +119,7 @@
   }
 
   function onCtrlKeyUp (e) {
-    if (e.keyCode === CTRL_KEY) this.focus()
+    if (e.keyCode === CTRL_KEY_CODE) this.focus()
   }
 
   function onSuggestionMouseDown (e) {
