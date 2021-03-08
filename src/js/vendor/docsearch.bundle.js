@@ -69,9 +69,10 @@
     var dropdown = this.dropdown
     input.focus()
     window.localStorage.setItem(SEARCH_FILTER_ACTIVE_KEY, e.target.checked)
-    if (!dropdown.isOpen || !input.val()) return
+    var query = this.getVal()
+    if (!dropdown.isOpen || query.length < this.minLength) return
     dropdown.datasets[0].clearCachedSuggestions()
-    dropdown.update(input.val())
+    dropdown.update(query)
   }
 
   function confineEvent (e) {
