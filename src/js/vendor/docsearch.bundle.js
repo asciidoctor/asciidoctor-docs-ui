@@ -45,10 +45,10 @@
     input.on('autocomplete:updated', onResultsUpdated.bind(typeahead))
     dropdown._ensureVisible = ensureVisible
     menu.off('mousedown.aa')
-    var suggestionSelector = '.' + dropdown.cssClasses.prefix + dropdown.cssClasses.suggestion
-    menu.on('mousedown.aa', suggestionSelector, onSuggestionMouseDown.bind(dropdown))
     menu.off('mouseenter.aa')
     menu.off('mouseleave.aa')
+    var suggestionSelector = '.' + dropdown.cssClasses.prefix + dropdown.cssClasses.suggestion
+    menu.on('mousedown.aa', suggestionSelector, onSuggestionMouseDown.bind(dropdown))
     typeahead.$facetFilterInput = input
       .closest('#' + searchField.id)
       .find('.filter input')
