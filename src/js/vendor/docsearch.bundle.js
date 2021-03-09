@@ -127,8 +127,8 @@
   }
 
   function isClosed (typeahead) {
-    var queryForResults = typeahead.dropdown.datasets[0].query
-    return queryForResults == null || queryForResults !== typeahead.getVal()
+    var query = typeahead.getVal()
+    return !query || query !== typeahead.dropdown.datasets[0].query
   }
 
   function monitorCtrlKey (input, dropdown) {
