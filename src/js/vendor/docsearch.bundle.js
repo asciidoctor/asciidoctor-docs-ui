@@ -2,9 +2,11 @@
   'use strict'
 
   var CTRL_KEY_CODE = 17
+  var LT_KEY_CODE = 188
   var S_KEY_CODE = 83
   var SOLIDUS_KEY_CODE = 191
   var SEARCH_FILTER_ACTIVE_KEY = 'docs:search-filter-active'
+  var SAVED_SEARCH_STATE_KEY = 'docs:saved-search-state'
 
   activateSearch(require('docsearch.js/dist/cdn/docsearch.js'), document.getElementById('search-script').dataset)
 
@@ -38,6 +40,7 @@
     var menu = dropdown.$menu
     typeahead.setVal() // clear value on page reload
     input.on('autocomplete:closed', clearSearch.bind(typeahead))
+    input.on('autocomplete:cursorchanged autocomplete:cursorremoved', saveSearchState.bind(typeahead))
     input.on('autocomplete:selected', disableClose)
     input.on('autocomplete:updated', onResultsUpdated.bind(typeahead))
     dropdown._ensureVisible = ensureVisible
@@ -63,8 +66,18 @@
   }
 
   function onResultsUpdated () {
+    var dropdown = this.dropdown
+    var restoring = dropdown.restoring
+    delete dropdown.restoring
     if (isClosed(this)) return
-    this.dropdown.datasets[0].$el.scrollTop(0)
+    var dataset = dropdown.datasets[0]
+    dataset.$el.scrollTop(0)
+    if (restoring && restoring.query === this.getVal() && restoring.filter === this.$facetFilterInput.prop('checked')) {
+      var cursor = restoring.cursor
+      if (cursor) dropdown._moveCursor(cursor)
+    } else {
+      saveSearchState.call(this)
+    }
   }
 
   function toggleFilter (e) {
@@ -101,6 +114,10 @@
 
   function handleShortcuts (e) {
     var target = e.target || {}
+    if (e.ctrlKey && e.keyCode === LT_KEY_CODE && target === this.$input[0]) {
+      restoreSearch.call(this)
+      return
+    }
     if (e.altKey || e.shiftKey || target.isContentEditable || 'disabled' in target) return
     if (e.ctrlKey ? e.keyCode === SOLIDUS_KEY_CODE : e.keyCode === S_KEY_CODE) {
       this.$input.focus()
@@ -167,5 +184,37 @@
       prevLvl0 = lvl0
       return hit
     })
+  }
+
+  function readSavedSearchState () {
+    try {
+      var state = window.localStorage.getItem(SAVED_SEARCH_STATE_KEY)
+      if (state) return JSON.parse(state)
+    } catch (e) {
+      window.localStorage.removeItem(SAVED_SEARCH_STATE_KEY)
+    }
+  }
+
+  function restoreSearch () {
+    var searchState = readSavedSearchState()
+    if (!searchState) return
+    this.setVal()
+    this.$facetFilterInput.prop('checked', searchState.filter)
+    var dropdown = this.dropdown
+    dropdown.datasets[0].clearCachedSuggestions()
+    dropdown.restoring = searchState
+    this.setVal(searchState.query) // cursor is restored by onResultsUpdated =>
+  }
+
+  function saveSearchState () {
+    if (isClosed(this)) return
+    window.localStorage.setItem(
+      SAVED_SEARCH_STATE_KEY,
+      JSON.stringify({
+        query: this.getVal(),
+        filter: this.$facetFilterInput.prop('checked'),
+        cursor: this.dropdown.getCurrentCursor().index() + 1,
+      })
+    )
   }
 })()
