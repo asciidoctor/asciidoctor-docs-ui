@@ -54,7 +54,7 @@
       .find('.filter input')
       .on('change', toggleFilter.bind(typeahead))
       .prop('checked', window.localStorage.getItem(SEARCH_FILTER_ACTIVE_KEY) === 'true')
-    monitorCtrlKey(input, dropdown)
+    monitorCtrlKey.call(typeahead)
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', clearSearch.bind(typeahead))
     document.addEventListener('keydown', handleShortcuts.bind(typeahead))
@@ -125,21 +125,23 @@
     return !query || query !== typeahead.dropdown.datasets[0].query
   }
 
-  function monitorCtrlKey (input, dropdown) {
-    input.on('keydown', onCtrlKeyDown.bind(dropdown))
-    dropdown.$container.on('keyup', onCtrlKeyUp.bind(input))
+  function monitorCtrlKey () {
+    this.$input.on('keydown', onCtrlKeyDown.bind(this))
+    this.dropdown.$container.on('keyup', onCtrlKeyUp.bind(this))
   }
 
   function onCtrlKeyDown (e) {
     if (e.keyCode !== CTRL_KEY_CODE) return
-    var container = this.datasets[0].$el
+    var dropdown = this.dropdown
+    var container = dropdown.datasets[0].$el
     var prevScrollTop = container.scrollTop()
-    this.getCurrentCursor().find('a').focus() // calling focus can cause the container to scroll
-    container.scrollTop(prevScrollTop)
+    dropdown.getCurrentCursor().find('a').focus()
+    container.scrollTop(prevScrollTop) // calling focus can cause the container to scroll, so restore it
   }
 
   function onCtrlKeyUp (e) {
-    if (e.keyCode === CTRL_KEY_CODE) this.focus()
+    if (e.keyCode !== CTRL_KEY_CODE) return
+    this.$input.focus()
   }
 
   function onSuggestionMouseDown (e) {
