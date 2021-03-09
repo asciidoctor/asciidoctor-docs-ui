@@ -61,18 +61,17 @@
   }
 
   function resetScroll () {
+    if (isClosed(this)) return
     this.dropdown.datasets[0].$el.scrollTop(0)
   }
 
   function toggleFilter (e) {
-    var input = this.$input
-    var dropdown = this.dropdown
-    input.focus()
+    this.$input.focus()
     window.localStorage.setItem(SEARCH_FILTER_ACTIVE_KEY, e.target.checked)
-    var query = this.getVal()
-    if (!dropdown.isOpen || query.length < this.minLength) return
+    if (isClosed(this)) return
+    var dropdown = this.dropdown
     dropdown.datasets[0].clearCachedSuggestions()
-    dropdown.update(query)
+    dropdown.update(this.getVal())
   }
 
   function confineEvent (e) {
@@ -106,6 +105,11 @@
       e.preventDefault()
       e.stopPropagation()
     }
+  }
+
+  function isClosed (typeahead) {
+    var queryForResults = typeahead.dropdown.datasets[0].query
+    return queryForResults == null || queryForResults !== typeahead.getVal()
   }
 
   function monitorCtrlKey (input, dropdown) {
