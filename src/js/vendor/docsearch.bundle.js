@@ -41,7 +41,7 @@
     typeahead.setVal() // clear value on page reload
     input.on('autocomplete:closed', clearSearch.bind(typeahead))
     input.on('autocomplete:selected', disableClose)
-    input.on('autocomplete:updated', resetScroll.bind(typeahead))
+    input.on('autocomplete:updated', onResultsUpdated.bind(typeahead))
     dropdown._ensureVisible = ensureVisible
     menu.off('mousedown.aa')
     var suggestionSelector = '.' + dropdown.cssClasses.prefix + dropdown.cssClasses.suggestion
@@ -60,7 +60,7 @@
     document.head.appendChild(Object.assign(document.createElement('link'), { rel: 'stylesheet', href: href }))
   }
 
-  function resetScroll () {
+  function onResultsUpdated () {
     if (isClosed(this)) return
     this.dropdown.datasets[0].$el.scrollTop(0)
   }
