@@ -16,8 +16,6 @@
       advancedSyntaxFeatures: ['exactPhrase'],
     }
     var searchField = document.getElementById(config.searchFieldId || 'search')
-    var filterInput = searchField.querySelector('.filter input')
-    filterInput.checked = window.localStorage.getItem(SEARCH_FILTER_ACTIVE_KEY) === 'true'
     var controller = docsearch({
       appId: config.appId,
       apiKey: config.apiKey,
@@ -27,10 +25,10 @@
       algoliaOptions: algoliaOptions,
       transformData: protectHitOrder,
       queryHook:
-        filterInput &&
+        searchField.classList.contains('has-filter') &&
         function (query) {
-          controller.algoliaOptions = filterInput.checked
-            ? Object.assign({}, algoliaOptions, { facetFilters: [filterInput.dataset.facetFilter] })
+          controller.algoliaOptions = typeahead.$facetFilterInput.prop('checked')
+            ? Object.assign({}, algoliaOptions, { facetFilters: [typeahead.$facetFilterInput.data('facetFilter')] })
             : algoliaOptions
         },
     })
@@ -48,7 +46,11 @@
     menu.on('mousedown.aa', suggestionSelector, onSuggestionMouseDown.bind(dropdown))
     menu.off('mouseenter.aa')
     menu.off('mouseleave.aa')
-    if (filterInput) filterInput.addEventListener('change', toggleFilter.bind(typeahead))
+    typeahead.$facetFilterInput = input
+      .closest('#' + searchField.id)
+      .find('.filter input')
+      .on('change', toggleFilter.bind(typeahead))
+      .prop('checked', window.localStorage.getItem(SEARCH_FILTER_ACTIVE_KEY) === 'true')
     monitorCtrlKey(input, dropdown)
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', clearSearch.bind(typeahead))
