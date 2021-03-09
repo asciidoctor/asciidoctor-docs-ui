@@ -41,7 +41,7 @@
     typeahead.setVal() // clear value on page reload
     input.on('autocomplete:closed', clearSearch.bind(typeahead))
     input.on('autocomplete:cursorchanged autocomplete:cursorremoved', saveSearchState.bind(typeahead))
-    input.on('autocomplete:selected', disableClose)
+    input.on('autocomplete:selected', onSuggestionSelected)
     input.on('autocomplete:updated', onResultsUpdated.bind(typeahead))
     dropdown._ensureVisible = ensureVisible
     menu.off('mousedown.aa')
@@ -91,12 +91,6 @@
 
   function confineEvent (e) {
     e.stopPropagation()
-  }
-
-  function disableClose (e) {
-    e.isDefaultPrevented = function () {
-      return true
-    }
   }
 
   function ensureVisible (el) {
@@ -156,6 +150,12 @@
     setTimeout(function () {
       dropdown._setCursor(suggestion, false)
     }, 0)
+  }
+
+  function onSuggestionSelected (e) {
+    e.isDefaultPrevented = function () {
+      return true
+    }
   }
 
   function clearSearch () {
