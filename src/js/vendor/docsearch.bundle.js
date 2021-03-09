@@ -1,6 +1,7 @@
 ;(function () {
   'use strict'
 
+  var FORWARD_BACK_TYPE = 2
   var CTRL_KEY_CODE = 17
   var LT_KEY_CODE = 188
   var S_KEY_CODE = 83
@@ -41,7 +42,7 @@
     typeahead.setVal() // clear value on page reload
     input.on('autocomplete:closed', clearSearch.bind(typeahead))
     input.on('autocomplete:cursorchanged autocomplete:cursorremoved', saveSearchState.bind(typeahead))
-    input.on('autocomplete:selected', onSuggestionSelected)
+    input.on('autocomplete:selected', onSuggestionSelected.bind(typeahead))
     input.on('autocomplete:updated', onResultsUpdated.bind(typeahead))
     dropdown._ensureVisible = ensureVisible
     menu.off('mousedown.aa')
@@ -59,6 +60,19 @@
     document.documentElement.addEventListener('click', clearSearch.bind(typeahead))
     document.addEventListener('keydown', handleShortcuts.bind(typeahead))
     if (input.attr('autofocus') != null) input.focus()
+    window.addEventListener('pageshow', reactivateSearch.bind(typeahead))
+  }
+
+  function reactivateSearch (e) {
+    var navigationType = (window.performance.navigation || {}).type
+    if (navigationType && navigationType !== FORWARD_BACK_TYPE) return
+    if (e.persisted && !isClosed(this)) {
+      this.$input.focus()
+      this.$input.val(this.getVal())
+    } else if (window.sessionStorage.getItem('docs:restore-search-on-back') === 'true') {
+      restoreSearch.call(this)
+    }
+    window.sessionStorage.removeItem('docs:restore-search-on-back')
   }
 
   function appendStylesheet (href) {
@@ -135,6 +149,7 @@
 
   function onCtrlKeyDown (e) {
     if (e.keyCode !== CTRL_KEY_CODE) return
+    this.ctrlKeyDown = true
     var dropdown = this.dropdown
     var container = getScrollableResultsContainer(dropdown)
     var prevScrollTop = container.scrollTop()
@@ -144,6 +159,7 @@
 
   function onCtrlKeyUp (e) {
     if (e.keyCode !== CTRL_KEY_CODE) return
+    delete this.ctrlKeyDown
     this.$input.focus()
   }
 
@@ -155,7 +171,11 @@
     dropdown._setCursor(suggestion, false)
   }
 
-  function onSuggestionSelected (e) {
+  function onSuggestionSelected (e, suggestion, datasetNum, context) {
+    if (!this.ctrlKeyDown) {
+      if (context.selectionMethod === 'click') saveSearchState.call(this)
+      window.sessionStorage.setItem('docs:restore-search-on-back', 'true')
+    }
     e.isDefaultPrevented = function () {
       return true
     }
@@ -163,6 +183,7 @@
 
   function clearSearch () {
     this.setVal()
+    delete this.ctrlKeyDown
   }
 
   // preserves the original order of results by qualifying unique occurrences of the same lvl0 and lvl1 values
@@ -206,6 +227,7 @@
     var dropdown = this.dropdown
     dropdown.datasets[0].clearCachedSuggestions()
     dropdown.restoring = searchState
+    this.$input.focus()
     this.setVal(searchState.query) // cursor is restored by onResultsUpdated =>
   }
 
