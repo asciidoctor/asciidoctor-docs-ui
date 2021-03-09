@@ -151,7 +151,7 @@
   function onSuggestionMouseDown (e) {
     var dropdown = this
     var suggestion = dropdown._getSuggestions().filter('#' + e.currentTarget.id)
-    if (suggestion.attr('id') === dropdown._getCursor().attr('id')) return
+    if (suggestion[0] === dropdown._getCursor()[0]) return
     dropdown._removeCursor()
     setTimeout(function () {
       dropdown._setCursor(suggestion, false)
