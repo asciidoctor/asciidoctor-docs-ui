@@ -149,9 +149,7 @@
     var suggestion = dropdown._getSuggestions().filter('#' + e.currentTarget.id)
     if (suggestion[0] === dropdown._getCursor()[0]) return
     dropdown._removeCursor()
-    setTimeout(function () {
-      dropdown._setCursor(suggestion, false)
-    }, 0)
+    dropdown._setCursor(suggestion, false)
   }
 
   function onSuggestionSelected (e) {
