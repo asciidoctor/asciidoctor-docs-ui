@@ -70,8 +70,7 @@
     var restoring = dropdown.restoring
     delete dropdown.restoring
     if (isClosed(this)) return
-    var dataset = dropdown.datasets[0]
-    dataset.$el.scrollTop(0)
+    getScrollableResultsContainer(dropdown).scrollTop(0)
     if (restoring && restoring.query === this.getVal() && restoring.filter === this.$facetFilterInput.prop('checked')) {
       var cursor = restoring.cursor
       if (cursor) dropdown._moveCursor(cursor)
@@ -94,7 +93,7 @@
   }
 
   function ensureVisible (el) {
-    var container = this.datasets[0].$el[0]
+    var container = getScrollableResultsContainer(this)[0]
     if (container.scrollHeight === container.offsetHeight) return
     var delta
     var item = el[0]
@@ -104,6 +103,10 @@
     if ((delta = item.offsetTop - container.scrollTop) < 0) {
       container.scrollTop += delta
     }
+  }
+
+  function getScrollableResultsContainer (dropdown) {
+    return dropdown.datasets[0].$el
   }
 
   function handleShortcuts (e) {
@@ -133,7 +136,7 @@
   function onCtrlKeyDown (e) {
     if (e.keyCode !== CTRL_KEY_CODE) return
     var dropdown = this.dropdown
-    var container = dropdown.datasets[0].$el
+    var container = getScrollableResultsContainer(dropdown)
     var prevScrollTop = container.scrollTop()
     dropdown.getCurrentCursor().find('a').focus()
     container.scrollTop(prevScrollTop) // calling focus can cause the container to scroll, so restore it
