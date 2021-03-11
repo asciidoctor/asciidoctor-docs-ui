@@ -172,13 +172,13 @@
     var lvl1Qualifiers = {}
     return hits.map(function (hit) {
       var lvl0 = hit.hierarchy.lvl0
+      var lvl1 = hit.hierarchy.lvl1
       var lvl0Qualifier = lvl0Qualifiers[lvl0]
       if (lvl0 !== prevLvl0) {
         lvl0Qualifiers[lvl0] = lvl0Qualifier == null ? (lvl0Qualifier = '') : (lvl0Qualifier += ' ')
         lvl1Qualifiers = {}
       }
       if (lvl0Qualifier) hit.hierarchy.lvl0 = lvl0 + lvl0Qualifier
-      var lvl1 = hit.hierarchy.lvl1
       if (lvl1 in lvl1Qualifiers) {
         hit.hierarchy.lvl1 = lvl1 + (lvl1Qualifiers[lvl1] += ' ')
       } else {
