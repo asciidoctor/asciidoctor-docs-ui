@@ -13,7 +13,7 @@
 
   function activateSearch (docsearch, config) {
     appendStylesheet(config.stylesheet)
-    var algoliaOptions = {
+    var baseAlgoliaOptions = {
       hitsPerPage: parseInt(config.maxResults) || 15,
       advancedSyntax: true,
       advancedSyntaxFeatures: ['exactPhrase'],
@@ -25,14 +25,14 @@
       indexName: config.indexName,
       inputSelector: '#' + searchField.id + ' .query',
       autocompleteOptions: { autoselect: false, debug: true, hint: false, keyboardShortcuts: [], minLength: 2 },
-      algoliaOptions: algoliaOptions,
+      algoliaOptions: baseAlgoliaOptions,
       transformData: protectHitOrder,
       queryHook:
         searchField.classList.contains('has-filter') &&
         function (query) {
           controller.algoliaOptions = typeahead.$facetFilterInput.prop('checked')
-            ? Object.assign({}, algoliaOptions, { facetFilters: [typeahead.$facetFilterInput.data('facetFilter')] })
-            : algoliaOptions
+            ? Object.assign({}, baseAlgoliaOptions, { facetFilters: [typeahead.$facetFilterInput.data('facetFilter')] })
+            : baseAlgoliaOptions
         },
     })
     var input = controller.input
