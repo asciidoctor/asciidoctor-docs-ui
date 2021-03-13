@@ -24,7 +24,7 @@
       apiKey: config.apiKey,
       indexName: config.indexName,
       inputSelector: '#' + searchField.id + ' .query',
-      autocompleteOptions: { autoselect: false, debug: true, hint: false, keyboardShortcuts: [], minLength: 2 },
+      autocompleteOptions: { autoselect: false, debug: true, hint: false, minLength: 2 },
       algoliaOptions: baseAlgoliaOptions,
       transformData: protectHitOrder,
       queryHook:
