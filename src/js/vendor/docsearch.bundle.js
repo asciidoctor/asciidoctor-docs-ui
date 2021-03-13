@@ -19,12 +19,27 @@
       advancedSyntaxFeatures: ['exactPhrase'],
     }
     var searchField = document.getElementById(config.searchFieldId || 'search')
+    searchField.appendChild(Object.assign(document.createElement('div'), { className: 'algolia-autocomplete-results' }))
     var controller = docsearch({
       appId: config.appId,
       apiKey: config.apiKey,
       indexName: config.indexName,
       inputSelector: '#' + searchField.id + ' .query',
-      autocompleteOptions: { autoselect: false, debug: true, hint: false, minLength: 2 },
+      autocompleteOptions: {
+        autoselect: false,
+        debug: true,
+        hint: false,
+        minLength: 2,
+        appendTo: '#' + searchField.id + ' .algolia-autocomplete-results',
+        autoWidth: false,
+        templates: {
+          footer:
+            '<div class="ds-footer"><div class="algolia-docsearch-footer">' +
+            'Search by <a class="algolia-docsearch-footer--logo" href="https://www.algolia.com/docsearch" ' +
+            'target="_blank" rel="noopener">Algolia</a>' +
+            '</div></div>',
+        },
+      },
       algoliaOptions: baseAlgoliaOptions,
       transformData: protectHitOrder,
       queryHook:
@@ -38,6 +53,7 @@
     var input = controller.input
     var typeahead = input.data('aaAutocomplete')
     var dropdown = typeahead.dropdown
+    delete dropdown.datasets[0].templates.footer
     var menu = dropdown.$menu
     typeahead.setVal() // clear value on page reload
     input.on('autocomplete:closed', clearSearch.bind(typeahead))
