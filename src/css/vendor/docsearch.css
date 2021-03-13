@@ -22,6 +22,7 @@
   border: none;
   background: none;
   border-radius: 0;
+  overscroll-behavior: none;
 }
 
 .algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
