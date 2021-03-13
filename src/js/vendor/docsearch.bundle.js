@@ -144,7 +144,7 @@
 
   function monitorCtrlKey () {
     this.$input.on('keydown', onCtrlKeyDown.bind(this))
-    this.dropdown.$container.on('keyup', onCtrlKeyUp.bind(this))
+    this.dropdown.$menu.on('keyup', onCtrlKeyUp.bind(this))
   }
 
   function onCtrlKeyDown (e) {
