@@ -64,13 +64,16 @@
   }
 
   function reactivateSearch (e) {
-    var navigationType = (window.performance.navigation || {}).type
-    if (navigationType && navigationType !== FORWARD_BACK_TYPE) return
-    if (e.persisted && !isClosed(this)) {
-      this.$input.focus()
-      this.$input.val(this.getVal())
-    } else if (window.sessionStorage.getItem('docs:restore-search-on-back') === 'true') {
-      restoreSearch.call(this)
+    var navigation = window.performance.navigation || {}
+    if ('type' in navigation) {
+      if (navigation.type !== FORWARD_BACK_TYPE) {
+        return
+      } else if (e.persisted && !isClosed(this)) {
+        this.$input.focus()
+        this.$input.val(this.getVal())
+      } else if (window.sessionStorage.getItem('docs:restore-search-on-back') === 'true') {
+        restoreSearch.call(this)
+      }
     }
     window.sessionStorage.removeItem('docs:restore-search-on-back')
   }
