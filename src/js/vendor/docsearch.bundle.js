@@ -24,7 +24,19 @@
       apiKey: config.apiKey,
       indexName: config.indexName,
       inputSelector: '#' + searchField.id + ' .query',
-      autocompleteOptions: { autoselect: false, debug: true, hint: false, minLength: 2 },
+      autocompleteOptions: {
+        autoselect: false,
+        debug: true,
+        hint: false,
+        minLength: 2,
+        templates: {
+          footer:
+            '<div class="ds-footer"><div class="algolia-docsearch-footer">' +
+            'Search by <a class="algolia-docsearch-footer--logo" href="https://www.algolia.com/docsearch" ' +
+            'target="_blank" rel="noopener">Algolia</a>' +
+            '</div></div>',
+        },
+      },
       algoliaOptions: baseAlgoliaOptions,
       transformData: protectHitOrder,
       queryHook:
@@ -45,6 +57,8 @@
     input.on('autocomplete:selected', onSuggestionSelected.bind(typeahead))
     input.on('autocomplete:updated', onResultsUpdated.bind(typeahead))
     dropdown._ensureVisible = ensureVisible
+    dropdown._show = show.bind(dropdown)
+    delete dropdown.datasets[0].templates.footer
     menu.off('mousedown.aa')
     menu.off('mouseenter.aa')
     menu.off('mouseleave.aa')
@@ -182,6 +196,12 @@
     e.isDefaultPrevented = function () {
       return true
     }
+  }
+
+  function show () {
+    this.$container.css('display', '')
+    this._redraw()
+    this.trigger('shown')
   }
 
   function clearSearch () {
