@@ -3,10 +3,8 @@ publish = "public"
 command = "node_modules/.bin/gulp preview:build"
 
 [build.environment]
+CI = "true"
 NODE_VERSION = "10"
-
-[context.branch-deploy]
-command = "node_modules/.bin/gulp preview:build && node_modules/.bin/gulp --series build bundle:pack"
 
 [context.deploy-preview]
 command = "node_modules/.bin/gulp preview:build && node_modules/.bin/gulp --series build bundle:pack"
