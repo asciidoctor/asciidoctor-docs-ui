@@ -201,6 +201,7 @@
   }
 
   function clearSearch () {
+    this.isActivated = true // we can't rely on this state being correct
     this.setVal()
     delete this.ctrlKeyDown
   }
