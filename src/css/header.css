@@ -65,12 +65,6 @@ body {
   width: 100%;
 }
 
-#search > .algolia-autocomplete {
-  display: inherit !important;
-  position: static !important;
-  flex: auto;
-}
-
 #search .query {
   border: 1px solid var(--navbar-button-border-color);
   color: inherit;
