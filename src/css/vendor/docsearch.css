@@ -18,6 +18,7 @@
   box-shadow: var(--navbar-menu-box-shadow);
   display: flex !important;
   flex-direction: column;
+  /* -4rem accounts for the height of the input, which is below the navbar */
   max-height: calc(var(--viewport-height) - var(--navbar-height) - 4rem);
   max-width: none;
   min-width: auto;
