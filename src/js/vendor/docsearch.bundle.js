@@ -88,6 +88,7 @@
         this.$input.focus()
         this.$input.val(this.getVal())
       } else if (window.sessionStorage.getItem('docs:restore-search-on-back') === 'true') {
+        if (!window.matchMedia('(min-width: 1024px)').matches) document.querySelector('.navbar-burger').click()
         restoreSearch.call(this)
       }
     }
