@@ -8,13 +8,14 @@
   var SOLIDUS_KEY_CODE = 191
   var SEARCH_FILTER_ACTIVE_KEY = 'docs:search-filter-active'
   var SAVED_SEARCH_STATE_KEY = 'docs:saved-search-state'
+  var SAVED_SEARCH_STATE_VERSION = '1'
 
   activateSearch(require('docsearch.js/dist/cdn/docsearch.js'), document.getElementById('search-script').dataset)
 
   function activateSearch (docsearch, config) {
     appendStylesheet(config.stylesheet)
     var baseAlgoliaOptions = {
-      hitsPerPage: parseInt(config.maxResults) || 15,
+      hitsPerPage: parseInt(config.pageSize) || 20, // cannot exceed the hitsPerPage value defined on the index
     }
     var searchField = document.getElementById(config.searchFieldId || 'search')
     searchField.appendChild(Object.assign(document.createElement('div'), { className: 'algolia-autocomplete-results' }))
@@ -32,21 +33,17 @@
         autoWidth: false,
         templates: {
           footer:
-            '<div class="ds-footer"><div class="algolia-docsearch-footer">' +
+            '<div class="ds-footer"><div class="ds-pagination">' +
+            '<span class="ds-pagination--curr">Page 1</span>' +
+            '<a href="#" class="ds-pagination--prev">Prev</a>' +
+            '<a href="#" class="ds-pagination--next">Next</a></div>' +
+            '<div class="algolia-docsearch-footer">' +
             'Search by <a class="algolia-docsearch-footer--logo" href="https://www.algolia.com/docsearch" ' +
             'target="_blank" rel="noopener">Algolia</a>' +
             '</div></div>',
         },
       },
-      algoliaOptions: baseAlgoliaOptions,
-      transformData: protectHitOrder,
-      queryHook:
-        searchField.classList.contains('has-filter') &&
-        function (query) {
-          controller.algoliaOptions = typeahead.$facetFilterInput.prop('checked')
-            ? Object.assign({}, baseAlgoliaOptions, { facetFilters: [typeahead.$facetFilterInput.data('facetFilter')] })
-            : baseAlgoliaOptions
-        },
+      baseAlgoliaOptions: baseAlgoliaOptions,
     })
     var input = controller.input
     var typeahead = input.data('aaAutocomplete')
@@ -54,7 +51,9 @@
     var menu = dropdown.$menu
     var dataset = dropdown.datasets[0]
     dataset.cache = false
+    dataset.source = controller.getAutocompleteSource(undefined, processQuery.bind(typeahead, controller))
     delete dataset.templates.footer
+    controller.queryDataCallback = processQueryData.bind(typeahead)
     typeahead.setVal() // clear value on page reload
     input.on('autocomplete:closed', clearSearch.bind(typeahead))
     input.on('autocomplete:cursorchanged autocomplete:cursorremoved', saveSearchState.bind(typeahead))
@@ -71,6 +70,8 @@
       .find('.filter input')
       .on('change', toggleFilter.bind(typeahead))
       .prop('checked', window.localStorage.getItem(SEARCH_FILTER_ACTIVE_KEY) === 'true')
+    menu.find('.ds-pagination--prev').on('click', paginate.bind(typeahead, -1)).css('visibility', 'hidden')
+    menu.find('.ds-pagination--next').on('click', paginate.bind(typeahead, 1)).css('visibility', 'hidden')
     monitorCtrlKey.call(typeahead)
     searchField.addEventListener('click', confineEvent)
     document.documentElement.addEventListener('click', clearSearch.bind(typeahead))
@@ -87,6 +88,7 @@
       } else if (e.persisted && !isClosed(this)) {
         this.$input.focus()
         this.$input.val(this.getVal())
+        this.dropdown.datasets[0].page = this.dropdown.$menu.find('.ds-pagination--curr').data('page')
       } else if (window.sessionStorage.getItem('docs:restore-search-on-back') === 'true') {
         if (!window.matchMedia('(min-width: 1024px)').matches) document.querySelector('.navbar-burger').click()
         restoreSearch.call(this)
@@ -104,7 +106,7 @@
     var restoring = dropdown.restoring
     delete dropdown.restoring
     if (isClosed(this)) return
-    getScrollableResultsContainer(dropdown).scrollTop(0)
+    updatePagination.call(dropdown)
     if (restoring && restoring.query === this.getVal() && restoring.filter === this.$facetFilterInput.prop('checked')) {
       var cursor = restoring.cursor
       if (cursor) dropdown._moveCursor(cursor)
@@ -164,10 +166,9 @@
   function onCtrlKeyDown (e) {
     if (e.keyCode !== CTRL_KEY_CODE) return
     this.ctrlKeyDown = true
-    var dropdown = this.dropdown
-    var container = getScrollableResultsContainer(dropdown)
+    var container = getScrollableResultsContainer(this.dropdown)
     var prevScrollTop = container.scrollTop()
-    dropdown.getCurrentCursor().find('a').focus()
+    this.dropdown.getCurrentCursor().find('a').focus()
     container.scrollTop(prevScrollTop) // calling focus can cause the container to scroll, so restore it
   }
 
@@ -195,10 +196,24 @@
     }
   }
 
-  function clearSearch () {
-    this.isActivated = true // we can't rely on this state being correct
-    this.setVal()
-    delete this.ctrlKeyDown
+  function paginate (delta, e) {
+    e.preventDefault()
+    var dataset = this.dropdown.datasets[0]
+    dataset.page = (dataset.page || 0) + delta
+    requery.call(this)
+  }
+
+  function updatePagination () {
+    var result = this.datasets[0].result
+    var page = result.page
+    var menu = this.$menu
+    menu
+      .find('.ds-pagination--curr')
+      .html(result.pages ? 'Page ' + (page + 1) + ' of ' + result.pages : 'No results')
+      .data('page', page)
+    menu.find('.ds-pagination--prev').css('visibility', page > 0 ? '' : 'hidden')
+    menu.find('.ds-pagination--next').css('visibility', result.pages > page + 1 ? '' : 'hidden')
+    getScrollableResultsContainer(this).scrollTop(0)
   }
 
   function requery (query) {
@@ -209,8 +224,34 @@
     this.dropdown.open()
   }
 
+  function clearSearch () {
+    this.isActivated = true // we can't rely on this state being correct
+    this.setVal()
+    delete this.ctrlKeyDown
+    delete this.dropdown.datasets[0].result
+  }
+
+  function processQuery (controller, query) {
+    var algoliaOptions = {}
+    if (this.$facetFilterInput.prop('checked')) {
+      algoliaOptions.facetFilters = [this.$facetFilterInput.data('facetFilter')]
+    }
+    var dataset = this.dropdown.datasets[0]
+    var activeResult = dataset.result
+    algoliaOptions.page = !activeResult || query === activeResult.query ? dataset.page || 0 : (dataset.page = 0)
+    controller.algoliaOptions = Object.keys(algoliaOptions).length
+      ? Object.assign({}, controller.baseAlgoliaOptions, algoliaOptions)
+      : controller.baseAlgoliaOptions
+  }
+
+  function processQueryData (data) {
+    var result = data.results[0]
+    this.dropdown.datasets[0].result = { page: result.page, pages: result.nbPages, query: result.query }
+    result.hits = preserveHitOrder(result.hits)
+  }
+
   // preserves the original order of results by qualifying unique occurrences of the same lvl0 and lvl1 values
-  function protectHitOrder (hits) {
+  function preserveHitOrder (hits) {
     var prevLvl0
     var lvl0Qualifiers = {}
     var lvl1Qualifiers = {}
@@ -236,7 +277,7 @@
   function readSavedSearchState () {
     try {
       var state = window.localStorage.getItem(SAVED_SEARCH_STATE_KEY)
-      if (state) return JSON.parse(state)
+      if (state && (state = JSON.parse(state))._version.toString() === SAVED_SEARCH_STATE_VERSION) return state
     } catch (e) {
       window.localStorage.removeItem(SAVED_SEARCH_STATE_KEY)
     }
@@ -247,6 +288,9 @@
     if (!searchState) return
     this.dropdown.restoring = searchState
     this.$facetFilterInput.prop('checked', searchState.filter) // change event will be ignored
+    var dataset = this.dropdown.datasets[0]
+    dataset.page = searchState.page
+    delete dataset.result
     requery.call(this, searchState.query) // cursor is restored by onResultsUpdated =>
   }
 
@@ -255,9 +299,11 @@
     window.localStorage.setItem(
       SAVED_SEARCH_STATE_KEY,
       JSON.stringify({
-        query: this.getVal(),
-        filter: this.$facetFilterInput.prop('checked'),
+        _version: SAVED_SEARCH_STATE_VERSION,
         cursor: this.dropdown.getCurrentCursor().index() + 1,
+        filter: this.$facetFilterInput.prop('checked'),
+        page: this.dropdown.datasets[0].page,
+        query: this.getVal(),
       })
     )
   }
