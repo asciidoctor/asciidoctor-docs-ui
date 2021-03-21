@@ -53,8 +53,10 @@
     var input = controller.input
     var typeahead = input.data('aaAutocomplete')
     var dropdown = typeahead.dropdown
-    delete dropdown.datasets[0].templates.footer
     var menu = dropdown.$menu
+    var dataset = dropdown.datasets[0]
+    dataset.cache = false
+    delete dataset.templates.footer
     typeahead.setVal() // clear value on page reload
     input.on('autocomplete:closed', clearSearch.bind(typeahead))
     input.on('autocomplete:cursorchanged autocomplete:cursorremoved', saveSearchState.bind(typeahead))
@@ -118,7 +120,6 @@
     window.localStorage.setItem(SEARCH_FILTER_ACTIVE_KEY, e.target.checked)
     if (isClosed(this)) return
     var dropdown = this.dropdown
-    dropdown.datasets[0].clearCachedSuggestions()
     dropdown.update(this.getVal())
   }
 
@@ -246,7 +247,6 @@
     this.setVal()
     this.$facetFilterInput.prop('checked', searchState.filter)
     var dropdown = this.dropdown
-    dropdown.datasets[0].clearCachedSuggestions()
     dropdown.restoring = searchState
     this.$input.focus()
     this.setVal(searchState.query) // cursor is restored by onResultsUpdated =>
