@@ -116,11 +116,9 @@
   }
 
   function toggleFilter (e) {
-    this.$input.focus()
+    if ('restoring' in this.dropdown) return
     window.localStorage.setItem(SEARCH_FILTER_ACTIVE_KEY, e.target.checked)
-    if (isClosed(this)) return
-    var dropdown = this.dropdown
-    dropdown.update(this.getVal())
+    isClosed(this) ? this.$input.focus() : requery.call(this)
   }
 
   function confineEvent (e) {
@@ -146,10 +144,7 @@
 
   function handleShortcuts (e) {
     var target = e.target || {}
-    if (e.ctrlKey && e.keyCode === LT_KEY_CODE && target === this.$input[0]) {
-      restoreSearch.call(this)
-      return
-    }
+    if (e.ctrlKey && e.keyCode === LT_KEY_CODE && target === this.$input[0]) return restoreSearch.call(this)
     if (e.altKey || e.shiftKey || target.isContentEditable || 'disabled' in target) return
     if (e.ctrlKey ? e.keyCode === SOLIDUS_KEY_CODE : e.keyCode === S_KEY_CODE) {
       this.$input.focus()
@@ -208,6 +203,13 @@
     delete this.ctrlKeyDown
   }
 
+  function requery (query) {
+    this.$input.focus()
+    query === undefined ? (query = this.input.getInputValue()) : this.input.setInputValue(query, true)
+    this.input.setQuery(query)
+    this.dropdown.update(query)
+  }
+
   // preserves the original order of results by qualifying unique occurrences of the same lvl0 and lvl1 values
   function protectHitOrder (hits) {
     var prevLvl0
@@ -244,12 +246,9 @@
   function restoreSearch () {
     var searchState = readSavedSearchState()
     if (!searchState) return
-    this.setVal()
-    this.$facetFilterInput.prop('checked', searchState.filter)
-    var dropdown = this.dropdown
-    dropdown.restoring = searchState
-    this.$input.focus()
-    this.setVal(searchState.query) // cursor is restored by onResultsUpdated =>
+    this.dropdown.restoring = searchState
+    this.$facetFilterInput.prop('checked', searchState.filter) // change event will be ignored
+    requery.call(this, searchState.query) // cursor is restored by onResultsUpdated =>
   }
 
   function saveSearchState () {
