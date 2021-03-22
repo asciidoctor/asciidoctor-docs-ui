@@ -208,6 +208,7 @@
     query === undefined ? (query = this.input.getInputValue()) : this.input.setInputValue(query, true)
     this.input.setQuery(query)
     this.dropdown.update(query)
+    this.dropdown.open()
   }
 
   // preserves the original order of results by qualifying unique occurrences of the same lvl0 and lvl1 values
