@@ -15,8 +15,6 @@
     appendStylesheet(config.stylesheet)
     var baseAlgoliaOptions = {
       hitsPerPage: parseInt(config.maxResults) || 15,
-      advancedSyntax: true,
-      advancedSyntaxFeatures: ['exactPhrase'],
     }
     var searchField = document.getElementById(config.searchFieldId || 'search')
     searchField.appendChild(Object.assign(document.createElement('div'), { className: 'algolia-autocomplete-results' }))
