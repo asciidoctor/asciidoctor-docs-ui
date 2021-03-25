@@ -71,15 +71,40 @@
 }
 
 .algolia-autocomplete .ds-footer {
+  display: flex;
+  justify-content: space-between;
   background-color: rgba(164, 167, 174, 0.1);
   border-top: 1px solid rgba(225, 225, 225, 0.5);
   padding: 10px 8px 8px;
 }
 
-.algolia-autocomplete .ds-footer::after {
-  content: "";
-  display: table;
-  clear: both;
+.algolia-autocomplete .ds-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+.algolia-autocomplete .ds-pagination a {
+  color: #174d8c;
+}
+
+.algolia-autocomplete .ds-pagination--prev::before,
+.algolia-autocomplete .ds-pagination--next::after {
+  display: inline-block;
+  width: 0.8333em;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 0;
+}
+
+.algolia-autocomplete .ds-pagination--prev::before {
+  content: "\2039";
+}
+
+.algolia-autocomplete .ds-pagination--next::after {
+  content: "\203a";
 }
 
 .algolia-autocomplete .algolia-docsearch-footer {
