@@ -81,9 +81,12 @@
 .algolia-autocomplete .ds-pagination {
   display: flex;
   align-items: center;
-  gap: 0.5em;
   font-size: 0.8em;
   line-height: 1;
+}
+
+.algolia-autocomplete .ds-pagination > :not(:first-child) {
+  margin-left: 0.5em;
 }
 
 .algolia-autocomplete .ds-pagination a {
