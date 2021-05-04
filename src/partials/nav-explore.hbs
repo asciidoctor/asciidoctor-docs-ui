@@ -2,14 +2,14 @@
   {{#if page.component}}
   <div class="context">
     <span class="title">{{page.component.title}}</span>
-    <span class="version">{{#unless (eq page.componentVersion.displayVersion 'current')}}{{page.componentVersion.displayVersion}}{{/unless}}</span>
+    <span class="version">{{#unless (eq page.componentVersion.displayVersion 'default')}}{{page.componentVersion.displayVersion}}{{/unless}}</span>
   </div>
   {{/if}}
   <ul class="components">
     {{#each (rearrange site.components 'name' componentOrder)}}
     <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
       <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
-      {{#if (or ./versions.[1] (ne ./versions.[0].displayVersion 'current'))}}
+      {{#if (or ./versions.[1] (ne ./versions.[0].displayVersion 'default'))}}
       <ul class="versions">
         {{#each ./versions}}
         <li class="version

@@ -15,9 +15,9 @@ If you typed the URL of this page manually, please double check that you entered
     {{#each site.components}}
     { name: "{{{./name}}}", title: "{{{./title}}}", url: "{{{@root.site.path}}}{{{./url}}}", prefix: "{{{@root.site.path}}}/{{{./name}}}" },
     {{#each ./versions}}
-    {{#unless (eq ./version 'master')}}
+    {{#if ./version}}
     { name: "{{{./name}}}", title: "{{{./title}}}", version: "{{{./version}}}", url: "{{{@root.site.path}}}{{{./url}}}", prefix: "{{{@root.site.path}}}/{{{./name}}}/{{{./version}}}" },
-    {{/unless}}
+    {{/if}}
     {{/each}}
     {{/each}}
   ].reduce(function (accum, it) {
