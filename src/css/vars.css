@@ -104,8 +104,9 @@
   --link-font-color: #218380; celadon green
   */
   --link-font-color: #2c7fa2;
-  --link_hover-filter: brightness(75%) saturate(150%);
+  --link_hover-font-color: #08658c; /* brightness(75%) saturate(150%) */
   --link_unresolved-font-color: var(--important-color);
+  --link_unresolved-hover-font-color: #ec003a;
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);
   --abstract-border-color: var(--panel-border-color);

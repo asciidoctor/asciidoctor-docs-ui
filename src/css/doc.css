@@ -116,7 +116,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc a:hover {
-  filter: var(--link_hover-filter);
+  color: var(--link_hover-font-color);
 }
 
 .doc a.bare {
@@ -125,6 +125,10 @@ h1.page + aside.toc.embedded {
 
 .doc a.unresolved {
   color: var(--link_unresolved-font-color);
+}
+
+.doc a.unresolved:hover {
+  color: var(--link_unresolved-hover-font-color);
 }
 
 .doc i.fa {
