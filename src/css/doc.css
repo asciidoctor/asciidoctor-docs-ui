@@ -119,6 +119,11 @@ h1.page + aside.toc.embedded {
   color: var(--link_hover-font-color);
 }
 
+.doc a:hover,
+.doc a:hover > * {
+  text-decoration: underline solid currentColor;
+}
+
 .doc a.bare {
   hyphens: none;
 }
