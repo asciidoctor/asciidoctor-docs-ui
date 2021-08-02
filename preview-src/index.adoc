@@ -51,7 +51,7 @@ This is an example paragraph.
 [example]
 This is an example paragraph.
 
-.Summary
+.Summary *Spoiler Alert!*
 [%collapsible]
 ====
 Details.

@@ -647,7 +647,8 @@ h1.page + aside.toc.embedded {
 }
 
 .doc details > summary {
-  display: flex;
+  display: block;
+  position: relative;
   line-height: var(--doc-line-height);
   margin-bottom: 0.5rem;
 }
@@ -658,8 +659,8 @@ h1.page + aside.toc.embedded {
   border-left-color: currentColor;
   border-width: 0.3em 0 0.3em 0.5em;
   position: absolute;
-  margin-top: calc((var(--doc-line-height) * 0.5 - 0.3) * 1em);
-  margin-left: -1.25rem;
+  top: calc((var(--doc-line-height) * 0.5 - 0.3) * 1em);
+  left: -1.25rem;
   transform: translateX(25%);
 }
 
@@ -674,8 +675,8 @@ h1.page + aside.toc.embedded {
   width: 1.25rem;
   height: 1em;
   position: absolute;
-  margin-top: calc((var(--doc-line-height) * 0.5 - 0.5) * 1em);
-  margin-left: -1.25rem;
+  top: calc((var(--doc-line-height) * 0.5 - 0.5) * 1em);
+  left: -1.25rem;
 }
 
 .doc details.result {
