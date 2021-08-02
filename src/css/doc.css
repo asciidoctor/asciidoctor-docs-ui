@@ -685,6 +685,7 @@ h1.page + aside.toc.embedded {
 
 .doc details.result > summary {
   color: var(--caption-font-color);
+  font-style: italic;
   margin-bottom: 0;
 }
 
