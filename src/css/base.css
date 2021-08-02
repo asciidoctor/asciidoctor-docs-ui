@@ -75,6 +75,7 @@ button::-moz-focus-inner {
 
 summary {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 table {

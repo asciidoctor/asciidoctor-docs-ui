@@ -642,12 +642,53 @@ h1.page + aside.toc.embedded {
   padding-bottom: 0;
 }
 
+.doc details {
+  margin-left: 1.25rem;
+}
+
+.doc details > summary {
+  display: flex;
+  line-height: var(--doc-line-height);
+  margin-bottom: 0.5rem;
+}
+
+.doc details > summary::before {
+  content: "";
+  border: solid transparent;
+  border-left-color: currentColor;
+  border-width: 0.3em 0 0.3em 0.5em;
+  position: absolute;
+  margin-top: calc((var(--doc-line-height) * 0.5 - 0.3) * 1em);
+  margin-left: -1.25rem;
+  transform: translateX(25%);
+}
+
+.doc details[open] > summary::before {
+  border-color: currentColor transparent transparent;
+  border-width: 0.5rem 0.3rem 0;
+  transform: translateX(10%) translateY(15%);
+}
+
+.doc details > summary::after {
+  content: "";
+  width: 1.25rem;
+  height: 1em;
+  position: absolute;
+  margin-top: calc((var(--doc-line-height) * 0.5 - 0.5) * 1em);
+  margin-left: -1.25rem;
+}
+
 .doc details.result {
   margin-top: 0.25rem;
 }
 
 .doc details.result > summary {
   color: var(--caption-font-color);
+  margin-bottom: 0;
+}
+
+.doc details.result > .content {
+  margin-left: -1.25rem;
 }
 
 .doc .exampleblock > .content,
@@ -666,7 +707,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .exampleblock > .content > :first-child,
-.doc details.result > .content > :first-child {
+.doc details > .content > :first-child {
   margin-top: 0;
 }
 

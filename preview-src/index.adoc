@@ -54,7 +54,20 @@ This is an example paragraph.
 .Summary
 [%collapsible]
 ====
+Details.
+
 Loads of details.
+====
+
+[,asciidoc]
+----
+Voila!
+----
+
+.Result
+[%collapsible.result]
+====
+Voila!
 ====
 
 === Some Code
