@@ -25,7 +25,7 @@ Lorem pertinacia `expetenda` et nec, [.underline]#wisi# illud [.line-through]#so
 Eum an doctus <<liber-recusabo,maiestatis efficiantur>>.
 Eu mea inani iriure.
 
-[source,json]
+[,json]
 ----
 {
   "name": "module-name",
@@ -40,7 +40,7 @@ Eu mea inani iriure.
 ----
 
 .Example paragraph syntax
-[source,asciidoc]
+[,asciidoc]
 ----
 .Optional title
 [example]
@@ -50,24 +50,30 @@ This is an example paragraph.
 .Optional title
 [example]
 This is an example paragraph.
+
+.Summary
+[%collapsible]
+====
+Loads of details.
+====
 
 === Some Code
 
 How about some code?
 
-[source,js]
+[,js]
 ----
 vfs
   .src('js/vendor/*.js', { cwd: 'src', cwdbase: true, read: false })
-  .pipe(tap((file) => { // <1>
+  .pipe(tap((file) => { // <.>
     file.contents = browserify(file.relative, { basedir: 'src', detectGlobals: false }).bundle()
   }))
-  .pipe(buffer()) // <2>
+  .pipe(buffer()) // <.>
   .pipe(uglify())
   .pipe(gulp.dest('build'))
 ----
-<1> The tap function is used to wiretap the data in the pipe.
-<2> Wrap each streaming file in a buffer so the files can be processed by uglify.
+<.> The tap function is used to wiretap the data in the pipe.
+<.> Wrap each streaming file in a buffer so the files can be processed by uglify.
 Uglify can only work with buffers, not streams.
 
 Execute these commands to validate and build your site:
@@ -105,7 +111,7 @@ m|"foo\nbar"
 l|foo
 bar
 a|
-[source,ruby]
+[,ruby]
 ----
 puts "foo\nbar"
 ----
@@ -264,7 +270,7 @@ Make the switch today!
 Altera atomorum his ex, has cu elitr melius propriae.
 Eos suscipit scaevola at.
 
-[quote, 'Famous Person. Cum dicat putant ne.', 'Cum dicat putant ne. https://example.com[Famous Person Website]']
+[,'Famous Person. Cum dicat putant ne.','Cum dicat putant ne. https://example.com[Famous Person Website]']
 ____
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Mauris eget leo nunc, nec tempus mi? Curabitur id nisl mi, ut vulputate urna.
