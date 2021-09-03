@@ -194,14 +194,14 @@ div.navbar-link {
 }
 
 .navbar-dropdown .navbar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  justify-content: space-between;
 }
 
 .navbar-dropdown .navbar-item small {
-  position: relative;
-  right: -1rem;
   color: var(--toolbar-muted-color);
   font-size: calc(12 / var(--rem-base) * 1rem);
 }
@@ -353,6 +353,11 @@ div.navbar-link {
   .navbar-dropdown .navbar-item {
     padding: 0.5rem 2rem 0.5rem 1rem;
     white-space: nowrap;
+  }
+
+  .navbar-dropdown .navbar-item small {
+    position: relative;
+    right: -1rem;
   }
 
   .navbar-dropdown .navbar-item:last-child {
