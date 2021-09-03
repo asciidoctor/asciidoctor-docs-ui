@@ -188,6 +188,11 @@ body {
   padding-right: 2.5em;
 }
 
+div.navbar-item,
+div.navbar-link {
+  cursor: default;
+}
+
 .navbar-dropdown .navbar-item {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
