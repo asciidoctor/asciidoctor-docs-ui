@@ -255,6 +255,10 @@ div.navbar-link {
   #search .query {
     height: 100%;
   }
+
+  .navbar-dropdown .navbar-divider {
+    margin-left: 1.5rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
