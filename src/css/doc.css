@@ -460,6 +460,7 @@
 }
 
 .doc .imageblock img,
+.doc .imageblock object[type="image/svg+xml"],
 .doc .image > img {
   display: inline-block;
   height: auto;

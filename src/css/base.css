@@ -100,6 +100,10 @@ table {
   word-wrap: normal; /* table widths aren't computed as expected when word-wrap is enabled */
 }
 
+object[type="image/svg+xml"]:not([width]) {
+  width: fit-content;
+}
+
 ::placeholder {
   opacity: 0.5;
 }
