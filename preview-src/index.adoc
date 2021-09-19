@@ -87,7 +87,7 @@ vfs
   .pipe(uglify())
   .pipe(gulp.dest('build'))
 ----
-<.> The tap function is used to wiretap the data in the pipe.
+<.> The `tap` function is used to wiretap the data in the pipe.
 <.> Wrap each streaming file in a buffer so the files can be processed by uglify.
 Uglify can only work with buffers, not streams.
 
