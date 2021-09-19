@@ -461,7 +461,10 @@
 
 .doc .imageblock img,
 .doc .imageblock object[type="image/svg+xml"],
-.doc .image > img {
+.doc .imageblock svg,
+.doc .image > img,
+.doc .image > object[type="image/svg+xml"],
+.doc .image > svg {
   display: inline-block;
   height: auto;
   max-width: 100%;
