@@ -25,8 +25,7 @@ footer.footer {
   vertical-align: middle;
 }
 
-.footer p + p,
-.footer ul + p {
+.footer p + p {
   margin-top: 1em;
 }
 
@@ -84,10 +83,11 @@ footer.footer {
 .footer-brand-follow {
   font-size: calc(24 / var(--rem-base) * 1rem);
   font-weight: var(--body-font-weight-bold);
+  line-height: 1;
 }
 
-.footer-brand-follow a {
-  display: inline-flex;
+.footer p.footer-brand-follow {
+  margin-top: 1.25rem;
 }
 
 .footer-brand-follow .logo {
@@ -95,8 +95,7 @@ footer.footer {
 }
 
 .footer-brand-follow .handle {
-  margin-left: 0.5ch;
-  padding-bottom: 0.1em;
+  padding: 0 0 0.1em 0.5ch;
 }
 
 .footer-legal {
