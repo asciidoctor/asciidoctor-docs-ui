@@ -21,7 +21,12 @@ footer.footer {
   color: var(--footer-link-font-color);
 }
 
-.footer p + p {
+.footer img {
+  vertical-align: middle;
+}
+
+.footer p + p,
+.footer ul + p {
   margin-top: 1em;
 }
 
@@ -76,6 +81,24 @@ footer.footer {
   padding: 0 0.5em;
 }
 
+.footer-brand-follow {
+  font-size: calc(24 / var(--rem-base) * 1rem);
+  font-weight: var(--body-font-weight-bold);
+}
+
+.footer-brand-follow a {
+  display: inline-flex;
+}
+
+.footer-brand-follow .logo {
+  width: calc(28 / var(--rem-base) * 1rem);
+}
+
+.footer-brand-follow .handle {
+  margin-left: 0.5ch;
+  padding-bottom: 0.1em;
+}
+
 .footer-legal {
   margin-top: 1.5rem;
 }
@@ -93,10 +116,6 @@ footer.footer {
 
 .footer-thanks .badges a + a {
   margin-left: 5px;
-}
-
-.footer-thanks .badges img {
-  vertical-align: middle;
 }
 
 @media screen and (min-width: 1024px) {
