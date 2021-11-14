@@ -1,7 +1,7 @@
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item logo" title="Asciidoctor" href="https://asciidoctor.org"><img src="{{{uiRootPath}}}/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
+      <a class="navbar-item logo" title="Asciidoctor" href="https://c2pa.org"><img src="{{{uiRootPath}}}/img/C2PA-logo.svg" alt="C2PA" width="48"></a>
       <a class="navbar-item title" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">{{site.title}}</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -27,7 +27,7 @@
           {{/if}}
         </div>
         {{/if}}
-        <div class="navbar-item has-dropdown is-hoverable">
+        {{!-- <div class="navbar-item has-dropdown is-hoverable">
           <div class="navbar-link">AsciiDoc</div>
           <div class="navbar-dropdown">
             <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoc::index.adoc')}}}">Language</a>
@@ -46,9 +46,6 @@
           <div class="navbar-link">Extensions</div>
           <div class="navbar-dropdown">
             <div class="navbar-item">Add-on Converters</div>
-            {{!--
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'pdf-converter::index.adoc')}}}">PDF</a>
-            --}}
             <a class="navbar-item" href="{{{relativize (resolvePageURL 'reveal.js-converter::index.adoc')}}}">reveal.js <small>Ruby, JavaScript</small></a>
             <a class="navbar-item" href="{{{relativize (resolvePageURL 'epub3-converter::index.adoc')}}}">EPUB3 <small>Ruby</small></a>
             <hr class="navbar-divider">
@@ -56,16 +53,6 @@
             {{#with (resolvePageURL 'diagram-extension::index.adoc')}}
             <a class="navbar-item" href="{{{relativize this}}}">Asciidoctor Diagram <small>Ruby</small></a>
             {{/with}}
-            {{!--
-            {{#with (resolvePageURL 'kroki-extension::index.adoc')}}
-            <a class="navbar-item" href="{{{relativize this}}}">Asciidoctor Kroki <small>JavaScript</small></a>
-            {{/with}}
-            <a class="navbar-item" href="#">Asciidoctor Chart</a>
-            <a class="navbar-item" href="#">Asciidoctor bibtex</a>
-            <div class="navbar-item">Feature Adapters</div>
-            <a class="navbar-item" href="#">Asciidoctor Mathematical <small>stem</small></a>
-            <a class="navbar-item" href="#">Asciidoctor Prism <small>source highlighter</small></a>
-            --}}
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
@@ -75,39 +62,24 @@
             {{#with (resolvePageURL 'maven-tools::index.adoc')}}
             <a class="navbar-item" href="{{{relativize this}}}">Maven Tools <small>Java</small></a>
             {{/with}}
-            {{!--
-            <a class="navbar-item" href="https://asciidoctor.github.io/asciidoctor-gradle-plugin" target="_blank" rel="noopener">Gradle Plugin <small>Java</small></a>
-            --}}
             {{#with (resolvePageURL 'asciidoclet::index.adoc')}}
             <a class="navbar-item" href="{{{relativize this}}}">Asciidoclet <small>Java</small></a>
             {{/with}}
             <hr class="navbar-divider">
             <div class="navbar-item">Text Editors / Viewers</div>
-            {{!--
-            <a class="navbar-item" href="#">Browser Extension</a>
-            <a class="navbar-item" href="#">Atom Add-ons</a>
-            --}}
             <a class="navbar-item" href="https://intellij-asciidoc-plugin.ahus1.de/docs" target="_blank" rel="noopener">IntelliJ Plugin</a>
           </div>
-        </div>
+        </div> --}}
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-item" href="https://asciidoctor.zulipchat.com" target="_blank" rel="noopener" data-title="Communication">
             <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-24.svg#view-comment-discussion"></span>
           </a>
           <div class="navbar-dropdown is-right">
-            <a class="navbar-item has-icon" href="https://asciidoctor.zulipchat.com" target="_blank" rel="noopener">
-              <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-comment-discussion"></span>
-              <span>Chat</span>
-            </a>
-            <a class="navbar-item has-icon" href="https://discuss.asciidoctor.org" target="_blank" rel="noopener">
-              <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-mail"></span>
-              <span>List</span>
-            </a>
-            <a class="navbar-item has-icon" href="https://github.com/asciidoctor" target="_blank" rel="noopener">
+            <a class="navbar-item has-icon" href="https://github.com/c2pa-org" target="_blank" rel="noopener">
               <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-mark-github"></span>
-              <span>Source</span>
+              <span>Repository</span>
             </a>
-            <a class="navbar-item has-icon" href="https://twitter.com/asciidoctor" target="_blank" rel="noopener">
+            <a class="navbar-item has-icon" href="https://twitter.com/c2pa" target="_blank" rel="noopener">
               <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-hash"></span>
               <span>Tweets</span>
             </a>
