@@ -27,17 +27,18 @@
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
   --body-font-color: var(--color-jet-80);
-  --body-font-family: "Roboto", sans-serif;
+  --body-font-family: "Source Sans", sans-serif;
   --body-font-weight-bold: 500;
-  --monospace-font-family: "Roboto Mono", monospace;
+  --monospace-font-family: "Source Code Pro", monospace;
   --monospace-font-weight-bold: 500;
   /* base */
   --body-background: var(--color-white);
   --panel-background: var(--color-smoke-30);
   --panel-border-color: var(--color-smoke-90);
   --scrollbar-thumb-color: var(--color-gray-10);
+  --header-footer-background: var(--color-gray-15);
   /* navbar */
-  --navbar-background: var(--color-jet-80);
+  --navbar-background: var(--header-footer-background);
   --navbar-font-color: var(--color-white);
   --navbar-heading-font-color: var(--color-gray-70);
   --navbar-heading-font-weight: var(--body-font-weight-bold);
@@ -139,8 +140,8 @@
   --toc-line-height: 1.2;
   /* footer */
   --footer-line-height: var(--doc-line-height);
-  --footer-background: var(--color-jet-80);
-  --footer-font-color: var(--color-gray-15);
+  --footer-background: var(--header-footer-background);
+  --footer-font-color: var(--color-gray-70);
   --footer-link-font-color: var(--color-white);
   /* dimensions and positioning */
   --navbar-height: calc(63 / var(--rem-base) * 1rem);

@@ -43,6 +43,8 @@ footer.footer {
 
 .footer-brand .logo {
   display: flex;
+  /* height: calc(1.0 * var(--navbar-height));
+  width: calc(1.0 * var(--navbar-height)); */
 }
 
 .footer-brand a {

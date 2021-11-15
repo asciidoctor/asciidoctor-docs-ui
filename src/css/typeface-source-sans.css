@@ -1,0 +1,40 @@
+@font-face {
+	font-family: "Source Sans";
+	font-style: normal;
+	font-weight: 400;
+	src:
+	  local("Source Sans Regular"),
+	  local("Source Sans-Regular"),
+	  url(../font/SourceSans3-Regular.ttf) format("truetype");
+  }
+  
+  @font-face {
+	font-family: "Source Sans";
+	font-style: italic;
+	font-weight: 400;
+	src:
+	  local("Source Sans Italic"),
+	  local("Source Sans-Italic"),
+	  url(../font/SourceSans3-It.ttf) format("truetype");
+  }
+  
+  @font-face {
+	font-family: "Source Sans";
+	font-style: normal;
+	font-weight: 500;
+	src:
+	  local("Source Sans Bold"),
+	  local("Source Sans-Bold"),
+	  url(../font/SourceSans3-Bold.ttf) format("truetype");
+  }
+  
+  @font-face {
+	font-family: "Source Sans";
+	font-style: italic;
+	font-weight: 500;
+	src:
+	  local("Source Sans Medium Italic"),
+	  local("Source Sans-MediumItalic"),
+	  url(../font/SourceSans3-BoldIt.ttf) format("truetype");
+  }
+  
