@@ -37,7 +37,7 @@
   --panel-border-color: var(--color-smoke-90);
   --scrollbar-thumb-color: var(--color-gray-10);
   /* navbar */
-  --navbar-background: var(--color-jet-80);
+  --navbar-background: var(--color-gray-15);
   --navbar-font-color: var(--color-white);
   --navbar-heading-font-color: var(--color-gray-70);
   --navbar-heading-font-weight: var(--body-font-weight-bold);
