@@ -2,10 +2,6 @@
   'use strict'
 
   var FORWARD_BACK_TYPE = 2
-  var CTRL_KEY_CODE = 17
-  var LT_KEY_CODE = 188
-  var S_KEY_CODE = 83
-  var SOLIDUS_KEY_CODE = 191
   var SEARCH_FILTER_ACTIVE_KEY = 'docs:search-filter-active'
   var SAVED_SEARCH_STATE_KEY = 'docs:saved-search-state'
   var SAVED_SEARCH_STATE_VERSION = '1'
@@ -144,9 +140,9 @@
 
   function handleShortcuts (e) {
     var target = e.target || {}
-    if (e.ctrlKey && e.keyCode === LT_KEY_CODE && target === this.$input[0]) return restoreSearch.call(this)
+    if (e.ctrlKey && e.key === '<' && target === this.$input[0]) return restoreSearch.call(this)
     if (e.altKey || e.shiftKey || target.isContentEditable || 'disabled' in target) return
-    if (e.ctrlKey ? e.keyCode === SOLIDUS_KEY_CODE : e.keyCode === S_KEY_CODE) {
+    if (e.ctrlKey ? e.key === '/' : e.key === 's') {
       this.$input.focus()
       e.preventDefault()
       e.stopPropagation()
@@ -164,7 +160,7 @@
   }
 
   function onCtrlKeyDown (e) {
-    if (e.keyCode !== CTRL_KEY_CODE) return
+    if (e.key !== 'Control') return
     this.ctrlKeyDown = true
     var container = getScrollableResultsContainer(this.dropdown)
     var prevScrollTop = container.scrollTop()
@@ -173,7 +169,7 @@
   }
 
   function onCtrlKeyUp (e) {
-    if (e.keyCode !== CTRL_KEY_CODE) return
+    if (e.key !== 'Control') return
     delete this.ctrlKeyDown
     this.$input.focus()
   }
