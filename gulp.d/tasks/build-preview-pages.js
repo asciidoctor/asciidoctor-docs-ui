@@ -30,6 +30,8 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
           map((file, enc, next) => {
             const siteRootPath = path.relative(ospath.dirname(file.path), ospath.resolve(previewSrc))
             const uiModel = { ...baseUiModel }
+            let url = uiModel.env.DEPLOY_PRIME_URL || uiModel.env.URL
+            if (url) uiModel.site.url = url
             uiModel.page = { ...uiModel.page }
             uiModel.siteRootPath = siteRootPath
             uiModel.siteRootUrl = path.join(siteRootPath, 'index.html')
