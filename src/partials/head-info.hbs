@@ -1,18 +1,28 @@
-    {{#with page.canonicalUrl}}
-    <link rel="canonical" href="{{{this}}}">
-    {{/with}}
-    {{#if page.component}}
-    <meta name="page-spec" content="{{spec page}}">
-    {{/if}}
-    {{#with page.description}}
-    <meta name="description" content="{{this}}">
-    {{/with}}
-    {{#with page.keywords}}
-    <meta name="keywords" content="{{this}}">
-    {{/with}}
     {{#with (or antoraVersion site.antoraVersion)}}
     <meta name="generator" content="Antora {{this}}">
     {{/with}}
+    {{#with page.canonicalUrl}}
+    <link rel="canonical" href="{{{this}}}">
+    <meta property="og:url" content="{{{this}}}">
+    {{/with}}
+    {{#with page.description}}
+    <meta name="description" content="{{{detag this}}}">
+    <meta property="og:description" content="{{{detag this}}}">
+    {{else}}
+    {{#if page.component}}
+    <meta property="og:description" content="A documentation page for {{{page.component.title}}}.">
+    {{/if}}
+    {{/with}}
+    {{#with page.keywords}}
+    <meta name="keywords" content="{{{this}}}">
+    {{/with}}
+    {{#if page.component}}
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="{{{detag page.title}}}">
+    <meta property="og:image" content="{{{or site.url siteRootPath}}}/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    {{/if}}
     {{#unless (eq page.attributes.pagination undefined)}}
     {{#with page.previous}}
     <link rel="prev" href="{{{relativize ./url}}}">
@@ -21,3 +31,6 @@
     <link rel="next" href="{{{relativize ./url}}}">
     {{/with}}
     {{/unless}}
+    {{#if page.component}}
+    <meta name="page-spec" content="{{{spec page}}}">
+    {{/if}}
