@@ -22,7 +22,6 @@ endif::[]
 :url-asciidoctor: https://asciidoctor.org
 :url-git: https://git-scm.com
 :url-git-dl: {url-git}/downloads
-:url-gulp: http://gulpjs.com
 :url-opendevise: https://opendevise.com
 :url-nodejs: https://nodejs.org
 :url-nvm: https://github.com/creationix/nvm
@@ -65,8 +64,7 @@ A more comprehensive tutorial can be found in the documentation at {url-antora-d
 To preview and bundle the UI, you need the following software on your computer:
 
 * {url-git}[git] (command: `git`)
-* {url-nodejs}[Node.js] (commands: `node` and `npm`)
-* {url-gulp}[Gulp CLI] (command: `gulp`)
+* {url-nodejs}[Node.js] (commands: `node`, `npm`, and `npx`)
 
 ==== git
 
@@ -83,48 +81,25 @@ Next, make sure that you have Node.js installed (which also provides npm).
  $ node --version
 
 If this command fails with an error, you don't have Node.js installed.
-If the command doesn't report an LTS version of Node.js (e.g., v10.15.3), it means you don't have a suitable version of Node.js installed.
-In this guide, we'll be installing Node.js 10.
+If the command doesn't report an active LTS version of Node.js (e.g., v16.13.2), it means you don't have a suitable version of Node.js installed.
+In this guide, we'll be installing Node.js 16.
 
 While you can install Node.js from the official packages, we strongly recommend that you use {url-nvm}[nvm] (Node Version Manager) to manage your Node.js installation(s).
 Follow the {url-nvm-install}[nvm installation instructions] to set up nvm on your machine.
 
-Once you've installed nvm, open a new terminal and install Node.js 10 using the following command:
+Once you've installed nvm, open a new terminal and install Node.js 16 using the following command:
 
- $ nvm install 10
+ $ nvm install 16
 
 You can switch to this version of Node.js at any time using the following command:
 
- $ nvm use 10
+ $ nvm use 16
 
-To make Node.js 10 the default in new terminals, type:
+To make Node.js 16 the default in new terminals, type:
 
- $ nvm alias default 10
+ $ nvm alias default 16
 
-Now that you have Node.js installed, you can proceed with installing the Gulp CLI.
-
-==== Gulp CLI
-
-You'll need the Gulp command-line interface (CLI) to run the build.
-The Gulp CLI package provides the `gulp` command which, in turn, executes the version of Gulp declared by the project.
-
-You can install the Gulp CLI globally (which resolves to a location in your user directory if you're using nvm) using the following command:
-
- $ npm install -g gulp-cli
-
-Verify the Gulp CLI is installed and on your PATH by running:
-
- $ gulp --version
-
-If you prefer to install global packages using Yarn, run this command instead:
-
- $ yarn global add gulp-cli
-
-Alternately, you can use the `gulp` command that is installed by the project's dependencies.
-
- $ $(npm bin)/gulp --version
-
-Now that you have the prerequisites installed, you can fetch and build the UI project.
+Now that you have Node.js installed, you can proceed with cloning and initializing the project.
 
 === Clone and Initialize the UI Project
 
@@ -140,7 +115,7 @@ Stay in this project folder when executing all subsequent commands.
 Use npm to install the project's dependencies inside the project.
 In your terminal, execute the following command:
 
- $ npm install
+ $ npm ci
 
 This command installs the dependencies listed in [.path]_package.json_ into the [.path]_node_modules/_ folder inside the project.
 This folder does not get included in the UI bundle and should _not_ be committed to the source control repository.
@@ -154,7 +129,7 @@ These pages provide a representative sample and kitchen sink of content from the
 
 To build the UI and preview it in a local web server, run the `preview` command:
 
- $ gulp preview
+ $ npx gulp preview
 
 [TIP]
 ====
@@ -162,7 +137,7 @@ Alternatively, you can use the following command:
 
  $ npm start
 
-In fact, if you use `npm start`, you don't need to have the Gulp CLI installed.
+When using `npm start`, you don't have to prefix the `npm` command with `npx`.
 ====
 
 You'll see a URL listed in the output of this command:
@@ -184,7 +159,7 @@ Press kbd:[Ctrl+C] to stop the preview server and end the continuous build.
 
 If you need to package the UI so you can use it to generate the documentation site locally, run the following command:
 
- $ gulp bundle
+ $ npx gulp bundle
 
 If any errors are reported by lint, you'll need to fix them.
 
@@ -193,7 +168,7 @@ You can point Antora at this bundle using the `--ui-bundle-url` command-line opt
 
 If you have the preview running, and you want to bundle without causing the preview to be clobbered, use:
 
- $ gulp bundle:pack
+ $ npx gulp bundle:pack
 
 The UI bundle will again be available at [.path]_build/ui-bundle.zip_.
 
@@ -209,7 +184,7 @@ The mapping they provide allows the debugger to present the original source rath
 In preview mode, source maps are enabled automatically, so there's nothing you have to do to make use of them.
 If you need to include source maps in the bundle, you can do so by setting the `SOURCEMAPS` environment varible to `true` when you run the bundle command:
 
- $ SOURCEMAPS=true gulp bundle
+ $ SOURCEMAPS=true npx gulp bundle
 
 In this case, the bundle will include the source maps, which can be used for debuggging your production site.
 
@@ -242,7 +217,7 @@ The temporary preview URL will automatically be decommissioned once the PR is cl
 
 == Releases
 
-Releases are handled by the `gulp release` task, which is automated by a CI job.
+Releases are handled by the `npx gulp release` task, which is automated by a CI job.
 The release process boils down to the following steps:
 
 . Pack the UI bundle.
@@ -252,12 +227,12 @@ The release process boils down to the following steps:
 . Update the README to reference the URL of the lastest bundle and commit that update to the repository.
 
 Fortunately, you don't have to do any of these steps yourself.
-These steps are fully automated by the `gulp release` task.
+These steps are fully automated by the `npx gulp release` task.
 In fact, you don't even have to run this task.
-Whenever a commit is pushed to the master branch of the repository, it triggers the CI job on master, which executes the `gulp release` task using pre-configured credentials.
+Whenever a commit is pushed to the master branch of the repository, it triggers the CI job on master, which executes the `npx gulp release` task using pre-configured credentials.
 
 IMPORTANT: A release will only be made if the project validates (i.e., all lint tasks pass).
-To validate the project, run `gulp lint` before pushing your changes to GitHub.
+To validate the project, run `npx gulp lint` before pushing your changes to GitHub.
 
 The CI job is already configured, so there's nothing you need to do to make automated release work.
 All you have to do is commit your changes and push those commits to the master branch of the git repository.
@@ -281,7 +256,7 @@ No other scopes are required (as long as the asciidoctor-docbot user has write a
 === CI Job
 
 The {url-ci}[CI job] is executed by GitHub Actions and is defined in the file [.path]_.github/workflows/release.yml_.
-It boils down to running the `gulp release` task on the main branch.
+It boils down to running the `npx gulp release` task on the main branch.
 The GITHUB_API_TOKEN environment variable is defined in the job configuration.
 
 Once the CI job runs and a new UI bundle is available, you can update the URL of the UI bundle in the Antora playbook file.
