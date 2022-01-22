@@ -1,13 +1,13 @@
 [build]
 publish = "public"
-command = "node_modules/.bin/gulp preview:build"
+command = "npx gulp preview:build"
 
 [build.environment]
 CI = "true"
-NODE_VERSION = "10"
+NODE_VERSION = "16"
 
 [context.deploy-preview]
-command = "node_modules/.bin/gulp preview:build && node_modules/.bin/gulp --series build bundle:pack"
+command = "npx gulp preview:build && npx gulp --series build bundle:pack"
 
 [[headers]]
 for = "/_/font/*"
