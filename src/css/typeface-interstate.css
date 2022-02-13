@@ -1,0 +1,10 @@
+@font-face {
+	font-family: "Interstate Reg";
+	font-display: swap;
+	font-weight: normal;
+	font-style: normal;
+	src: 
+      local("Interstate Regular")
+      local("Interstate-Regular")
+      url("https://aviatrix.com/wp-content/themes/aviatrix/dist/fonts/Interstate-Regular.woff2") format("woff2");
+}

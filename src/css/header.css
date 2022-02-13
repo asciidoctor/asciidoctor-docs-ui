@@ -37,8 +37,8 @@ body {
   align-self: center;
   padding: 0;
   margin-left: 1rem;
-  height: calc(0.6 * var(--navbar-height));
-  width: calc(0.6 * var(--navbar-height));
+  height: 174;
+  width: 21;
 }
 
 .navbar-brand .navbar-item.logo img {
@@ -48,8 +48,9 @@ body {
 .navbar-brand .navbar-item.title {
   align-self: center;
   color: var(--navbar-font-color);
-  font-family: "Comfortaa", sans-serif;
-  font-size: 1rem;
+  font-family: "Interstate Lt", sans-serif;
+  font-weight: 300;
+  font-size: 21px;
   line-height: 1;
   position: relative;
   top: 0.06em; /* compensate for built-in line height in font */

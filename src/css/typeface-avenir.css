@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 400;
+    src: 
+      local("Avenir")  
+      url('https://aviatrix.com/wp-content/themes/aviatrix/dist/fonts/Avenir-Medium.woff2') format('woff2');
+}
