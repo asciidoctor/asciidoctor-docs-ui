@@ -1,11 +1,11 @@
 @font-face {
-	font-family: "Interstate Lt";
-	font-display: swap;
-	font-weight: 300;
-	font-style: normal;
-	font-size: 40px;
-	src: 
-      local("Interstate Light")
-      local("Interstate-Light")
-      url("https://aviatrix.com/wp-content/themes/aviatrix/dist/fonts/Interstate-Light.woff2") format("woff2");
+  font-family: "Interstate Lt";
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 40px;
+  src:
+    local("Interstate Light"),
+    local("Interstate-Light")
+    url("https://aviatrix.com/wp-content/themes/aviatrix/dist/fonts/Interstate-Light.woff2") format("woff2");
 }
