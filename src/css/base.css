@@ -109,17 +109,19 @@ object[type="image/svg+xml"]:not([width]) {
 }
 
 @media (pointer: fine) {
-  html {
-    scrollbar-color: var(--scrollbar-thumb-color) var(--panel-background);
-  }
+  @supports (scrollbar-width: thin) {
+    html {
+      scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+    }
 
-  body * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb-color) transparent;
+    body * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb-color) transparent;
+    }
   }
 
   html::-webkit-scrollbar {
-    background-color: var(--panel-background);
+    background-color: var(--scrollbar-track-color);
     height: 12px;
     width: 12px;
   }
