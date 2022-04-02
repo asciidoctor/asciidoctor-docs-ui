@@ -65,6 +65,10 @@
   }
 }
 
+.nav a {
+  color: inherit;
+}
+
 .nav .panels {
   display: flex;
   flex-direction: column;
@@ -133,11 +137,8 @@
   padding: 0;
 }
 
-.nav-menu a {
-  color: inherit;
-}
-
 .nav-list {
+  list-style: none;
   margin: 0 0 0 0.75rem;
   padding: 0;
 }
@@ -147,7 +148,6 @@
 }
 
 .nav-item {
-  list-style: none;
   margin-top: 0.5em;
 }
 
@@ -172,6 +172,7 @@
   border: none;
   outline: none;
   line-height: inherit;
+  padding: 0;
   position: absolute;
   height: calc(var(--nav-line-height) * 1em);
   width: calc(var(--nav-line-height) * 1em);
@@ -268,7 +269,6 @@
 
 .nav-panel-explore .component .title {
   font-weight: var(--body-font-weight-bold);
-  color: inherit;
   margin-top: 0.25rem;
   flex: none;
 }
@@ -281,9 +281,9 @@
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
-  list-style: none;
   padding-left: 0;
   line-height: 1;
+  list-style: none; /* required for Edge */
 }
 
 .nav-panel-explore .component .version {
@@ -294,7 +294,6 @@
 .nav-panel-explore .component .version a {
   border: 1px solid var(--nav-border-color);
   border-radius: 0.25rem;
-  color: inherit;
   opacity: 0.75;
   white-space: nowrap;
   padding: 0.125em 0.25em;
