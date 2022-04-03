@@ -283,11 +283,10 @@
   flex-wrap: wrap;
   padding-left: 0;
   line-height: 1;
-  list-style: none; /* required for Edge */
+  list-style: none;
 }
 
 .nav-panel-explore .component .version {
-  display: block;
   margin: 0.25rem 0 0 0.25rem;
 }
 
