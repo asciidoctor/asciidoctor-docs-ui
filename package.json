@@ -19,6 +19,9 @@
   "devDependencies": {
     "@octokit/rest": "~18.0",
     "@asciidoctor/core": "~2.2",
+    "@fontsource/comfortaa": "~4.5",
+    "@fontsource/roboto": "~4.5",
+    "@fontsource/roboto-mono": "~4.5",
     "autoprefixer": "~10.0",
     "browser-pack-flat": "~3.4",
     "browserify": "~17.0",
@@ -55,9 +58,6 @@
     "require-from-string": "~2.0",
     "stylelint": "~13.8",
     "stylelint-config-standard": "~20.0",
-    "typeface-comfortaa": "^1.1",
-    "typeface-roboto": "^1.1",
-    "typeface-roboto-mono": "^1.1",
     "vinyl-buffer": "~1.0",
     "vinyl-fs": "~3.0"
   }
