@@ -761,9 +761,14 @@
 /* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
 .doc .listingblock.wrap pre code,
 .doc .listingblock.wrap pre:not(.highlight),
-.doc table.tableblock pre code,
-.doc table.tableblock pre:not(.highlight) {
+.doc:not(.pdf-converter) table.tableblock pre code,
+.doc:not(.pdf-converter) table.tableblock pre:not(.highlight) {
   white-space: pre-wrap;
+}
+
+.doc.pdf-converter table.tableblock pre {
+  font-size: calc(13.5 / var(--rem-base) * 1rem);
+  max-width: 375px;
 }
 
 .doc pre.highlight {
