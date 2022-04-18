@@ -237,6 +237,10 @@
   }
 }
 
+.doc table.tableblock pre {
+  font-size: inherit;
+}
+
 .doc table.tableblock + * {
   margin-top: 1.5rem;
 }
@@ -635,7 +639,7 @@
 .doc .literalblock .title,
 .doc .listingblock .title,
 .doc .openblock .title,
-.doc .tableblock caption {
+.doc table.tableblock caption {
   color: var(--caption-font-color);
   font-size: calc(16 / var(--rem-base) * 1rem);
   font-weight: var(--caption-font-weight);
@@ -744,13 +748,7 @@
   margin-top: 0;
 }
 
-/* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
-.doc .tableblock pre,
-.doc .listingblock.wrap pre {
-  white-space: pre-wrap;
-}
-
-.doc pre.highlight code,
+.doc pre code,
 .doc .listingblock pre:not(.highlight),
 .doc .literalblock pre {
   background: var(--pre-background);
@@ -758,6 +756,14 @@
   display: block;
   overflow-x: auto;
   padding: 0.75rem;
+}
+
+/* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
+.doc .listingblock.wrap pre code,
+.doc .listingblock.wrap pre:not(.highlight),
+.doc table.tableblock pre code,
+.doc table.tableblock pre:not(.highlight) {
+  white-space: pre-wrap;
 }
 
 .doc pre.highlight {
