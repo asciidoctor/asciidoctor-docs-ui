@@ -122,13 +122,14 @@ Eu mea munere vituperata constituam.
 |===
 |Input | Output | Example
 
-m|"foo\nbar"
+m|"foo\nbar\nbaz"
 l|foo
 bar
+baz
 a|
 [,ruby]
 ----
-puts "foo\nbar"
+puts "foo\nbar\nbaz"
 ----
 |===
 
