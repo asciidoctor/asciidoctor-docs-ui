@@ -1,0 +1,32 @@
+name: Release
+on:
+  push:
+    branches:
+    - main
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    if: |
+      github.repository == 'aliceliudoc/asciidoctor-docs-ui' &&
+      !startsWith(github.event.head_commit.message, 'Release ') &&
+      !endsWith(github.event.head_commit.message, ' [skip ci]')
+    steps:
+    - run: echo ok go
+  build:
+    needs: activate
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - name: Install dependencies
+      run: npm ci
+    - name: Tag and release
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+      run: npx gulp release
