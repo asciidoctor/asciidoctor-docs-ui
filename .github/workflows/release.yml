@@ -7,7 +7,7 @@ jobs:
   activate:
     runs-on: ubuntu-latest
     if: |
-      github.repository == 'asciidoctor/asciidoctor-docs-ui' &&
+      github.repository == 'aliceliudoc/asciidoctor-docs-ui' &&
       !startsWith(github.event.head_commit.message, 'Release ') &&
       !endsWith(github.event.head_commit.message, ' [skip ci]')
     steps:
