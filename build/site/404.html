@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Page Not Found | Docs</title>
+    <link rel="stylesheet" href="/demo/docs-site/_/css/site.css">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="icon" href="/demo/docs-site/_/img/favicon.png" type="image/x-icon">
+  </head>
+  <body class="status-404">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item logo" title="Aviatrix" href="https://aviatrix.com"><img src="/demo/docs-site/_/img/aviatrix-logo-w.svg" alt="Aviatrix" width="180"></a>
+      <a class="navbar-item title" href="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://support.aviatrix.com/" data-title="Support">
+            <span class="icon"><img src="/demo/docs-site/_/img/octicons-24.svg#view-comment-discussion"></span>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item has-icon" href="https://aviatrix.com/schedule-demo/" target="_blank" rel="noopener">
+              <span class="icon"><img src="/demo/docs-site/_/img/octicons-16.svg#view-flame"></span>
+              <span>Request Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-explore is-active" data-panel="explore">
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="/demo/docs-site/copilot/1.6.3/copilot_overview.html">CoPilot</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="/demo/docs-site/copilot/1.6.3/copilot_overview.html">1.6.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html">Release Notes</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html">6.6</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Page Not Found</h1>
+<div class="paragraph">
+<p>The page you&#8217;re looking for does not exist. It may have been moved. You can return to the <a id="return-link" href="/release-notes/6.6/UCC_Release_Notes.html">start page</a>, or follow one of the links in the navigation on the left.</p>
+</div>
+<div class="paragraph">
+<p>If you arrived on this page by clicking a link on another site, please notify the owner of that site that the link is broken.
+If you typed the URL of this page manually, please double check that you entered the address correctly.</p>
+</div>
+</article>
+<script>
+;(function (pathname, returnLink) {
+  if (!returnLink) return
+  var startPages = [
+    { name: "copilot", title: "CoPilot", url: "/demo/docs-site/copilot/1.6.3/copilot_overview.html", prefix: "/demo/docs-site/copilot" },
+    { name: "copilot", title: "CoPilot", version: "1.6.3", url: "/demo/docs-site/copilot/1.6.3/copilot_overview.html", prefix: "/demo/docs-site/copilot/1.6.3" },
+    { name: "release-notes", title: "Release Notes", url: "/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html", prefix: "/demo/docs-site/release-notes" },
+    { name: "release-notes", title: "Release Notes", version: "6.6", url: "/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html", prefix: "/demo/docs-site/release-notes/6.6" },
+  ].reduce(function (accum, it) {
+    var prefix = it.prefix
+    delete it.prefix
+    if (('version' in it) && !it.url.startsWith(prefix + '/')) {
+      var prefixSegments = prefix.split('/')
+      var versionSegmentIdx = prefixSegments.findIndex((segment) => segment === it.version)
+      prefixSegments.splice(versionSegmentIdx, 1, it.url.split('/')[versionSegmentIdx])
+      prefix = prefixSegments.join('/')
+    }
+    accum[prefix] = it
+    return accum
+  }, {})
+  var returnTo
+  var segments = pathname.split('/').slice(0, -1)
+  while (segments.length > 1) {
+    if ((returnTo = startPages[segments.join('/')])) break
+    segments.pop()
+  }
+  if (returnTo) {
+    returnLink.href = returnTo.url
+    returnLink.innerText =
+      'start page for the ' + returnTo.title + ' ' +
+      (returnTo.version ? returnTo.version + ' ' : '') +
+      'documentation'
+  }
+})(window.location.pathname, document.getElementById('return-link'))
+</script>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://aviatrix.com"><img src="/demo/docs-site/_/img/aviatrix-logo.svg" alt="Aviatrix" width="260"></a>
+      <figcaption class="footer-brand-name"><a href="https://aviatrix.com"></a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <li><a href="https://aviatrix.com" target="_blank" rel="noopener">Home</a></li>
+      <li><a href="https://antora.gitlab.io/demo/docs-site">Docs</a></li>
+      <li><a href="https://support.aviatrix.com/" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/aviatrixsys" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="/demo/docs-site/_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@aviatrixsys</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2022 Aviatrix Systems, Inc 2901 Tasman Dr #109, Santa Clara, CA 95054</p>
+    <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p>
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="/demo/docs-site/_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in AsciiDoc.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://aviatrix.com" target="_blank" rel="noopener">Aviatrix</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="/demo/docs-site/_/js/site.js" data-ui-root-path="/demo/docs-site/_"></script>
+<script async src="/demo/docs-site/_/js/vendor/highlight.js"></script>
+  </body>
+</html>

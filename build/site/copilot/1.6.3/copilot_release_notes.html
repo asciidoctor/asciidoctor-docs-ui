@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Aviatrix CoPilot Release Notes | Docs</title>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="canonical" href="https://antora.gitlab.io/demo/docs-site/copilot/1.6.3/copilot_release_notes.html">
+    <meta property="og:url" content="https://antora.gitlab.io/demo/docs-site/copilot/1.6.3/copilot_release_notes.html">
+    <meta property="og:description" content="A documentation page for CoPilot.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="CoPilot - Aviatrix CoPilot Release Notes">
+    <meta property="og:image" content="https://antora.gitlab.io/demo/docs-site/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <link rel="prev" href="copilot_faq.html">
+    <link rel="next" href="copilot_release_notes_images.html">
+    <meta name="page-spec" content="copilot::copilot_release_notes.adoc">
+    <link rel="icon" href="../../_/img/favicon.png" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item logo" title="Aviatrix" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo-w.svg" alt="Aviatrix" width="180"></a>
+      <a class="navbar-item title" href="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://support.aviatrix.com/" data-title="Support">
+            <span class="icon"><img src="../../_/img/octicons-24.svg#view-comment-discussion"></span>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item has-icon" href="https://aviatrix.com/schedule-demo/" target="_blank" rel="noopener">
+              <span class="icon"><img src="../../_/img/octicons-16.svg#view-flame"></span>
+              <span>Request Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" title="Toggle expand/collapse all"></button>
+    <h3 class="title"><a href="copilot_overview.html">CoPilot</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_overview.html">Aviatrix CoPilot Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_getting_started.html">Aviatrix CoPilot Deployment Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_reference_guide.html">Aviatrix CoPilot User Reference Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_faq.html">Aviatrix CoPilot FAQs</a>
+  </li>
+  <li class="nav-item is-current-url" data-depth="1">
+    <a class="nav-link" href="copilot_release_notes.html">Aviatrix CoPilot Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_release_notes_images.html">Aviatrix CoPilot Image Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CoPilot</span>
+    <span class="version">1.6.3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="copilot_overview.html">CoPilot</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="copilot_overview.html">1.6.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../release-notes/6.6/UCC_Release_Notes.html">Release Notes</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../release-notes/6.6/UCC_Release_Notes.html">6.6</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../release-notes/6.6/UCC_Release_Notes.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="copilot_overview.html">CoPilot</a></li>
+    <li><a href="copilot_release_notes.html">Aviatrix CoPilot Release Notes</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Aviatrix CoPilot Release Notes</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes new features and enhancements for Aviatrix
+CoPilot software releases.</p>
+</div>
+<div class="paragraph">
+<p>For information about Aviatrix CoPilot image releases, see
+<a href="https://docs.aviatrix.com/HowTos/copilot_release_notes_images.html">Aviatrix
+CoPilot Image Release Notes</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copilot-release-1-6-3-1312022"><a class="anchor" href="#copilot-release-1-6-3-1312022"></a>CoPilot Release 1.6.3 (1/31/2022)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Security fix</strong>: This patch mitigates a vulnerability that would allow
+an attacker to escalate user permissions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copilot-release-1-6-2-1282022"><a class="anchor" href="#copilot-release-1-6-2-1282022"></a>CoPilot Release 1.6.2 (1/28/2022)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Security fix</strong>: This patch mitigates a vulnerability that would allow
+an attacker to escalate user permissions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copilot-release-1-6-1-1262022"><a class="anchor" href="#copilot-release-1-6-1-1262022"></a>CoPilot Release 1.6.1 (1/26/2022)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Search and filter for instance tags — You can now search and filter
+for instance tags in Topology (feature available starting from
+Controller release 6.6). To filter for instance tags, from Topology,
+click the Filter slider to enable it. In the key list, under the CSP
+Tags category, select the instance tag to filter for.</p>
+</li>
+<li>
+<p>Added auto refresh to the Resources page (Settings).</p>
+</li>
+<li>
+<p>Performance improvements.</p>
+</li>
+<li>
+<p>Minor bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copilot-release-1-6-0-1252022"><a class="anchor" href="#copilot-release-1-6-0-1252022"></a>CoPilot Release 1.6.0 (1/25/2022)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>(Topology) Packet capture from Topology — You can now capture packets
+on any gateway. In a topology map, click on any gateway where you wish
+to do packet capture, click DIAG in the node properties pane, and then
+click the PACKET CAPTURE tab. In the Packet Capture page, you can
+further filter on host and port number and specify the capture time. You
+can also search and filter by time, source address, destination address,
+source port, destination port, protocol, flags, length, and info. Click
+Start to start the capture, click Stop to stop the capture, then click
+Download to download the pcap file. The pcap file can be viewed by
+Wireshark.</p>
+</li>
+<li>
+<p>(FlowIQ) You can now filter for information by gateway name using the
+new FlowIQ fields: src_gateway_name (Source Gateway), dest_gateway_name
+(Destination Gateway), and gw_gateway (Gateway Name).</p>
+</li>
+<li>
+<p>(ThreatIQ) Custom ThreatIQ IP List — Network administrators can now
+maintain a list of IP addresses they consider to be threat IPs. For each
+IP address in the custom threat IP list, you can specify a custom
+severity, classification, color (for display in lists), and
+informational note. When a custom threat-IP list is added, and those
+threat IPs are detected, the threats are shown in the ThreatIQ map on
+the Dashboard. The custom threat IPs are handled by Aviatrix Controller
+in the same manner as the threat IPs identified through ThreatIQ with
+ThreatGuard (detection, blocking, and unblocking functionality is the
+same). In the current release, custom ThreatIQ IP lists must be created
+in CoPilot under ThreatIQ &gt; Custom Threat List.</p>
+</li>
+<li>
+<p>Support for expanding existing physical volumes — For data disks you
+already allocated to your CoPilot deployment, you can increase their
+size. After increasing their size via the CSP, log into CoPilot and go
+to Settings &gt; Resources. In the Resources page, locate the physical
+volume in the Disk Usage table associated with the resized data disk and
+click its corresponding RESIZE button. CoPilot resizes the physical
+volume to match the size of your expanded disk. TIP: In the Disk Usage
+table, click the detail control ( ˅ ) to the left of the Filesystem
+column for each physical volume until you locate the enabled RESIZE
+button.</p>
+</li>
+<li>
+<p>(Usability) Latency Charts now have cross hairs that are synced across
+all visible charts for easy correlation between metrics.</p>
+</li>
+<li>
+<p>Performance improvements.</p>
+</li>
+<li>
+<p>Minor bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copilot-release-1-5-1-1122022"><a class="anchor" href="#copilot-release-1-5-1-1122022"></a>CoPilot Release 1.5.1 (1/12/2022)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>(Performance) Performance Charts now have cross hairs that are synced
+across all visible charts for easy correlation between metrics.</p>
+</li>
+<li>
+<p>(Topology) Run VPC/VNET/VCN diagnostics and submit them to Aviatrix
+Support from Topology. From Topology, click on any VPC/VNET/VCN in a
+topology map, and then click DIAG in the node properties pane.</p>
+</li>
+<li>
+<p>(Notifications&gt;Configure) Use new input box to type in a value
+(instead of using the slider) for configuring notification thresholds.</p>
+</li>
+<li>
+<p>Performance improvements.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you deploy Aviatrix CoPilot image version 1.5.1 from the marketplace,
+the following disk volume and auto-scaling features are now available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>New disk (volume) support — You can now allocate data disks (volumes)
+to your Aviatrix CoPilot deployment to be used for expandable storage.
+During instance creation in the marketplace, you can attach a data disk
+(data volume) to be used for CoPilot storage. When you deploy the
+instance, the initial setup process will automatically detect the
+disk/volume you attached during instance creation and format and attach
+your disks (a logical disk/volume is created from all physical disks).
+As your storage needs increase later (after deploying), you can also add
+more disks (volumes) as needed. See
+<a href="https://docs.aviatrix.com/HowTos/copilot_getting_started.html#copilot-disk-volume-management">CoPilot
+Disk (Volume) Management</a> for more information.</p>
+</li>
+<li>
+<p>Auto-scaling memory support — CoPilot now supports automatic memory
+sizing for the ETL and datastore based on the physical memory of the
+instance at boot. New base images will default to these automatic
+settings, but existing deployments will keep their current configuration
+unless updated. Memory settings are still located under Settings &gt;
+Configuration &gt; Options.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="copilot-release-1-5-0-1122022"><a class="anchor" href="#copilot-release-1-5-0-1122022"></a>CoPilot Release 1.5.0 (1/12/2022)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ThreatIQ map in dashboard</strong> — The CoPilot Dashboard now includes the
+ThreatIQ map showing any threats over the last 24 hours.</p>
+</li>
+<li>
+<p><strong>New gateway diagnostic features</strong></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>You can now perform the following diagnostic tasks for Aviatrix gateways
+(from Topology, click on any gateway in a topology map, and then click
+DIAG in the node properties pane):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(TRACEPATH tab) Discover the MTU on the path (if router supports it).</p>
+</li>
+<li>
+<p>(TRACELOG tab) Upload a gateway&#8217;s tracelog directly to Aviatrix
+Support. The controller and gateway tracelog is uploaded and the support
+team notified.</p>
+</li>
+<li>
+<p>(SERVICE ACTIONS tab) Check the status of gateway services and
+restart services.</p>
+</li>
+</ul>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p>Performance improvements and bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-9-3-12282021"><a class="anchor" href="#release-1-4-9-3-12282021"></a>Release 1.4.9.3 (12/28/2021)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>UI improvements.</p>
+</li>
+<li>
+<p>You can now open Aviatrix Controller from CoPilot. From the CoPilot
+dashboard, click the Apps icon in the action bar, and then select</p>
+</li>
+<li>
+<p>Controller*. The controller opens in a new browser tab.</p>
+</li>
+<li>
+<p>Improvements were made to the ThreatIQ dashboard.</p>
+</li>
+<li>
+<p>Performance improvements.</p>
+</li>
+<li>
+<p>Minor bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="releases-1-4-9-1-1-4-9-2"><a class="anchor" href="#releases-1-4-9-1-1-4-9-2"></a>Releases 1.4.9.1, 1.4.9.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Minor bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-9"><a class="anchor" href="#release-1-4-9"></a>Release 1.4.9</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>New: Inventory Reports</strong> You can now create customized, detailed
+reports for all or specific inventory (resources managed by Aviatrix
+Controller) running across your multi-cloud network. To create a custom
+report, you answer questions that guide you to include only the
+information you want in the report. Each time you specify your criteria,
+the PDF report view updates in real time in an adjacent pane. You first
+specify the cloud provider(s) to include information about a single
+cloud or multiple clouds. You then specify the regions you have
+resources in that you want to include. You can further specify the
+VPCs/VNETs/VCNs in the region(s) and drill down further to specify the
+resource types (for example, gateways and instances). You can save and
+download the report. Currently, you cannot save a report filter.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> (ThreatGuard) Now only users logged in to CoPilot who
+have Admin/Firewall Admin permissions can enable/disable ThreatGuard
+blocking.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> (ThreatGuard) Selective Threat Blocking. You can now be
+selective about which VPCs/VNets/VCNs block threat IPs when ThreatGuard
+blocking is enabled. By default, all VPCs/VNets/VCNs block when
+ThreatGuard blocking is enabled. You can then use the Allow/Deny List to
+specify which ones will not block.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> (Topology) Support for filtering on your own tags you
+created in the CSP (supported for tags added to gateways only at this
+time, not instances).</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> (Egress) For Egress, CoPilot now shows Rule and Action
+when a request hits a rule.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Performance improvements.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Minor bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-8"><a class="anchor" href="#release-1-4-8"></a>Release 1.4.8</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>New: ThreatGuard</strong> You can now block and get alerted on the threats
+detected in your network. A dashboard to configure and view ThreatGuard
+in action.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Improved alerts.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> More metrics. All of Performance V2 metrics are now
+supported for receiving alerts.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Ability to pick and choose one/more/all hosts and
+one/more/all of interfaces to receive telemetry and node status alerts.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Support for filtering domains and hosts in Network
+Segmentation graphs.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Faster Cloud Routes pages and faster Notifications page.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Performance improvements.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Minor bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-7-4"><a class="anchor" href="#release-1-4-7-4"></a>Release 1.4.7.4</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Fixes to latencies in Topology.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-7-3"><a class="anchor" href="#release-1-4-7-3"></a>Release 1.4.7.3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong> Improvements to GW, Tunnel, S2C alerts.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Performance improvements in backend tasks.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Configurable settings for Network Segmentation charts.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fix in V2 Telemetry alerts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-7-2"><a class="anchor" href="#release-1-4-7-2"></a>Release 1.4.7.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Fixes to Legend in Network Segmentation Page.</p>
+</li>
+<li>
+<p>Revert ETL migration for Customers with older than 6.4 Controllers</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Minor improvements to Performance V2 Charts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-7-1"><a class="anchor" href="#release-1-4-7-1"></a>Release 1.4.7.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Minor bug fixes in Performance Monitor V2.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-7"><a class="anchor" href="#release-1-4-7"></a>Release 1.4.7</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>New: ThreatIQ</strong> Real time identification of threats in ThreatIQ.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Performance V2. Many more metrics to monitor performance
+of hosts, interfaces and tunnels. In the Performance Page, click on
+<strong>Switch to V2</strong>.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Latencies for Site 2 Cloud links.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> You can now filter topology data by node type.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Improved Cloud Routes Search and show only the routes
+with longest prefix.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Upgraded AppIQ with V2 performance metrics.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Performance improvements.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Minor bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-6-4"><a class="anchor" href="#release-1-4-6-4"></a>Release 1.4.6.4</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Fixes to SSO login.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-6-3"><a class="anchor" href="#release-1-4-6-3"></a>Release 1.4.6.3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong> Improvements to individual alerts per host.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> In Dashboard, added a chart for instances per region.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes to topology replay.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes to topology saved layouts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-6-3-2"><a class="anchor" href="#release-1-4-6-3-2"></a>Release 1.4.6.3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong> Improvements to individual alerts per host.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> In Dashboard, added a chart for instances per region.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes to topology replay.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes to topology saved layouts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-6-2"><a class="anchor" href="#release-1-4-6-2"></a>Release 1.4.6.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Fix to the offline upgrade process.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-1"><a class="anchor" href="#release-1-4-1"></a>Release 1.4.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Fix in Webhooks test button.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-6"><a class="anchor" href="#release-1-4-6"></a>Release 1.4.6</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong> You can now receive individual alert notifications for
+each host.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> AppIQ now works across all clouds.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> In Topology, you can show and hide latencies.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes for Dashboard Charts.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes for Security Charts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-5-3"><a class="anchor" href="#release-1-4-5-3"></a>Release 1.4.5.3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong> In Dashboard, new chart for Instances Per Cloud.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes for Gateways Active Sessions and Interfaces.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes for Security Charts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-5-2"><a class="anchor" href="#release-1-4-5-2"></a>Release 1.4.5.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong> Security updates.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Webhook templates bug fix.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-5-1"><a class="anchor" href="#release-1-4-5-1"></a>Release 1.4.5.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fixes</strong> Minor bug fixes in Dashboard pie charts and VPC Routes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-5"><a class="anchor" href="#release-1-4-5"></a>Release 1.4.5</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong> Support for offline upgrade and offline installation of
+CoPilot.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Support for templates in Webhooks.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Support for Alibaba Cloud.</p>
+</li>
+<li>
+<p><strong>Settings &#8594; Index Management</strong> Support for searching and filtering
+indices.</p>
+</li>
+<li>
+<p><strong>Bug fixes</strong> Minor bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-4"><a class="anchor" href="#release-1-4-4"></a>Release 1.4.4</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Performance Fixes for Dashboard - Overview and Traffic Pages
+load faster.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Security fixes</p>
+</li>
+<li>
+<p><strong>Improvement</strong> Topology loads better</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Latencies can now be refreshed at user specified
+intervals</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Topology Replay - loads much faster for bigger changes</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-3-3"><a class="anchor" href="#release-1-4-3-3"></a>Release 1.4.3.3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Security fixes</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-3"><a class="anchor" href="#release-1-4-3"></a>Release 1.4.3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Dashboard &#8594; Traffic page</strong> Detailed metrics on data sent and received
+in the last hour and day for instances, regions, GWs and
+VPCs/VNETs/VCNs. Also shows the trend and detailed traffic chart for
+each cloud construct. Ties into FlowIQ for deeper visibility.</p>
+</li>
+<li>
+<p><strong>Security &#8594; Audit</strong> End to end audit on every API call (with response
+status, user who made the call, arguments for the call), aggregated
+hourly, daily, monthly and fully searchable, filterable and sortable.</p>
+</li>
+<li>
+<p><strong>Search for titles/notes in the topology replay timeline across
+timestamps</strong> Replay now ties into Audit so that you know who made the
+infrastructure change(s) and when it was (they were) made.</p>
+</li>
+<li>
+<p><strong>SSO</strong> Configure CoPilot in the Controller UI and login into CoPilot
+from the Controller directly without having to enter the credentials.</p>
+</li>
+<li>
+<p><strong>Cloud Routes and BGP</strong> section now scale to work with Controller 6.4
+API changes, backward compatible with pre-6.4 APIs.</p>
+</li>
+<li>
+<p><strong>Cloud Routes Search</strong> Search, filter and highlight across routes/GWs
+for anything you see on the page (name, routes, cloud provider, status,
+tunnels). Search for IP in Subnet also highlights which CIDR the IP is
+part of.</p>
+</li>
+<li>
+<p>Look and feel improvements for Settings Pages and Notifications page.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Good number of UX enhancements and bug fixes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-2-1"><a class="anchor" href="#release-1-4-2-1"></a>Release 1.4.2.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>A patch update to the release 1.4.2</p>
+</li>
+<li>
+<p><strong>Improvement</strong> in scalability and security. Support 100k+ changes in
+topology diff and more than 250k tunnels in the cloud routes section
+(which is about 40MB of tunnels data rendered in less than 5 secs). We
+also made improvements to our middleware to secure CoPilot. We now
+logout the user immediately from accessing copilot data, if the user
+gets deleted from the Controller.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-2"><a class="anchor" href="#release-1-4-2"></a>Release 1.4.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scale</strong> Scaled the cloud routes section to handle any number of
+routes, so for GWs with 10ks of routes is blazing fast. The Latency
+charts are scaled too to handle 1000s of charts each for one topology
+edge.</p>
+</li>
+<li>
+<p><strong>Search</strong> You can even search and highlight across 1000s of routes
+across GWs.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> We fixed our disk cleanup logic that periodically frees up
+space in the copilot instance for a user specified threshold percentage
+of free disk.</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> We fixed some bugs in topology replay, talking of which, you
+can now hide/show highlited nodes to clear the clutter while viewing
+changed nodes.</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> When you receive a ‘closed’ alert (email or webhook) it
+also contains what hosts were previously affected, so customers can use
+third party tools (like OpsGenie) to parse for fields of their interest.</p>
+</li>
+<li>
+<p><strong>Improvement</strong> Minor UX improvements</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-1-2"><a class="anchor" href="#release-1-4-1-2"></a>Release 1.4.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug Fixes</strong></p>
+</li>
+<li>
+<p><strong>Scale</strong> Large environment support in Latency Monitor and in Replay.</p>
+</li>
+<li>
+<p><strong>Topology Replay</strong> Ability to now add notes and a tag to a change in
+replay.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="releases-1-4-0-1-1-4-0-2"><a class="anchor" href="#releases-1-4-0-1-1-4-0-2"></a>Releases 1.4.0.1, 1.4.0.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong> Enhanced Topology Replay to add zoom and move to preview
+timeline</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Throttle Latency Calls to reduce Controller cpu usage
+(for large scale env), removed duplicate latency calls for edges</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Topology Transit View - Single node clusters for VPC, Fix
+for Spokes with Peering Connections, Connect S2C to regions</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Dashboard not showing OCI in Geo Map</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Segments not showing up randomly on Domain Segmentation.
+Truncate long labels and add tooltip</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-4-0"><a class="anchor" href="#release-1-4-0"></a>Release 1.4.0</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>CoPilot Theme</strong> New Dark Mode The moon icon in the CoPilot header can
+be toggled to switch between light mode and dark mode.</p>
+</li>
+<li>
+<p><strong>Topology Replay</strong> Full view of what’s changed in your infrastructure.
+Instantly see any change (for ex: GWs go up/down, tunnels flap, peerings
+added) to your topology at any timestamp and manage your changesets.</p>
+</li>
+<li>
+<p><strong>Multi Cloud Network Segmentation</strong> Now in Security tab, Logical view
+&#8594; you can visualize which spoke (or Site2Cloud instance) can reach
+which other spokes based on the security domains they are part of. In
+the physical view &#8594; you can visualize the spokes (or S2C instances)
+grouped by the transit gateways and their reachability based on the
+security domains they are attached to.</p>
+</li>
+<li>
+<p><strong>Transit View for Topology</strong> Topology Revamped. Clear the clutter and
+visualize multi-cloud topology with just the Aviatrix transits connected
+to regions. Double click to open/close VPC/VNET clusters.</p>
+</li>
+<li>
+<p><strong>Improved FlowIQ Filters</strong> Use “not equal to” in a filter rule to
+specify negation. Group filter rules using “NOT” to specify negation of
+all the filter rules together.</p>
+</li>
+<li>
+<p><strong>Interface Stats</strong> Use the Diag button in topology to view interface
+statistics for a gateway</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="releases-1-3-2-1-1-3-2-2-1-3-2-3"><a class="anchor" href="#releases-1-3-2-1-1-3-2-2-1-3-2-3"></a>Releases 1.3.2.1, 1.3.2.2, 1.3.2.3</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Fixes to saved filter groups in FlowIQ</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes to pie charts in FlowIQ Trends</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> Fixes to top navigation header to always show it</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Better error checking for dashboard APIs</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Changes to slider step while defining alerts for Rx, Tx
+and RxTx metrics</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-3-2"><a class="anchor" href="#release-1-3-2"></a>Release 1.3.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhanced FlowIQ Filters</strong> Now filter FlowIQ results by performing
+complex queries by doing logical ANDs and ORs between different filters.
+Filter groups can now be searched and selected in FlowIQ</p>
+</li>
+<li>
+<p><strong>Alerts</strong> Now get alerted when a Site2Cloud tunnel or BGP connection
+status changes</p>
+</li>
+<li>
+<p><strong>Enhanced Diagnosis in Topology</strong> Test connectivity from a selected
+gateway to a host IP</p>
+</li>
+<li>
+<p><strong>Session Visibility</strong> Active Sessions for a selected Gateway</p>
+</li>
+<li>
+<p><strong>Enhanced Index Management and Data Retention policies</strong> Now you can
+better control how long you want to retain data for each of FlowIQ,
+Performance, FlowIQ, latencies.</p>
+</li>
+<li>
+<p><strong>Multi-Cloud AppIQ Support</strong> AppIQ supports all clouds (FlightPath may
+not work across all clouds)</p>
+</li>
+<li>
+<p><strong>Performance Monitoring</strong> A much cleaner legend for performance
+monitoring charts</p>
+</li>
+<li>
+<p><strong>Topology Enhancement</strong> New Truncate/expand labels in topology</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-3-1-2"><a class="anchor" href="#release-1-3-1-2"></a>Release 1.3.1.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> to flight path in AppIQ report</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Change Cluster Labels in Topology to VPC Labels</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Gov Cloud icons show up in Topology</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-3-1-1"><a class="anchor" href="#release-1-3-1-1"></a>Release 1.3.1.1</h3>
+<div class="quoteblock">
+<blockquote>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> Fixes to latency tracker</p>
+</li>
+</ul>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-3-1"><a class="anchor" href="#release-1-3-1"></a>Release 1.3.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong> Receive email and webhook alerts when a Gateway or
+Tunnel is down</p>
+</li>
+<li>
+<p><strong>Latencies</strong> View historical latencies and perform search to filter
+latencies of interest</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Cleaner topology with truncated labels and latency
+numbers align along edges</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Cleaner topology in AppIQ</p>
+</li>
+<li>
+<p><strong>Enhancement</strong> Filter table columns in GW Routes and VPC Routes</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-3-0"><a class="anchor" href="#release-1-3-0"></a>Release 1.3.0</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Security</strong> Egress FQDN Dashboard, search and live monitoring</p>
+</li>
+<li>
+<p><strong>Alerts</strong> Webhooks integration for alerts - Use Webhooks to alert on
+telemetry data</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-2-1-2"><a class="anchor" href="#release-1-2-1-2"></a>Release 1.2.1.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bug fix</strong> A fix to AppIQ inconsistency in topology instances</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-2-1-1"><a class="anchor" href="#release-1-2-1-1"></a>Release 1.2.1.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancements</strong> Compressed the AppIQ report file size for easier
+download</p>
+</li>
+<li>
+<p><strong>Bug fix</strong> in BGP routes and AppIQ charts</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-2-1"><a class="anchor" href="#release-1-2-1"></a>Release 1.2.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>AppIQ</strong> generates a comprehensive report of control plane connectivity
+between any two cloud endpoints connected with Aviatrix Transit Network
+which includes link status, latency, bandwidth, traffic, and performance
+monitoring data.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/appIQ_1.png" alt="appIQ_1">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/appIQ_2.png" alt="appIQ_2">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/appIQ_3.png" alt="appIQ_3">
+</div>
+</div>
+</li>
+<li>
+<p><strong>BGP Info</strong> shows detailed BGP connections information with routes, map
+and status inside Cloud Routes</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/bgp_1.png" alt="bgp_1">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/bgp_2.png" alt="bgp_2">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/bgp_3.png" alt="bgp_3">
+</div>
+</div>
+</li>
+<li>
+<p><strong>Continuous Latency Monitoring</strong> allows to see the continuous
+historical latencies data on Topology in Multi-Cloud environment between
+Transit and Spoke.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/latency_1.png" alt="latency_1">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/latency_2.png" alt="latency_2">
+</div>
+</div>
+</li>
+<li>
+<p><strong>Performance Improvements</strong> for Cloud Routes and Scheduled Tasks that
+run behind the scenes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-2-0-5"><a class="anchor" href="#release-1-2-0-5"></a>Release 1.2.0.5</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Topology Enhancement</strong> Search and Filter capability and Customize
+Topology Layout options</p>
+</li>
+<li>
+<p><strong>Site2Cloud</strong> shows detailed S2C connections information with routes
+and status inside Cloud Routes</p>
+</li>
+<li>
+<p><strong>Notification</strong> allows to pause alerts and delete old alert
+notifications</p>
+</li>
+<li>
+<p><strong>Operational Enhancements</strong> auto delete flowIQ and Perfmon indexes to
+save disk space</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-2-0-3"><a class="anchor" href="#release-1-2-0-3"></a>Release 1.2.0.3</h3>
+<div class="paragraph">
+<p>Version 1.2.0.3 requires users to enter valid credentials for the
+Controller that CoPilot will store as a <strong>Service Account</strong>. This Service
+Account is needed so CoPilot can process and send alerts based on
+configured thresholds. This Service Account can be a read-only account
+the user created on the controller. This dialog will only show one time
+when no service account has been configured. The Service Account can be
+changed in <strong>Settings</strong> .</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/service_account_modal.png" alt="service_account_modal">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Notifications Ability to configure and receive alerts when CPU
+Utilization, Free Disk, Free Memory, Rx, Tx, Rx Tx of any host exceeds a
+user specified threshold Add email addresses of recipients in settings
+&#8594; notifications to receive alerts Monitor and manage the lifecycle of
+alerts from the time they first triggered to the time they are resolved
+in the notifications page</p>
+</li>
+<li>
+<p>CloudRoutes Multi cloud GW Routes and VPC/VNET Routes with search
+functionality</p>
+</li>
+<li>
+<p>Topology Cluster Latency Click on connections between 2 clusters and
+start latency monitor for all connections between clusters</p>
+</li>
+<li>
+<p>FlowIQ Support for CSV export in records page Added support for
+filtering of instances using tags Now showing Flow Throughput and Flow
+Duration data in the records page</p>
+</li>
+<li>
+<p>Bug Fixes Few Bug fixes and performance improvements to load topology
+and instances faster</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-1-9"><a class="anchor" href="#release-1-1-9"></a>Release 1.1.9</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Security Updates</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-1-8"><a class="anchor" href="#release-1-1-8"></a>Release 1.1.8</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Topology Clustering</p>
+</li>
+<li>
+<p>Enhancements to Perf Mon charts with time period support</p>
+</li>
+<li>
+<p>Saving of Filter Groups in Flow IQ</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-1-7-1"><a class="anchor" href="#release-1-1-7-1"></a>Release 1.1.7.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Topology Highlight</p>
+</li>
+<li>
+<p>Performance Monitoring Charts with multiple hosts</p>
+</li>
+<li>
+<p>&amp;&amp; and || support for FlowIQ Filters</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-1-6-1"><a class="anchor" href="#release-1-1-6-1"></a>Release 1.1.6.1</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Tagging functionality extended, Tag Manager in Settings Pages, Latency
+Charts, Filtering in Flow IQ improved</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-1-5-2"><a class="anchor" href="#release-1-1-5-2"></a>Release 1.1.5.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Added support for tagging in Topology</p>
+</li>
+<li>
+<p>Added support for custom SSL certificate import</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-1-4-2"><a class="anchor" href="#release-1-1-4-2"></a>Release 1.1.4.2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Addressed the issue with license key validation</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-1-1-4-ga"><a class="anchor" href="#release-1-1-4-ga"></a>Release 1.1.4 (GA)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Enabled license management</p>
+</li>
+<li>
+<p>Added support for multi-select</p>
+</li>
+<li>
+<p>Added ability to delete indexes</p>
+</li>
+<li>
+<p>Added storage auto-delete threshold configuration</p>
+</li>
+<li>
+<p>Added diagnostics (ping/traceroute) to topology</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="copilot_faq.html">Aviatrix CoPilot FAQs</a></span>
+  <span class="next"><a href="copilot_release_notes_images.html">Aviatrix CoPilot Image Release Notes</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo.svg" alt="Aviatrix" width="260"></a>
+      <figcaption class="footer-brand-name"><a href="https://aviatrix.com"></a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <li><a href="https://aviatrix.com" target="_blank" rel="noopener">Home</a></li>
+      <li><a href="https://antora.gitlab.io/demo/docs-site">Docs</a></li>
+      <li><a href="https://support.aviatrix.com/" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/aviatrixsys" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@aviatrixsys</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2022 Aviatrix Systems, Inc 2901 Tasman Dr #109, Santa Clara, CA 95054</p>
+    <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p>
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in AsciiDoc.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://aviatrix.com" target="_blank" rel="noopener">Aviatrix</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

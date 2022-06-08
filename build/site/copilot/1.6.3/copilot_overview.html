@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Aviatrix CoPilot Overview | Docs</title>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="canonical" href="https://antora.gitlab.io/demo/docs-site/copilot/1.6.3/copilot_overview.html">
+    <meta property="og:url" content="https://antora.gitlab.io/demo/docs-site/copilot/1.6.3/copilot_overview.html">
+    <meta property="og:description" content="A documentation page for CoPilot.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="CoPilot - Aviatrix CoPilot Overview">
+    <meta property="og:image" content="https://antora.gitlab.io/demo/docs-site/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <link rel="next" href="copilot_getting_started.html">
+    <meta name="page-spec" content="copilot::copilot_overview.adoc">
+    <link rel="icon" href="../../_/img/favicon.png" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item logo" title="Aviatrix" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo-w.svg" alt="Aviatrix" width="180"></a>
+      <a class="navbar-item title" href="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://support.aviatrix.com/" data-title="Support">
+            <span class="icon"><img src="../../_/img/octicons-24.svg#view-comment-discussion"></span>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item has-icon" href="https://aviatrix.com/schedule-demo/" target="_blank" rel="noopener">
+              <span class="icon"><img src="../../_/img/octicons-16.svg#view-flame"></span>
+              <span>Request Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" title="Toggle expand/collapse all"></button>
+    <h3 class="title"><a href="copilot_overview.html">CoPilot</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-url" data-depth="1">
+    <a class="nav-link" href="copilot_overview.html">Aviatrix CoPilot Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_getting_started.html">Aviatrix CoPilot Deployment Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_reference_guide.html">Aviatrix CoPilot User Reference Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_faq.html">Aviatrix CoPilot FAQs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_release_notes.html">Aviatrix CoPilot Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_release_notes_images.html">Aviatrix CoPilot Image Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CoPilot</span>
+    <span class="version">1.6.3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="copilot_overview.html">CoPilot</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="copilot_overview.html">1.6.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../release-notes/6.6/UCC_Release_Notes.html">Release Notes</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../release-notes/6.6/UCC_Release_Notes.html">6.6</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../release-notes/6.6/UCC_Release_Notes.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="copilot_overview.html">CoPilot</a></li>
+    <li><a href="copilot_overview.html">Aviatrix CoPilot Overview</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Aviatrix CoPilot Overview</h1>
+<div class="sect1">
+<h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Aviatrix CoPilot provides a global operational view of your multi-cloud
+network. Enterprise IT teams use CoPilot&#8217;s dynamic topology mapping to
+maintain an accurate topology of their global multi-cloud networks,
+FlowIQ to analyze global network traffic flows and global heat maps and
+time series trend charts to easily pinpoint and troubleshoot traffic
+anomalies. CoPilot leverages the intelligence and advanced network and
+security services delivered by Aviatrix&#8217;s multi-cloud network platform
+to provide enterprise cloud network operations teams both familiar
+day-two operational features such as packet capture, trace route and
+ping and new operational capabilities specifically built for multi-cloud
+network environments.</p>
+</div>
+<div class="sect2">
+<h3 id="key-benefits"><a class="anchor" href="#key-benefits"></a>Key Benefits</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Network Health Monitor</strong>  Real-time cloud network resource inventory
+and status</p>
+</li>
+<li>
+<p><strong>Dynamic Topology Map</strong>  Accurate, multi-cloud network topology,
+layout control and search</p>
+</li>
+<li>
+<p><strong>FlowIQ</strong>  Detailed application traffic flow analysis, global heat map
+and trends</p>
+</li>
+<li>
+<p><strong>Multi-Cloud Tagging</strong>  Tag multi-cloud resources, search by tag,
+filter traffic data by tag</p>
+</li>
+<li>
+<p><strong>CloudRoutes</strong>  Detailed searchable routing tables across cloud
+providers</p>
+</li>
+<li>
+<p><strong>Notifications</strong>  Alert on resources status/utilization across
+multi-Cloud</p>
+</li>
+<li>
+<p><strong>AppIQ</strong>  Comprehensive reports to analyze network path between any
+two cloud instances</p>
+</li>
+<li>
+<p><strong>ThreatIQ with ThreatGuard</strong>  Monitor for security threats from
+malicious sites, set alerts when threats are detected, and block
+threat-IP associated traffic</p>
+</li>
+<li>
+<p><strong>Inventory Reports</strong>  Create detailed reports showing your inventory
+of managed resources in a single cloud or across all clouds in your
+multi-cloud network</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deployment-model"><a class="anchor" href="#deployment-model"></a>Deployment Model</h3>
+<div class="paragraph">
+<p>CoPilot is deployed as an all-in-one virtual appliance and is available
+on AWS, Azure, GCP, and OCI MarketPlaces. CoPilot works in tandem with
+Aviatrix Controller; in order to use CoPilot, you must have an
+operational Aviatrix Controller. Aviatrix Controller and CoPilot are not
+required to be collocated. It is possible to run them in separate
+VPCs/VNETs or separate cloud providers (in multi-cloud environments).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="licensing-and-trials"><a class="anchor" href="#licensing-and-trials"></a>Licensing and Trials</h3>
+<div class="paragraph">
+<p>CoPilot is offered with BYOL model. If you are interested in a trial of
+CoPilot, contact us through our chat window below, or contact your
+Aviatrix Sales representative.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="next"><a href="copilot_getting_started.html">Aviatrix CoPilot Deployment Guide</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo.svg" alt="Aviatrix" width="260"></a>
+      <figcaption class="footer-brand-name"><a href="https://aviatrix.com"></a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <li><a href="https://aviatrix.com" target="_blank" rel="noopener">Home</a></li>
+      <li><a href="https://antora.gitlab.io/demo/docs-site">Docs</a></li>
+      <li><a href="https://support.aviatrix.com/" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/aviatrixsys" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@aviatrixsys</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2022 Aviatrix Systems, Inc 2901 Tasman Dr #109, Santa Clara, CA 95054</p>
+    <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p>
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in AsciiDoc.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://aviatrix.com" target="_blank" rel="noopener">Aviatrix</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

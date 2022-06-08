@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Image Release Notes | Docs</title>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="canonical" href="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/image_release_notes.html">
+    <meta property="og:url" content="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/image_release_notes.html">
+    <meta property="og:description" content="A documentation page for Release Notes.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Release Notes - Image Release Notes">
+    <meta property="og:image" content="https://antora.gitlab.io/demo/docs-site/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <link rel="prev" href="field_notices.html">
+    <meta name="page-spec" content="release-notes::image_release_notes.adoc">
+    <link rel="icon" href="../../_/img/favicon.png" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item logo" title="Aviatrix" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo-w.svg" alt="Aviatrix" width="180"></a>
+      <a class="navbar-item title" href="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://support.aviatrix.com/" data-title="Support">
+            <span class="icon"><img src="../../_/img/octicons-24.svg#view-comment-discussion"></span>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item has-icon" href="https://aviatrix.com/schedule-demo/" target="_blank" rel="noopener">
+              <span class="icon"><img src="../../_/img/octicons-16.svg#view-flame"></span>
+              <span>Request Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" title="Toggle expand/collapse all"></button>
+    <h3 class="title"><a href="UCC_Release_Notes.html">Release Notes</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="UCC_Release_Notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="vpn-client-changelog.html">Aviatrix VPN Client Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="field_notices.html">Field Notices</a>
+  </li>
+  <li class="nav-item is-current-url" data-depth="1">
+    <a class="nav-link" href="image_release_notes.html">Image Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Release Notes</span>
+    <span class="version">6.6</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../copilot/1.6.3/copilot_overview.html">CoPilot</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../copilot/1.6.3/copilot_overview.html">1.6.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="UCC_Release_Notes.html">Release Notes</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="UCC_Release_Notes.html">6.6</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="UCC_Release_Notes.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="UCC_Release_Notes.html">Release Notes</a></li>
+    <li><a href="image_release_notes.html">Image Release Notes</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Image Release Notes</h1>
+<div class="sect1">
+<h2 id="controller-images-aws-ami-version-110421-1182021"><a class="anchor" href="#controller-images-aws-ami-version-110421-1182021"></a>Controller Images: AWS AMI Version 110421 (11/8/2021)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added support for AWS IMDSv2.</p>
+</li>
+<li>
+<p>Corrected issue with the Aviatrix Controller initialization hanging
+after image migrating to a new image.</p>
+</li>
+<li>
+<p>Closed potential vulnerability in Ubuntu.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="controller-images-aws-ami-version-100621-10132021"><a class="anchor" href="#controller-images-aws-ami-version-100621-10132021"></a>Controller Images: AWS AMI Version 100621 (10/13/2021)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This release addresses vulnerabilities fixed by Apache version 2.4.51.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Controller image version 100621 includes Apache version 2.4.51 which
+closed vulnerabilities
+<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-40438">CVE-2021-40438</a>,
+<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33193">CVE-2021-33193</a>
+and vulnerabilities closed in previous Apache releases.</p>
+</li>
+<li>
+<p>Controller image version 100621 closes a potential denial-of-service
+vulnerability and corrects an issue with launching controller HA.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gateway-images-hvm-cloudx-aws-022021-hvm-cloudx-aliyun-122520-5102021"><a class="anchor" href="#gateway-images-hvm-cloudx-aws-022021-hvm-cloudx-aliyun-122520-5102021"></a>Gateway Images: hvm-cloudx-aws- 022021, hvm-cloudx-aliyun-122520 (5/10/2021)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>R6.4.2499 Software Version is required</p>
+</li>
+<li>
+<p>Support new IPSec encryption mechanism</p>
+</li>
+<li>
+<p>Update security patches to date</p>
+</li>
+<li>
+<p>Introduced the gateway in AWS China and Ali Cloud</p>
+</li>
+<li>
+<p>Fix and pass vulnerabilities scan to Feb/2021</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="controller-images-aws-ami-050120-8172020"><a class="anchor" href="#controller-images-aws-ami-050120-8172020"></a>Controller Images: AWS AMI – 050120 (8/17/2020)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>R6.1.1280 Software Version is required</p>
+</li>
+<li>
+<p>Update Linux kernel and packages versions</p>
+</li>
+<li>
+<p>Remove packages no longer used by the product</p>
+</li>
+<li>
+<p>Set X-XSS-Protection and X-Content-Type-Options by default</p>
+</li>
+<li>
+<p>Fix all vulnerabilities up to Jun/2020 (mid ref: 15727)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gateway-images-hvm-cloudx-aws-102320-11102020"><a class="anchor" href="#gateway-images-hvm-cloudx-aws-102320-11102020"></a>Gateway Images: hvm-cloudx-aws-102320 (11/10/2020)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>R6.2.1837 Software Version is required</p>
+</li>
+<li>
+<p>New image fetch mechanism</p>
+</li>
+<li>
+<p>Update security patches to date</p>
+</li>
+<li>
+<p>Linux Kernel update and package upgrade</p>
+</li>
+<li>
+<p>New network drivers</p>
+</li>
+<li>
+<p>Fix and pass vulnerabilities scan to Sep/2020 (mid ref: 18262)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Aviatrix multi-cloud networking platform is delivered via two images, a
+Controller image and a gateway image, both should be maintained with the
+latest version for managing security and support for the product.
+Aviatrix intends to publish 2 new images per year.</p>
+</div>
+<div class="sect2">
+<h3 id="new-customer-installation-procedures"><a class="anchor" href="#new-customer-installation-procedures"></a>New Customer Installation Procedures</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Customer launches the Aviatrix Controller image instance in the AWS,
+Azure, or respective cloud marketplace.</p>
+</li>
+<li>
+<p>Customer launches new gateways from the Controller. The Controller
+will automatically pull the latest compatible Gateway version.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="existing-customers-controller-image-upgrade-migration"><a class="anchor" href="#existing-customers-controller-image-upgrade-migration"></a>Existing Customers - Controller Image upgrade (Migration)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Customer is responsible for migrating their existing Controller to the
+latest image. See image list below.</p>
+</li>
+<li>
+<p>To implement the <strong>latest Controller image</strong>, perform the following
+steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to your Controller management console</p>
+</li>
+<li>
+<p>Go to Settings &gt; Maintenance &gt; Software Upgrade. Make sure you are on
+the right software version for the migration. If not, upgrade your
+software version.</p>
+</li>
+<li>
+<p>Go to Settings &gt; Maintenance &gt; Backup &amp; Restore. Make sure you have a
+backup of your current settings.</p>
+</li>
+<li>
+<p>Go to Settings &gt; Maintenance &gt; Migration. Migrate your controller to
+the latest image.</p>
+<div class="paragraph">
+<p><span class="image"><img src="_images/image_release_notes_media/controller_migration.png" alt="controller_migration"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note: Migrating your Controller does not impact your network data plane.
+Your existing Gateways should continue operating during migration.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="existing-customers-gateway-image-upgrade"><a class="anchor" href="#existing-customers-gateway-image-upgrade"></a>Existing Customers- Gateway Image upgrade</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>To implement the <strong>latest Gateway image</strong>, perform the following steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to your Controller management console</p>
+</li>
+<li>
+<p>Go to Troubleshoot &gt; Diagnostics &gt; Gateway &#8594; Gateway Replace. Select
+each Gateway and click Replace.
+(<a href="https://docs.aviatrix.com/HowTos/Troubleshoot_Diagnostics.html#gateway-replace">More
+info on Gateway Replace operation</a>)</p>
+<div class="paragraph">
+<p><span class="image"><img src="_images/image_release_notes_media/gateway_replace.png" alt="gateway_replace"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="field_notices.html">Field Notices</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo.svg" alt="Aviatrix" width="260"></a>
+      <figcaption class="footer-brand-name"><a href="https://aviatrix.com"></a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <li><a href="https://aviatrix.com" target="_blank" rel="noopener">Home</a></li>
+      <li><a href="https://antora.gitlab.io/demo/docs-site">Docs</a></li>
+      <li><a href="https://support.aviatrix.com/" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/aviatrixsys" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@aviatrixsys</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2022 Aviatrix Systems, Inc 2901 Tasman Dr #109, Santa Clara, CA 95054</p>
+    <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p>
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in AsciiDoc.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://aviatrix.com" target="_blank" rel="noopener">Aviatrix</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

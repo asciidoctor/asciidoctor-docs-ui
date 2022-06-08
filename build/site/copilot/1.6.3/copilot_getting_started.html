@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Aviatrix CoPilot Deployment Guide | Docs</title>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="canonical" href="https://antora.gitlab.io/demo/docs-site/copilot/1.6.3/copilot_getting_started.html">
+    <meta property="og:url" content="https://antora.gitlab.io/demo/docs-site/copilot/1.6.3/copilot_getting_started.html">
+    <meta property="og:description" content="A documentation page for CoPilot.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="CoPilot - Aviatrix CoPilot Deployment Guide">
+    <meta property="og:image" content="https://antora.gitlab.io/demo/docs-site/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <link rel="prev" href="copilot_overview.html">
+    <link rel="next" href="copilot_reference_guide.html">
+    <meta name="page-spec" content="copilot::copilot_getting_started.adoc">
+    <link rel="icon" href="../../_/img/favicon.png" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item logo" title="Aviatrix" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo-w.svg" alt="Aviatrix" width="180"></a>
+      <a class="navbar-item title" href="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://support.aviatrix.com/" data-title="Support">
+            <span class="icon"><img src="../../_/img/octicons-24.svg#view-comment-discussion"></span>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item has-icon" href="https://aviatrix.com/schedule-demo/" target="_blank" rel="noopener">
+              <span class="icon"><img src="../../_/img/octicons-16.svg#view-flame"></span>
+              <span>Request Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" title="Toggle expand/collapse all"></button>
+    <h3 class="title"><a href="copilot_overview.html">CoPilot</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_overview.html">Aviatrix CoPilot Overview</a>
+  </li>
+  <li class="nav-item is-current-url" data-depth="1">
+    <a class="nav-link" href="copilot_getting_started.html">Aviatrix CoPilot Deployment Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_reference_guide.html">Aviatrix CoPilot User Reference Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_faq.html">Aviatrix CoPilot FAQs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_release_notes.html">Aviatrix CoPilot Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="copilot_release_notes_images.html">Aviatrix CoPilot Image Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">CoPilot</span>
+    <span class="version">1.6.3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="copilot_overview.html">CoPilot</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="copilot_overview.html">1.6.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../release-notes/6.6/UCC_Release_Notes.html">Release Notes</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../release-notes/6.6/UCC_Release_Notes.html">6.6</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../release-notes/6.6/UCC_Release_Notes.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="copilot_overview.html">CoPilot</a></li>
+    <li><a href="copilot_getting_started.html">Aviatrix CoPilot Deployment Guide</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Aviatrix CoPilot Deployment Guide</h1>
+<div class="sect1">
+<h2 id="launch-copilot"><a class="anchor" href="#launch-copilot"></a>Launch CoPilot</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Aviatrix CoPilot is available as an all-in-one virtual appliance that is
+hosted in a user&#8217;s own IaaS cloud environment. It can be launched as an
+EC2 instance in AWS, a virtual machine in Azure, or a VM instance in GCP
+and OCI. Please make sure default configurations for resources settings
+that are recommended by marketplaces are applied during launch. After
+successfully launching the instance, follow these steps to configure
+CoPilot instance parameters and launch. Please note that you will need
+an Aviatrix Controller to use CoPilot. CoPilot works in tandem with
+Aviatrix Controller. Aviatrix Controller and CoPilot are not required to
+be collocated. It is possible to run them in separate VPCs/VNETs or
+separate cloud providers (in multi-cloud environments).</p>
+</div>
+<div class="sect2">
+<h3 id="instance-configuration-details"><a class="anchor" href="#instance-configuration-details"></a>Instance Configuration Details</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Configure your CoPilot security group as shown below to allow the
+following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>443 from anywhere user access (User Interface)</p>
+</li>
+<li>
+<p>UDP port 5000 from specific gateway IPs</p>
+</li>
+<li>
+<p>UDP port 31283 from specific gateway IPs</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Tip</div>
+<div class="paragraph">
+<p>You can leverage Aviatrix Controller&#8217;s security group management to copy
+the IP addresses of the gateways.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="subscribe-to-a-copilot-offer"><a class="anchor" href="#subscribe-to-a-copilot-offer"></a>Subscribe to a CoPilot Offer</h3>
+<div class="paragraph">
+<p>Subscribe to an Aviatrix CoPilot offer in a cloud provider marketplace.</p>
+</div>
+<div class="paragraph">
+<p>For licensing and trials, CoPilot is offered with a BYOL model. Before
+subscribing to CoPilot in a cloud marketplace, obtain a license key for
+CoPilot by contacting your Aviatrix Sales representative. Since CoPilot
+works in tandem with Aviatrix Controller to provide visibility into your
+cloud resources managed by the controller, it is assumed that you
+already have a controller.</p>
+</div>
+<div class="paragraph">
+<p>To subscribe to a CoPilot offer:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to the marketplace of your chosen cloud provider using your
+provider user account credentials. CoPilot is available in the
+marketplaces for:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Amazon Web Services (AWS)</p>
+</li>
+<li>
+<p>Google Cloud Platform</p>
+</li>
+<li>
+<p>Microsoft Azure Marketplace</p>
+</li>
+<li>
+<p>Oracle Cloud Infrastructure (OCI)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Locate the Aviatrix CoPilot software offer you want to subscribe to
+and click <strong>Subscribe</strong>.</p>
+<div class="paragraph">
+<p>For information about Aviatrix CoPilot image versions, see
+<a href="https://docs.aviatrix.com/HowTos/copilot_release_notes_images.html">Aviatrix
+CoPilot Image Release Notes</a>.</p>
+</div>
+</li>
+<li>
+<p>When prompted, review the subscription pricing information and accept
+the terms and conditions. You may be prompted to confirm your
+subscription before moving on to configuration.</p>
+</li>
+<li>
+<p>Each marketplace will prompt you to configure and launch the CoPilot
+software. Apply the default configurations for resource settings that
+are recommmended by your chosen marketplace. For CoPilot instance
+configurations, you can accept the defaults or change them to suit your
+business needs. Note the following required CoPilot instance
+specifications:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(Storage &amp; Instance)</p>
+<div class="paragraph">
+<p>When deploying the Aviatrix CoPilot 1.5.1 image release:
+<strong> During instance creation, you must attach at least one data disk
+(data volume) to your CoPilot instance to be used for expandable storage
+(see CoPilot Disk (Volume) Management). This is in addition to the 25GB
+root disk that comes with CoPilot. Create your disk (volume) and attach
+the disk (volume) to your CoPilot instance. You can choose the disk type
+(volume type) that meets your business needs given the size of your
+environment and performance requirements. There is no minimum
+requirement for the storage you add at this stage.
+</strong> Attach the disk (volume) to your CoPilot instance. Later, when you
+newly launch CoPilot, CoPilot will format and attach your disks (a
+logical disk/volume is created from all physical disks) as part of the
+initial setup.
+** CoPilot supports automatic memory sizing for the ETL and datastore
+based on the physical memory of the instance at boot. The base image
+will default to these automatic settings. Memory settings are located in
+CoPilot under Settings &gt; Configuration &gt; Options.</p>
+</div>
+<div class="paragraph">
+<p>+
+When deploying Pre-1.5.1 image releases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For machine/instance/VM type, CoPilot requires a minimum of 8 vCPUs
+and 32 GB Memory.</p>
+</li>
+<li>
+<p>CoPilot requires 2 TB of storage (SSD recommended).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>CoPilot requires a static public IP address (for example, an Elastic
+IP address in AWS)</p>
+</li>
+<li>
+<p>Copilot requires the following service ports:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>TCP port 443 for Web UI (to reach CoPilot public IP via HTTPS using
+your web browser)</p>
+</li>
+<li>
+<p>UDP port 31283 for FlowIQ (port is configurable)</p>
+</li>
+<li>
+<p>UDP port 5000 for Remote Syslog Service</p>
+<div class="paragraph">
+<p>For the UDP ports, change the default inbound rule of 0.0.0.0/0 to only
+the IP addresses of your Aviatrix gateways. For port 443, you can allow
+only your and other trusted user&#8217;s IP addresses.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>After specifying all values for the marketplace configuration prompts,
+deploy/launch the CoPilot instance/virtual machine.</p>
+<div class="paragraph">
+<p>For example, in AWS, you select the region and click <strong>Continue to
+Launch</strong>.</p>
+</div>
+<div class="paragraph">
+<p>You should receive a message from the cloud provider stating that the
+instance of CoPilot software is launched/deployed.</p>
+</div>
+</li>
+<li>
+<p>Assign a static public IP address to the CoPilot software
+instance/virtual machine. For example, in the AWS EC2 console, you would
+go to the Elastic IP section and assign an EIP to the CoPilot instance.</p>
+<div class="paragraph">
+<p>Take note of the IP address to use later during initial setup.</p>
+</div>
+</li>
+<li>
+<p>Start the CoPilot instance/virtual machine.</p>
+<div class="paragraph">
+<p>For example, in the AWS EC2 Dashboard, check the instance checkbox and
+from the Actions menu, choose Start Instance.</p>
+</div>
+<div class="paragraph">
+<p>You are now ready to launch CoPilot in a web browser or from the
+Aviatrix Controller homepage and perform initial setup.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="initial-setup-of-copilot"><a class="anchor" href="#initial-setup-of-copilot"></a>Initial Setup of CoPilot</h3>
+<div class="paragraph">
+<p>Perform initial setup of CoPilot after you have launched the
+instance/virtual machine in the cloud provider environment.</p>
+</div>
+<div class="paragraph">
+<p>For initial setup of CoPilot, have the following information available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The static public IP address of your recently deployed CoPilot
+software instance/virtual machine (obtained from the cloud provider
+portal).</p>
+</li>
+<li>
+<p>The static IP address for your Aviatrix Controller.</p>
+</li>
+<li>
+<p>The login credentials of your Aviatrix Controller user account.</p>
+</li>
+<li>
+<p>The login credentials for the user account to be used as the CoPilot
+service account. If you plan to use the ThreatGuard feature, the CoPilot
+service account must have a minimum of <span class="title-ref">all_firewall_write</span>
+permissions.</p>
+</li>
+<li>
+<p>The CoPilot license key (obtained from your Aviatrix representative).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This procedure assumes your Aviatrix Controller is up and running and
+the controller instance&#8217;s inbound rules have port 443 open to the public
+static IP address of the CoPilot instance (so that CoPilot can reach
+your controller). Your CoPilot software instance/virtual machine must
+also be up and running.</p>
+</div>
+<div class="paragraph">
+<p>To perform an initial setup of CoPilot:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Launch CoPilot in your web browser:</p>
+<div class="paragraph">
+<p><span class="title-ref"><a href="https://&lt;copilot" class="bare">https://&lt;copilot</a> static ip address&gt;/</span></p>
+</div>
+<div class="paragraph">
+<p>where <span class="title-ref">&lt;copilot static ip address&gt;</span> is the static IP address
+of your newly deployed CoPilot software instance/virtual machine.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can launch CoPilot from Aviatrix Controller as
+described in the next step.</p>
+</div>
+</li>
+<li>
+<p>(Optional) Launch CoPilot from Aviatrix Controller:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In Aviatrix Controller, under Settings, select CoPilot.</p>
+</li>
+<li>
+<p>For the CoPilot Association, set the status to <strong>Enabled</strong> and enter
+the static IP address for your running CoPilot instance.</p>
+</li>
+<li>
+<p>From the controller homepage, click the CoPilot button in the action
+bar.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>When prompted, enter the username and password of a valid Aviatrix
+Controller user account and click Login. Enter the static IP address of
+your controller and click Login.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/copilot_login_user_account.png" alt="copilot_login_user_account">
+</div>
+</div>
+</li>
+<li>
+<p>When prompted for a <strong>CoPilot Service Account</strong>, enter the login
+credentials for a valid user account in Aviatrix Controller to be used
+as the CoPilot service account.</p>
+<div class="paragraph">
+<p>See
+<a href="https://docs.aviatrix.com/HowTos/copilot_getting_started.html#about-copilot-user-accounts">About
+CoPilot User Accounts</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/copilot_login_service_account.png" alt="copilot_login_service_account">
+</div>
+</div>
+</li>
+<li>
+<p>When prompted for <strong>CoPilot Customer ID</strong>, enter your CoPilot license
+key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/copilot_login_customer_id.png" alt="copilot_login_customer_id">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>TIP:</strong> Later, if you decide to terminate your instance of CoPilot and
+deploy a new instance using the same license key, release the license of
+the current instance first by clicking <strong>RESET</strong> in Settings &gt; Licensing.</p>
+</div>
+</li>
+<li>
+<p>If a Data Disk Setup dialog does not appear, skip to step 8 to verify
+connectivity with your controller.</p>
+</li>
+<li>
+<p>In Data Disk Setup, select the disk/volume you created for CoPilot
+storage and click START. When the process is complete, click FINISH.</p>
+</li>
+<li>
+<p>(Verify connectivity with your controller) To verify Copilot has
+connected successfully to your controller, from the CoPilot dashboard,
+confirm that you can see the inventory of all resources across all
+clouds in your multi-cloud network that are managed by Aviatrix
+Controller. Confirm that the inventory tiles show the number and status
+of each of your managed resources and the global location of your
+managed VPCs/VPNs/VNETs are represented on the geographic map.</p>
+</li>
+<li>
+<p>(For FlowIQ feature) To use the FlowIQ feature in CoPilot, ensure that
+the controller is configured to forward NetFlow logs to CoPilot.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Log in to Aviatrix Controller.</p>
+</li>
+<li>
+<p>Go to Settings &#8594; Loggings &#8594; NetFlow Logging.</p>
+</li>
+<li>
+<p>Use the static IP address of CoPilot as the server and UDP port 31283
+(default, port is configurable).</p>
+<div class="paragraph">
+<p>You should start seeing NetFlow in CoPilot after a few minutes.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>(For remote syslog service) To enable syslog for performance
+monitoring in CoPilot, ensure that the controller is configured to
+specify CoPilot as the loghost server.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Log in to Aviatrix Controller.</p>
+</li>
+<li>
+<p>Go to Settings &#8594; Loggings &#8594; Remote Syslog.</p>
+</li>
+<li>
+<p>Enable the Service, choose a Profile Index (ie. 0), and use the
+static IP address of CoPilot as the server and UDP port 5000 (default).</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="about-copilot-user-accounts"><a class="anchor" href="#about-copilot-user-accounts"></a>About CoPilot User Accounts</h3>
+<div class="paragraph">
+<p>This section describes user accounts for CoPilot and permissions
+required for some features.</p>
+</div>
+<div class="paragraph">
+<p>You can use any valid user account defined on the controller to log in
+to CoPilot.</p>
+</div>
+<div class="paragraph">
+<p>During initial setup of CoPilot, you specify a user account defined on
+the controller to be used as the CoPilot service account. The CoPilot
+service account is used to run CoPilot services, such as alerts,
+topology replay, and ThreatGuard (without any user logged in). If you
+plan to use the ThreatGuard feature, the CoPilot service account must
+have a minimum of <span class="title-ref">all_firewall_write</span> permissions.</p>
+</div>
+<div class="paragraph">
+<p>For a user to enable ThreatGuard alerts or ThreatGuard blocking in
+CoPilot, they must log in to CoPilot with a user account that has
+<span class="title-ref">all_write</span> or <span class="title-ref">all_security_write</span> or
+<span class="title-ref">admin</span> permissions.</p>
+</div>
+<div class="paragraph">
+<p>Users who will not enable ThreatGuard alerts or blocking can log in to
+CoPilot with an account that has <span class="title-ref">read_only</span> permissions and
+use all of its other features.</p>
+</div>
+<div class="paragraph">
+<p>Users should be granted only the permissions needed to perform their
+work. Review user privileges on a routine basis to confirm they are
+appropriate for current work tasks.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configure-controllers-access-for-copilot"><a class="anchor" href="#configure-controllers-access-for-copilot"></a>Configure Controller&#8217;s access for CoPilot</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Assign a static public IP address to CoPilot. For example, in EC2
+console, you go to the Elastic IP section and assign an EIP to the
+CoPilot instance.</p>
+</li>
+<li>
+<p>On Controller security groups, ensure 443 is open to the public IP of
+the CoPilot instance.</p>
+</li>
+<li>
+<p>Configure a dedicate user account on Aviatrix Controller for CoPilot.</p>
+</li>
+<li>
+<p>You should now be able to log in to CoPilot with the credentials we
+configured above.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Note</div>
+<div class="paragraph">
+<p>If you are using RBAC, as of 1.1.5 CoPilot requires read-only access<br>
+access to ping and traceroute functions for diagnostic capabilities.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enable-syslog-for-performance-monitoring"><a class="anchor" href="#enable-syslog-for-performance-monitoring"></a>Enable Syslog for Performance Monitoring</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Log in to Aviatrix Controller.</p>
+</li>
+<li>
+<p>Go to Settings &#8594; Loggings &#8594; Remote Syslog.</p>
+</li>
+<li>
+<p>Enable the Service, choose a Profile Index (ie. 0), and use the EIP of
+CoPilot as the server and UDP port 5000 (default).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enable-flowiq"><a class="anchor" href="#enable-flowiq"></a>Enable FlowIQ</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Log in to Aviatrix Controller.</p>
+</li>
+<li>
+<p>Go to Settings &#8594; Loggings &#8594; NetFlow Logging.</p>
+</li>
+<li>
+<p>Use the EIP of CoPilot as the server and UDP port 31283 (default).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Deployment is complete. At this point your CoPilot is set up and ready
+to use. You should start seeing NetFlow in less than 5 minutes. Note
+that when you launch CoPilot at first your version number will be based
+on the version in the image. Within an hour, the CoPilot version will be
+updated.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="copilot-disk-volume-management"><a class="anchor" href="#copilot-disk-volume-management"></a>CoPilot Disk (Volume) Management</h3>
+<div class="paragraph">
+<p>Allocate data disks (volumes) to your Aviatrix CoPilot deployment to be
+used for expandable storage.</p>
+</div>
+<div class="paragraph">
+<p>When you initially provision CoPilot (from your cloud service provider),
+you add a disk (volume) to be used for CoPilot storage. You are required
+to add at least one disk (volume). You create the data disk (volume) in
+your CSP account and attach it to your CoPilot instance. During instance
+provisioning, there is no minimum requirement for the disk/volume you
+add. You can choose the disk type (volume type) you want. You will be
+able to add more storage after deployment.</p>
+</div>
+<div class="paragraph">
+<p>When you newly launch the CoPilot instance, the initial setup process
+automatically detects the disk/volume you attached during instance
+provisioning. An add-disk process prompts you to confirm the disk/volume
+to use and then formats and attaches your disk(s). A logical disk/volume
+is created from all physical disks (volumes) you added during
+provisioning. Note that CoPilot comes with a 25GB root disk.</p>
+</div>
+<div class="paragraph">
+<p>The storage you need for CoPilot can increase based on several factors
+including the number of Aviatrix gateways launched and the type and
+volume of traffic in your network. When you need more storage, you can
+add additional disks (volumes) by using the CoPilot &gt; Settings &gt;
+Resources page (Add Additional Disks). For instructions, see
+<a href="https://docs.aviatrix.com/HowTos/copilot_getting_started.html#add-a-disk-volume-for-copilot-storage-after-deployment">Add
+a Disk (Volume) for CoPilot Storage after Deployment</a>.</p>
+</div>
+<div class="paragraph">
+<p>After you allocate new disks (volumes), you can only increase storage
+(you cannot decrease storage).</p>
+</div>
+<div class="paragraph">
+<p>For data disks you already allocated to your CoPilot deployment, you can
+increase their size. For instructions, see Expand a Disk (Volume) for
+CoPilot Storage.</p>
+</div>
+<div class="paragraph">
+<p>Disk (volume) management for expandable storage became available with
+the release of Aviatrix CoPilot image version 1.5.1. Prior to CoPilot
+image version 1.5.1, images had a static disk of 2 TB.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-a-disk-volume-for-copilot-storage-after-deployment"><a class="anchor" href="#add-a-disk-volume-for-copilot-storage-after-deployment"></a>Add a Disk (Volume) for CoPilot Storage after Deployment</h3>
+<div class="paragraph">
+<p>Add a data disk (volume) to your Aviatrix CoPilot deployment to be used
+for expandable storage. For information about expandable storage, see
+<a href="https://docs.aviatrix.com/HowTos/copilot_getting_started.html#copilot-disk-volume-management">CoPilot
+Disk (Volume) Management</a>.</p>
+</div>
+<div class="paragraph">
+<p>This procedure assumes you have a running CoPilot and want to add more
+storage (add a data disk/volume) above and beyond the storage you added
+when you first provisioned the CoPilot instance (from your CSP).</p>
+</div>
+<div class="paragraph">
+<p>To add a data disk (volume) for CoPilot expandable storage after
+deployment:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to your CSP account and create the disk (volume) you want to
+add. Choose the disk type (volume type) that meets your business needs
+given the size of your environment and performance requirements.</p>
+</li>
+<li>
+<p>Attach the disk (volume) to your CoPilot instance. Do <em>not</em> reboot the
+instance (a disk can be dynamically added to an instance on any CSP
+without rebooting).</p>
+</li>
+<li>
+<p>After you receive confirmation from the CSP that the disk is attached,
+log in to CoPilot.</p>
+</li>
+<li>
+<p>Go to CoPilot &gt; Settings &gt; Resources and click Add Additional Disk. If
+you do not see the disk (volume) you created in the list, press the
+refresh icon.</p>
+</li>
+<li>
+<p>Select the disk/volume you created and click START.</p>
+</li>
+<li>
+<p>When the process is complete, click FINISH.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="expand-a-disk-volume-for-copilot-storage"><a class="anchor" href="#expand-a-disk-volume-for-copilot-storage"></a>Expand a Disk (Volume) for CoPilot Storage</h3>
+<div class="paragraph">
+<p>For data disks you already allocated to your CoPilot deployment,
+increase their size.</p>
+</div>
+<div class="paragraph">
+<p>To expand a disk (volume) that is allocated to your CoPilot deployment:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to your CSP account and locate the disk (volume) attached to
+your CoPilot instance that you want to expand for CoPilot storage.</p>
+</li>
+<li>
+<p>Increase the size of the disk (volume).</p>
+</li>
+<li>
+<p>After you receive confirmation from the CSP that the disk is resized,
+log in to CoPilot.</p>
+</li>
+<li>
+<p>Go to CoPilot &gt; Settings &gt; Resources.</p>
+</li>
+<li>
+<p>In the Disk Usage table, expand the tree-pane icon (shown) for the
+physical volume associated with your resized data disk.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/tree_pane_icon_disk_usage_table.png" alt="tree_pane_icon_disk_usage_table">
+</div>
+</div>
+</li>
+<li>
+<p>Click the enabled RESIZE button. CoPilot resizes the physical volume
+to match the size of your expanded disk.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="system-design-considerations"><a class="anchor" href="#system-design-considerations"></a>System Design Considerations</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>For production, it is best practice to inspect your gateways sizing
+and load prior to enabling flow logging.</p>
+</li>
+<li>
+<p>You have the option of selecting which gateways generate flows should
+you want to enable visibility in subsections of the network (configured
+in the controller).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="example-deploy-copilot-in-microsoft-azure"><a class="anchor" href="#example-deploy-copilot-in-microsoft-azure"></a>Example - Deploy CoPilot in Microsoft Azure</h3>
+<div class="paragraph">
+<p>To deploy CoPilot in Azure:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to your Azure account with your Azure account credentials so
+that you enter your Azure Portal (portal.azure.com).</p>
+</li>
+<li>
+<p>Go to the Azure Marketplace at <a href="https://azuremarketplace.microsoft.com" class="bare">https://azuremarketplace.microsoft.com</a>,
+and in the search field, search for "Aviatrix CoPilot".</p>
+</li>
+<li>
+<p>For the <strong>Aviatrix CoPilot</strong> Bring your own license offer, click <strong>Get it
+now</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cplt_azr_get_now.png" alt="cplt_azr_get_now">
+</div>
+</div>
+</li>
+<li>
+<p>If prompted, enter the email address you use for acquiring apps on
+Azure Marketplace.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cplt_azr_email.png" alt="cplt_azr_email">
+</div>
+</div>
+</li>
+<li>
+<p>In the "Create this app in Azure" dialog, click <strong>Continue</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cplt_azr_create_app.png" alt="cplt_azr_create_app">
+</div>
+</div>
+</li>
+<li>
+<p>In the Aviatrix CoPilot page, click the blue <strong>Create</strong> button. If you
+want to view Azure recommended size choices, click "Start with a pre-set
+configuration". Do not choose the "Deploy programmatically" option.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cplt_azr_create.png" alt="cplt_azr_create">
+</div>
+</div>
+</li>
+<li>
+<p>In Create a virtual machine, complete the provisioning steps for the
+Basics section by specifying the subscription, resource group, VM name,
+and size values and other values as needed for the Project details,
+Instance details, and Administrator account details sections. Click
+<strong>Next: Disks</strong>.</p>
+</li>
+<li>
+<p>You must attach at least one data disk to your CoPilot VM to be used
+for expandable storage. This is in addition to the 25GB root disk that
+comes with CoPilot. Click <strong>Create and attach a new disk</strong> or <strong>Attach an
+existing disk</strong> to add and attach an additional disk.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cplt_azr_attach_disk.png" alt="cplt_azr_attach_disk">
+</div>
+</div>
+</li>
+<li>
+<p>Specify the disk options you want or click <strong>OK</strong> to accept the default
+disk options.</p>
+</li>
+<li>
+<p>Click <strong>Next: Networking</strong> and specify the network interface details.
+For Public IP, click <strong>Create new</strong>. In the Create public IP address
+dialog, for Assignment, select Static and click <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Complete the rest of the provisioning steps for the Management,
+Advanced, and Tags sections.</p>
+</li>
+<li>
+<p>Click <strong>Next: Review + create</strong>. If blank, type your phone number in the
+Preferred phone number field. If the validation passed, review your
+settings and click <strong>Create</strong>.</p>
+<div class="paragraph">
+<p>Verify that your instance is up and running in the Azure console.</p>
+</div>
+</li>
+<li>
+<p>After the instance is created, and you receive a message that your
+deployment is complete, click on <strong>Go to resource</strong>. Select the copilot
+instance name and take note of its External IP address.</p>
+</li>
+<li>
+<p>You are ready to launch CoPilot in your web browser and perform
+initial setup. See
+<a href="https://docs.aviatrix.com/HowTos/copilot_getting_started.html#initial-setup-of-copilot">Initial
+Setup of CoPilot</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="example-deploy-copilot-in-google-cloud-platform"><a class="anchor" href="#example-deploy-copilot-in-google-cloud-platform"></a>Example - Deploy CoPilot in Google Cloud Platform</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Go to GCP marketplace.</p>
+</li>
+<li>
+<p>Find the product "Aviatrix CoPilot - BYOL".</p>
+</li>
+<li>
+<p>Click the button "LAUNCH".</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gcp_copilot_1.png" alt="gcp_copilot_1">
+</div>
+</div>
+<div class="paragraph">
+<p>If deploying Pre-1.5.1 image releases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure the selected Machine type has at least 8 vCPUs with 32 GB
+memory.</p>
+</li>
+<li>
+<p>Boot Disk is SSD Persistent Disk with 2000 GB.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gcp_copilot_2.png" alt="gcp_copilot_2">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>443 from anywhere user access (User Interface).</p>
+</li>
+<li>
+<p>UDP port 31283 from specific gateway IPs (remove 0.0.0.0/0).</p>
+</li>
+<li>
+<p>UDP port 5000 from specific gateway IPs (remove 0.0.0.0/0).</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gcp_copilot_3.png" alt="gcp_copilot_3">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click the button "Deploy".</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="copilot_overview.html">Aviatrix CoPilot Overview</a></span>
+  <span class="next"><a href="copilot_reference_guide.html">Aviatrix CoPilot User Reference Guide</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo.svg" alt="Aviatrix" width="260"></a>
+      <figcaption class="footer-brand-name"><a href="https://aviatrix.com"></a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <li><a href="https://aviatrix.com" target="_blank" rel="noopener">Home</a></li>
+      <li><a href="https://antora.gitlab.io/demo/docs-site">Docs</a></li>
+      <li><a href="https://support.aviatrix.com/" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/aviatrixsys" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@aviatrixsys</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2022 Aviatrix Systems, Inc 2901 Tasman Dr #109, Santa Clara, CA 95054</p>
+    <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p>
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in AsciiDoc.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://aviatrix.com" target="_blank" rel="noopener">Aviatrix</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+site:
+  title: Docs
+  # the 404 page and sitemap files only get generated when the url property is set
+  url: https://antora.gitlab.io/demo/docs-site
+  start_page: release-notes::UCC_Release_Notes.adoc
+content:
+  sources:
+  - url: https://github.com/trvsmtchll/release-notes.git
+    branches: main
+    # setting edit_url to false disables the Edit this Page link for any page that originates from this repository
+    # the same thing can be achieved by adding empty credentials (i.e., @) in front of the domain in the URL
+    edit_url: false
+  - url: https://github.com/trvsmtchll/copilot.git
+    branches: main
+    edit_url: false
+asciidoc:
+  attributes:
+    experimental: ''
+    idprefix: ''
+    idseparator: '-'
+    page-pagination: ''
+ui:
+  bundle:
+    url: https://deploy-preview-123--asciidoctor-docs-ui.netlify.app/dist/ui-bundle.zip
+    snapshot: true

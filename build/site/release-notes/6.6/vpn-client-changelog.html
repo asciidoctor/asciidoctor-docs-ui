@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Aviatrix VPN Client Changelog | Docs</title>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="canonical" href="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/vpn-client-changelog.html">
+    <meta property="og:url" content="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/vpn-client-changelog.html">
+    <meta property="og:description" content="A documentation page for Release Notes.">
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Release Notes - Aviatrix VPN Client Changelog">
+    <meta property="og:image" content="https://antora.gitlab.io/demo/docs-site/_/img/asciidoctor-og.png">
+    <meta name="twitter:site" content="@asciidoctor">
+    <link rel="prev" href="UCC_Release_Notes.html">
+    <link rel="next" href="field_notices.html">
+    <meta name="page-spec" content="release-notes::vpn-client-changelog.adoc">
+    <link rel="icon" href="../../_/img/favicon.png" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item logo" title="Aviatrix" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo-w.svg" alt="Aviatrix" width="180"></a>
+      <a class="navbar-item title" href="https://antora.gitlab.io/demo/docs-site/release-notes/6.6/UCC_Release_Notes.html">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-item" href="https://support.aviatrix.com/" data-title="Support">
+            <span class="icon"><img src="../../_/img/octicons-24.svg#view-comment-discussion"></span>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item has-icon" href="https://aviatrix.com/schedule-demo/" target="_blank" rel="noopener">
+              <span class="icon"><img src="../../_/img/octicons-16.svg#view-flame"></span>
+              <span>Request Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active is-loading" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" title="Toggle expand/collapse all"></button>
+    <h3 class="title"><a href="UCC_Release_Notes.html">Release Notes</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="UCC_Release_Notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item is-current-url" data-depth="1">
+    <a class="nav-link" href="vpn-client-changelog.html">Aviatrix VPN Client Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="field_notices.html">Field Notices</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="image_release_notes.html">Image Release Notes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+  <script>
+;(function () {
+  var panel = document.querySelector('.nav-panel-menu')
+  var page
+  var hash = window.location.hash
+  if (hash) {
+    if (~hash.indexOf('%')) hash = decodeURIComponent(hash)
+    if (~hash.indexOf('"')) hash = hash.replace(/(?=")/g, '\\')
+    var link = panel.querySelector('.nav-link[href="' + hash + '"]')
+    if (link) page = link.parentNode
+    else if ((page = panel.querySelector('.is-current-url'))) page.classList.add('is-provisional')
+  } else {
+    page = panel.querySelector('.is-current-url')
+  }
+  if (page) {
+    var ancestor = page
+    while ((ancestor = ancestor.parentNode) && ancestor !== panel) {
+      if (ancestor.className === 'nav-item') ancestor.classList.add('is-current-path', 'is-active')
+    }
+    page.classList.add('is-current-page', 'is-active')
+    if (panel.scrollHeight > panel.clientHeight) {
+      var panelRect = panel.getBoundingClientRect()
+      var linkRect = page.querySelector('.nav-link').getBoundingClientRect()
+      panel.scrollTop += Math.round(linkRect.top - panelRect.top - (panelRect.height - linkRect.height) * 0.5)
+    }
+  } else {
+    panel.scrollTop = 0
+  }
+  panel.classList.remove('is-loading')
+})()
+  </script>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Release Notes</span>
+    <span class="version">6.6</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../copilot/1.6.3/copilot_overview.html">CoPilot</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../copilot/1.6.3/copilot_overview.html">1.6.3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="UCC_Release_Notes.html">Release Notes</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="UCC_Release_Notes.html">6.6</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="UCC_Release_Notes.html" class="home-link" title="Home"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="UCC_Release_Notes.html">Release Notes</a></li>
+    <li><a href="vpn-client-changelog.html">Aviatrix VPN Client Changelog</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Aviatrix VPN Client Changelog</h1>
+<div class="sect1">
+<h2 id="2-14-14-april-27-2021"><a class="anchor" href="#2-14-14-april-27-2021"></a>2.14.14 April 27 2021</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Support non-ASCII Windows user login account</p>
+</li>
+<li>
+<p>Support non-ASCII VPN connection profile name on the client UI</p>
+</li>
+<li>
+<p>Support Ubuntu 20.04.01 deb format installer</p>
+</li>
+<li>
+<p>Enhance the Windows client security <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31776" class="bare">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31776</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-13-12-jan-28-2021"><a class="anchor" href="#2-13-12-jan-28-2021"></a>2.13.12 Jan 28 2021</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Provide a MD5 checksum along with every single installer</p>
+</li>
+<li>
+<p>Support MacOS Big Sur</p>
+</li>
+<li>
+<p>Verify the settings before exiting the Settings UI</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-12-10-september-3-2020"><a class="anchor" href="#2-12-10-september-3-2020"></a>2.12.10 September 3 2020</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Support Ubuntu 20.04 FIPS</p>
+</li>
+<li>
+<p>A toggle to support Cisco Umbrella DNS servers or the VPC DNS servers on MacOS</p>
+</li>
+<li>
+<p>Support multiple MacOS system login accounts</p>
+</li>
+<li>
+<p>Allow override of manually set DNS flag to be enabled by default on MacOS</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-11-6-july-22-2020"><a class="anchor" href="#2-11-6-july-22-2020"></a>2.11.6 July 22 2020</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>OpenSSL lib of the MacOS client is updated to 1.1.11g</p>
+</li>
+<li>
+<p>OpenSSL lib of the Windows client is updated to 1.1.11f</p>
+</li>
+<li>
+<p>Enhance the security to prevent Man-in-the-middle attack</p>
+</li>
+<li>
+<p>Boost the Windows client data throughput</p>
+</li>
+<li>
+<p>Improve the connectivity of the MacOS client under the unstable WiFi connection</p>
+</li>
+<li>
+<p>Improve the connectivity of the Windows client under the high data throughput</p>
+</li>
+<li>
+<p>New clients to support Ubuntu 20.4 LTS</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-10-8-may-14-2020"><a class="anchor" href="#2-10-8-may-14-2020"></a>2.10.8  May 14 2020</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Address client vulnerabilities of elevation in privilege and arbitrary file write.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-9-6-april-23-2020"><a class="anchor" href="#2-9-6-april-23-2020"></a>2.9.6  April 23 2020</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Support displaying system use notifications</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-8-2-april-10-2020"><a class="anchor" href="#2-8-2-april-10-2020"></a>2.8.2 April 10 2020</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Boost VPN throughput</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-7-9-march-4-2020"><a class="anchor" href="#2-7-9-march-4-2020"></a>2.7.9  March 4 2020</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>UI enhancements for password-based authentication</p>
+</li>
+<li>
+<p>Support the OVPN parameter: 'route'</p>
+</li>
+<li>
+<p>Fixed issue where tray icon sometimes did not accurately reflect the VPN status</p>
+</li>
+<li>
+<p>Fixed issue where VPN client becomes unresponsive if quit from the MacOS taskbar</p>
+</li>
+<li>
+<p>VPN client will now no longer erroneously prompt for another authentication retry after previous fail</p>
+</li>
+<li>
+<p>Fixed issue where the old VPN client will not quit, and crashes, if not uninstalled prior to the installation of a newer client</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>OpenVPN is a registered trademark of OpenVPN Inc.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="UCC_Release_Notes.html">Release Notes</a></span>
+  <span class="next"><a href="field_notices.html">Field Notices</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <div class="footer-main">
+    <figure class="footer-brand">
+      <a class="logo" href="https://aviatrix.com"><img src="../../_/img/aviatrix-logo.svg" alt="Aviatrix" width="260"></a>
+      <figcaption class="footer-brand-name"><a href="https://aviatrix.com"></a></figcaption>
+    </figure>
+    <ul class="footer-brand-links">
+      <li><a href="https://aviatrix.com" target="_blank" rel="noopener">Home</a></li>
+      <li><a href="https://antora.gitlab.io/demo/docs-site">Docs</a></li>
+      <li><a href="https://support.aviatrix.com/" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+    <p class="footer-brand-follow">
+      <a href="https://twitter.com/aviatrixsys" title="Follow us on Twitter" target="_blank" rel="noopener"><img src="../../_/img/twitter-logo.svg" alt="Twitter logo" class="logo" width="28"><span class="handle">@aviatrixsys</span></a>
+    </p>
+  </div>
+  <div class="footer-legal">
+    <p>Copyright © 2022 Aviatrix Systems, Inc 2901 Tasman Dr #109, Santa Clara, CA 95054</p>
+    <p>The <a href="https://github.com/asciidoctor/asciidoctor-docs-ui" target="_blank" rel="noopener">UI for this site</a> is derived from the Antora default UI and is licensed under the MPL-2.0 license. Several icons are imported from <a href="https://primer.style/octicons/" target="_blank" rel="noopener">Octicons</a> and are licensed under the MIT license.</p>
+    <p>AsciiDoc® and AsciiDoc Language™ are trademarks of the Eclipse Foundation, Inc.</p>
+  </div>
+  <div class="footer-thanks">
+    <p>Additional thanks to:</p>
+    <p class="badges">
+      <a href="https://opendevise.com" title="Development support by OpenDevise" target="_blank" rel="noopener"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=80" alt="OpenDevise Logo" width="30"></a>
+      <a href="https://algolia.com/docsearch" title="Search by Algolia DocSearch" target="_blank" rel="noopener"><img src="../../_/img/algolia-logo.svg" alt="Algolia logo" width="30"></a>
+      <a href="https://netlify.com" title="Deploys by Netlify" target="_blank" rel="noopener"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Deploys by Netlify" width="67"></a>
+    </p>
+    <p>Authored in AsciiDoc.<br>Produced by <a href="https://antora.org" target="_blank" rel="noopener">Antora</a> and <a href="https://aviatrix.com" target="_blank" rel="noopener">Aviatrix</a>.</p>
+  </div>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
