@@ -1,4 +1,6 @@
-name: Release
+
+   
+name: release-ui
 on:
   push:
     branches:
