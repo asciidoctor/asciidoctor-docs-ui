@@ -8,6 +8,19 @@
   top: var(--toc-top);
 }
 
+/* add right sidebar button */
+.sidebar-toggle {
+  position: fixed;
+  top: 135px;
+  right: 0;
+  background-color: #dbdada;
+  width: 20px;
+  height: 30px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  cursor: pointer;
+}
+
 .toc .toc-menu h3 {
   color: var(--toc-heading-font-color);
   font-size: calc(16 / var(--rem-base) * 1rem);
