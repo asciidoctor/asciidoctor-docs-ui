@@ -5,9 +5,12 @@
 
   var navContainer = document.querySelector('.nav-container')
   var navToggle = document.querySelector('.toolbar .nav-toggle')
+  var sidebarNav = document.querySelector('.toc.sidebar')
+  var sidebarToggle = document.querySelector('.sidebar-toggle')
 
   navToggle.addEventListener('click', showNav)
   navContainer.addEventListener('click', trapEvent)
+  sidebarToggle.addEventListener('click', showSidebar)
 
   var nav = navContainer.querySelector('.nav')
   var menuPanel = nav.querySelector('[data-panel=menu]')
@@ -128,6 +131,10 @@
     navToggle.classList.remove('is-active')
     navContainer.classList.remove('is-active')
     html.removeEventListener('click', hideNav)
+  }
+
+  function showSidebar (e) {
+    sidebarNav.classList.toggle('is-hide')
   }
 
   function trapEvent (e) {

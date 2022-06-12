@@ -6,6 +6,11 @@
   main > .content {
     overflow-x: auto;
   }
+
+  /* right sidebar */
+  .sidebar-toggle {
+    right: -20px !important;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -32,4 +37,9 @@
   aside.toc.sidebar {
     flex-basis: var(--toc-width--widescreen);
   }
+}
+
+aside.toc.sidebar.is-hide {
+  overflow: hidden;
+  flex-basis: 0;
 }
