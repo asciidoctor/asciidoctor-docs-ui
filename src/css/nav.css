@@ -34,7 +34,8 @@
     flex: none;
     position: static;
     visibility: visible;
-    height: var(--nav-height--desktop);
+    /* height: var(--nav-height--desktop); */
+    height: max-content;
   }
 }
 
@@ -130,7 +131,7 @@
 }
 
 .nav-menu h3.title {
-  color: var(--nav-heading-font-color);
+  color: var(--color-brand-primary);
   font-size: 0.9rem;
   font-weight: var(--body-font-weight-bold);
   margin: 0.15rem 0 0;
@@ -211,7 +212,10 @@
 .nav-panel-explore .context {
   font-size: calc(15 / var(--rem-base) * 1rem);
   flex-shrink: 0;
-  color: var(--nav-muted-color);
+  color: var(--color-brand-primary);
+
+
+  
   box-shadow: 0 -1px 0 var(--nav-panel-divider-color);
   padding: 0 0.5rem;
   display: flex;
@@ -305,4 +309,11 @@
   border-color: currentColor;
   opacity: 0.9;
   font-weight: var(--body-font-weight-bold);
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-container {
+   
+    height: max-content;
+  }
 }

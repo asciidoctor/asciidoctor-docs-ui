@@ -29,66 +29,9 @@
         {{/if}}
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-item" href="https://support.aviatrix.com/" data-title="Support">
-          <div class="navbar-link">AsciiDoc</div>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoc::index.adoc')}}}">Language</a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoc::syntax-quick-reference.adoc')}}}">Syntax Quick Reference</a>
-          </div>
+          <div class="navbar-link">Support</div>
         </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <div class="navbar-link">Processing</div>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoctor::index.adoc')}}}">Asciidoctor <small>Ruby</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoctor.js::index.adoc')}}}">Asciidoctor.js <small>JavaScript</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoctorj::index.adoc')}}}">AsciidoctorJ <small>Java</small></a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <div class="navbar-link">Extensions</div>
-          <div class="navbar-dropdown">
-            <div class="navbar-item">Add-on Converters</div>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'reveal.js-converter::index.adoc')}}}">reveal.js <small>Ruby, JavaScript</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'pdf-converter::index.adoc')}}}">PDF <small>Ruby</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'epub3-converter::index.adoc')}}}">EPUB3 <small>Ruby</small></a>
-            <hr class="navbar-divider">
-            <div class="navbar-item">Extended Syntax</div>
-            {{#with (resolvePageURL 'diagram-extension::index.adoc')}}
-            <a class="navbar-item" href="{{{relativize this}}}">Asciidoctor Diagram <small>Ruby</small></a>
-            {{/with}}
-            {{!--
-            {{#with (resolvePageURL 'kroki-extension::index.adoc')}}
-            <a class="navbar-item" href="{{{relativize this}}}">Asciidoctor Kroki <small>JavaScript</small></a>
-            {{/with}}
-            <a class="navbar-item" href="#">Asciidoctor Chart</a>
-            <a class="navbar-item" href="#">Asciidoctor bibtex</a>
-            <div class="navbar-item">Feature Adapters</div>
-            <a class="navbar-item" href="#">Asciidoctor Mathematical <small>stem</small></a>
-            <a class="navbar-item" href="#">Asciidoctor Prism <small>source highlighter</small></a>
-            --}}
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <div class="navbar-link">Tooling</div>
-          <div class="navbar-dropdown is-right">
-            <div class="navbar-item">Build Automation</div>
-            {{#with (resolvePageURL 'maven-tools::index.adoc')}}
-            <a class="navbar-item" href="{{{relativize this}}}">Maven Tools <small>Java</small></a>
-            {{/with}}
-            {{!--
-            <a class="navbar-item" href="https://asciidoctor.github.io/asciidoctor-gradle-plugin" target="_blank" rel="noopener">Gradle Plugin <small>Java</small></a>
-            --}}
-            {{#with (resolvePageURL 'asciidoclet::index.adoc')}}
-            <a class="navbar-item" href="{{{relativize this}}}">Asciidoclet <small>Java</small></a>
-            {{/with}}
-            <hr class="navbar-divider">
-            <div class="navbar-item">Text Editors / Viewers</div>
-            {{!--
-            <a class="navbar-item" href="#">Browser Extension</a>
-            <a class="navbar-item" href="#">Atom Add-ons</a>
-            --}}
-            <a class="navbar-item" href="https://intellij-asciidoc-plugin.ahus1.de/docs" target="_blank" rel="noopener">IntelliJ Plugin</a>
-          </div>
-        </div>
+
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-item" href="{{{relativize (resolvePageURL 'about::support.adoc')}}}" data-title="Support">
             <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-24.svg#view-comment-discussion"></span>
@@ -100,6 +43,17 @@
             </a>
           </div>
         </div>
+        <div class="navbar-item">
+          <span id="username" style="padding-right: 28px;color: #607d8b;"></span>
+          <span class="control">
+            <form method="POST" action="/signout">
+              <button class="button is-primary" type="submit" data-se="logout">
+                  Logout
+              </button>
+            </form>
+          </span>
+        </div>
+
       </div>
     </div>
   </nav>

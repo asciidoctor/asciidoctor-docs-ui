@@ -133,7 +133,7 @@
     html.removeEventListener('click', hideNav)
   }
 
-  function showSidebar (e) {
+  function showSidebar(e){
     sidebarNav.classList.toggle('is-hide')
   }
 

@@ -6,6 +6,7 @@
   margin: var(--doc-margin);
   max-width: var(--doc-max-width);
   padding: 0 1rem 4rem;
+  max-width: none;
 }
 
 @media screen and (min-width: 1024px) {
@@ -17,6 +18,7 @@
     min-width: 0; /* min-width: 0 required for flexbox to constrain overflowing elements */
     position: relative;
     z-index: var(--z-index-doc);
+    max-width: none;
   }
 }
 

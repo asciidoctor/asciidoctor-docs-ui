@@ -3,7 +3,7 @@
   <nav class="nav-menu">
     <button class="nav-menu-toggle" title="Toggle expand/collapse all"></button>
     {{#with @root.page.componentVersion}}
-    <h3 class="title"><a href="{{{relativize ./url}}}">{{./title}}</a></h3>
+    {{!-- <h3 class="title"><a href="{{{relativize ./url}}}">{{./title}}</a></h3> --}}
     {{/with}}
 {{> nav-tree navigation=this}}
   </nav>

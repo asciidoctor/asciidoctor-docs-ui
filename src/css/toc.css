@@ -9,13 +9,13 @@
 }
 
 /* add right sidebar button */
-.sidebar-toggle {
+.sidebar-toggle{
   position: fixed;
   top: 135px;
   right: 0;
-  background-color: #dbdada;
+  background-color: #e24402;
   width: 20px;
-  height: 30px;
+  height: 50px;
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
   cursor: pointer;
