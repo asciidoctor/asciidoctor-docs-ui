@@ -81,7 +81,7 @@ Next, make sure that you have Node.js installed (which also provides npm).
  $ node --version
 
 If this command fails with an error, you don't have Node.js installed.
-If the command doesn't report an active LTS version of Node.js (e.g., v16.13.2), it means you don't have a suitable version of Node.js installed.
+If the command doesn't report an active LTS version of Node.js (e.g., v16.16.0), it means you don't have a suitable version of Node.js installed.
 In this guide, we'll be installing Node.js 16.
 
 While you can install Node.js from the official packages, we strongly recommend that you use {url-nvm}[nvm] (Node Version Manager) to manage your Node.js installation(s).

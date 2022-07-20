@@ -11,7 +11,7 @@
     "start": "gulp preview"
   },
   "engines": {
-    "node": ">= 10.17.0"
+    "node": ">=16.0.0"
   },
   "browserslist": [
     "defaults"
