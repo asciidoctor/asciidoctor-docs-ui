@@ -608,12 +608,13 @@
 }
 
 .doc ul.checklist {
-  padding-left: 0.5rem;
+  padding-left: 1.75rem;
 }
 
 .doc ul.checklist > li > * > i.fa-check-square-o:first-child,
 .doc ul.checklist > li > * > i.fa-square-o:first-child {
   width: 1.25rem;
+  margin-left: -1.25rem;
 }
 
 .doc ul.checklist > li > * > i.fa-check-square-o:first-child {
