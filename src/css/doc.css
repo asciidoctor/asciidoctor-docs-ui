@@ -787,7 +787,7 @@
   max-width: 375px;
 }
 
-.doc pre.highlight {
+.doc .listingblock > .content {
   position: relative;
 }
 
@@ -799,8 +799,9 @@
   right: 0.5rem;
   color: var(--pre-annotation-font-color);
   font-family: var(--body-font-family);
-  font-size: calc(13.5 / var(--rem-base) * 1rem);
+  font-size: calc(13 / var(--rem-base) * 1rem);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .doc .listingblock:hover .source-toolbox {
@@ -810,8 +811,6 @@
 .doc .source-toolbox .source-lang {
   text-transform: uppercase;
   letter-spacing: 0.075em;
-  font-size: 0.96em;
-  line-height: 1.0425;
 }
 
 .doc .source-toolbox > :not(:last-child)::after {
@@ -824,7 +823,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: transparent;
+  background: none;
   border: none;
   color: inherit;
   outline: none;
@@ -861,7 +860,7 @@
   color: var(--color-white);
   cursor: auto;
   opacity: 0;
-  transition: opacity 0.5s ease 0.75s;
+  transition: opacity 0.5s ease 0.5s;
 }
 
 .doc .source-toolbox .copy-toast::after {

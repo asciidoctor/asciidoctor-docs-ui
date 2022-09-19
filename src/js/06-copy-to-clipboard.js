@@ -6,9 +6,9 @@
   var TRAILING_SPACE_RX = / +$/gm
 
   var config = (document.getElementById('site-script') || { dataset: {} }).dataset
-  var uiRootPath = config.uiRootPath
+  var uiRootPath = config.uiRootPath == null ? '.' : config.uiRootPath
   var svgAs = config.svgAs
-  var supportsCopy = window.navigator.clipboard && uiRootPath != null
+  var supportsCopy = window.navigator.clipboard
 
   ;[].slice.call(document.querySelectorAll('.doc pre.highlight, .doc .literalblock pre')).forEach(function (pre) {
     var code, language, lang, copy, toast, toolbox
@@ -54,7 +54,7 @@
       copy.appendChild(toast)
       toolbox.appendChild(copy)
     }
-    pre.appendChild(toolbox)
+    pre.parentNode.appendChild(toolbox)
     if (copy) copy.addEventListener('click', writeToClipboard.bind(copy, code))
   })
 
