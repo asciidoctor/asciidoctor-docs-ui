@@ -657,12 +657,22 @@
 .doc table.tableblock caption {
   color: var(--caption-font-color);
   font-size: calc(16 / var(--rem-base) * 1rem);
+  font-style: var(--caption-font-style);
   font-weight: var(--caption-font-weight);
-  font-style: italic;
   hyphens: none;
   letter-spacing: 0.01em;
   padding-bottom: 0.075rem;
+}
+
+.doc table.tableblock caption {
   text-align: left;
+}
+
+.doc .olist .title,
+.doc .ulist .title {
+  font-weight: var(--caption-font-weight);
+  font-style: var(--caption-font-style);
+  margin-bottom: 0.25rem;
 }
 
 .doc .imageblock .title {
