@@ -18,6 +18,7 @@ endif::[]
 :url-netlify-deploys: https://app.netlify.com/sites/asciidoctor-docs-ui/deploys
 // External URLs:
 :url-antora: https://antora.org
+:url-antora-docs: https://docs.antora.org
 :url-antora-default-ui: https://gitlab.com/antora/antora-ui-default
 :url-asciidoctor: https://asciidoctor.org
 :url-git: https://git-scm.com
