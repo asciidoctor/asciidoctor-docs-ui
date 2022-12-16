@@ -105,6 +105,7 @@
   padding: 0.5rem 0.75rem;
   line-height: var(--nav-line-height);
   position: relative;
+  background: var(--body-background);
 }
 
 .nav-menu-toggle {
@@ -193,7 +194,6 @@
 }
 
 .nav-panel-explore {
-  background: var(--nav-background);
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -201,6 +201,8 @@
   right: 0;
   bottom: 0;
   left: 0;
+  background: var(--body-background);
+  border-top: unset;
 }
 
 .nav-panel-explore:not(:first-child) {

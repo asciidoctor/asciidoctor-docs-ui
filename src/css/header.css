@@ -37,8 +37,8 @@ body {
   align-self: center;
   padding: 0;
   margin-left: 1rem;
-  height: calc(0.6 * var(--navbar-height));
-  width: calc(0.6 * var(--navbar-height));
+  height: calc(1.8 * var(--navbar-height));
+  width: calc(1.8 * var(--navbar-height));
 }
 
 .navbar-brand .navbar-item.logo img {
