@@ -44,10 +44,7 @@ module.exports = (src, dest, preview) => () => {
           const abspath = require.resolve(relpath)
           const basename = ospath.basename(abspath)
           const destpath = ospath.join(dest, 'font', basename)
-          if (!fs.existsSync(destpath)) {
-            fs.mkdirSync(ospath.join(dest, 'font'), { recursive: true })
-            fs.copyFileSync(abspath, destpath)
-          }
+          if (!fs.existsSync(destpath)) fs.cpSync(abspath, destpath, { recursive: true })
           return path.join('..', 'font', basename)
         },
       },
