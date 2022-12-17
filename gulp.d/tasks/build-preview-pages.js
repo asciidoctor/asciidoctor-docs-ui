@@ -114,13 +114,20 @@ function copyImages (src, dest) {
     .pipe(map((file, enc, next) => next()))
 }
 
-function relativize (to, { data }) {
+function relativize (to, { data: { root } }) {
   if (!to) return '#'
   if (to.charAt() !== '/') return to
-  const from = data.root.page.url
+  const from = root.page.url
+  if (!from) return (root.site.path || '') + to
+  let hash = ''
   const hashIdx = to.indexOf('#')
-  if (~hashIdx && to.substr(0, hashIdx) === from) return to.substr(hashIdx)
-  return to.substr(1)
+  if (~hashIdx) {
+    hash = to.substr(hashIdx)
+    to = to.substr(0, hashIdx)
+  }
+  return to === from
+    ? hash || (to.charAt(to.length - 1) === '/' ? './' : path.basename(to))
+    : (path.relative(path.dirname(from + '.'), to) || '.') + (to.charAt(to.length - 1) === '/' ? '/' + hash : hash)
 }
 
 function resolvePage (spec, context = {}) {
