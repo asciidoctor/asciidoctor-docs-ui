@@ -49,12 +49,15 @@ module.exports = (src, dest, preview) => () => {
       },
     ]),
     // NOTE importFrom is for supplemental CSS files
-    postcssVar({ importFrom: path.join(src, 'css', 'vars.css'), preserve: true }),
+    postcssVar({ disableDeprecationNotice: true, importFrom: path.join(src, 'css', 'vars.css'), preserve: true }),
     preview ? postcssCalc : () => {},
     autoprefixer,
     preview
       ? () => {}
-      : (css, result) => cssnano({ preset: 'default' })(css, result).then(() => postcssPseudoElementFixer(css, result)),
+      : (css, result) =>
+        cssnano()
+          .process(css, result.opts)
+          .then(() => postcssPseudoElementFixer(css, result)),
   ]
 
   return merge(

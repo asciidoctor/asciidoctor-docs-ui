@@ -69,7 +69,7 @@
   }
 
   .doc .admonitionblock td.icon {
-    color-adjust: exact;
+    print-color-adjust: exact; /* stylelint-disable-line */
   }
 
   .doc .listingblock code[data-lang]::before {
