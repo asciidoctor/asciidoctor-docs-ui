@@ -140,8 +140,8 @@
 
   function handleShortcuts (e) {
     var target = e.target || {}
-    if (e.ctrlKey && e.key === '<' && target === this.$input[0]) return restoreSearch.call(this)
-    if (e.altKey || e.shiftKey || target.isContentEditable || 'disabled' in target) return
+    if (e.altKey || target.isContentEditable || 'disabled' in target) return
+    if (e.ctrlKey && e.key === '<') return restoreSearch.call(this)
     if (e.ctrlKey ? e.key === '/' : e.key === 's') {
       this.$input.focus()
       e.preventDefault()
