@@ -234,7 +234,7 @@
     }
     var dataset = this.dropdown.datasets[0]
     var activeResult = dataset.result
-    algoliaOptions.page = !activeResult || query === activeResult.query ? dataset.page || 0 : (dataset.page = 0)
+    algoliaOptions.page = activeResult && activeResult.query !== query ? (dataset.page = 0) : dataset.page || 0
     controller.algoliaOptions = Object.keys(algoliaOptions).length
       ? Object.assign({}, controller.baseAlgoliaOptions, algoliaOptions)
       : controller.baseAlgoliaOptions
