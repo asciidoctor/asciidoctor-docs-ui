@@ -287,7 +287,7 @@
     var dataset = this.dropdown.datasets[0]
     dataset.page = searchState.page
     delete dataset.result
-    requery.call(this, searchState.query) // cursor is restored by onResultsUpdated =>
+    requery.call(this, searchState.query) // cursor is restored by onResultsUpdated
   }
 
   function saveSearchState () {
