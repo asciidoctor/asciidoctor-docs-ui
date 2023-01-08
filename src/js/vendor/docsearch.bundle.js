@@ -114,7 +114,7 @@
   function toggleFilter (e) {
     if ('restoring' in this.dropdown) return
     window.localStorage.setItem(SEARCH_FILTER_ACTIVE_KEY, e.target.checked)
-    isClosed(this) ? this.$input.focus() : requery.call(this)
+    isClosed(this) ? this.$input.focus() : (this.dropdown.datasets[0].page = 0) || requery.call(this)
   }
 
   function confineEvent (e) {
