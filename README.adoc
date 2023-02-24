@@ -210,7 +210,7 @@ Netlify then runs the command specified in netlify.toml, deploys the site, and a
 
 Included in that temporary preview URL is the UI bundle itself.
 That means you can test it directly with Antora.
-To access the UI bundle,  append `dist/ui-bundle.zip` to the end of the preview URL, then pass that URL to Antora as follows:
+To access the UI bundle, append `dist/ui-bundle.zip` to the end of the preview URL, then pass that URL to Antora as follows:
 
  $ antora --ui-bundle-url=<preview URL>/dist/ui-bundle.zip antora-playbook.yml
 
