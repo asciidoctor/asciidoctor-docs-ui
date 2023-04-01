@@ -9,7 +9,7 @@
     {{#each (rearrange site.components 'name' componentOrder)}}
     <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
       <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
-      {{#if (or ./versions.[1] (ne ./versions.[0].displayVersion 'default'))}}
+      {{#if (or ./versions.[1] (and (ne ./versions.[0].displayVersion 'default') (ne ./versions.[0].displayVersion 'pre-spec')))}}
       <ul class="versions">
         {{#each ./versions}}
         <li class="version
