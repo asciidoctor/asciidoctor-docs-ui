@@ -25,7 +25,7 @@
     var fragment, target
     if ((fragment = decodeFragment(window.location.hash)) && (target = document.getElementById(fragment))) {
       document.documentElement.style.scrollBehavior = 'auto'
-      jumpToAnchor.bind(target)()
+      jumpToAnchor.call(target)
       setTimeout(jumpToAnchor.bind(target), 0)
       setTimeout(function () {
         document.documentElement.style.scrollBehavior = ''
