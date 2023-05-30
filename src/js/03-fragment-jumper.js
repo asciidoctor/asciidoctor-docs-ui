@@ -3,6 +3,7 @@
 
   var article = document.querySelector('article.doc')
   var toolbar = document.querySelector('.toolbar')
+  var supportsScrollToOptions = 'scrollTo' in document.documentElement
 
   function decodeFragment (hash) {
     return hash && (~hash.indexOf('%') ? decodeURIComponent(hash) : hash).slice(1)
@@ -18,18 +19,16 @@
       window.location.hash = '#' + this.id
       e.preventDefault()
     }
-    window.scrollTo(0, computePosition(this, 0) - toolbar.getBoundingClientRect().bottom)
+    var y = computePosition(this, 0) - toolbar.getBoundingClientRect().bottom
+    var instant = e === false && supportsScrollToOptions
+    instant ? window.scrollTo({ left: 0, top: y, behavior: 'instant' }) : window.scrollTo(0, y)
   }
 
   window.addEventListener('load', function jumpOnLoad (e) {
     var fragment, target
     if ((fragment = decodeFragment(window.location.hash)) && (target = document.getElementById(fragment))) {
-      document.documentElement.style.scrollBehavior = 'auto'
-      jumpToAnchor.call(target)
-      setTimeout(jumpToAnchor.bind(target), 0)
-      setTimeout(function () {
-        document.documentElement.style.scrollBehavior = ''
-      })
+      jumpToAnchor.call(target, false)
+      setTimeout(jumpToAnchor.bind(target, false), 250)
     }
     window.removeEventListener('load', jumpOnLoad)
   })
