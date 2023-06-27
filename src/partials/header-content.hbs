@@ -51,13 +51,11 @@
             <a class="navbar-item" href="{{{relativize (resolvePageURL 'epub3-converter::index.adoc')}}}">EPUB3 <small>Ruby</small></a>
             <hr class="navbar-divider">
             <div class="navbar-item">Extended Syntax</div>
-            {{#with (resolvePageURL 'diagram-extension::index.adoc')}}
-            <a class="navbar-item" href="{{{relativize this}}}">Asciidoctor Diagram <small>Ruby</small></a>
-            {{/with}}
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'diagram-extension::index.adoc')}}}">Asciidoctor Diagram <small>Ruby</small></a>
             {{!--
-            {{#with (resolvePageURL 'kroki-extension::index.adoc')}}
-            <a class="navbar-item" href="{{{relativize this}}}">Asciidoctor Kroki <small>JavaScript</small></a>
-            {{/with}}
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'kroki-extension::index.adoc')}}}">Asciidoctor Kroki <small>JavaScript</small></a>
+            --}}
+            {{!--
             <a class="navbar-item" href="#">Asciidoctor Chart</a>
             <a class="navbar-item" href="#">Asciidoctor bibtex</a>
             <div class="navbar-item">Feature Adapters</div>
@@ -70,18 +68,14 @@
           <div class="navbar-link">Tooling</div>
           <div class="navbar-dropdown is-right">
             <div class="navbar-item">Build Automation</div>
-            {{#with (resolvePageURL 'maven-tools::index.adoc')}}
-            <a class="navbar-item" href="{{{relativize this}}}">Maven Tools <small>Java</small></a>
-            {{/with}}
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'maven-tools::index.adoc')}}}">Maven Tools <small>Java</small></a>
             {{!--
-            <a class="navbar-item" href="https://asciidoctor.github.io/asciidoctor-gradle-plugin" target="_blank" rel="noopener">Gradle Plugin <small>Java</small></a>
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'gradle-plugin::index.adoc')}}}">Gradle Plugin <small>Java</small></a>
             --}}
-            {{#with (resolvePageURL 'asciidoclet::index.adoc')}}
-            <a class="navbar-item" href="{{{relativize this}}}">Asciidoclet <small>Java</small></a>
-            {{/with}}
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoclet::index.adoc')}}}">Asciidoclet <small>Java</small></a>
             <hr class="navbar-divider">
             <div class="navbar-item">Text Editors / Viewers</div>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'browser-extension::index.adoc')}}}" target="_blank" rel="noopener">Browser Extension</a>
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'browser-extension::index.adoc')}}}">Browser Extension</a>
             <a class="navbar-item" href="https://intellij-asciidoc-plugin.ahus1.de/docs" target="_blank" rel="noopener">IntelliJ Plugin</a>
           </div>
         </div>
