@@ -221,6 +221,7 @@
 .doc .ulist,
 .doc .exampleblock,
 .doc .imageblock,
+.doc .videoblock
 .doc .listingblock,
 .doc .literalblock,
 .doc .sidebarblock,
@@ -472,7 +473,8 @@
   background-image: url(../img/octicons-16.svg#view-alert);
 }
 
-.doc .imageblock {
+.doc .imageblock,
+.doc .videoblock {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -492,6 +494,12 @@
 
 .doc .image:not(.left):not(.right) > img {
   margin-top: -0.2em;
+}
+
+.doc .videoblock iframe,
+.doc .videoblock video {
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 #preamble .abstract blockquote {
@@ -657,6 +665,7 @@
 .doc .admonitionblock .title,
 .doc .exampleblock .title,
 .doc .imageblock .title,
+.doc .videoblock .title,
 .doc .literalblock .title,
 .doc .listingblock .title,
 .doc .openblock .title,
@@ -681,7 +690,8 @@
   margin-bottom: 0.25rem;
 }
 
-.doc .imageblock .title {
+.doc .imageblock .title,
+.doc .videoblock .title {
   margin-top: 0.5rem;
   padding-bottom: 0;
 }
