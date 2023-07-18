@@ -827,8 +827,8 @@
   font-family: var(--body-font-family);
   font-size: calc(13 / var(--rem-base) * 1rem);
   line-height: 1;
-  white-space: nowrap;
   user-select: none;
+  white-space: nowrap;
 }
 
 .doc .listingblock:hover .source-toolbox {
