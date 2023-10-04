@@ -29,7 +29,7 @@ Nominavi luptatum eos, an vim hinc philosophia intellegebat.
 Lorem pertinacia `expetenda` et nec, [.underline]#wisi# illud [.line-through]#sonet# qui ea.
 H~2~0.
 E = mc^2^.
-Eum an doctus <<liber-recusabo,maiestatis efficiantur>>.
+[.big]#Eum# an [.small]#doctus# <<liber-recusabo,maiestatis efficiantur>>.
 Eu mea inani iriure.footnote:[Quisque porta facilisis tortor, vitae bibendum velit fringilla vitae! Lorem ipsum dolor sit amet, consectetur adipiscing elit.]
 
 [,json]
@@ -322,4 +322,5 @@ ____
 
 == Fin
 
+[.text-right]
 That's all, folks!
