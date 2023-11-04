@@ -192,6 +192,7 @@ sed::
 splendide sed
 
 mea::
+tad::
 agam graeci
 
 Let's look at that another way.
