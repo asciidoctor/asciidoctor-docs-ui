@@ -8,7 +8,7 @@
   function toggleNavbarMenu (e) {
     e.stopPropagation() // trap event
     var html = document.documentElement
-    var menu = document.getElementById(this.dataset.target)
+    var menu = document.getElementById(this.getAttribute('aria-controls') || this.dataset.target)
     if (!menu.classList.contains('is-active') && /mobi/i.test(window.navigator.userAgent)) {
       if (Math.round(parseFloat(window.getComputedStyle(html).minHeight)) !== window.innerHeight) {
         html.style.setProperty('--vh', window.innerHeight / 100 + 'px')
@@ -17,7 +17,7 @@
       }
     }
     html.classList.toggle('is-clipped--navbar')
-    this.classList.toggle('is-active')
+    navbarBurger.setAttribute('aria-expanded', this.classList.toggle('is-active'))
     menu.classList.toggle('is-active')
   }
 })()
