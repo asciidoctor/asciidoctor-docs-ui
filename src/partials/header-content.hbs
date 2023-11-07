@@ -3,7 +3,7 @@
     <div class="navbar-brand">
       <a class="navbar-item logo" title="Asciidoctor" href="https://asciidoctor.org"><img src="{{{uiRootPath}}}/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
       <a class="navbar-item title" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">{{site.title}}</a>
-      <button class="navbar-burger" data-target="topbar-nav">
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
         <span></span>
         <span></span>
         <span></span>
