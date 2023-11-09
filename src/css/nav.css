@@ -110,15 +110,16 @@
 .nav-menu-toggle {
   background: transparent url(../img/octicons-24.svg#view-unfold) no-repeat center / 100% 100%;
   border: none;
-  outline: none;
-  width: 0.9rem;
-  height: 0.9rem;
-  opacity: 0.5;
-  position: sticky;
-  top: 0.8075rem;
-  margin-right: -0.5rem;
   float: right;
+  height: 1em;
+  margin-right: -0.5rem;
+  opacity: 0.5;
+  outline: none;
+  padding: 0;
+  position: sticky;
   visibility: hidden;
+  width: 1em;
+  top: 0.8rem;
 }
 
 .nav-menu-toggle.is-active {
