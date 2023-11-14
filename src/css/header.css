@@ -1,12 +1,14 @@
-html.is-clipped--navbar {
-  overflow-y: hidden;
-}
-
-/* NOTE workaround bug in Firefox mobile, which clips the html element to the original viewport height */
-@supports (scrollbar-width: none) {
+@media screen and (max-width: 1023.5px) {
   html.is-clipped--navbar {
-    overflow-y: initial;
-    scrollbar-width: none;
+    overflow-y: hidden;
+  }
+  
+  /* NOTE workaround bug in Firefox mobile, which clips the html element to the original viewport height */
+  @supports (scrollbar-width: none) {
+    html.is-clipped--navbar {
+      overflow-y: initial;
+      scrollbar-width: none;
+    }
   }
 }
 
