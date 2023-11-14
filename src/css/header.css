@@ -2,7 +2,7 @@
   html.is-clipped--navbar {
     overflow-y: hidden;
   }
-  
+
   /* NOTE workaround bug in Firefox mobile, which clips the html element to the original viewport height */
   @supports (scrollbar-width: none) {
     html.is-clipped--navbar {
