@@ -15,54 +15,56 @@ const yaml = require('js-yaml')
 
 const ASCIIDOC_ATTRIBUTES = { experimental: '', icons: 'font', sectanchors: '', 'source-highlighter': 'highlight.js' }
 
-module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
-  Promise.all([
-    loadSampleUiModel(previewSrc),
-    toPromise(
-      merge(compileLayouts(src), registerPartials(src), registerHelpers(src), copyImages(previewSrc, previewDest))
-    ),
-  ])
-    .then(([baseUiModel, { layouts }]) => [{ ...baseUiModel, env: process.env }, layouts])
-    .then(([baseUiModel, layouts]) =>
-      vfs
-        .src('**/*.adoc', { base: previewSrc, cwd: previewSrc })
-        .pipe(
-          map((file, enc, next) => {
-            const siteRootPath = path.relative(ospath.dirname(file.path), ospath.resolve(previewSrc))
-            const uiModel = { ...baseUiModel }
-            const url = uiModel.env.DEPLOY_PRIME_URL || uiModel.env.URL
-            if (url) uiModel.site.url = url
-            uiModel.page = { ...uiModel.page }
-            uiModel.siteRootPath = siteRootPath
-            uiModel.uiRootPath = path.join(siteRootPath, '_')
-            if (file.stem === '404') {
-              uiModel.page = { layout: '404', title: 'Page Not Found' }
-            } else {
-              const doc = Asciidoctor.load(file.contents, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
-              uiModel.page.attributes = Object.entries(doc.getAttributes())
-                .filter(([name, val]) => name.startsWith('page-'))
-                .reduce((accum, [name, val]) => {
-                  accum[name.substr(5)] = val
-                  return accum
-                }, {})
-              uiModel.page.layout = doc.getAttribute('page-layout', 'default')
-              if (doc.hasAttribute('docrole')) uiModel.page.role = doc.getAttribute('docrole')
-              uiModel.page.title = doc.getDocumentTitle()
-              uiModel.page.contents = Buffer.from(doc.convert())
-            }
-            file.extname = '.html'
-            try {
-              file.contents = Buffer.from(layouts.get(uiModel.page.layout)(uiModel))
-              next(null, file)
-            } catch (e) {
-              next(transformHandlebarsError(e, uiModel.page.layout))
-            }
-          })
+module.exports =
+  (src, previewSrc, previewDest, sink = () => map()) =>
+    (done) =>
+      Promise.all([
+        loadSampleUiModel(previewSrc),
+        toPromise(
+          merge(compileLayouts(src), registerPartials(src), registerHelpers(src), copyImages(previewSrc, previewDest))
+        ),
+      ])
+        .then(([baseUiModel, { layouts }]) => [{ ...baseUiModel, env: process.env }, layouts])
+        .then(([baseUiModel, layouts]) =>
+          vfs
+            .src('**/*.adoc', { base: previewSrc, cwd: previewSrc })
+            .pipe(
+              map((file, enc, next) => {
+                const siteRootPath = path.relative(ospath.dirname(file.path), ospath.resolve(previewSrc))
+                const uiModel = { ...baseUiModel }
+                const url = uiModel.env.DEPLOY_PRIME_URL || uiModel.env.URL
+                if (url) uiModel.site.url = url
+                uiModel.page = { ...uiModel.page }
+                uiModel.siteRootPath = siteRootPath
+                uiModel.uiRootPath = path.join(siteRootPath, '_')
+                if (file.stem === '404') {
+                  uiModel.page = { layout: '404', title: 'Page Not Found' }
+                } else {
+                  const doc = Asciidoctor.load(file.contents, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
+                  uiModel.page.attributes = Object.entries(doc.getAttributes())
+                    .filter(([name, val]) => name.startsWith('page-'))
+                    .reduce((accum, [name, val]) => {
+                      accum[name.substr(5)] = val
+                      return accum
+                    }, {})
+                  uiModel.page.layout = doc.getAttribute('page-layout', 'default')
+                  if (doc.hasAttribute('docrole')) uiModel.page.role = doc.getAttribute('docrole')
+                  uiModel.page.title = doc.getDocumentTitle()
+                  uiModel.page.contents = Buffer.from(doc.convert())
+                }
+                file.extname = '.html'
+                try {
+                  file.contents = Buffer.from(layouts.get(uiModel.page.layout)(uiModel))
+                  next(null, file)
+                } catch (e) {
+                  next(transformHandlebarsError(e, uiModel.page.layout))
+                }
+              })
+            )
+            .pipe(vfs.dest(previewDest))
+            .on('error', done)
+            .pipe(sink())
         )
-        .pipe(vfs.dest(previewDest))
-        .on('error', done)
-        .pipe(sink())
-    )
 
 function loadSampleUiModel (src) {
   return fsp.readFile(ospath.join(src, 'ui-model.yml'), 'utf8').then((contents) => yaml.load(contents))
