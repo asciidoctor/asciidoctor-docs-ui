@@ -61,6 +61,7 @@ module.exports = (src, dest, preview) => () => {
   ]
 
   return merge(
+    vfs.src('ui.yml', { ...opts, allowEmpty: true }),
     vfs
       .src('js/+([0-9])-*.js', { ...opts, read: false, sourcemaps })
       .pipe(bundle(opts))
@@ -100,7 +101,8 @@ module.exports = (src, dest, preview) => () => {
     ),
     vfs.src('helpers/*.js', opts),
     vfs.src('layouts/*.hbs', opts),
-    vfs.src('partials/*.hbs', opts)
+    vfs.src('partials/*.hbs', opts),
+    vfs.src('static/**/*[!~]', { ...opts, base: ospath.join(src, 'static'), dot: true })
   ).pipe(vfs.dest(dest, { sourcemaps: sourcemaps && '.' }))
 }
 
