@@ -5,7 +5,8 @@ const fs = require('fs')
 const { promises: fsp } = fs
 const { Octokit } = require('@octokit/rest')
 const path = require('path')
-const { Transform } = require('stream')
+const { pipeline, Transform, Writable } = require('stream')
+const forEach = (write, final) => new Writable({ objectMode: true, write, final })
 const map = (transform, flush = undefined) => new Transform({ objectMode: true, transform, flush })
 const vfs = require('vinyl-fs')
 const zip = require('gulp-vinyl-zip')
@@ -37,15 +38,27 @@ function collectReleases ({ octokit, owner, repo, filter, page = 1, accum = [] }
 }
 
 function versionBundle (bundleFile, tagName) {
+  let uiDescriptorFound
   return new Promise((resolve, reject) =>
     vfs
       .src(bundleFile)
       .pipe(zip.src().on('error', reject))
       .pipe(
         map(
-          (file, enc, next) => next(null, file),
+          (file, _, next) => {
+            if (file.path === 'ui.yml' && (uiDescriptorFound = true) && file.isStream()) {
+              const buffer = []
+              pipeline(
+                file.contents,
+                forEach((chunk, _, done) => buffer.push(chunk) && done()),
+                (err) => (err ? next(err) : next(null, addVersionEntry(file, tagName, Buffer.concat(buffer))))
+              )
+            } else {
+              next(null, file)
+            }
+          },
           function (done) {
-            this.push(new File({ path: 'ui.yml', contents: Buffer.from(`version: ${tagName}\n`) }))
+            if (!uiDescriptorFound) this.push(addVersionEntry(new File({ path: 'ui.yml' }), tagName))
             done()
           }
         )
@@ -53,6 +66,13 @@ function versionBundle (bundleFile, tagName) {
       .pipe(zip.dest(bundleFile))
       .on('finish', () => resolve(bundleFile))
   )
+}
+
+function addVersionEntry (file, tagName, contents = Buffer.alloc(0)) {
+  let versionEntry = `version: ${tagName}\n`
+  if (contents.length && contents[contents.length - 1] !== 10) versionEntry = `\n${versionEntry}`
+  file.contents = Buffer.concat([contents, Buffer.from(versionEntry)])
+  return file
 }
 
 module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => async () => {
