@@ -81,6 +81,7 @@ module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => as
   if (variant === 'main') variant = 'prod'
   ref = ref.replace(/^refs\//, '')
   const tagName = `${variant}-${await getNextReleaseNumber({ octokit, owner, repo, variant })}`
+  const latestTagName = `${variant}-latest`
   const message = `Release ${tagName}`
   const bundleFileBasename = `${bundleName}-bundle.zip`
   const bundleFile = await versionBundle(path.join(dest, bundleFileBasename), tagName)
@@ -104,22 +105,31 @@ module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => as
     .createCommit({ owner, repo, message, tree, parents: [commit] })
     .then((result) => result.data.sha)
   if (updateBranch) await octokit.git.updateRef({ owner, repo, ref, sha: commit })
-  const uploadUrl = await octokit.repos
-    .createRelease({
-      owner,
-      repo,
-      tag_name: tagName,
-      target_commitish: commit,
-      name: tagName,
+  await octokit.repos.getReleaseByTag({ owner, repo, tag: latestTagName }).then(
+    (result) =>
+      octokit.repos
+        .deleteRelease({ owner, repo, release_id: result.data.id })
+        .then(() => octokit.git.deleteRef({ owner, repo, ref: `tags/${result.data.tag_name}` }).catch(() => undefined)),
+    () => undefined
+  )
+  for (const tag of [tagName, latestTagName]) {
+    const uploadUrl = await octokit.repos
+      .createRelease({
+        owner,
+        repo,
+        tag_name: tag,
+        target_commitish: commit,
+        name: tag,
+      })
+      .then((result) => result.data.upload_url)
+    await octokit.repos.uploadReleaseAsset({
+      url: uploadUrl,
+      data: fs.createReadStream(bundleFile),
+      name: bundleFileBasename,
+      headers: {
+        'content-length': (await fsp.stat(bundleFile)).size,
+        'content-type': 'application/zip',
+      },
     })
-    .then((result) => result.data.upload_url)
-  await octokit.repos.uploadReleaseAsset({
-    url: uploadUrl,
-    data: fs.createReadStream(bundleFile),
-    name: bundleFileBasename,
-    headers: {
-      'content-length': (await fsp.stat(bundleFile)).size,
-      'content-type': 'application/zip',
-    },
-  })
+  }
 }
