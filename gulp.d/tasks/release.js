@@ -75,7 +75,7 @@ function addVersionEntry (file, tagName, contents = Buffer.alloc(0)) {
   return file
 }
 
-module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => async () => {
+module.exports = (dest, bundleName, owner, repo, ref = 'refs/heads/main', token, updateBranch) => async () => {
   const octokit = new Octokit({ auth: `token ${token}` })
   let variant = ref.replace(/^refs\/heads\//, '')
   if (variant === 'main') variant = 'prod'
