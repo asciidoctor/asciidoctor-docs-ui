@@ -1,14 +1,14 @@
 'use strict'
 
 const Asciidoctor = require('@asciidoctor/core')()
-const fs = require('fs')
+const fs = require('node:fs')
 const { promises: fsp } = fs
 const handlebars = require('handlebars')
 const merge = require('merge-stream')
-const ospath = require('path')
+const ospath = require('node:path')
 const path = ospath.posix
 const requireFromString = require('require-from-string')
-const { Transform } = require('stream')
+const { Transform } = require('node:stream')
 const map = (transform = () => {}, flush = undefined) => new Transform({ objectMode: true, transform, flush })
 const vfs = require('vinyl-fs')
 const yaml = require('js-yaml')

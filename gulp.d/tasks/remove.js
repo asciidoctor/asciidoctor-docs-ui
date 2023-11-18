@@ -1,7 +1,7 @@
 'use strict'
 
-const fs = require('fs')
-const { Transform } = require('stream')
+const fs = require('node:fs')
+const { Transform } = require('node:stream')
 const map = (transform) => new Transform({ objectMode: true, transform })
 const vfs = require('vinyl-fs')
 

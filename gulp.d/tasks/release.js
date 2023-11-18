@@ -1,11 +1,11 @@
 'use strict'
 
 const File = require('vinyl')
-const fs = require('fs')
+const fs = require('node:fs')
 const { promises: fsp } = fs
 const { Octokit } = require('@octokit/rest')
-const path = require('path')
-const { pipeline, Transform, Writable } = require('stream')
+const ospath = require('node:path')
+const { pipeline, Transform, Writable } = require('node:stream')
 const forEach = (write, final) => new Writable({ objectMode: true, write, final })
 const map = (transform, flush = undefined) => new Transform({ objectMode: true, transform, flush })
 const vfs = require('vinyl-fs')
@@ -84,7 +84,7 @@ module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => as
   const latestTagName = `${variant}-latest`
   const message = `Release ${tagName}`
   const bundleFileBasename = `${bundleName}-bundle.zip`
-  const bundleFile = await versionBundle(path.join(dest, bundleFileBasename), tagName)
+  const bundleFile = await versionBundle(ospath.join(dest, bundleFileBasename), tagName)
   let commit = await octokit.git.getRef({ owner, repo, ref }).then((result) => result.data.object.sha)
   const readmeContent = await fsp
     .readFile('README.adoc', 'utf-8')

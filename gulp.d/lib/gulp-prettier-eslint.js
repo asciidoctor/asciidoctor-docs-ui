@@ -3,7 +3,7 @@
 const log = require('fancy-log')
 const PluginError = require('plugin-error')
 const prettierEslint = require('prettier-eslint')
-const { Transform } = require('stream')
+const { Transform } = require('node:stream')
 const map = (transform) => new Transform({ objectMode: true, transform })
 
 module.exports = () => {
