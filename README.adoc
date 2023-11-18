@@ -46,12 +46,23 @@ The rest of the material for the docs site comes from the content repositories.
 
 To use this UI with Antora, add the following configuration to the playbook file for your site:
 
-[source,yaml,subs=attributes+]
+[,yaml,subs=attributes+]
 ----
 ui:
   bundle:
     url: {url-project}/releases/download/{current-release}/ui-bundle.zip
 ----
+
+To avoid having to manage the release number in the URL, you can grab the latest release using the following configuration instead:
+
+[,yaml,subs=attributes+]
+----
+ui:
+  bundle:
+    url: {url-project}/releases/download/prod-latest/ui-bundle.zip
+----
+
+In order for Antora to fetch the latest UI bundle in this case, the `--fetch` option must be used and the `snapshot` key must be set to `true` to bypass the cache.
 
 Read on to learn how to develop the UI.
 
