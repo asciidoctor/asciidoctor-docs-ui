@@ -44,7 +44,7 @@ module.exports =
                   uiModel.page.attributes = Object.entries(doc.getAttributes())
                     .filter(([name, val]) => name.startsWith('page-'))
                     .reduce((accum, [name, val]) => {
-                      accum[name.substr(5)] = val
+                      accum[name.slice(5)] = val
                       return accum
                     }, {})
                   uiModel.page.layout = doc.getAttribute('page-layout', 'default')
@@ -123,8 +123,8 @@ function relativize (to, { data: { root } }) {
   let hash = ''
   const hashIdx = to.indexOf('#')
   if (~hashIdx) {
-    hash = to.substr(hashIdx)
-    to = to.substr(0, hashIdx)
+    hash = to.slice(hashIdx)
+    to = to.slice(0, hashIdx)
   }
   return to === from
     ? hash || (to.charAt(to.length - 1) === '/' ? './' : path.basename(to))
@@ -143,7 +143,7 @@ function transformHandlebarsError ({ message, stack }, layout) {
   const m = stack.match(/^ *at Object\.ret \[as (.+?)\]/m)
   const templatePath = `src/${m ? 'partials/' + m[1] : 'layouts/' + layout}.hbs`
   const err = new Error(`${message}${~message.indexOf('\n') ? '\n^ ' : ' '}in UI template ${templatePath}`)
-  err.stack = [err.toString()].concat(stack.substr(message.length + 8)).join('\n')
+  err.stack = [err.toString()].concat(stack.slice(message.length + 8)).join('\n')
   return err
 }
 

@@ -8,7 +8,7 @@ module.exports = (collection, property, orderSpec) => {
     .map((it) => it.trim())
     .filter((it) => {
       if (it.charAt() !== '!') return true
-      sourceCollection.delete(it.substr(1))
+      sourceCollection.delete(it.slice(1))
     })
   const restIdx = order.indexOf('*')
   if (~restIdx) order.splice(restIdx, 1)
