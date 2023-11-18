@@ -13,7 +13,7 @@ const zip = require('gulp-vinyl-zip')
 
 function getNextReleaseNumber ({ octokit, owner, repo, variant }) {
   const prefix = `${variant}-`
-  const filter = (entry) => entry.name.startsWith(prefix)
+  const filter = ({ name }) => name.startsWith(prefix) && !name.endsWith('-latest')
   return collectReleases({ octokit, owner, repo, filter }).then((releases) => {
     if (releases.length) {
       releases.sort((a, b) => -1 * a.name.localeCompare(b.name, 'en', { numeric: true }))
