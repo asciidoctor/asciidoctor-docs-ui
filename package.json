@@ -17,11 +17,11 @@
     "defaults"
   ],
   "devDependencies": {
-    "@octokit/rest": "~18.0",
     "@asciidoctor/core": "~2.2",
     "@fontsource/comfortaa": "~4.5",
     "@fontsource/roboto": "~4.5",
     "@fontsource/roboto-mono": "~4.5",
+    "@octokit/rest": "~18.0",
     "autoprefixer": "~10.4",
     "browser-pack-flat": "~3.5",
     "browserify": "~17.0",
