@@ -9,7 +9,7 @@ const { pipeline, Transform, Writable } = require('node:stream')
 const forEach = (write, final) => new Writable({ objectMode: true, write, final })
 const map = (transform, flush = undefined) => new Transform({ objectMode: true, transform, flush })
 const vfs = require('vinyl-fs')
-const zip = require('gulp-vinyl-zip')
+const zip = require('@vscode/gulp-vinyl-zip')
 
 function getNextReleaseNumber ({ octokit, owner, repo, variant }) {
   const prefix = `${variant}-`

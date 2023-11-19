@@ -2,7 +2,7 @@
 
 const ospath = require('node:path')
 const vfs = require('vinyl-fs')
-const zip = require('gulp-vinyl-zip')
+const zip = require('@vscode/gulp-vinyl-zip')
 
 module.exports = (src, dest, bundleName, onFinish) => () =>
   vfs
