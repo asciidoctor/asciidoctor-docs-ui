@@ -75,13 +75,13 @@ function addVersionEntry (file, tagName, contents = Buffer.alloc(0)) {
   return file
 }
 
-module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => async () => {
+module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch, latestAlias) => async () => {
   const octokit = new Octokit({ auth: `token ${token}` })
   let variant = ref ? ref.replace(/^refs\/heads\//, '') : 'main'
   if (variant === 'main') variant = 'prod'
   ref = ref.replace(/^refs\//, '')
   const tagName = `${variant}-${await getNextReleaseNumber({ octokit, owner, repo, variant })}`
-  const latestTagName = `${variant}-latest`
+  const latestTagName = latestAlias === false ? undefined : `${variant}-${latestAlias || 'latest'}`
   const message = `Release ${tagName}`
   const bundleFileBasename = `${bundleName}-bundle.zip`
   const bundleFile = await versionBundle(ospath.join(dest, bundleFileBasename), tagName)
@@ -105,31 +105,26 @@ module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch) => as
     .createCommit({ owner, repo, message, tree, parents: [commit] })
     .then((result) => result.data.sha)
   if (updateBranch) await octokit.git.updateRef({ owner, repo, ref, sha: commit })
-  await octokit.repos.getReleaseByTag({ owner, repo, tag: latestTagName }).then(
-    (result) =>
-      octokit.repos
-        .deleteRelease({ owner, repo, release_id: result.data.id })
-        .then(() => octokit.git.deleteRef({ owner, repo, ref: `tags/${result.data.tag_name}` }).catch(() => undefined)),
-    () => undefined
-  )
-  for (const tag of [tagName, latestTagName]) {
+  if (latestTagName) {
+    await octokit.repos.getReleaseByTag({ owner, repo, tag: latestTagName }).then(
+      (result) =>
+        octokit.repos
+          .deleteRelease({ owner, repo, release_id: result.data.id })
+          .then(() => octokit.git.deleteRef({ owner, repo, ref: `tags/${latestTagName}` }).catch(() => undefined)),
+      () => undefined
+    )
+  }
+  const tags = latestTagName ? [tagName, latestTagName] : [tagName]
+  for (const tag of tags) {
+    if (tag !== tagName) await new Promise((resolve) => setTimeout(resolve, 1000))
     const uploadUrl = await octokit.repos
-      .createRelease({
-        owner,
-        repo,
-        tag_name: tag,
-        target_commitish: commit,
-        name: tag,
-      })
+      .createRelease({ owner, repo, tag_name: tag, target_commitish: commit, name: tag })
       .then((result) => result.data.upload_url)
     await octokit.repos.uploadReleaseAsset({
       url: uploadUrl,
       data: fs.createReadStream(bundleFile),
       name: bundleFileBasename,
-      headers: {
-        'content-length': (await fsp.stat(bundleFile)).size,
-        'content-type': 'application/zip',
-      },
+      headers: { 'content-length': (await fsp.stat(bundleFile)).size, 'content-type': 'application/zip' },
     })
   }
 }
