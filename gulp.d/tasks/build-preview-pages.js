@@ -126,9 +126,10 @@ function relativize (to, { data: { root } }) {
     hash = to.slice(hashIdx)
     to = to.slice(0, hashIdx)
   }
-  return to === from
-    ? hash || (to.charAt(to.length - 1) === '/' ? './' : path.basename(to))
-    : (path.relative(path.dirname(from + '.'), to) || '.') + (to.charAt(to.length - 1) === '/' ? '/' + hash : hash)
+  if (to === from) return hash || (to.charAt(to.length - 1) === '/' ? './' : path.basename(to))
+  const rel = path.relative(path.dirname(from + '.'), to)
+  const toDir = to.charAt(to.length - 1) === '/'
+  return rel ? (toDir ? rel + '/' : rel) + hash : (toDir ? './' : '../' + path.basename(to)) + hash
 }
 
 function resolvePage (spec, context = {}) {
