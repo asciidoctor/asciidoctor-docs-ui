@@ -114,11 +114,11 @@ module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch, lates
       () => undefined
     )
   }
-  const tags = latestTagName ? [tagName, latestTagName] : [tagName]
-  for (const tag of tags) {
+  for (const tag of latestTagName ? [tagName, latestTagName] : [tagName]) {
     if (tag !== tagName) await new Promise((resolve) => setTimeout(resolve, 1000))
+    const isLatest = tag === tagName ? 'true' : 'false'
     const uploadUrl = await octokit.repos
-      .createRelease({ owner, repo, tag_name: tag, target_commitish: commit, name: tag, make_latest: tag === tagName })
+      .createRelease({ owner, repo, tag_name: tag, target_commitish: commit, name: tag, make_latest: isLatest })
       .then((result) => result.data.upload_url)
     await octokit.repos.uploadReleaseAsset({
       url: uploadUrl,
