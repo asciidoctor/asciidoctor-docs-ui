@@ -50,7 +50,7 @@
     "merge-stream": "~2.0",
     "postcss": "~8.4",
     "postcss-calc": "~8.2",
-    "postcss-custom-properties": "~12.1",
+    "postcss-custom-properties": "~11.0",
     "postcss-import": "~15.0",
     "postcss-url": "~10.1",
     "prettier-eslint": "~12.0",

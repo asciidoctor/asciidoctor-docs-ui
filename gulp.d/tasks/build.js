@@ -14,7 +14,7 @@ const postcss = require('gulp-postcss')
 const postcssCalc = require('postcss-calc')
 const postcssImport = require('postcss-import')
 const postcssUrl = require('postcss-url')
-const postcssVar = require('postcss-custom-properties')
+const postcssVars = require('postcss-custom-properties')
 const { Transform } = require('node:stream')
 const map = (transform) => new Transform({ objectMode: true, transform })
 const through = () => map((file, enc, next) => next(null, file))
@@ -48,8 +48,9 @@ module.exports = (src, dest, preview) => () => {
         },
       },
     ]),
-    // NOTE importFrom is for supplemental CSS files
-    postcssVar({ disableDeprecationNotice: true, importFrom: path.join(src, 'css', 'vars.css'), preserve: true }),
+    // NOTE importFrom makes vars available to all top-level stylesheets without having to redeclare the variables
+    // use preserve: false to resolve var() declarations (this option is broken for postcss-custom-properties >= 12.0)
+    postcssVars({ disableDeprecationNotice: true, importFrom: path.join(src, 'css', 'vars.css'), preserve: true }),
     preview ? postcssCalc : () => {},
     autoprefixer,
     preview
