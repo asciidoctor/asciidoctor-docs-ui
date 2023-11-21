@@ -21,7 +21,7 @@
     "@fontsource/comfortaa": "~5.0",
     "@fontsource/roboto": "~5.0",
     "@fontsource/roboto-mono": "~5.0",
-    "@octokit/rest": "~18.0",
+    "@octokit/rest": "~19.0",
     "@vscode/gulp-vinyl-zip": "~2.5",
     "autoprefixer": "~10.4",
     "browser-pack-flat": "~3.5",
