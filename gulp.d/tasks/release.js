@@ -11,14 +11,13 @@ const map = (transform, flush = undefined) => new Transform({ objectMode: true, 
 const vfs = require('vinyl-fs')
 const zip = require('@vscode/gulp-vinyl-zip')
 
-function getNextReleaseNumber ({ octokit, owner, repo, variant }) {
-  const prefix = `${variant}-`
-  const filter = ({ name }) => name.startsWith(prefix) && !name.endsWith('-latest')
+function getNextReleaseNumber ({ octokit, owner, repo, tagPrefix, latestTagName }) {
+  const filter = ({ name }) => name !== latestTagName && name.startsWith(tagPrefix)
   return collectReleases({ octokit, owner, repo, filter }).then((releases) => {
     if (releases.length) {
       releases.sort((a, b) => -1 * a.name.localeCompare(b.name, 'en', { numeric: true }))
       const latestName = releases[0].name
-      return Number(latestName.slice(prefix.length)) + 1
+      return Number(latestName.slice(tagPrefix.length)) + 1
     } else {
       return 1
     }
@@ -80,8 +79,9 @@ module.exports = (dest, bundleName, owner, repo, ref, token, updateBranch, lates
   let variant = ref ? ref.replace(/^refs\/heads\//, '') : 'main'
   if (variant === 'main') variant = 'prod'
   ref = ref.replace(/^refs\//, '')
-  const tagName = `${variant}-${await getNextReleaseNumber({ octokit, owner, repo, variant })}`
-  const latestTagName = latestAlias === false ? undefined : `${variant}-${latestAlias || 'latest'}`
+  const tagPrefix = `${variant}-`
+  const latestTagName = latestAlias === false ? undefined : `${tagPrefix}${latestAlias || 'latest'}`
+  const tagName = `${tagPrefix}${await getNextReleaseNumber({ octokit, owner, repo, tagPrefix, latestTagName })}`
   const message = `Release ${tagName}`
   const bundleFileBasename = `${bundleName}-bundle.zip`
   const bundleFile = await versionBundle(ospath.join(dest, bundleFileBasename), tagName)
