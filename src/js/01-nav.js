@@ -39,7 +39,17 @@
 
   fitNavInit({})
 
-  if (navMenuToggle) {
+  find(menuPanel, '.nav-item-toggle').forEach(function (btn) {
+    btn.addEventListener('click', toggleActive.bind(btn.parentElement))
+    var nextElement = btn.nextElementSibling
+    if (nextElement && nextElement.classList.contains('nav-text')) {
+      nextElement.style.cursor = 'pointer'
+      nextElement.addEventListener('click', toggleActive.bind(btn.parentElement))
+    }
+  })
+
+  if (navMenuToggle && menuPanel.querySelector('.nav-item-toggle')) {
+    navMenuToggle.style.display = ''
     navMenuToggle.addEventListener('click', function () {
       var collapse = !this.classList.toggle('is-active')
       find(menuPanel, '.nav-item > .nav-item-toggle').forEach(function (btn) {
@@ -53,15 +63,6 @@
       }
     })
   }
-
-  find(menuPanel, '.nav-item-toggle').forEach(function (btn) {
-    btn.addEventListener('click', toggleActive.bind(btn.parentElement))
-    var nextElement = btn.nextElementSibling
-    if (nextElement && nextElement.classList.contains('nav-text')) {
-      nextElement.style.cursor = 'pointer'
-      nextElement.addEventListener('click', toggleActive.bind(btn.parentElement))
-    }
-  })
 
   nav.querySelector('[data-panel=explore] .context').addEventListener('click', function () {
     find(nav, '[data-panel]').forEach(function (panel) {
