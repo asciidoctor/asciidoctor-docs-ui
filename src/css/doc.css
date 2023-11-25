@@ -839,7 +839,7 @@
   margin-top: 0;
 }
 
-.doc pre code,
+.doc pre > code,
 .doc .listingblock pre:not(.highlight),
 .doc .literalblock pre {
   background: var(--pre-background);
@@ -850,9 +850,9 @@
 }
 
 /* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
-.doc .listingblock.wrap pre code,
+.doc .listingblock.wrap pre > code,
 .doc .listingblock.wrap pre:not(.highlight),
-.doc:not(.pdf-converter) table.tableblock pre code,
+.doc:not(.pdf-converter) table.tableblock pre > code,
 .doc:not(.pdf-converter) table.tableblock pre:not(.highlight) {
   white-space: pre-wrap;
 }
