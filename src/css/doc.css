@@ -430,13 +430,13 @@
 }
 
 .doc .admonitionblock td.icon {
+  font-size: calc(15 / var(--rem-base) * 1rem);
+  left: 0;
+  line-height: 1;
+  padding: 0;
   position: absolute;
   top: 0;
-  left: 0;
-  font-size: calc(15 / var(--rem-base) * 1rem);
-  line-height: 1;
   transform: translate(-0.5rem, -50%);
-  padding: 0;
 }
 
 .doc .admonitionblock td.icon i {
