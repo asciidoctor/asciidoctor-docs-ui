@@ -246,11 +246,11 @@
 .doc .ulist,
 .doc .exampleblock,
 .doc .imageblock,
-.doc .videoblock,
 .doc .listingblock,
 .doc .literalblock,
 .doc .sidebarblock,
 .doc .verseblock,
+.doc .videoblock,
 .doc .quoteblock,
 .doc .partintro,
 .doc details,
@@ -698,10 +698,10 @@
 .doc .admonitionblock .title,
 .doc .exampleblock .title,
 .doc .imageblock .title,
-.doc .videoblock .title,
 .doc .literalblock .title,
 .doc .listingblock .title,
 .doc .openblock .title,
+.doc .videoblock .title,
 .doc table.tableblock caption {
   color: var(--caption-font-color);
   font-size: calc(16 / var(--rem-base) * 1rem);
@@ -718,8 +718,8 @@
 
 .doc .olist .title,
 .doc .ulist .title {
-  font-weight: var(--caption-font-weight);
   font-style: var(--caption-font-style);
+  font-weight: var(--caption-font-weight);
   margin-bottom: 0.25rem;
 }
 
