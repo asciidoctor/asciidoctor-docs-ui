@@ -409,7 +409,7 @@
   margin-top: 0;
 }
 
-.doc .admonitionblock pre {
+.doc .admonitionblock td.content pre {
   font-size: calc(15 / var(--rem-base) * 1rem);
 }
 
