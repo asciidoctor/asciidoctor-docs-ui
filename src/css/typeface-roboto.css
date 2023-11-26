@@ -21,7 +21,7 @@
 @font-face {
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   src:
     url(~@fontsource/roboto/files/roboto-latin-500-normal.woff2) format("woff2"),
     url(~@fontsource/roboto/files/roboto-latin-500-normal.woff) format("woff");
@@ -31,7 +31,7 @@
 @font-face {
   font-family: "Roboto";
   font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   src:
     url(~@fontsource/roboto/files/roboto-latin-500-italic.woff2) format("woff2"),
     url(~@fontsource/roboto/files/roboto-latin-500-italic.woff) format("woff");
