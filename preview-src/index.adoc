@@ -295,6 +295,9 @@ Ex nam suas nemore dignissim, vel apeirian democritum et.
 .Antora is a multi-repo documentation site generator
 image::multirepo-ssg.svg[Multirepo SSG,3000,opts=interactive]
 
+.Let's see that again, but a little smaller
+image::multirepo-ssg.svg[Multirepo SSG,300,role=text-left]
+
 Make the switch today!
 
 .Full Circle with Jake Blauvelt

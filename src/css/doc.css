@@ -519,14 +519,27 @@
   align-items: center;
 }
 
+.doc .imageblock .content {
+  align-self: stretch;
+  text-align: center;
+}
+
 .doc .imageblock.text-left,
 .doc .videoblock.text-left {
   align-items: flex-start;
 }
 
+.doc .imageblock.text-left .content {
+  text-align: left;
+}
+
 .doc .imageblock.text-right,
 .doc .videoblock.text-right {
   align-items: flex-end;
+}
+
+.doc .imageblock.text-right .content {
+  text-align: right;
 }
 
 .doc .imageblock img,
