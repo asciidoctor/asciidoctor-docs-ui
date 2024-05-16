@@ -1,8 +1,9 @@
 name: Release
 on:
   push:
-    branches:
-    - main
+    branches: [main]
+permissions:
+  contents: write
 jobs:
   activate:
     runs-on: ubuntu-latest
@@ -25,5 +26,5 @@ jobs:
       run: npm ci
     - name: Tag and release
       env:
-        GITHUB_API_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: npx gulp release
