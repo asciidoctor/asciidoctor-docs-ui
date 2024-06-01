@@ -197,32 +197,7 @@ If you need to include source maps in the bundle, you can do so by setting the `
 
 In this case, the bundle will include the source maps, which can be used for debuggging your production site.
 
-=== Create an Online Preview
 
-You can share a preview of the UI online by submitting a pull request to GitHub.
-The repository is configured to create a deploy preview on Netlify for every pull request.
-Here's how that process works:
-
-. Fork the repository on GitHub (only has to be done once).
-. Create a local branch.
-. Make changes to the UI.
-. Commit your changes to that branch.
-. Push that branch to your fork (on GitHub).
-. Submit a pull request from the branch you pushed to your fork.
-. Wait for deploy/netlify check to say "`Deploy preview ready!`" on the pull request page.
-. Click on the "`Details`" link under "`Show all checks`" on the pull request page to get the preview URL.
-. Visit the preview URL to view your changes or share the preview URL with others.
-
-The deploy preview works because there is a webhook on the repository that pings \https://api.netlify.com/hooks/github for the following events: push, pull_request, delete_branch.
-Netlify then runs the command specified in netlify.toml, deploys the site, and allocates a temporary preview URL for it.
-
-Included in that temporary preview URL is the UI bundle itself.
-That means you can test it directly with Antora.
-To access the UI bundle, append `dist/ui-bundle.zip` to the end of the preview URL, then pass that URL to Antora as follows:
-
- $ antora --ui-bundle-url=<preview URL>/dist/ui-bundle.zip antora-playbook.yml
-
-The temporary preview URL will automatically be decommissioned once the PR is closed.
 
 == Releases
 
