@@ -1,3 +1,9 @@
 /build/
 /node_modules/
 /public/
+# Optional npm cache directory
+.npm
+# Stores VSCode versions used for testing VSCode extensions
+.vscode
+.vscode-test
+.DS_Store

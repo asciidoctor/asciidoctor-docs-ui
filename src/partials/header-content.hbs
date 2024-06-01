@@ -1,8 +1,8 @@
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item logo" title="Asciidoctor" href="https://asciidoctor.org"><img src="{{{uiRootPath}}}/img/asciidoctor-logo.svg" alt="Asciidoctor" width="48"></a>
-      <a class="navbar-item title" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">{{site.title}}</a>
+      <a class="navbar-item logo" title="1on1guide" href="https://1on1guide.org"><img src="{{{uiRootPath}}}/img/1on1guide-logo-w-border.svg" alt="1on1guide" width="48"></a>
+      <a class="navbar-item title" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">1on1meeting guide</a>
       <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
         <span></span>
         <span></span>
@@ -27,76 +27,22 @@
           {{/if}}
         </div>
         {{/if}}
-        <div class="navbar-item has-dropdown is-hoverable">
-          <div class="navbar-link">AsciiDoc</div>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoc::index.adoc')}}}">Language</a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoc::syntax-quick-reference.adoc')}}}">Syntax Quick Reference</a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <div class="navbar-link">Processing</div>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoctor::index.adoc')}}}">Asciidoctor <small>Ruby</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoctor.js::index.adoc')}}}">Asciidoctor.js <small>JavaScript</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoctorj::index.adoc')}}}">AsciidoctorJ <small>Java</small></a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <div class="navbar-link">Extensions</div>
-          <div class="navbar-dropdown">
-            <div class="navbar-item">Add-on Converters</div>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'pdf-converter::index.adoc')}}}">PDF <small>Ruby</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'epub3-converter::index.adoc')}}}">EPUB3 <small>Ruby</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'reveal.js-converter::index.adoc')}}}">reveal.js <small>Ruby, JavaScript</small></a>
-            <hr class="navbar-divider">
-            <div class="navbar-item">Extended Syntax</div>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'diagram-extension::index.adoc')}}}">Asciidoctor Diagram <small>Ruby</small></a>
-            {{!--
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'kroki-extension::index.adoc')}}}">Asciidoctor Kroki <small>JavaScript</small></a>
-            <a class="navbar-item" href="#">Asciidoctor Chart</a>
-            <a class="navbar-item" href="#">Asciidoctor bibtex</a>
-            <div class="navbar-item">Feature Adapters</div>
-            <a class="navbar-item" href="#">Asciidoctor Mathematical <small>stem</small></a>
-            <a class="navbar-item" href="#">Asciidoctor Prism <small>source highlighter</small></a>
-            --}}
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <div class="navbar-link">Tooling</div>
-          <div class="navbar-dropdown is-right">
-            <div class="navbar-item">Build Automation</div>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'maven-tools::index.adoc')}}}">Maven Tools <small>Java</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'gradle-plugin::index.adoc')}}}">Gradle Plugin <small>Java</small></a>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'asciidoclet::index.adoc')}}}">Asciidoclet <small>Java</small></a>
-            <hr class="navbar-divider">
-            <div class="navbar-item">Text Editors / Viewers</div>
-            <a class="navbar-item" href="{{{relativize (resolvePageURL 'browser-extension::index.adoc')}}}">Browser Extension</a>
-            <a class="navbar-item" href="https://intellij-asciidoc-plugin.ahus1.de/docs" target="_blank" rel="noopener">IntelliJ Plugin</a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-item" href="{{{relativize (resolvePageURL 'about::support.adoc')}}}" data-title="Support">
-            <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-24.svg#view-comment-discussion"></span>
-          </a>
-          <div class="navbar-dropdown is-right">
-            <a class="navbar-item has-icon" href="https://chat.asciidoctor.org" target="_blank" rel="noopener">
-              <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-comment-discussion"></span>
-              <span>Chat</span>
+        <a class="navbar-item has-icon" href="https://github.com/1on1guide-org/1on1meeting-guide" target="_blank"
+          rel="noopener">
+          <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-mark-github"></span>
+        </a>
+        <a class="navbar-item has-icon" href="https://github.com/1on1guide-org/1on1meeting-guide/issues" target="_blank"
+          rel="noopener">
+          <span class="icon"><img src="{{{uiRootPath}}}/img/comment.svg"></span>
+        </a>
+        <div class="navbar-item has-icon">
+          <span class="control">
+            <a class="button is-primary" href="#">
+            <span class="icon"><img src="{{{uiRootPath}}}/img/file.svg"></span>
+            <span>&nbsp;</span>
+            <span>Download</span>
             </a>
-            <a class="navbar-item has-icon" href="https://discuss.asciidoctor.org" target="_blank" rel="noopener">
-              <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-mail"></span>
-              <span>List</span>
-            </a>
-            <a class="navbar-item has-icon" href="https://github.com/asciidoctor" target="_blank" rel="noopener">
-              <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-mark-github"></span>
-              <span>Source</span>
-            </a>
-            <a class="navbar-item has-icon" href="https://twitter.com/asciidoctor" target="_blank" rel="noopener">
-              <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-hash"></span>
-              <span>Tweets</span>
-            </a>
-          </div>
+          </span>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ jobs:
   activate:
     runs-on: ubuntu-latest
     if: |
-      github.repository == 'asciidoctor/asciidoctor-docs-ui' && !startsWith(github.event.head_commit.message, 'Release ')
+      github.repository == '1on1guide-org/1on1guide-docs-ui' && !startsWith(github.event.head_commit.message, 'Release ')
     steps:
     - run: echo ok go
   build:

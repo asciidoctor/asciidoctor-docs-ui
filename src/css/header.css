@@ -51,7 +51,7 @@ body {
   align-self: center;
   color: var(--navbar-font-color);
   font-family: "Comfortaa", sans-serif;
-  font-size: 1rem;
+  font-size: 1.3rem;
   line-height: 1;
   position: relative;
   top: 0.06em; /* compensate for built-in line height in font */
@@ -221,6 +221,22 @@ div.navbar-link {
   border: none;
   height: 1px;
   margin: 0.25rem 0;
+}
+
+.navbar .button {
+  display: inline-flex;
+  align-items: center;
+  background: var(--navbar-button-background);
+  border: 1px solid var(--navbar-button-border-color);
+  border-radius: 0.15rem;
+  height: 1.75rem;
+  color: var(--navbar-button-font-color);
+  padding: 0 0.75em;
+  white-space: nowrap;
+}
+
+.navbar .button .icon img {
+  filter: invert(0%);
 }
 
 .navbar-dropdown div.navbar-item {

@@ -594,7 +594,7 @@
 }
 
 .doc .quoteblock .paragraph {
-  font-style: italic;
+  font-style: var(--caption-font-style);
 }
 
 .doc .quoteblock cite {
@@ -805,7 +805,7 @@
 
 .doc details.result > summary {
   color: var(--caption-font-color);
-  font-style: italic;
+  font-style: var(--caption-font-style);
   margin-bottom: 0;
 }
 
@@ -974,7 +974,7 @@
 }
 
 .doc .dlist dt {
-  font-style: italic;
+  font-style:  var(--caption-font-style);
 }
 
 .doc .dlist dd {

@@ -103,6 +103,7 @@
 .nav-menu {
   min-height: 100%;
   padding: 0.5rem 0.75rem;
+  padding-bottom: 1.8em;
   line-height: var(--nav-line-height);
   position: relative;
 }
@@ -149,7 +150,7 @@
 }
 
 .nav-item {
-  margin-top: 0.5em;
+  margin-top: 0.8em;
 }
 
 /* adds some breathing room below a nested list */
@@ -186,10 +187,8 @@
 
 .is-current-page > .nav-link,
 .is-current-page > .nav-text {
-  /*
   font-weight: var(--body-font-weight-bold);
   letter-spacing: -0.004em;
-  */
   -webkit-text-stroke-width: 0.02em;
 }
 
@@ -304,4 +303,8 @@
   border-color: currentColor;
   opacity: 0.9;
   font-weight: var(--body-font-weight-bold);
+}
+
+.nav-panel-explore {
+  visibility: hidden;
 }

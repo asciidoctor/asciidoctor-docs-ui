@@ -1,6 +1,6 @@
 :root {
   /* colors */
-  --color-brand-primary: #e40046;
+  --color-brand-primary: #19223d;
   --color-white: #fff;
   --color-smoke-10: #fefefe;
   --color-smoke-30: #fafafa;
@@ -27,10 +27,10 @@
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
   --body-font-color: var(--color-jet-80);
-  --body-font-family: "Roboto", sans-serif;
-  --body-font-weight-bold: 600;
-  --monospace-font-family: "Roboto Mono", monospace;
-  --monospace-font-weight-bold: 600;
+  --body-font-family: "BIZ UDPGothic", sans-serif;
+  --body-font-weight-bold: 700;
+  --monospace-font-family: "BIZ UDGothic", monospace;
+  --monospace-font-weight-bold: 700;
   /* base */
   --body-background: var(--color-white);
   --panel-background: var(--color-smoke-30);
@@ -115,7 +115,7 @@
   --admonition-background: var(--panel-background);
   --admonition-label-font-weight: var(--body-font-weight-bold);
   --caption-font-color: var(--color-gray-70);
-  --caption-font-style: italic;
+  --caption-font-style: inherit;
   --caption-font-weight: var(--body-font-weight-bold);
   --code-background: var(--panel-background);
   --code-font-color: var(--body-font-color);
@@ -153,9 +153,12 @@
   --body-min-height: calc(var(--viewport-height) - var(--body-top));
   --nav-height: calc(var(--body-min-height) - var(--toolbar-height));
   --nav-height--desktop: var(--body-min-height);
+  /* 
   --nav-panel-menu-height: calc(100% - var(--drawer-height));
+  */
+  --nav-panel-menu-height: 100;
   --nav-panel-explore-height: calc(50% + var(--drawer-height));
-  --nav-width: calc(270 / var(--rem-base) * 1rem);
+  --nav-width: calc(300 / var(--rem-base) * 1rem);
   --toc-top: calc(var(--body-top) + var(--toolbar-height));
   --toc-height: calc(var(--viewport-height) - var(--toc-top) - 2.5rem);
   --toc-width: calc(162 / var(--rem-base) * 1rem);

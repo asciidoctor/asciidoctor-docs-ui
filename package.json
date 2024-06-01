@@ -1,11 +1,11 @@
 {
-  "name": "asciidoctor-docs-ui",
-  "description": "Produces the UI bundle for docs.asciidoctor.org",
-  "homepage": "https://docs.asciidoctor.org",
+  "name": "1on1guide-docs-ui",
+  "description": "Produces the UI bundle for docs.1on1guide.org",
+  "homepage": "https://docs.1on1guide.org",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/asciidoctor/asciidoctor-docs-ui"
+    "url": "https://github.com/1on1guide-org/1on1guide-docs-ui"
   },
   "scripts": {
     "start": "gulp preview"
@@ -18,9 +18,6 @@
   ],
   "devDependencies": {
     "@asciidoctor/core": "~2.2",
-    "@fontsource/comfortaa": "~5.0",
-    "@fontsource/roboto": "~5.0",
-    "@fontsource/roboto-mono": "~5.0",
     "@octokit/rest": "~19.0",
     "@vscode/gulp-vinyl-zip": "~2.5",
     "autoprefixer": "~10.4",
@@ -59,5 +56,9 @@
     "stylelint": "~13.13",
     "stylelint-config-standard": "~22.0",
     "vinyl-fs": "~3.0"
+  },
+  "dependencies": {
+    "@fontsource/biz-udgothic": "^5.0.19",
+    "@fontsource/biz-udpgothic": "^5.0.19"
   }
 }

@@ -1,4 +1,4 @@
-= Asciidoctor Docs UI
+= 1on1guide Docs UI
 // Variables:
 :current-release: prod-343
 // Settings:
@@ -12,11 +12,10 @@ ifdef::env-github[]
 :badges:
 endif::[]
 // Project URLs:
-:project-repo-name: asciidoctor/asciidoctor-docs-ui
+:url-1on1guide: https://1on1guide.org/
+:project-repo-name: 1on1guide-org/1on1guide-docs-ui
 :url-project: https://github.com/{project-repo-name}
-:url-preview: https://asciidoctor-docs-ui.netlify.app
 :url-ci: {project-repo-name}/actions
-:url-netlify-deploys: https://app.netlify.com/sites/asciidoctor-docs-ui/deploys
 // External URLs:
 :url-antora: https://antora.org
 :url-antora-docs: https://docs.antora.org
@@ -30,14 +29,11 @@ endif::[]
 :url-nvm-install: {url-nvm}#installation
 :url-source-maps: https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map
 
-ifdef::badges[]
-image:https://img.shields.io/github/release/{project-repo-name}.svg[Latest Release,link={url-project}/releases/download/{current-release}/ui-bundle.zip]
-image:https://api.netlify.com/api/v1/badges/a9db5e1b-d7b7-48c0-b066-1b8d91e9c3d1/deploy-status[Deploy Status,link={url-netlify-deploys}]
-endif::[]
+
 
 toc::[]
 
-This project provides the UI for the Asciidoctor docs site.
+This project provides the UI for the 1on1guide docs site.
 It provides both the visual theme and user interactions for the docs site.
 The UI bundle that this project produces is designed to be used with Antora.
 It bundles the HTML templates (layouts, partials, and helpers), CSS, JavaScript, fonts, and site-wide images.
@@ -286,6 +282,6 @@ See link:LICENSE[] to find the full license text.
 
 === Branding and Design
 
-Copyright (C) {url-asciidoctor}[Asciidoctor] 2018-present.
-This includes any CSS that provides colors or iconography that depict the Asciidoctor brand.
+Copyright (C) {url-1on1guide}[1on1guide.org] 2024-present.
+This includes any CSS that provides colors or iconography that depict the 1on1guide brand.
 All rights reserved (until further notice).
