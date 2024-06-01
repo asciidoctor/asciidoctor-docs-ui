@@ -134,7 +134,12 @@
   --sidebar-background: var(--color-smoke-90);
   --table-border-color: var(--panel-border-color);
   --table-stripe-background: var(--panel-background);
-  --table-footer-background: linear-gradient(to bottom, var(--color-smoke-70) 0%, var(--color-white) 100%);
+  --table-footer-background:
+    linear-gradient(
+      to bottom,
+      var(--color-smoke-70) 0%,
+      var(--color-white) 100%
+    );
   /* toc */
   --toc-font-color: var(--nav-muted-color);
   --toc-heading-font-color: var(--doc-font-color);
@@ -153,10 +158,10 @@
   --body-min-height: calc(var(--viewport-height) - var(--body-top));
   --nav-height: calc(var(--body-min-height) - var(--toolbar-height));
   --nav-height--desktop: var(--body-min-height);
-  /* 
+  /*
   --nav-panel-menu-height: calc(100% - var(--drawer-height));
   */
-  --nav-panel-menu-height: 100;
+  --nav-panel-menu-height: 100%;
   --nav-panel-explore-height: calc(50% + var(--drawer-height));
   --nav-width: calc(300 / var(--rem-base) * 1rem);
   --toc-top: calc(var(--body-top) + var(--toolbar-height));

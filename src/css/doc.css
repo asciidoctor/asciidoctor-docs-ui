@@ -974,7 +974,7 @@
 }
 
 .doc .dlist dt {
-  font-style:  var(--caption-font-style);
+  font-style: var(--caption-font-style);
 }
 
 .doc .dlist dd {
