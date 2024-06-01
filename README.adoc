@@ -1,6 +1,6 @@
 = 1on1guide Docs UI
 // Variables:
-:current-release: prod-343
+:current-release: prod-1
 // Settings:
 :experimental:
 :hide-uri-scheme:
