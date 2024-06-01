@@ -1,14 +1,14 @@
 name: Release
 on:
-  push:
-    branches: [main]
+  release:
+    types: [released]
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
   activate:
     runs-on: ubuntu-latest
-    if: |
-      github.repository == '1on1guide-org/1on1guide-docs-ui' && !startsWith(github.event.head_commit.message, 'Release ')
+    if: github.repository == '1on1guide-org/1on1guide-docs-ui' 
     steps:
     - run: echo ok go
   build:
