@@ -12,15 +12,15 @@
     <meta property="twitter:description" content="{{{detag this}}}">
     {{else}}
     {{#if page.component}}
-    <meta property="og:description" content="A documentation page for {{{page.component.title}}}.">
-    <meta property="twitter:description" content="A documentation page for {{{page.component.title}}}.">
+    <meta property="og:description" content="1on1ミーティングガイド(1on1ガイド)の {{{page.component.title}}}.">
+    <meta property="twitter:description" content="1on1ミーティングガイド(1on1ガイド)の {{{page.component.title}}}.">
     {{/if}}
     {{/with}}
     {{#with page.keywords}}
     <meta name="keywords" content="{{{this}}}">
     {{/with}}
     {{#if page.component}}
-    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta property="og:site_name" content="1on1ミーティングガイド(1on1ガイド)">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:title" content="{{#unless page.home}}{{{page.component.title}}} - {{/unless}}{{{detag page.title}}}">
     <meta property="twitter:title" content="{{#unless page.home}}{{{page.component.title}}} - {{/unless}}{{{detag page.title}}}">
@@ -40,4 +40,3 @@
     {{/if}}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
-    
