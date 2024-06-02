@@ -152,7 +152,7 @@
   --footer-link-font-color: var(--color-white);
   /* dimensions and positioning */
   --navbar-height: calc(63 / var(--rem-base) * 1rem);
-  --toolbar-height: calc(45 / var(--rem-base) * 1rem);
+  --toolbar-height: calc(52 / var(--rem-base) * 1rem);
   --drawer-height: var(--toolbar-height);
   --body-top: var(--navbar-height);
   --body-min-height: calc(var(--viewport-height) - var(--body-top));

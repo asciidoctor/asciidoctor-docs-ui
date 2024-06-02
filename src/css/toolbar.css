@@ -17,7 +17,7 @@
 }
 
 .nav-toggle {
-  background: url(../img/octicons-24.svg#view-file-directory) no-repeat center / 50% 50%;
+  background: url(../img/octicons-24.svg#view-list-unordered) no-repeat center / 50% 50%;
   filter: var(--toolbar-primary-icon-filter);
   border: none;
   outline: none;
