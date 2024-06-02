@@ -1,8 +1,11 @@
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item logo" title="1on1guide" href="https://1on1guide.org"><img src="{{{uiRootPath}}}/img/1on1guide-logo-w-border.svg" alt="1on1guide" width="48"></a>
-      <a class="navbar-item title" href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">1on1 meeting guide</a>
+      <a class="navbar-item logo" title="1on1guide" href="https://1on1guide.org"><img
+          src="{{{uiRootPath}}}/img/1on1guide-logo-w-border.svg" alt="1on1guide" width="48"></a>
+      <a class="navbar-item title"
+        href="{{#with (and site.url site.homeUrl)}}{{{@root.site.url}}}{{{this}}}{{else}}{{{siteRootPath}}}{{/with}}">1on1
+        meeting guide</a>
       <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
         <span></span>
         <span></span>
@@ -22,13 +25,12 @@
           </div>
           {{else}}
           <div id="search" class="field">
-            <input class="query" type="text" placeholder="Search the docs"{{#if page.home}} autofocus{{/if}}>
+            <input class="query" type="text" placeholder="Search the docs" {{#if page.home}} autofocus{{/if}}>
           </div>
           {{/if}}
         </div>
         {{/if}}
-        <a class="navbar-item has-icon" href="/1on1guide/1on1ガイドの目的と背景.html" target="_blank"
-          rel="noopener">
+        <a class="navbar-item has-icon" href="/1on1guide/1on1ガイドの目的と背景.html" rel="noopener">
           <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-book"></span>
           <span>&nbsp;</span>
           <span>1on1guide</span>
@@ -46,16 +48,19 @@
             <span>Comment</span>
           </div>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://docs.google.com/forms/d/e/1FAIpQLSf9U3DEbxw7FtOQE75k1BLlF5jh_jQ3fedNFDwhWDbygpWdmw/viewform" target="_blank"rel="noopener">Feedback <small>Google form</small></a>
-            <a class="navbar-item" href="https://github.com/1on1guide-org/1on1meeting-guide/issues" target="_blank"rel="noopener">Issues <small>GitHub</small></a>
+            <a class="navbar-item"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf9U3DEbxw7FtOQE75k1BLlF5jh_jQ3fedNFDwhWDbygpWdmw/viewform"
+              target="_blank" rel="noopener">Feedback <small>Google form</small></a>
+            <a class="navbar-item" href="https://github.com/1on1guide-org/1on1meeting-guide/issues" target="_blank"
+              rel="noopener">Issues <small>GitHub</small></a>
           </div>
         </div>
         <div class="navbar-item has-icon">
           <span class="control">
             <a class="button is-primary" href="#">
-            <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-24.svg#view-file"></span>
-            <span>&nbsp;</span>
-            <span>PDF</span>
+              <span class="icon"><img src="{{{uiRootPath}}}/img/octicons-24.svg#view-file"></span>
+              <span>&nbsp;</span>
+              <span>PDF</span>
             </a>
           </span>
         </div>
