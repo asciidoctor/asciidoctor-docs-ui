@@ -1,6 +1,32 @@
+    {{#with (or antoraVersion site.antoraVersion)}}
+    <meta name="generator" content="Antora {{this}}">
+    {{/with}}
     {{#with page.canonicalUrl}}
     <link rel="canonical" href="{{{this}}}">
+    <meta property="og:url" content="{{{this}}}">
+    <meta property="twitter:url" content="{{{this}}}">
     {{/with}}
+    {{#with page.description}}
+    <meta name="description" content="{{{detag this}}}">
+    <meta property="og:description" content="{{{detag this}}}">
+    <meta property="twitter:description" content="{{{detag this}}}">
+    {{else}}
+    {{#if page.component}}
+    <meta property="og:description" content="A documentation page for {{{page.component.title}}}.">
+    <meta property="twitter:description" content="A documentation page for {{{page.component.title}}}.">
+    {{/if}}
+    {{/with}}
+    {{#with page.keywords}}
+    <meta name="keywords" content="{{{this}}}">
+    {{/with}}
+    {{#if page.component}}
+    <meta property="og:site_name" content="Asciidoctor Docs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="{{#unless page.home}}{{{page.component.title}}} - {{/unless}}{{{detag page.title}}}">
+    <meta property="twitter:title" content="{{#unless page.home}}{{{page.component.title}}} - {{/unless}}{{{detag page.title}}}">
+    <meta property="og:image" content="{{{or site.url siteRootPath}}}/_/img/1on1guide-16-9.png">
+    <meta name="twitter:image" content="{{{or site.url siteRootPath}}}/_/img/1on1guide-16-9.png">
+    {{/if}}
     {{#unless (eq page.attributes.pagination undefined)}}
     {{#with page.previous}}
     <link rel="prev" href="{{{relativize ./url}}}">
@@ -9,13 +35,9 @@
     <link rel="next" href="{{{relativize ./url}}}">
     {{/with}}
     {{/unless}}
-    {{#with page.description}}
-    <meta name="description" content="{{{detag this}}}">
-    {{/with}}
-    {{#with page.keywords}}
-    <meta name="keywords" content="{{{this}}}">
-    {{/with}}
-    {{#with (or antoraVersion site.antoraVersion)}}
-    <meta name="generator" content="Antora {{{this}}}">
-    {{/with}}
-
+    {{#if page.component}}
+    <meta name="page-spec" content="{{{spec page}}}">
+    {{/if}}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    
