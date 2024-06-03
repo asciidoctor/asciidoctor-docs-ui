@@ -105,7 +105,7 @@
   --link-font-color: #2c7fa2; blue NCS (with increased contrast)
   --link-font-color: #218380; celadon green
   */
-  --link-font-color: #2c7fa2;
+  --link-font-color: #0a6992;
   --link_hover-font-color: #08658c; /* brightness(75%) saturate(150%) */
   --link_unresolved-font-color: var(--important-color);
   --link_unresolved-hover-font-color: #ec003a;
