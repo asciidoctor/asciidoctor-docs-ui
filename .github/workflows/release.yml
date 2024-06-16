@@ -16,15 +16,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
+      timeout-minutes: 1
       uses: actions/checkout@v4
     - name: Install Node.js
+      timeout-minutes: 1
       uses: actions/setup-node@v4
       with:
         node-version: '16'
         cache: 'npm'
     - name: Install dependencies
+      timeout-minutes: 1
       run: npm ci
     - name: Tag and release
+      timeout-minutes: 3
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: npx gulp release
