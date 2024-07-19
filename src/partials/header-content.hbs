@@ -13,6 +13,14 @@
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+        {{#if env.SITE_SEARCH_PROVIDER}}
+        <div class="navbar-item search hide-for-print">
+          <div id="search" class="field">
+            <input id="search-input" class="query" type="text" placeholder="Search the docs"{{#if page.home}} autofocus{{/if}}>
+          </div>
+        </div>
+        {{/if}}
+
         {{#if env.ALGOLIA_API_KEY}}
         <div class="navbar-item search hide-for-print">
           {{#if (and page.component (ne page.component.name 'home') (ne page.component.name 'ROOT'))}}
