@@ -53,6 +53,23 @@
   background-image: url(../img/octicons-24.svg#view-home-fill);
 }
 
+.project-link {
+  display: block;
+  filter: var(--toolbar-primary-icon-filter);
+  margin-right: 1ch;
+}
+
+.project-link .icon {
+  display: inherit;
+  height: 1rem;
+  width: 1rem;
+}
+
+.project-link .icon img {
+  height: inherit;
+  width: inherit;
+}
+
 .edit-this-page {
   display: none;
   padding-right: 0.5rem;

@@ -1,3 +1,6 @@
+{{#if page.attributes.project-url}}
+<a class="project-link" href="{{{page.attributes.project-url}}}" title="Project home"><span class="icon"><img src="{{{uiRootPath}}}/img/octicons-16.svg#view-mark-{{{or page.attributes.project-host 'github'}}}"></span></a>
+{{/if}}
 {{#if (and page.fileUri (not env.CI))}}
 <div class="edit-this-page"><a href="{{page.fileUri}}">Edit this Page</a></div>
 {{else if (and page.editUrl (or env.FORCE_SHOW_EDIT_PAGE_LINK (not page.origin.private)))}}
