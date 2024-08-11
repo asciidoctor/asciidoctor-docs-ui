@@ -54,15 +54,15 @@
 }
 
 .project-link {
-  display: block;
+  display: none;
   filter: var(--toolbar-primary-icon-filter);
   margin-right: 1ch;
 }
 
 .project-link .icon {
   display: inherit;
-  height: 1rem;
-  width: 1rem;
+  height: 1.25em;
+  width: 1.25em;
 }
 
 .project-link .icon img {
@@ -76,6 +76,7 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .project-link,
   .edit-this-page {
     display: block;
   }
