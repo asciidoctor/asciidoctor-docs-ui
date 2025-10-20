@@ -25,7 +25,7 @@
       pre.classList.add('highlightjs', 'highlight')
       ;(code = document.createElement('code')).className = 'language-console hljs'
       code.dataset.lang = 'console'
-      code.appendChild(pre.firstChild)
+      while (pre.hasChildNodes()) code.appendChild(pre.firstChild)
       pre.appendChild(code)
     } else {
       return
