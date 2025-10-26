@@ -5,5 +5,8 @@
   {{/with}}
 {{> breadcrumbs}}
 {{> page-versions}}
+{{#with ./page.file.assembler.pdf}}
+<div class="pdf-link"><a href="{{{relativize ./file.pub.url}}}{{{./fragment}}}">PDF</a></div>
+{{/with}}
 {{> edit-this-page}}
 </div>
