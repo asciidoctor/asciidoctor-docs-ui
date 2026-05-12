@@ -33,21 +33,18 @@
   margin: 1rem 0 0;
 }
 
-.doc > h1.page:first-child,
-.doc > .prerelease-banner + h1.page {
+.doc > h1.page {
   font-size: calc(36 / var(--rem-base) * 1rem);
   margin: 1.5rem 0;
 }
 
 @media screen and (min-width: 769px) {
-  .doc > h1.page:first-child,
-  .doc > .prerelease-banner + h1.page {
+  .doc > h1.page {
     margin-top: 2.5rem;
   }
 }
 
-.doc > h1.page:first-child + aside.toc.embedded,
-.doc > .prerelease-banner + h1.page + aside.toc.embedded {
+.doc > h1.page + aside.toc.embedded {
   margin-top: -0.5rem;
 }
 
