@@ -27,6 +27,7 @@ site:
       url: '#'
       version: '5.2'
       displayVersion: '5.2'
+      prerelease: true
     - url: '#'
       version: '5.1'
       displayVersion: '5.1'
