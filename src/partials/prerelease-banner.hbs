@@ -1,6 +1,9 @@
+{{#unless (eq page.componentVersion page.component.latest)}}
 {{#if page.componentVersion.prerelease}}
+{{#with page.latest}}
 <div class="prerelease-banner">
-  This documentation covers a prerelease version of the software.
-  {{#each page.versions}}{{~#if (and (eq this.version @root.page.component.latestVersion.version) (not (eq this.version @root.page.version)))}} You can view the <a href="{{{relativize this.url}}}">documentation for the stable version ({{./displayVersion}})</a>.{{~/if~}}{{/each}}
+  <p>This documentation covers a prerelease version of the software. <a href="{{{relativize this.url}}}">Follow this link</a> to view the documentation for the stable version ({{./displayVersion}}) instead.</p>
 </div>
+{{/with}}
 {{/if}}
+{{/unless}}
