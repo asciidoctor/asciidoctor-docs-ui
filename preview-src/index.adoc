@@ -7,6 +7,9 @@ Author Name
 :page-pagination:
 :page-component-order: *, abc
 
+[.lead]
+You are looking at the preview site for the Antora default UI.
+
 [.float-group]
 --
 image:multirepo-ssg.svg[Multirepo SSG,180,135,float=right,role=float-gap]
