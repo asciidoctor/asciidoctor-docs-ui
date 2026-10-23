@@ -1,1 +1,6 @@
-@import "@asciidoctor/tabs"
+@import "@asciidoctor/tabs";
+
+.tabs,
+#content .tablecontainer {
+  margin: 1rem 0 0;
+}
